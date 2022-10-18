@@ -7,8 +7,7 @@
     margin: -15px 20px 0px 10px;
     width: 45%;
     height: 87vh;
-    
-
+    position: relative;
 }
 
 .title{
@@ -47,4 +46,8 @@
     border-width: thin;
     font-family: 'Spinnaker';
     
+}
+
+.bets{
+    overflow: scroll;
 }

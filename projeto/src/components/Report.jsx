@@ -3,6 +3,8 @@ import { useState } from "react"
 import "../styles/report.css"
 
 import ReportBet from './ReportBet'
+import SimpleInput from './SimpleInput'
+import PlaceBet from './PlaceBet'
 
 export default function Report(){
 
@@ -31,6 +33,10 @@ export default function Report(){
                 type={type}
             />
             
+            {type === 'multiple' && <SimpleInput quote='1,19'/>}
+            <PlaceBet gains='2,30'/>
+
+
         </div>
     )
 }
