@@ -2,20 +2,21 @@
 import { useNavigate } from "react-router-dom";
 import '../styles/navBar.css'
 
-export default function Link({search,highlight}){
+export default function Link({search,setSearching,highlight}){
 
-    const navigate = useNavigate();
-    const link = "";
 
-    function goToNewSearch(){
-        navigate(link)
+    function changeSearching(){
+
+        setSearching(search)
+
     }
 
     return(
 
         <h3 
             className={highlight ? 'searchItemHighlighted' : 'searchItem'}
-            onClick={goToNewSearch}>{search}</h3>
+            onClick={changeSearching}>{search}
+        </h3>
 
 
     )

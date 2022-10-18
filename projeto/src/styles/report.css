@@ -1,0 +1,21 @@
+
+
+.main{
+
+    background: #FAFAFA;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 45%;
+    height: 87vh;
+    
+
+}
+
+.title{
+
+    text-align: center;
+    font-family: 'Spinnaker';
+    margin-top: 5px;
+
+}

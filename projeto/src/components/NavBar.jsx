@@ -1,10 +1,10 @@
-import {useState} from 'react'
+
 
 import '../styles/navBar.css'
 import logo from '../images/logo.png'
 import Link from '../components/Link'
 
-export default function NavBar({user,search}){
+export default function NavBar({user,searching,setSearching}){
 
     return(
 
@@ -14,19 +14,24 @@ export default function NavBar({user,search}){
                 <div className='search'>
                     <Link 
                         search='Todos' 
-                        highlight={search === 'All' ? true : false}/>
+                        setSearching={setSearching}
+                        highlight={searching === 'Todos' ? true : false}/>
                     <Link 
                         search='Futebol' 
-                        highlight={search === 'Football' ? true : false}/>
+                        setSearching={setSearching}
+                        highlight={searching === 'Futebol' ? true : false}/>
                     <Link 
                         search='Basquetebol' 
-                        highlight={search === 'Basketball' ? true : false}/>
+                        setSearching={setSearching}
+                        highlight={searching === 'Basquetebol' ? true : false}/>
                     <Link 
                         search='Tenis' 
-                        highlight={search === 'Tenis' ? true : false}/>
+                        setSearching={setSearching}
+                        highlight={searching === 'Tenis' ? true : false}/>
                     <Link 
-                        search='MotoG' 
-                        highlight={search === 'MotoGP' ? true : false}/>
+                        search='MotoGP' 
+                        setSearching={setSearching}
+                        highlight={searching === 'MotoGP' ? true : false}/>
                 </div>
             <h3 className='welcomeUser'> Welcome, {user} </h3>
         </div>

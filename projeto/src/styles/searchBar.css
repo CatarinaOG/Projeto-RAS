@@ -1,0 +1,11 @@
+.searchBar{
+    margin: 20px 10px;
+    width: 726px;
+    height: 36px;
+    border: 1px solid #18340C;
+    border-radius: 20px;
+
+    background: url(../images/lupa.png) no-repeat left;
+    background-position: 7px 7px ;
+    padding-left: 35px;
+}
