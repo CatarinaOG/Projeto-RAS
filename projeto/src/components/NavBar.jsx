@@ -1,6 +1,4 @@
 
-
-import '../styles/navBar.css'
 import logo from '../images/logo.png'
 import Link from '../components/Link'
 

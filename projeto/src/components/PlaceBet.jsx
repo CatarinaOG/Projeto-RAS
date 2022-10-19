@@ -1,4 +1,3 @@
-import '../styles/placeBet.css'
 
 export default function PlaceBet(props){
 

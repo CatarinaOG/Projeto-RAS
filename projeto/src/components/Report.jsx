@@ -1,7 +1,5 @@
 import { useState } from "react"
 
-import "../styles/report.css"
-
 import ReportBet from './ReportBet'
 import SimpleInput from './SimpleInput'
 import PlaceBet from './PlaceBet'

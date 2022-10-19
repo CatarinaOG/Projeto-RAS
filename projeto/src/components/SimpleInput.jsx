@@ -1,4 +1,3 @@
-import '../styles/simpleInput.css'
 
 export default function SimpleInput(props){
 

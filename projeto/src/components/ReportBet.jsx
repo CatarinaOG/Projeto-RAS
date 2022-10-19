@@ -1,12 +1,8 @@
-import '../styles/reportBet.css'
-
 import close from '../images/close.png'
 
 export default function ReportBet(props){
 
     const {game,bet,quote,type} = props
-
-    console.log(type)
 
     function removeBet() {
 
@@ -23,7 +19,7 @@ export default function ReportBet(props){
             </div>
 
             <div className='bottom'>
-                <p className='bet'>{bet}</p>
+                <p className='reportBet'>{bet}</p>
                 <p className='quote'>Cota: {quote}</p>
                 {type === 'simple' && <input className='amount' type='number' placeholder='Valor'></input>}
             </div>

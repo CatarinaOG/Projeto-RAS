@@ -1,6 +1,4 @@
 
-import { useNavigate } from "react-router-dom";
-import '../styles/navBar.css'
 
 export default function Link({search,setSearching,highlight}){
 

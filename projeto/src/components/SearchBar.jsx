@@ -1,6 +1,4 @@
 
-import '../styles/searchBar.css'
-
 export default function SearchBar(){
 
 
