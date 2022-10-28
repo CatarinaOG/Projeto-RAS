@@ -5,14 +5,15 @@ import { useState } from 'react'
 
 export default function Bet(props){
 
-    const {type,game,date,results} = props
+    const {type,game,date,results} = props.game
+    const changeBets = props.changeBets
+    const bets = props.bets
 
-    const selectedResultsDefault = results.map( result => ({...result,selected:false}))
-    const [selectedResults,setSelectedResults] = useState(selectedResultsDefault)
+
 
     function changeSelected(id){
 
-        setSelectedResults( prevSelected => {
+        changeBets( prevSelected => {
             return prevSelected.map( result => {
                 return result.id === id ? {...result,selected: !result.selected} : result
             })
@@ -20,7 +21,7 @@ export default function Bet(props){
 
     }
 
-    const resultsBoxes = selectedResults.map( ({id,result,odd,selected}) => 
+    const resultsBoxes = bets.map( ({id,result,odd,selected}) => 
         <BetBox 
             key={id}
             id={id}
