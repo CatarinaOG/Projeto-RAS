@@ -1,14 +1,28 @@
+import { useState } from 'react'
+
 import close from '../images/close.png'
 
 export default function ReportBet(props){
 
-    const {id,game,bet,type,setSelected} = props
+    const {id,games,game,bet,type,selected,setSelected} = props
     const {home,away,date,results} = game
-
 
     function removeBet() {
 
         setSelected( prevSelected => prevSelected.filter( s => s.id !== id))
+
+    }
+
+    function changeAmount(event){
+
+        setSelected( selected.map( elem => {
+
+                if(elem.id === id)
+                    return {...elem,amount: event.target.value}
+                else
+                    return elem
+            })
+        )
 
     }
 
@@ -23,11 +37,8 @@ export default function ReportBet(props){
             <div className='bottom'>
                 <p className='reportBet'>Aposta: {bet.result}</p>
                 <p className='quote'>Cota: {bet.odd}</p>
-                {type === 'simple' && <input className='amount' type='number' placeholder='Valor'></input>}
+                {type === 'simple' && <input className='amount' type='number' placeholder='Valor' onChange={changeAmount}></input>}
             </div>
-
-
-
         </div>
 
     )

@@ -12,14 +12,11 @@ export default function Bet(props){
 
     function changeSelected(id,gameId){
 
-        if (selected.find(bet => bet.id === id))
-            setSelected( prevSelected => prevSelected.filter( s => s.id !== id))
-        
+        var amount = 0
 
-        else
-            setSelected( prevSelected => [...prevSelected,{id,gameId}])
+        if (!selected.find(bet => bet.id === id))
+            setSelected( prevSelected => [...prevSelected,{id,gameId,amount}])
         
-
     }
 
     function getIfSelected(id){ 

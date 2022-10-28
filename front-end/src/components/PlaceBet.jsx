@@ -12,7 +12,7 @@ export default function PlaceBet(props){
         <div className='placeBet'>
             <div className='leftSide'>
                 <h3>Total de Ganhos:</h3>
-                <p>{gains} $</p>
+                <p>{gains.toFixed(2)} $</p>
             </div>
             <div>
                 <button className='betButton' onClick={bet} >Apostar</button>

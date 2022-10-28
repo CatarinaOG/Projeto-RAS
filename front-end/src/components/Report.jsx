@@ -11,7 +11,6 @@ export default function Report(props){
 
     const [type,setType] = useState('simple')
 
-
     function changeType(event){
 
         if (event.target.id == 'simple') setType('simple')
@@ -19,27 +18,44 @@ export default function Report(props){
 
     }
 
+    function getGainsSimple(){
+
+        var sum = 0;
+
+        selected.map( elem => {
+
+            var game = games.find( game => game.id === elem.gameId )
+            var bet = game.results.find( result => result.id === elem.id )
+
+            sum += (elem.amount * bet.odd)
+        })
+
+        return Number(sum)
+
+    }
+
     const reportBets = selected.map( betSelected => {
         
-        const {id,gameId} = betSelected
-        const bet = games[gameId].results.find( result => result.id === id )
+        const {id,gameId,amount} = betSelected
+        const game = games.find( game => game.id === gameId )
+        const bet = game.results.find( result => result.id === id )
 
         return(
             <div className="fullReportBet">
                 <ReportBet 
                     key={id}
                     id={id}
-                    game={games[gameId]}
+                    games={games}
+                    game={game}
                     bet={bet}
                     type={type}
+                    selected={selected}
                     setSelected={setSelected}
                 />
             </div>
         )
-
-
-            
     } )
+
 
     return(
 
@@ -52,9 +68,9 @@ export default function Report(props){
             <div className={type == 'simple' ? "reportBetsSingle" : "reportBetsMultiple"}>
                 {reportBets}
             </div>
-            {type === 'multiple' && <SimpleInput quote='1,19'/>}
+            {type === 'multiple' && <SimpleInput quote='3.8'/>}
 
-            <PlaceBet gains='2,30'/>
+            <PlaceBet gains={getGainsSimple()}/>
         </div>
     )
 }
