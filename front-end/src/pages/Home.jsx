@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar"
 import Report from "../components/Report"
 import Bet from '../components/Bet'
 
+
 import "../styles/home.css"
 import {useState} from 'react'
 
@@ -10,34 +11,38 @@ import {useState} from 'react'
 export default function Home(){
 
     const games = [{
+        id : 0,
         home: 'sporting',
         away: 'varzim',
         date: 'hoje 22:00',
         results: [
-            { id: '0', result : 'Sporting' , odd: '0,34', selected: false },
-            { id: '1', result : 'Empate' , odd: '0,1' , selected: false },
-            { id: '2', result : 'Varzim' , odd: '0,98', selected: false },
+            { id: 0, result : 'Sporting' , odd: '0,1'},
+            { id: 1, result : 'Empate' , odd: '0,2'},
+            { id: 2, result : 'Varzim' , odd: '0,3'},
         ]
     },
     {
-        home: 'Benfica',
-        away: 'Porto',
+        id : 1,
+        home: 'sporting',
+        away: 'varzim',
         date: 'hoje 22:00',
         results: [
-            { id: '3', result : 'Benfica' , odd: '0,34', selected: false },
-            { id: '4', result : 'Empate' , odd: '0,1' , selected: false },
-            { id: '5', result : 'Porto' , odd: '0,98', selected: false },
+            { id: 3, result : 'Sporting' , odd: '0,4'},
+            { id: 4, result : 'Empate' , odd: '0,5'},
+            { id: 5, result : 'Varzim' , odd: '0,6'},
         ]
     }]
 
     const [searching,setSearching] = useState('Todos')
-    const [bets,setBets] = useState(defaultBets)
+    const [selected,setSelected] = useState([])
 
     const allBets = games.map( (game) => (
         <Bet 
+            key={game.id}
+            gameId={game.id}
             game={game} 
-            changeBets={setBets} 
-            bets={bets}/> 
+            setSelected={setSelected} 
+            selected={selected}/> 
     )) 
 
     return(
@@ -54,7 +59,12 @@ export default function Home(){
                         {allBets}
                     </div>
                 </div>
-                <Report />
+                <Report 
+                    games={games}
+                    selected={selected}
+                    setSelected={setSelected}
+                />
+
             </div>
 
         </div>

@@ -1,11 +1,11 @@
 
 export default function BetBox(props){
 
-    const {id,result,odd,selected,changeSelected} = props
+    const {id,gameId,result,odd,selected,changeSelected} = props
 
     function changeSelectedResults(){
 
-        changeSelected(id)
+        changeSelected(id,gameId)
 
     }
 

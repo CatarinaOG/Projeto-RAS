@@ -207,6 +207,15 @@
     
 }
 
+.reportBetsSingle{
+    overflow: scroll;
+    height: 55vh;
+}
+
+.reportBetsMultiple{
+    overflow: scroll;
+    height: 47vh;
+}
 
 /*---------------ReportBet-----------*/
 
@@ -248,6 +257,10 @@
     font-family: Spinnaker;
     font-size: 15px;
     padding-top: 10px;
+}
+
+.fullReportBet{
+    margin-bottom: 20px;
 }
 
 .quote{

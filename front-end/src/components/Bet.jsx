@@ -5,29 +5,36 @@ import { useState } from 'react'
 
 export default function Bet(props){
 
-    const {type,game,date,results} = props.game
-    const changeBets = props.changeBets
-    const bets = props.bets
+    const {home,away,date,results} = props.game
+    const setSelected = props.setSelected
+    const selected = props.selected
 
 
+    function changeSelected(id,gameId){
 
-    function changeSelected(id){
+        if (selected.find(bet => bet.id === id))
+            setSelected( prevSelected => prevSelected.filter( s => s.id !== id))
+        
 
-        changeBets( prevSelected => {
-            return prevSelected.map( result => {
-                return result.id === id ? {...result,selected: !result.selected} : result
-            })
-        })
+        else
+            setSelected( prevSelected => [...prevSelected,{id,gameId}])
+        
 
     }
 
-    const resultsBoxes = bets.map( ({id,result,odd,selected}) => 
+    function getIfSelected(id){ 
+
+        return (selected.find(bet => bet.id === id)) ? true : false
+    }
+
+    const resultsBoxes = results.map( ({id,result,odd}) => 
         <BetBox 
             key={id}
             id={id}
+            gameId={props.gameId}
             result={result}
             odd={odd}
-            selected={selected}
+            selected={getIfSelected(id)}
             changeSelected={changeSelected}
         />
     )
@@ -35,7 +42,7 @@ export default function Bet(props){
     return(
         <div className="bet">
             <div className="info">
-                <h3>{game}</h3>
+                <h3>{home} vs {away}</h3>
                 <p>{date}</p>
             </div>
             <div className="results">
