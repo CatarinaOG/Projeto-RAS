@@ -10,6 +10,7 @@ export default function Report(props){
     const {games,selected,setSelected} = props
 
     const [type,setType] = useState('simple')
+    const [valueMultiple, setValueMultiple] = useState(0)
 
     function changeType(event){
 
@@ -31,7 +32,40 @@ export default function Report(props){
         })
 
         return Number(sum)
+    }
 
+    function getGainsMultiple(){
+
+        var sumOdds = 0
+
+        selected.map( elem => {
+
+            var game = games.find( game => game.id === elem.gameId )
+            var bet = game.results.find( result => result.id === elem.id )
+
+            sumOdds += bet.odd
+        })
+
+        sumOdds *= 1.5
+
+        return sumOdds * valueMultiple
+    }
+
+    function getQuotaMultiple(){
+
+        var sumOdds = 0
+
+        selected.map( elem => {
+
+            var game = games.find( game => game.id === elem.gameId )
+            var bet = game.results.find( result => result.id === elem.id )
+
+            sumOdds += bet.odd
+        })
+
+        sumOdds *= 1.5
+
+        return sumOdds;
     }
 
     const reportBets = selected.map( betSelected => {
@@ -68,9 +102,9 @@ export default function Report(props){
             <div className={type == 'simple' ? "reportBetsSingle" : "reportBetsMultiple"}>
                 {reportBets}
             </div>
-            {type === 'multiple' && <SimpleInput quote='3.8'/>}
+            {type === 'multiple' && <SimpleInput quote={getQuotaMultiple()} setValueMultiple={setValueMultiple}/>}
 
-            <PlaceBet gains={getGainsSimple()}/>
+            <PlaceBet gains={ type === 'simple' ? getGainsSimple() : getGainsMultiple()}/>
         </div>
     )
 }
