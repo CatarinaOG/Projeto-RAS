@@ -3,6 +3,9 @@ import { useState } from "react"
 import ReportBet from './ReportBet'
 import SimpleInput from './SimpleInput'
 import PlaceBet from './PlaceBet'
+import ModalConfirmation from "./ModalConfirmation"
+import ModalConfirmated from "./ModalConfirmated"
+
 
 
 export default function Report(props){
@@ -11,6 +14,10 @@ export default function Report(props){
 
     const [type,setType] = useState('simple')                   // Utilizado para saber o tipo de aposta (simples vs multipla)
     const [amountMultiple, setAmountMultiple] = useState(0)     // Utilizado para guardar o amount da aposta múltipla
+
+    const [modalConfirmation,setModalConfirmation] = useState(false)    // modal confirmação
+    const [modalConfirmated,setModalConfirmated] = useState(false)      // modal confirmado
+
 
     // Mudança do tipo de aposta (simples vs multipla)
     function changeType(event){
@@ -54,6 +61,7 @@ export default function Report(props){
         return sumOdds * amountMultiple
     }
 
+    
     // Calcula a cota de uma aposta múltipla
     function getQuotaMultiple(){
 
@@ -71,6 +79,7 @@ export default function Report(props){
 
         return sumOdds;
     }
+
 
     // Mostra todas as apostas selecionadas
     const reportBets = selected.map( betSelected => {
@@ -97,19 +106,37 @@ export default function Report(props){
 
 
     return(
+        <div>
+            {modalConfirmation && 
+                <ModalConfirmation 
+                    setModalConfirmation={setModalConfirmation}
+                    setModalConfirmated={setModalConfirmated} 
+                />
+            }
 
-        <div className="main">
-            <h1 className="title">Boletim</h1>
-            <div className="buttons">
-                <button id='simple' className={ type == 'simple' ? "typeSelected" : 'typeNotSelected'} onClick={changeType}>Simples</button>
-                <button id='multiple' className={ type == 'multiple' ? "typeSelected" : 'typeNotSelected'} onClick={changeType}>Múltiplas</button>
-            </div>
-            <div className={type == 'simple' ? "reportBetsSingle" : "reportBetsMultiple"}>
-                {reportBets}
-            </div>
-            {type === 'multiple' && <SimpleInput quote={getQuotaMultiple()} setAmountMultiple={setAmountMultiple}/>}
+            {modalConfirmated && 
+                <ModalConfirmated 
+                    setModalConfirmated={setModalConfirmated} 
+                />
+            }
 
-            <PlaceBet gains={ type === 'simple' ? getGainsSimple() : getGainsMultiple()}/>
+            <div className="main">
+                <h1 className="title">Boletim</h1>
+                <div className="buttons">
+                    <button id='simple' className={ type == 'simple' ? "typeSelected" : 'typeNotSelected'} onClick={changeType}>Simples</button>
+                    <button id='multiple' className={ type == 'multiple' ? "typeSelected" : 'typeNotSelected'} onClick={changeType}>Múltiplas</button>
+                </div>
+                <div className={type == 'simple' ? "reportBetsSingle" : "reportBetsMultiple"}>
+                    {reportBets}
+                </div>
+                {type === 'multiple' && <SimpleInput quote={getQuotaMultiple()} setAmountMultiple={setAmountMultiple}/>}
+
+                <PlaceBet 
+                    setModalConfirmation={setModalConfirmation} 
+                    gains={ type === 'simple' ? getGainsSimple() : getGainsMultiple()}
+                />
+            </div>
+
         </div>
     )
 }

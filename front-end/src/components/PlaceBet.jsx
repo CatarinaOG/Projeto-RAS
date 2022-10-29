@@ -1,10 +1,10 @@
 
 export default function PlaceBet(props){
 
-    const {gains} = props;
+    const {gains,setModalConfirmation} = props;
 
     function bet() {
-        console.log('apostar')
+        setModalConfirmation(true)
     }
 
     return(

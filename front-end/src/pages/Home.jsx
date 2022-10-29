@@ -6,6 +6,7 @@ import Bet from '../components/Bet'
 
 import "../styles/home.css"
 import {useState} from 'react'
+import { useAsyncError } from "react-router-dom"
 
 
 export default function Home(){
@@ -36,6 +37,7 @@ export default function Home(){
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
 
+
     //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => (
         <Bet 
@@ -65,7 +67,6 @@ export default function Home(){
                     selected={selected}
                     setSelected={setSelected}
                 />
-
             </div>
 
         </div>
