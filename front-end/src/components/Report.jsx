@@ -27,6 +27,20 @@ export default function Report(props){
 
     }
 
+    // Obtem valor total a apostar
+    function getAmountToBet(){
+
+        var sum = 0;
+
+        selected.map( elem => {
+            sum += Number(elem.amount)
+        })
+
+        return Number(sum)
+
+    }
+
+
     // Obtem o ganho de apostas simples
     function getGainsSimple(){
 
@@ -109,6 +123,7 @@ export default function Report(props){
         <div>
             {modalConfirmation && 
                 <ModalConfirmation 
+                    amount={getAmountToBet()}
                     setModalConfirmation={setModalConfirmation}
                     setModalConfirmated={setModalConfirmated} 
                 />

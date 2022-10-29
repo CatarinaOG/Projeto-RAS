@@ -2,7 +2,6 @@ import close from '../images/close.png'
 
 export default function ModalConfirmated(props){
 
-    var value = 89
     const {setModalConfirmated} = props
 
     function cancel(){

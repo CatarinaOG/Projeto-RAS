@@ -2,8 +2,7 @@ import close from '../images/close.png'
 
 export default function ModalConfirmation(props){
 
-    var value = 89
-    const {setModalConfirmation,setModalConfirmated} = props
+    const {amount,setModalConfirmation,setModalConfirmated} = props
 
     function cancel(){
 
@@ -25,7 +24,7 @@ export default function ModalConfirmation(props){
                 <img className='close' onClick={cancel} src={close}/>
                 <h1 className="titleModal">Confirmação</h1>
                 <p className="paragraphModalConfirmation">Confirmação do Pagamento no valor de:</p>
-                <p className="valueConfirmation">{value}$</p>
+                <p className="valueConfirmation">{amount}$</p>
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>
             </div>
         </div>
