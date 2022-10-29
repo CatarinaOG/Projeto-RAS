@@ -33,9 +33,10 @@ export default function Home(){
         ]
     }]
 
-    const [searching,setSearching] = useState('Todos')
-    const [selected,setSelected] = useState([])
+    const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
+    const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
 
+    //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => (
         <Bet 
             key={game.id}

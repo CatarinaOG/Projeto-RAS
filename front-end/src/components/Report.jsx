@@ -9,9 +9,10 @@ export default function Report(props){
 
     const {games,selected,setSelected} = props
 
-    const [type,setType] = useState('simple')
-    const [valueMultiple, setValueMultiple] = useState(0)
+    const [type,setType] = useState('simple')                   // Utilizado para saber o tipo de aposta (simples vs multipla)
+    const [amountMultiple, setAmountMultiple] = useState(0)     // Utilizado para guardar o amount da aposta múltipla
 
+    // Mudança do tipo de aposta (simples vs multipla)
     function changeType(event){
 
         if (event.target.id == 'simple') setType('simple')
@@ -19,6 +20,7 @@ export default function Report(props){
 
     }
 
+    // Obtem o ganho de apostas simples
     function getGainsSimple(){
 
         var sum = 0;
@@ -34,6 +36,7 @@ export default function Report(props){
         return Number(sum)
     }
 
+    // Obtem o ganho de aposta multipla
     function getGainsMultiple(){
 
         var sumOdds = 0
@@ -48,9 +51,10 @@ export default function Report(props){
 
         sumOdds *= 1.5
 
-        return sumOdds * valueMultiple
+        return sumOdds * amountMultiple
     }
 
+    // Calcula a cota de uma aposta múltipla
     function getQuotaMultiple(){
 
         var sumOdds = 0
@@ -68,6 +72,7 @@ export default function Report(props){
         return sumOdds;
     }
 
+    // Mostra todas as apostas selecionadas
     const reportBets = selected.map( betSelected => {
         
         const {id,gameId,amount} = betSelected
@@ -102,7 +107,7 @@ export default function Report(props){
             <div className={type == 'simple' ? "reportBetsSingle" : "reportBetsMultiple"}>
                 {reportBets}
             </div>
-            {type === 'multiple' && <SimpleInput quote={getQuotaMultiple()} setValueMultiple={setValueMultiple}/>}
+            {type === 'multiple' && <SimpleInput quote={getQuotaMultiple()} setAmountMultiple={setAmountMultiple}/>}
 
             <PlaceBet gains={ type === 'simple' ? getGainsSimple() : getGainsMultiple()}/>
         </div>

@@ -9,7 +9,7 @@ export default function Bet(props){
     const setSelected = props.setSelected
     const selected = props.selected
 
-
+    // Adicionar bet a lista de selecionadas
     function changeSelected(id,gameId){
 
         var amount = 0
@@ -19,11 +19,13 @@ export default function Bet(props){
         
     }
 
+    // Verificar se está selecionada
     function getIfSelected(id){ 
 
         return (selected.find(bet => bet.id === id)) ? true : false
     }
 
+    // Criação das caixas de resultado
     const resultsBoxes = results.map( ({id,result,odd}) => 
         <BetBox 
             key={id}

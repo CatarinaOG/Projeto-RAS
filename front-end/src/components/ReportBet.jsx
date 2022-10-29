@@ -7,12 +7,14 @@ export default function ReportBet(props){
     const {id,games,game,bet,type,selected,setSelected} = props
     const {home,away,date,results} = game
 
+    // Remove uma aposta das selecionadas
     function removeBet() {
 
         setSelected( prevSelected => prevSelected.filter( s => s.id !== id))
 
     }
-
+    
+    // Altera o valor apostado numa aposta na lista de selecionadas
     function changeAmount(event){
 
         setSelected( selected.map( elem => {
