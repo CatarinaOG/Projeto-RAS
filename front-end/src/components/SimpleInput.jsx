@@ -1,12 +1,12 @@
 
 export default function SimpleInput(props){
 
-    const {quote,setValueMultiple} = props
+    const {quote,setAmountMultiple} = props
 
     // Altera o valor apostado na aposta múltipla
     function changeValueMultiple(event){
 
-        setValueMultiple(event.target.value)
+        setAmountMultiple(event.target.value)
 
     }
 

@@ -56,7 +56,7 @@ export default function Home(){
             <div className="content">
                 <div>
                     <SearchBar />
-                    <div>
+                    <div className="allBets">
                         {allBets}
                     </div>
                 </div>
