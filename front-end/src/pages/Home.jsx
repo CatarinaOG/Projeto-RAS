@@ -6,7 +6,6 @@ import Bet from '../components/Bet'
 
 import "../styles/home.css"
 import {useState} from 'react'
-import { useAsyncError } from "react-router-dom"
 
 
 export default function Home(){

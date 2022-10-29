@@ -217,14 +217,14 @@
 .reportBetsSingle{
     overflow: scroll;
     overflow-x: hidden;
-    height: 55vh;
+    height: 72%;
 }
 
 
 .reportBetsMultiple{
     overflow: scroll;
     overflow-x: hidden;
-    height: 47vh;
+    height: 65%;
 }
 
 /*---------------ReportBet-----------*/
