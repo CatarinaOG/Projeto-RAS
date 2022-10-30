@@ -27,20 +27,15 @@ export default function Report(props){
 
     }
 
-    // Obtem valor total a apostar dependendo do tipo da aposta
+    // Obtem valor total a apostar
     function getAmountToBet(){
 
         var sum = 0;
 
-        if(type === 'simples')
-            selected.map( elem => {
-                sum += Number(elem.amount)
-            })
-        else
-            sum = amountMultiple
+        if(type == 'simples') selected.map( elem => {sum += Number(elem.amount)})
+        else sum = amountMultiple
 
         return Number(sum)
-
     }
 
 

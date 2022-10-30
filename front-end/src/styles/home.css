@@ -107,7 +107,7 @@
 }
 
 .button{
-    font-family: Spinnaker; ;
+    font-family: Spinnaker;
 }
 
 /*-------------PlaceBet-------------*/
@@ -344,7 +344,7 @@
     text-align: center;
 }
 
-/*----------------ModalConfirm--------*/
+/*----------------Modal Confirmation--------*/
 
 
 .backgroundModal{
@@ -366,8 +366,6 @@
     top: 30vh;
     border-radius: 10px;
     text-align: center;
-
-
 }
 
 .titleModal{
@@ -375,14 +373,6 @@
     font-family: Spinnaker;
     font-size: 25px;
     margin-top: 3vh;
-
-}
-
-.paragraphModalConfirmation{
-
-    text-align: center;
-    font-family: Spinnaker;
-    margin: 7vh;
 
 }
 
@@ -416,4 +406,114 @@
         height: 50px;
         width: 150px;
     
+}
+
+/*---------------------Bet Box Expert-------------------*/
+
+.resultBoxExpert{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
+    width: 90px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+.resultBoxExpert > button{
+
+    margin-top: 6px;
+    font-family: Spinnaker;
+    color: #F07444;
+    background-color: white;
+    border: 0px;
+    text-decoration: underline;
+    
+}
+
+.resultBoxExpert > button:hover {
+    color: #df0b0b;
+}
+
+.resultBoxOdd{
+    display: flex;
+    justify-content: center;
+}
+
+.resultBoxOdd > p{
+
+    margin-top: 9px;
+
+}
+
+.resultBoxOdd > img{
+
+    height: 18px;
+    margin-top: 7px;
+
+}
+
+
+/*-----------------------Modal Warning Activate--------------------*/
+
+.backgroundModal2{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+    margin-top: 11.5vh
+}
+
+.buttonsModal{
+    margin-top: 7vh;
+
+}
+
+.buttonsModal > button{
+    margin: 20px 50px 0px 50px;
+    font-family: Spinnaker;
+    font-size: 15px;
+    background: #FEFFFE;
+    border: 1px solid #16350E;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+}
+
+.buttonsModal > button:active{
+    background: #18340C;
+
+}
+
+
+
+/*---------------------Modal Change Odd-------------------*/
+
+.betChangeOdd{
+
+    margin-bottom: 3vh;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.paragraphModalConfirmation2{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.boxConfirm > input{
+
+    width: 80px ;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 10px 0px 10px
+
 }
