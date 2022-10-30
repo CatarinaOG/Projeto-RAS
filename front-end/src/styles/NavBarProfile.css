@@ -1,0 +1,29 @@
+
+
+
+.navBar{
+    position: relative;
+
+    width: 100vw;
+    height: 12vh;
+    margin: 0;
+    
+
+    background: #18340C;
+
+}
+
+.welcomeMessage{
+    position: absolute;
+    color: white;
+    top: 20%;
+    left: 85% ;
+}
+
+.rasbetLogoProf{
+    position: absolute;
+    width: 10%;
+    top: 10%;
+    left: 2%;
+
+}

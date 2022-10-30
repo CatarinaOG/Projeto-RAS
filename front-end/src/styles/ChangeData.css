@@ -1,0 +1,132 @@
+
+.changeDataOutDiv{
+    position: relative;
+    width: 85%;
+    height : 60%;
+    left : 15%;
+    top : 10%
+}
+
+input{
+    position: absolute;
+    height: 15%;
+    width: 40%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+}
+
+button{
+    position: absolute;
+
+    height: 15%;
+    width: 30%;
+    top: 0%;
+
+    background: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+
+    color: white;
+
+    
+}
+
+button:hover {
+    background-color: white;
+    color:#F07444;
+
+    
+}
+
+
+
+.clickHistory{
+    position: absolute;
+    top:25%;
+    left: 0%;
+    color: #18340C;
+    font-size: 19px;
+}
+
+.Change{
+    position: relative;
+
+    height: 9%;
+    width: 5%;
+    top: 0%;
+
+    background: white;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    top:27.3%;
+    left:33%;
+
+    color: #18340C;
+}
+
+.Confirm{
+    position: relative;
+
+    height: 9%;
+    width: 12%;
+
+    background: white;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 38px;
+    left:39%;
+    top: 8.8vh;
+
+    color: #18340C;
+}
+
+.takeOut{
+    left: 10%
+}
+
+
+.deposit{
+    right: 25%
+}
+
+.inputName{
+    top:40%;
+}
+
+.hName{
+    position: absolute;
+    top:40%;
+}
+
+.hPassword{
+    position: absolute;
+    top:80%;
+}
+
+.inputPass{
+    top:80%;
+}
+
+.inputSurname{
+    top : 60%;
+}
+
+.hSurname{
+    position: absolute;
+    top:60%;
+}

@@ -1,0 +1,151 @@
+
+body{
+    background-color: white;
+}
+
+.backgroundModal{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 2%;
+    width: 100vw;
+    height: 98%;
+  }
+
+.InsertData{
+    position: absolute;
+    top : 40%;
+    left: 18%;
+    
+}
+
+.promptSport{
+    position: absolute;
+    width: 100%;
+    top : 50%;
+    left: 18%;
+}
+
+.selectSport{
+    position: absolute;
+    text-align: center;
+    top:50%;
+    left: 51%;
+    width: 30%;
+    height: 7%;
+    border-radius: 30px;
+    background-color: white;
+}
+
+
+.promptParticipantA{
+    position: absolute;
+    width: 100%;
+    top : 60%;
+    left: 18%;
+}
+
+.selectPartA{
+    position: absolute;
+    text-align: center;
+    top:60%;
+    left: 51%;
+    width: 30%;
+    height: 7%;
+}
+
+.promptParticipantB{
+    position: absolute;
+    width: 100%;
+    top : 70%;
+    left: 18%;
+}
+
+.selectPartB{
+    position: absolute;
+    text-align: center;
+    top:70%;
+    left: 51%;
+    width: 30%;
+    height: 7%;
+}
+
+
+.promptOdds{
+    position: absolute;
+    width: 100%;
+    top : 80%;
+    left: 18%;
+}
+
+.oddA{
+    position: absolute;
+    text-align: center;
+    top:  80%;
+    left: 51%;
+    width: 8%;
+    height: 7%;
+}
+
+.oddB{
+    position: absolute;
+    text-align: center;
+    top: 80%;
+    left: 73%;
+    width: 8%;
+    height: 7%;
+}
+
+.oddTie{
+    position: absolute;
+    text-align: center;
+    top: 80%;
+    left: 62.5%;
+    width: 8%;
+    height: 7%; 
+}
+
+.add{
+    position: absolute;
+
+    top: 30%;
+    left: 33%;
+    height: 8%;
+    width: 33%;
+
+
+
+    background: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    color:green;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+
+color: white;
+}
+
+
+.whiteShadow{
+
+    
+    position: relative;
+
+    width: 60vw;
+    height: 80vh;
+    top: 2vh;
+    bottom: 2vh;
+    
+    left : 20vw;
+    
+    
+
+    background: #FEFFFE;
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
