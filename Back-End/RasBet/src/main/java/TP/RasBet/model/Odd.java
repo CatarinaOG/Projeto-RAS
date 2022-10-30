@@ -20,6 +20,21 @@ public class Odd{
     private String value;
 
 
+    // many to one com a tabela Game
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Game_id", referencedColumnName = "id")
+    private Game game;
+
+
+
+
+
+    public Odd(){
+        
+    }
+
+
+
 
 
 

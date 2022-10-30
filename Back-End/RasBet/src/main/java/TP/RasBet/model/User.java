@@ -1,4 +1,6 @@
 package TP.RasBet.model;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -35,13 +37,28 @@ public class User{
     @Column(name = "wallet")
     private float wallet;
     
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "restaurante_nome", referencedColumnName = "nome")
-    //private Transaction transactions;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "restaurante_nome", referencedColumnName = "nome")
-    //private Bet bets;
+    //one to many com Transaction -> User é a tabela que mapeia
+    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Transaction> transactions;
+
+
+    // one to many com Bet -> User é a tabela que mapeia
+    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Bet> bets;
+
+
+
+
+
+    public User(){
+        
+    }
+
+
+
+
+
 
 
     /* Getters */

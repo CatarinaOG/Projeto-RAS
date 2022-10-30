@@ -1,5 +1,6 @@
 package TP.RasBet.model;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,6 +27,27 @@ public class Bet{
     @Column(name = "Result")
     private boolean result;
     
+
+    //many to one com user -> User_id é o nome da FK e referenced... id é a PK da tabela do user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "User_id", referencedColumnName = "id")
+    private User user;
+
+
+    // many to many com game
+    @ManyToMany(mappedBy = "bets")
+    private List<Game> games;
+
+
+
+
+
+
+    public Bet(){
+        
+    }
+
+
 
 
 

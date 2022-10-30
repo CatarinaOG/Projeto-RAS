@@ -1,4 +1,6 @@
 package TP.RasBet.model;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -15,9 +17,28 @@ public class Expert{
     @Column(name = "password")
     private String password;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "restaurante_nome", referencedColumnName = "nome")
-    //private Game games;
+
+    // one to many com a tabela Game
+    @OneToMany(mappedBy = "Expert", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Game> games;
+
+
+    // many to one com a tabela Admin
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Admin_id", referencedColumnName = "id")
+    private Admin admin;
+
+
+
+
+    public Expert(){
+        
+    }
+
+
+
+
+
 
     /* Getters */
     public String getEmail(){

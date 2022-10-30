@@ -26,6 +26,26 @@ public class Transaction{
     @Column(name = "FinalBalance")
     private float finalBalance;
 
+
+    //many to one com user -> User_id é o nome da FK e id é a coluna referenciada que é a PK da tabela do user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "User_id", referencedColumnName = "id")
+    private User user;
+
+
+
+
+
+    public Transaction(){
+        
+    }
+
+
+
+
+
+
+
     /* Getters */
     public String getDescription(){
         return this.description;

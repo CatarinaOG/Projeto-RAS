@@ -1,4 +1,6 @@
 package TP.RasBet.model;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -16,6 +18,22 @@ public class Admin{
 
     @Column(name = "password")
     private String password;
+
+
+    //one to many com a tabela expert
+    @OneToMany(mappedBy = "Admin", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Expert> experts;
+
+
+
+
+    public Admin(){
+        
+    }
+
+
+
+
 
 
     /* Getters */

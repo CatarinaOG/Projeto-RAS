@@ -3,6 +3,10 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.List;
+
 
 
 @Entity
@@ -26,11 +30,38 @@ public class Game{
     @Column (name = "State")
     private String state;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "restaurante_nome", referencedColumnName = "nome")
-    //private Odd odds;
 
-    //falta many to many com bet
+    //one to many de game para odd
+    @JsonIgnore
+    @OneToMany(mappedBy = "Game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Odd> odds;
+
+    
+    //many to one de game para expert
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Expert_id", referencedColumnName = "id")
+    private Expert expert;
+
+
+    //many to many com bet
+    @ManyToMany
+    @JoinTable(
+            name = "GamesInOneBet",
+            joinColumns = @JoinColumn(name = "Bet_id"),
+            inverseJoinColumns = @JoinColumn(name = "Game_id"))
+    private List<Bet> bets;
+
+
+
+
+    public Game(){
+        
+    }
+
+
+
+
+
 
     /* Getters */
     public String getSport(){
@@ -45,6 +76,7 @@ public class Game{
     public String getState(){
         return this.state;
     }
+    
 
     /* Setters */
     public void setSport(String sport){
