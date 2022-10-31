@@ -19,15 +19,15 @@ export default function Profile(){
     }
 
     return(
-        <div className='Profile'>
+        <div className='ftProfile'>
             <div>
                 <NavBarProfile userN = {username}/>
-                <div className='whiteShadow'>
+                <div className='ftwhiteShadow'>
                     <IdSaldo userN = {username}/>
                     {compLoad === "ChangeData" ? <ChangeData val = {val} setVal = {setVal} compLoad = {compLoad} setUser = {setUsername} setCompLoad = {changeComp} userN = {username}/> : <BetHistory compLoad = {compLoad} setCompLoad = {changeComp} userN = {username}/>}
                 </div>
             </div>
-            {val !=0 && <div><div  className="backgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation={confirmation}/></div>} 
+            {val !=0 && <div><div  className="ftbackgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation={confirmation}/></div>} 
 
         </div>    
     )

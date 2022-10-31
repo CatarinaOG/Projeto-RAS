@@ -1,15 +1,15 @@
-import '../styles/IdSaldo.css'
+import '../styles/Profile.css'
 
 export default function IdSaldo(props){
 
     const utilizador = props.userN;
     return(
-        <div className="squareDiv">
-            <div className='userDiv'>
-                <h1 className='username'>{utilizador}</h1>
+        <div className="ftsquareDiv">
+            <div className='ftuserDiv'>
+                <h1 className='ftusername'>{utilizador}</h1>
             </div>
-            <div className='valDiv'>
-                <h3 className='val'>Placeholder Value</h3>
+            <div className='ftvalDiv'>
+                <h3 className='ftval'>Placeholder Value</h3>
             </div>
         </div>
     )

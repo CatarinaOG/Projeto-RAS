@@ -1,5 +1,5 @@
 
-import '../styles/ChangeData.css'
+import '../styles/Profile.css'
 import {useState} from 'react'
 
 export default function ChangeData(props){
@@ -44,18 +44,26 @@ export default function ChangeData(props){
 
     return (
         <div className="changeDataOutDiv">
-                <button className='takeOut' onClick={levPop}> Levantar </button>
-                <button className='deposit' onClick={depPop}> Depositar </button>
+                <button className='fttakeOut' onClick={levPop}> Levantar </button>
+                <button className='ftdeposit' onClick={depPop}> Depositar </button>
+                
                 <h3 className="clickHistory" onClick={change} > Consultar Histórico de Apostas</h3>
-                <button  className='Change' onClick={change}> > </button>
+                
+                <button  className='ftChange' onClick={change}> > </button>
                 <form onSubmit = {handleSubmit} >
                     <h3 className='hName'> Nome : </h3>
-                    <input className= "inputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
+                
+                    <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
+                
                     <h3 className='hSurname'> Apelido : </h3>
-                    <input className= "inputSurname" onChange={handleChange} type = "text" name="lastName"  value = {formData.lastName} ></input>
+                
+                    <input className= "ftinputSurname" onChange={handleChange} type = "text" name="lastName"  value = {formData.lastName} ></input>
+                
                     <h3 className='hPassword'> Mudar palavra passe</h3>
-                    <input className= "inputPass" onChange={handleChange} type = "password" name = "password" value = {formData.password}></input>
-                    <button  className='Confirm'> Confirm</button>
+                
+                    <input className= "ftinputPass" onChange={handleChange} type = "password" name = "password" value = {formData.password}></input>
+                
+                    <button  className='ftConfirm'> Confirm</button>
                 </form>
         </div>
     )

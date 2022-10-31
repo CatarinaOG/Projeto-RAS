@@ -1,7 +1,6 @@
 
-import '../styles/inputsLogIn.css';
+import '../styles/logSquare.css';
 import { useState } from 'react';
-import Profile from '../pages/Profile.js'
 
 
 export default function InputsLogIn({setRender,current,setFunc}) {
@@ -38,7 +37,7 @@ export default function InputsLogIn({setRender,current,setFunc}) {
 	function handleSubmit(event){
 		event.preventDefault();
 		if(formData.email == "abc@gmail.com" && formData.password == "123"){
-			setRender("Profile");
+			setRender("AddSpecialist");
 		}
 
 	}
@@ -46,16 +45,16 @@ export default function InputsLogIn({setRender,current,setFunc}) {
 
     return (
         <div className='inputs'>
-				<img className = "rasbetLogo" src = {require('../images/logo.png')}/>
-				<h1 className = "BemVindo"> Bem-vindo</h1>
+				<img className = "ftrasbetLogo" src = {require('../images/logo.png')}/>
+				<h1 className = "ftwelcomeTitle"> Bem-vindo</h1>
 				<form onSubmit={handleSubmit}>
-					<input onChange={handleChange} className = "userName" type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
-					<input onChange={handleChange} className = "password" type="password" placeholder = "Password" name = "password" value = {formData.password} />
-					<button className = "aceder"> Aceder</button>
+					<input onChange={handleChange} className = "ftuserNameLog" type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
+					<input onChange={handleChange} className = "ftpasswordLog" type="password" placeholder = "Password" name = "password" value = {formData.password} />
+					<button className = "ftacederLog"> Aceder</button>
 				</form>
-				<a href = "https://www.youtube.com/watch?v=dQw4w9WgXc" className = "noPass" > Esqueci-me da palavra-passe</a>
-				<h4 className='noAccount'>Não tem conta?</h4>
-				<a onClick={changeComp} className = "noAccountHyper"> Registe-se já! </a>
+				<a href = "" className = "ftnoPass" > Esqueci-me da palavra-passe</a>
+				<h4 className='ftnoAccount'>Não tem conta?</h4>
+				<a onClick={changeComp} className = "ftnoAccountHyper"> Registe-se já! </a>
 		</div>
     )
 }

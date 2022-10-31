@@ -14,9 +14,10 @@ function App() {
 
   return (
     <div >
-      {rendered==="" &&<LogSquare rendered = {rendered} setRender={setRender}></LogSquare>}
-      {rendered==="Profile" && <Profile rendered = {rendered} setRender = {setRender}></Profile>}
-      {rendered==="AddSpecialist" && <AddSpecialist/>}
+      <AddGame></AddGame>
+      {rendered==="a" &&<LogSquare rendered = {rendered} setRender={setRender}></LogSquare>}
+      {rendered==="a" && <Profile rendered = {rendered} setRender = {setRender}></Profile>}
+      {rendered==="a" && <AddSpecialist/>}
     </div>
 
 	);

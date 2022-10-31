@@ -7,7 +7,7 @@
     width: 100vw;
     height: 12vh;
     margin: 0;
-    
+    left: -0.4%;
 
     background: #18340C;
 
@@ -18,6 +18,8 @@
     color: white;
     top: 20%;
     left: 85% ;
+    font-family: 'Spinnaker';
+    font-style: normal;
 }
 
 .rasbetLogoProf{

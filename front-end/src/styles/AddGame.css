@@ -3,6 +3,7 @@ body{
     background-color: white;
 }
 
+/*------ Popup -----*/
 .backgroundModal{
     background:#18340C;
     opacity: 0.5;
@@ -11,102 +12,170 @@ body{
     top: 2%;
     width: 100vw;
     height: 98%;
-  }
-
-.InsertData{
-    position: absolute;
-    top : 40%;
-    left: 18%;
-    
 }
 
-.promptSport{
+
+/*----- IdSaldo.js-----*/
+
+.ftsquareDiv{
+    position: relative;
+    height: 25%;
+    width: 100%;
+    box-shadow: 0px 1px rgba(0, 0, 0, 0.25), 0px 1px rgba(0, 0, 0, 0.25);
+
+}
+
+.ftuserDiv{
     position: absolute;
     width: 100%;
-    top : 50%;
-    left: 18%;
+    top : 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.selectSport{
+.ftvalDiv{
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.ftusername{
+    color: #18340C;
+}
+
+.ftval{
+    color: #18340C;
+
+}
+
+
+
+/*----- Inputs -----*/
+.ftselectSport{
     position: absolute;
     text-align: center;
     top:50%;
     left: 51%;
-    width: 30%;
+    width: 30.5%;
     height: 7%;
     border-radius: 30px;
     background-color: white;
 }
 
-
-.promptParticipantA{
-    position: absolute;
-    width: 100%;
-    top : 60%;
-    left: 18%;
-}
-
-.selectPartA{
+.ftselectPartA{
     position: absolute;
     text-align: center;
     top:60%;
     left: 51%;
     width: 30%;
     height: 7%;
+    border-radius: 25px;
+
 }
 
-.promptParticipantB{
-    position: absolute;
-    width: 100%;
-    top : 70%;
-    left: 18%;
-}
-
-.selectPartB{
+.ftselectPartB{
     position: absolute;
     text-align: center;
     top:70%;
     left: 51%;
     width: 30%;
     height: 7%;
+    border-radius: 25px;
+
 }
 
-
-.promptOdds{
-    position: absolute;
-    width: 100%;
-    top : 80%;
-    left: 18%;
-}
-
-.oddA{
+.ftoddA{
     position: absolute;
     text-align: center;
     top:  80%;
     left: 51%;
     width: 8%;
+    border-radius: 25px;
     height: 7%;
 }
 
-.oddB{
+.ftoddB{
     position: absolute;
     text-align: center;
     top: 80%;
     left: 73%;
     width: 8%;
     height: 7%;
+    border-radius: 25px;
+
 }
 
-.oddTie{
+.ftoddTie{
     position: absolute;
     text-align: center;
     top: 80%;
     left: 62.5%;
     width: 8%;
-    height: 7%; 
+    height: 7%;
+    border-radius: 25px;
 }
 
-.add{
+
+/*----- Texts -----*/
+
+
+.ftInsertData{
+    position: absolute;
+    top : 40%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+.ftpromptSport{
+    position: absolute;
+    width: 100%;
+    top : 50%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+.ftpromptParticipantA{
+    position: absolute;
+    width: 100%;
+    top : 60%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+
+
+.ftpromptParticipantB{
+    position: absolute;
+    width: 100%;
+    top : 70%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+
+
+
+.ftpromptOdds{
+    position: absolute;
+    width: 100%;
+    top : 80%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+
+
+.ftadd{
     position: absolute;
 
     top: 30%;
@@ -127,13 +196,12 @@ body{
     font-size: 32px;
     line-height: 38px;
 
-color: white;
+    color: white;
 }
 
 
 .whiteShadow{
 
-    
     position: relative;
 
     width: 60vw;
@@ -142,8 +210,6 @@ color: white;
     bottom: 2vh;
     
     left : 20vw;
-    
-    
 
     background: #FEFFFE;
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);

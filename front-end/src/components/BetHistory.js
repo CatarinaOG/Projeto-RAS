@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/BetHistory.css'
+import '../styles/Profile.css'
 
 export default function BetHistory(props){
 
@@ -12,14 +12,15 @@ export default function BetHistory(props){
 
     return(
         <div className="betHistoryDiv">
-           <button className='simpleBut'>Simples</button>
-           <button className='multipleBut'>Múltiplas</button>
-           <button onClick={change} className="goBack">Voltar</button> 
-           <div className="BetList"></div>
+           <button className='ftsimpleBet'>Simples</button>
+           <button className='ftmultipleBet'>Múltiplas</button>
+           <button onClick={change} className="ftgoBack">Voltar</button> 
+           <div className="ftBetList">
            <ul>
                 <li>Aposta Placeholder</li>
 
            </ul>
+           </div>
         </div>
     )
 }

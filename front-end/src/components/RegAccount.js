@@ -1,4 +1,4 @@
-import '../styles/regAccount.css';
+import '../styles/logSquare.css';
 
 import {useState} from 'react'
 
@@ -41,18 +41,18 @@ function RegAccount({current,setFunc}){
     return(
         
 			<div className='regAccount'>
-				<img className = "rasbetLogo" src = {require('../images/logo.png')}/>
+				<img className = "ftrasbetLogo" src = {require('../images/logo.png')}/>
 
-				<h1 className = "Registo"> Registo</h1>
+				<h1 className = "ftRegisterTitle"> Registo</h1>
 				<form onSubmit={handleSubmit}>
-					<input className = "name" type="text" placeholder = "Nome" name = "name" value = {formData.name}/>
-					<input className = "email" type="text" placeholder = "E-mail" name ="email" value = {formData.email}/>
-					<input className = "passsword" type="password" placeholder = "Palavra-passe" name="password" value = {formData.password}/>
-					<input className = "birthdate" type="date" placeholder = "Data de Nascimento" name="date" value = {formData.date}/>
-					<input className = "NIF" type="text" placeholder = "NIF" name="nif" value = {formData.nif}/>
-					<input className = "phone" type="number" placeholder = "Telefone" name="phone" value = {formData.phone}/>
-					<input className = "address" type="text" placeholder = "Morada" name="address" value = {formData.address}/>
-					<input className = "CC" type="text" placeholder = "CC" name ="cc" value = {formData.cc}/>
+					<input className = "ftnameReg" type="text" placeholder = "Nome" name = "name" value = {formData.name}/>
+					<input className = "ftemailReg" type="text" placeholder = "E-mail" name ="email" value = {formData.email}/>
+					<input className = "ftpassswordReg" type="password" placeholder = "Palavra-passe" name="password" value = {formData.password}/>
+					<input className = "ftbirthdateReg" type="date" placeholder = "Data de Nascimento" name="date" value = {formData.date}/>
+					<input className = "ftNIFReg" type="text" placeholder = "NIF" name="nif" value = {formData.nif}/>
+					<input className = "ftphoneReg" type="number" placeholder = "Telefone" name="phone" value = {formData.phone}/>
+					<input className = "ftaddressReg" type="text" placeholder = "Morada" name="address" value = {formData.address}/>
+					<input className = "ftCCReg" type="text" placeholder = "CC" name ="cc" value = {formData.cc}/>
 					<button onClick = {changeComp} className = "acceder" > Concluir</button>
 				</form>
 				
