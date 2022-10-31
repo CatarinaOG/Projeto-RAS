@@ -13,12 +13,12 @@ function Login(props){
 	const {setUsername,setRender} = props;
 
 	
-	
     return(
 		<div className='page'>
 			<div className='mainLog'>
 				{loadReg ? 
 					<InputsLogin 
+						setUsername={setUsername}	
 						setRender = {setRender} 
 						setLoadReg = {setLoadReg}
 					/> 
