@@ -5,7 +5,7 @@ import {useState} from 'react';
 import Home from './pages/Home';
 import Profile from './pages/Profile.js'
 import AddGame from './pages/AddGame';
-import LogSquare from './pages/Login.js';
+import Login from './pages/Login.js';
 import HomeExpert from './pages/HomeExpert';
 import AddSpecialist from './pages/AddSpecialist.js'
 
@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       {rendered==="Login" && 
-        <LogSquare 
+        <Login 
           setUsername={setUsername} 
           setRender={setRender}
       />}
