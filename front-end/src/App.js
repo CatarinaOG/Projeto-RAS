@@ -76,7 +76,9 @@ function App() {
         />
       }
       {rendered==="AddExpert" &&
-        <AddExpert />
+        <AddExpert 
+          username={username}
+        />
       }
     </div>
 	);

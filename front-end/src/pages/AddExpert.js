@@ -3,12 +3,15 @@ import NavBarProfile from "../components/NavBarProfile";
 import { useState } from 'react';
 import PopUp from '../components/PopUp'
 
-export default function AddSpecialist(){
+export default function AddSpecialist(props){
 
-    const [username,setUsername] = useState("Francisco Toldy");
+    const {username} = props
+
+    //state para retirar
     const [val,setVal] = useState(0);
-    const [confirmed,setConfirmed] = useState(0);
-    const confirmation =  0;
+    
+    const [confirmed,setConfirmed] = useState(false);
+
     const [formData, setFormData] = useState(
         {email: "",password:""}
     )
@@ -20,14 +23,16 @@ export default function AddSpecialist(){
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
-                
             }
         })
     }
 
 	function handleSubmit(event){
 		event.preventDefault();
-        setConfirmed(1);
+
+        // Mandar pedido e esperar por verificação
+
+        setConfirmed(true);
 	}
     
 
@@ -46,8 +51,16 @@ export default function AddSpecialist(){
                     </form>
                 </div>
             </div>
-            {confirmed !=0 && <div><div  className="ftbackgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation ={confirmation} setConfirmed={setConfirmed}/></div>} 
-
+            {confirmed && 
+                <div>
+                    <div className="ftbackgroundModal"></div>
+                    <PopUp 
+                        val={val} 
+                        setVal={setVal} 
+                        setConfirmed={setConfirmed}
+                    />
+                </div>
+            }           
         </div>            
     )
 }
