@@ -35,17 +35,28 @@ export default function Bet(props){
         />
     )
 
-    return(
-        <div className="bet">
-            <div className="info">
-                <h3>{home} vs {away}</h3>
-                <p>{date}</p>
-            </div>
-            <div className="results">
-                {resultsBoxes}
-            </div>
-        </div>
+    var notNull = true
+    
+    results.map( ({id,result,odd,amount}) =>{
+        if(odd === 'null')
+            notNull = false
+    })
 
-    )
+    if(notNull){
+        return(
+            <div className="bet">
+                <div className="info">
+                    <h3>{home} vs {away}</h3>
+                    <p>{date}</p>
+                </div>
+                <div className="results">
+                    {resultsBoxes}
+                </div>
+            </div>
+        )
+    }
+    else{
+        return(<div></div>)
+    }
 
 }
