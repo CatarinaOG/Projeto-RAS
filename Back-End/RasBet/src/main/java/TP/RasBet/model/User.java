@@ -55,12 +55,6 @@ public class User{
         
     }
 
-
-
-
-
-
-
     /* Getters */
     public String getEmail(){
         return this.email;
