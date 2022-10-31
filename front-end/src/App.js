@@ -7,7 +7,7 @@ import Profile from './pages/Profile.js'
 import AddGame from './pages/AddGame';
 import Login from './pages/Login.js';
 import HomeExpert from './pages/HomeExpert';
-import AddSpecialist from './pages/AddSpecialist.js'
+import AddExpert from './pages/AddExpert.js'
 
 
 
@@ -15,7 +15,7 @@ function App() {
 
   const [rendered,setRender] = useState("Login");
 
-  const [userName,setUsername] = useState('carlos')
+  const [username,setUsername] = useState('carlos')
 
   return (
     <div>
@@ -24,10 +24,19 @@ function App() {
           setUsername={setUsername} 
           setRender={setRender}
       />}
-      {rendered==="Home" && <Home setRender={setRender}/>}
+      {rendered==="Home" && 
+        <Home
+          setRender={setRender}
+        />
+      }
+      {rendered==="Profile" && 
+        <Profile 
+          username={username}
+          setRender = {setRender}
+      />}
       {rendered==="HomeExpert" && <HomeExpert setRender={setRender}/>}
-      {rendered==="Profile" && <Profile setRender = {setRender}/>}
-      {rendered==="AddExpert" && <AddSpecialist/>}
+      
+      {rendered==="AddExpert" && <AddExpert />}
     </div>
 	);
 }
