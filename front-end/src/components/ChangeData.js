@@ -4,12 +4,10 @@ import {useState} from 'react'
 
 export default function ChangeData(props){
 
-    const defUser = props.username;
+    const {setUsername,setShowPopUp,setDataOrHistory,username} = props
 
-    const setVal = props.setVal;
-
-    function change(){
-        props.setCompLoad("history");
+    function goToHistory(){
+        props.setDataOrHistory("history");
     }
 
     const [formData, setFormData] = useState(
@@ -18,38 +16,38 @@ export default function ChangeData(props){
     
     function handleChange(event) {
         setFormData(prevFormData => {
-            console.log(event.target.value)
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
-                
             }
         })
     }
 
     function handleSubmit(event){
         event.preventDefault();
-        props.setUser(formData.firstName);
- 
+
+        // Tratar do pedido e verificação
+
+        setUsername(formData.firstName);
     }
 
-    function levPop(){
-       setVal(1);
+    function withdrawPop(){
+        setShowPopUp('withdraw');
     }
 
-    function depPop(x){
-        setVal(2);
+    function depositPop(x){
+        setShowPopUp('deposit');
      }
  
 
     return (
         <div className="changeDataOutDiv">
-                <button className='fttakeOut' onClick={levPop}> Levantar </button>
-                <button className='ftdeposit' onClick={depPop}> Depositar </button>
+                <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
+                <button className='ftdeposit' onClick={depositPop}> Depositar </button>
                 
-                <h4 className="clickHistory" onClick={change} > Consultar Histórico de Apostas</h4>
+                <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
                 
-                <button  className='ftChange' onClick={change}> > </button>
+                <button  className='ftChange' onClick={goToHistory}> > </button>
                 <form onSubmit = {handleSubmit} >
                     <h4 className='hName'> Nome : </h4>
                 

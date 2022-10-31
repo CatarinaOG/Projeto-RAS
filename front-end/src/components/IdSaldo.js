@@ -7,6 +7,7 @@ export default function IdSaldo(props){
 
     function getBalance(){
         // get balance from username
+        return 0
     }
 
     return(
@@ -15,7 +16,7 @@ export default function IdSaldo(props){
                 <h1 className='ftusername'>{username}</h1>
             </div>
             <div className='ftvalDiv'>
-                <h3 className='ftval'>0</h3>
+                <h3 className='ftval'>Saldo: {getBalance()}$</h3>
             </div>
         </div>
     )

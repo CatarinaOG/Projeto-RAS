@@ -10,7 +10,7 @@ import celebrating from '../images/celebrating.png'
 function Login(props){
 
 	const [loadReg,setLoadReg] = useState(true);
-	const {setUsername,setRender} = props;
+	const {setUsername,setBalance,setRender} = props;
 
 	
     return(
@@ -19,6 +19,7 @@ function Login(props){
 				{loadReg ? 
 					<InputsLogin 
 						setUsername={setUsername}	
+						setBalance={setBalance}
 						setRender = {setRender} 
 						setLoadReg = {setLoadReg}
 					/> 

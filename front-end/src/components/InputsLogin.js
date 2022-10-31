@@ -7,7 +7,7 @@ import logo from '../images/logo.png'
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setRender,setLoadReg} = props
+	const {setUsername,setBalance,setRender,setLoadReg} = props
 
     function changeComp(){
         setLoadReg(prevLoadReg => !prevLoadReg);
@@ -29,7 +29,7 @@ export default function InputsLogin(props) {
 	function handleSubmit(event){
 		event.preventDefault();
 
-		// Fazer a verificição do log in aqui e mudar username com 'setUsername'
+		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
 
 		setRender("Home");
 	}
