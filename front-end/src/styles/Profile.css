@@ -297,11 +297,6 @@
     background-color:#F07444;    
 }
 
-.ftgoBack:active {
-    color: white;
-    background-color:#F07444;    
-}
-
 .ftsimpleBet{
     position: absolute;
     color: #F07444;
@@ -347,24 +342,7 @@
 }
 
 .ftgoBack{
-    color: #F07444;
-    border-radius: 20px;
-    font-size: 13px;
-    
-    height: 15%;
-    top: 0%;
 
-    font-family: 'Spinnaker';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 38px;
-    border: 1px solid #F07444 ;
-
-    background-color: white;
-    position: absolute;
-    left:35%;
-    width : 13%;
 }   
 
 .ftBetList{
