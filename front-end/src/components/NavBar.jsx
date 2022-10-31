@@ -2,7 +2,13 @@
 import logo from '../images/logo.png'
 import Link from '../components/Link'
 
-export default function NavBar({user,searching,setSearching}){
+export default function NavBar(props){
+
+    const {user,searching,setSearching,setRender} = props
+
+    function goToProfile(){
+        setRender('Profile')
+    }
 
     return(
 
@@ -31,7 +37,7 @@ export default function NavBar({user,searching,setSearching}){
                         setSearching={setSearching}
                         highlight={searching === 'MotoGP' ? true : false}/>
                 </div>
-            <h3 className='welcomeUser'> Welcome, {user} </h3>
+            <h3 className='welcomeUser' onClick={goToProfile}> Welcome, {user} </h3>
         </div>
 
 

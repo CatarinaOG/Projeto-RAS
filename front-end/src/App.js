@@ -10,22 +10,18 @@ import AddGame from './pages/AddGame';
 import Home from './pages/Home';
 import HomeExpert from './pages/HomeExpert';
 
-/*
-<div >
-      <AddGame></AddGame>
-      {rendered==="a" &&<LogSquare rendered = {rendered} setRender={setRender}></LogSquare>}
-      {rendered==="a" && <Profile rendered = {rendered} setRender = {setRender}></Profile>}
-      {rendered==="a" && <AddSpecialist/>}
-    </div>
-*/ 
 
 function App() {
 
-  const [rendered,setRender] = useState("");
+  const [rendered,setRender] = useState("LogIn");
 
   return (
-    <LogSquare />
-
+    <div>
+      {rendered==="LogIn" && <LogSquare setRender={setRender}/>}
+      {rendered==="Home" && <Home setRender={setRender}/>}
+      {rendered==="Profile" && <Profile setRender = {setRender}/>}
+      {rendered==="AddExpert" && <AddSpecialist/>}
+    </div>
 	);
 }
 

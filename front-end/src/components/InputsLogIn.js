@@ -36,9 +36,7 @@ export default function InputsLogIn({setRender,current,setFunc}) {
 
 	function handleSubmit(event){
 		event.preventDefault();
-		if(formData.email == "abc@gmail.com" && formData.password == "123"){
-			setRender("AddSpecialist");
-		}
+		setRender("Home");
 
 	}
 

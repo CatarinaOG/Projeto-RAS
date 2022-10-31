@@ -8,7 +8,7 @@ import { useState } from 'react';
 function LogSquare(props){
 
 	const [loadReg,setLoadReg] = useState(0);
-	const {rendered, setRender} = props;
+	const {setRender} = props;
 
 	
 	

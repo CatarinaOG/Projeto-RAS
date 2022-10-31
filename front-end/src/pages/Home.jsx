@@ -8,7 +8,9 @@ import "../styles/home.css"
 import {useState} from 'react'
 
 
-export default function Home(){
+export default function Home(props){
+
+    const {setRender} = props
 
     const games = [{
         id : 0,
@@ -53,6 +55,7 @@ export default function Home(){
                 user='Carlos' 
                 searching={searching} 
                 setSearching={setSearching} 
+                setRender={setRender}
             />
             <div className="content">
                 <div>
