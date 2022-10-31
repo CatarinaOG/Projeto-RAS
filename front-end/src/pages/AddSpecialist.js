@@ -46,7 +46,7 @@ export default function AddSpecialist(){
                     </form>
                 </div>
             </div>
-            {confirmed !=0 && <div><div  className="backgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation ={confirmation} setConfirmed={setConfirmed}/></div>} 
+            {confirmed !=0 && <div><div  className="ftbackgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation ={confirmation} setConfirmed={setConfirmed}/></div>} 
 
         </div>            
     )
