@@ -47,19 +47,19 @@ export default function ChangeData(props){
                 <button className='fttakeOut' onClick={levPop}> Levantar </button>
                 <button className='ftdeposit' onClick={depPop}> Depositar </button>
                 
-                <h3 className="clickHistory" onClick={change} > Consultar Histórico de Apostas</h3>
+                <h4 className="clickHistory" onClick={change} > Consultar Histórico de Apostas</h4>
                 
                 <button  className='ftChange' onClick={change}> > </button>
                 <form onSubmit = {handleSubmit} >
-                    <h3 className='hName'> Nome : </h3>
+                    <h4 className='hName'> Nome : </h4>
                 
                     <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
                 
-                    <h3 className='hSurname'> Apelido : </h3>
+                    <h4 className='hSurname'> Apelido : </h4>
                 
                     <input className= "ftinputSurname" onChange={handleChange} type = "text" name="lastName"  value = {formData.lastName} ></input>
                 
-                    <h3 className='hPassword'> Mudar palavra passe</h3>
+                    <h4 className='hPassword'> Mudar palavra passe</h4>
                 
                     <input className= "ftinputPass" onChange={handleChange} type = "password" name = "password" value = {formData.password}></input>
                 

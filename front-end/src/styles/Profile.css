@@ -94,33 +94,33 @@
 
 .ftinputName{
     position: absolute;
-    height: 15%;
-    width: 40%;
+    height: 12%;
+    width: 35%;
     right: 15%;
     border: 1px solid #18340C;
     border-radius: 40px;
-    top:40%;
+    top:37%;
     text-align: center;
 }
 
 .ftinputPass{
     position: absolute;
-    height: 15%;
-    width: 40%;
+    height: 12%;
+    width: 35%;
     right: 15%;
     border: 1px solid #18340C;
     border-radius: 40px;
-    top:80%;
+    top:77%;
 }
 
 .ftinputSurname{
     position: absolute;
-    height: 15%;
-    width: 40%;
+    height: 12%;
+    width: 35%;
     right: 15%;
     border: 1px solid #18340C;
     border-radius: 40px;
-    top : 60%;
+    top : 57%;
 }
 
 /*----- ChangeData titles----*/
@@ -183,7 +183,7 @@
     position: absolute;
 
     height: 15%;
-    width: 30%;
+    width: 25%;
     top: 0%;
 
     background: #F07444;
@@ -194,7 +194,7 @@
     font-family: 'Spinnaker';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 20px;
     line-height: 38px;
 
     color: white;
@@ -206,7 +206,7 @@
     position: absolute;
 
     height: 15%;
-    width: 30%;
+    width: 25%;
     top: 0%;
 
     background: #F07444;
@@ -217,7 +217,7 @@
     font-family: 'Spinnaker';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 20px;
     line-height: 38px;
 
     color: white;
@@ -240,8 +240,8 @@
     font-weight: 400;
     font-size: 32px;
     line-height: 38px;
-    top:27.3%;
-    left:33%;
+    top:24%;
+    left:50%;
     font-family: 'Spinnaker';
     font-style: normal;
     color: #18340C;
@@ -260,15 +260,14 @@
     font-size: 13px;
     
     font-weight: 400;
-    font-size: 25px;
+    font-size: 15px;
     line-height: 38px;
-    left:39%;
-    top: 8.8vh;
+    left:60%;
+    top: 7vh;
     font-family: 'Spinnaker';
     font-style: normal;
     color: #18340C;
 
-    color: #18340C;
 }
 
 
