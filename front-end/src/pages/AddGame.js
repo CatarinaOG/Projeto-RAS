@@ -48,7 +48,6 @@ export default function AddGame(){
                         <h3 className='ftpromptSport'>Insira o Desporto</h3>
                         <select className='ftselectSport' value={formData.sport} onChange={handleChange} name ="sport">
                             <option value="Futebol">Futebol</option>
-                            <option value="Ténis">Ténis</option>
                             <option value="">---Escolha---</option>
                         </select>
 

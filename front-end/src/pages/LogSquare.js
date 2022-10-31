@@ -14,13 +14,13 @@ function LogSquare(props){
 	
     return(
 		<div className='page'>
- 		<div className='mainLog'>
-			{loadReg === 0 ? <InputsLogIn setRender = {setRender} current = {loadReg} setFunc = {setLoadReg}/> : <RegAccount current = {loadReg} setFunc = {setLoadReg}/>}
-			<div className='logImage'>
-				<img src = {require('../images/celebrating.png')} className='imageRight'/>
+			<div className='mainLog'>
+				{loadReg === 0 ? <InputsLogIn setRender = {setRender} current = {loadReg} setFunc = {setLoadReg}/> : <RegAccount current = {loadReg} setFunc = {setLoadReg}/>}
+				<div className='logImage'>
+					<img src = {require('../images/celebrating.png')} className='imageRight'/>
 
+				</div>
 			</div>
-        </div>
 		</div>
        
     )
