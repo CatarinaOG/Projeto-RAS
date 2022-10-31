@@ -18,7 +18,32 @@ function App() {
   const [username,setUsername] = useState('catarina')
   const [balance,setBalance] = useState(0)
 
-
+  const [games,setGames] = useState(
+      [{
+        id : 0,
+        home: 'sporting',
+        away: 'varzim',
+        date: 'hoje 22:00',
+        active: false,
+        results: [
+            { id: 0, result : 'Sporting' , odd: 'null', amount: 0},
+            { id: 1, result : 'Empate' , odd: 0.2, amount: 0},
+            { id: 2, result : 'Varzim' , odd: 0.3, amount: 0},
+        ]
+    },
+    {
+        id : 1,
+        home: 'sporting',
+        away: 'varzim',
+        date: 'hoje 22:00',
+        active: true,
+        results: [
+            { id: 3, result : 'Sporting' , odd: 0.4, amount: 0},
+            { id: 4, result : 'Empate' , odd: 0.5, amount: 0},
+            { id: 5, result : 'Varzim' , odd: 0.6, amount: 0},
+        ]
+    }]
+  )
 
 
   return (
@@ -32,6 +57,7 @@ function App() {
       {rendered==="Home" && 
         <Home
           username={username}
+          games={games}
           setRender={setRender}
         />
       }
@@ -45,6 +71,7 @@ function App() {
       {rendered==="HomeExpert" && 
         <HomeExpert 
           username={username}
+          games={games}
           setRender={setRender}
         />
       }

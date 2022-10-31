@@ -10,30 +10,8 @@ import {useState} from 'react'
 
 export default function Home(props){
 
-    const {username,setRender} = props
+    const {username,games,setRender} = props
 
-    const games = [{
-        id : 0,
-        home: 'sporting',
-        away: 'varzim',
-        date: 'hoje 22:00',
-        results: [
-            { id: 0, result : 'Sporting' , odd: 0.1, amount: 0},
-            { id: 1, result : 'Empate' , odd: 0.2, amount: 0},
-            { id: 2, result : 'Varzim' , odd: 0.3, amount: 0},
-        ]
-    },
-    {
-        id : 1,
-        home: 'sporting',
-        away: 'varzim',
-        date: 'hoje 22:00',
-        results: [
-            { id: 3, result : 'Sporting' , odd: 0.4, amount: 0},
-            { id: 4, result : 'Empate' , odd: 0.5, amount: 0},
-            { id: 5, result : 'Varzim' , odd: 0.6, amount: 0},
-        ]
-    }]
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
