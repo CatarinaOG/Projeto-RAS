@@ -1,9 +1,8 @@
-
-body{
+.ftrofile{
     background-color: white;
 }
 
-.backgroundModal{
+.ftbackgroundModal{
     background:#18340C;
     opacity: 0.5;
     position: absolute;
@@ -14,7 +13,7 @@ body{
   }
   
 
-.whiteShadow{
+.ftwhiteShadow{
 
     
     position: relative;
@@ -32,3 +31,408 @@ body{
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
+
+/*----- IdSaldo.js-----*/
+
+.ftsquareDiv{
+    position: relative;
+    height: 25%;
+    width: 100%;
+    box-shadow: 0px 1px rgba(0, 0, 0, 0.25), 0px 1px rgba(0, 0, 0, 0.25);
+
+}
+
+.ftuserDiv{
+    position: absolute;
+    width: 100%;
+    top : 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ftvalDiv{
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.ftusername{
+    color: #18340C;
+    font-family: 'Spinnaker';
+    font-style: normal;
+}
+
+.ftval{
+    color: #18340C;
+    font-family: 'Spinnaker';
+    font-style: normal;   
+
+}
+
+
+
+
+/*----- ChangeData -----*/
+
+
+
+.changeDataOutDiv{
+    position: relative;
+    width: 85%;
+    height : 60%;
+    left : 15%;
+    top : 10%
+}
+
+/*----- ChangeData inputs-----*/
+
+.ftinputName{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:37%;
+    text-align: center;
+}
+
+.ftinputPass{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:77%;
+}
+
+.ftinputSurname{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top : 57%;
+}
+
+/*----- ChangeData titles----*/
+
+.clickHistory{
+    position: absolute;
+    top:25%;
+    left: 0%;
+    color: #18340C;
+    font-size: 19px;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hName{
+    position: absolute;
+    top:40%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hPassword{
+    position: absolute;
+    top:80%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+
+.hSurname{
+    position: absolute;
+    top:60%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+/*----- ChangeData buttons -----*/
+
+
+.fttakeOut:active {
+    color: white;
+    background-color:#F07444;
+
+    
+}
+
+.ftdeposit:active {
+    color: white;
+    background-color:#F07444;
+
+    
+}
+
+
+.fttakeOut{
+    position: absolute;
+
+    height: 15%;
+    width: 25%;
+    top: 0%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+    left: 10%
+}
+
+
+.ftdeposit{
+    position: absolute;
+
+    height: 15%;
+    width: 25%;
+    top: 0%;
+
+    color: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+    right: 25%
+}
+
+
+
+.ftChange{
+    position: relative;
+
+    height: 9%;
+    width: 5%;
+    top: 0%;
+
+    background: white;
+    border-radius: 20px;
+    font-size: 13px;
+    border: 1px solid #18340C ;
+    
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    top:23%;
+    left:50%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+
+}
+
+.ftConfirm{
+    position: relative;
+
+    height: 7%;
+    width: 12%;
+
+    background: white;
+    border-radius: 20px;
+    font-size: 13px;
+    border: 1px solid #18340C ;
+    
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 38px;
+    left:60%;
+    top: 5.7vh;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+
+}
+
+
+/*----- BetHistory ----- */
+
+
+.betHistoryDiv{
+    position: relative;
+    width: 85%;
+    height : 60%;
+    left : 15%;
+    top : 8%
+}
+
+/*----- BetHistory Buttons----- */
+
+
+.ftsimpleBet:active {
+    color: white;
+    background-color:#F07444;    
+}
+
+.ftmultBet:active {
+    color: white;
+    background-color:#F07444;    
+}
+
+.ftsimpleBet{
+    position: absolute;
+    color: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    height: 15%;
+    width: 25%;
+    top: 0%;
+    left:8%;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+}
+
+.ftmultipleBet{
+    color: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    height: 15%;
+    width: 25%;
+    top: 0%;
+    border: 1px solid #F07444 ;
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+}
+
+.ftgoBack{
+
+}   
+
+.ftBetList{
+    position: absolute;
+    top:30%;
+    left:10%
+}
+
+/*---- PopUp ---- */
+
+.ftboxConfirm{
+    background:  white;
+    opacity: 100;
+    height: 60vh;
+    width: 50vw;
+    position: absolute;
+    left: 25vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+  
+  
+  }
+  
+  .ftinputNum{
+    position: absolute;
+    left : 32%;
+    height: 8%;
+    width: 35%;
+    top: 25%;
+    text-align: center;
+    border-radius: 30px;
+  }
+  
+  .ftbuttonPaypal {
+    background-image: url(../images/PayPal-Logo_192x192.jpeg); /* 16px x 16px */
+    background-repeat: no-repeat ;
+    width: 20%;
+    height: 33%;
+    border-radius: 5%;
+    vertical-align: middle; /* align the text vertically centered */
+    position:absolute;
+    left: 30%;
+    scale: 0.8;
+    top: 50%;
+  }
+  
+  .ftbuttonMaestro {
+    background-image: url(../images/logo-visa-28_191x185.jpeg); /* 16px x 16px */
+    background-repeat: no-repeat ;
+    width: 20%;
+    height: 33%;
+    border-radius: 5%;
+    vertical-align: middle; /* align the text vertically centered */
+    position:absolute;
+    left: 50%;
+    scale: 0.8;
+    top: 50%;
+  }
+  
+  .selecioneForma{
+    position: absolute;
+    left : 35%;
+    top: 40%;
+  }
+  
+  .submitButton{
+    scale: 0.7;
+  }
+  
+  .ftclosePop{
+    position: absolute;
+    width: 8%;
+    scale: 0.6;
+    right:5%;
+    top:5%;
+  
+    height: 8%;
+  
+  
+    background: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    color:green;
+  
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+  
+    color: #18340C;
+  }

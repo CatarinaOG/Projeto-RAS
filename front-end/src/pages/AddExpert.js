@@ -1,6 +1,5 @@
 import '../styles/AddSpecialist.css';
 import NavBarProfile from "../components/NavBarProfile";
-import IdSaldo from '../components/IdSaldo';
 import { useState } from 'react';
 import PopUp from '../components/PopUp'
 
@@ -33,22 +32,22 @@ export default function AddSpecialist(){
     
 
     return(
-        <div className='addSpecialist'>
+        <div className='ftaddSpecialist'>
             <div>
                 <NavBarProfile userN = {username}/>
-                <div className='whiteShadow'>
-                    <h1 className = "title">Adicionar Especialista</h1>
+                <div className='ftwhiteShadow'>
+                    <h1 className = "ftAddSp">Adicionar Especialista</h1>
                     <form onSubmit = {handleSubmit}>
-                        <h3 className='promptEmail'>Insira o email:</h3>
-                        <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className="emailSp"/>
-                        <h3 className='promptPass'>Insira a password:</h3>
-                        <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ="passwordSp"/>
-                        <button className = "conclude" > Concluir</button>
+                        <h3 className='ftpromptEmailSp'>Insira o email:</h3>
+                        <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className="ftemailSp"/>
+                        <h3 className='ftpromptPassSp'>Insira a password:</h3>
+                        <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ="ftpasswordSp"/>
+                        <button className = "ftaddConcludeSp" > Concluir</button>
                     </form>
                 </div>
             </div>
-            {confirmed !=0 && <div><div  className="backgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation ={confirmation} setConfirmed={setConfirmed}/></div>} 
+            {confirmed !=0 && <div><div  className="ftbackgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation ={confirmation} setConfirmed={setConfirmed}/></div>} 
 
-        </div>    
+        </div>            
     )
 }

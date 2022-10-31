@@ -1,15 +1,13 @@
 
-import '../styles/ChangeData.css'
+import '../styles/Profile.css'
 import {useState} from 'react'
 
 export default function ChangeData(props){
 
-    const defUser = props.username;
+    const {setUsername,setShowPopUp,setDataOrHistory,username} = props
 
-    const setVal = props.setVal;
-
-    function change(){
-        props.setCompLoad("history");
+    function goToHistory(){
+        props.setDataOrHistory("history");
     }
 
     const [formData, setFormData] = useState(
@@ -18,44 +16,52 @@ export default function ChangeData(props){
     
     function handleChange(event) {
         setFormData(prevFormData => {
-            console.log(event.target.value)
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
-                
             }
         })
     }
 
     function handleSubmit(event){
         event.preventDefault();
-        props.setUser(formData.firstName);
- 
+
+        // Tratar do pedido e verificação
+
+        setUsername(formData.firstName);
     }
 
-    function levPop(){
-       setVal(1);
+    function withdrawPop(){
+        setShowPopUp('withdraw');
     }
 
-    function depPop(x){
-        setVal(2);
+    function depositPop(x){
+        setShowPopUp('deposit');
      }
  
 
     return (
         <div className="changeDataOutDiv">
-                <button className='takeOut' onClick={levPop}> Levantar </button>
-                <button className='deposit' onClick={depPop}> Depositar </button>
-                <h3 className="clickHistory" onClick={change} > Consultar Histórico de Apostas</h3>
-                <button  className='Change' onClick={change}> > </button>
+                <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
+                <button className='ftdeposit' onClick={depositPop}> Depositar </button>
+                
+                <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
+                
+                <button  className='ftChange' onClick={goToHistory}> > </button>
                 <form onSubmit = {handleSubmit} >
-                    <h3 className='hName'> Nome : </h3>
-                    <input className= "inputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
-                    <h3 className='hSurname'> Apelido : </h3>
-                    <input className= "inputSurname" onChange={handleChange} type = "text" name="lastName"  value = {formData.lastName} ></input>
-                    <h3 className='hPassword'> Mudar palavra passe</h3>
-                    <input className= "inputPass" onChange={handleChange} type = "password" name = "password" value = {formData.password}></input>
-                    <button  className='Confirm'> Confirm</button>
+                    <h4 className='hName'> Nome : </h4>
+                
+                    <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
+                
+                    <h4 className='hSurname'> Apelido : </h4>
+                
+                    <input className= "ftinputSurname" onChange={handleChange} type = "text" name="lastName"  value = {formData.lastName} ></input>
+                
+                    <h4 className='hPassword'> Mudar palavra passe</h4>
+                
+                    <input className= "ftinputPass" onChange={handleChange} type = "password" name = "password" value = {formData.password}></input>
+                
+                    <button  className='ftConfirm'> Confirm</button>
                 </form>
         </div>
     )

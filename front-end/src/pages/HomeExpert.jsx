@@ -11,32 +11,9 @@ import "../styles/home.css"
 import {useState} from 'react'
 
 
-export default function HomeExpert(){
+export default function HomeExpert(props){
 
-    const games = [{
-        id : 0,
-        home: 'sporting',
-        away: 'varzim',
-        date: 'hoje 22:00',
-        active: false,
-        results: [
-            { id: 0, result : 'Sporting' , odd: 'null', amount: 0},
-            { id: 1, result : 'Empate' , odd: 0.2, amount: 0},
-            { id: 2, result : 'Varzim' , odd: 0.3, amount: 0},
-        ]
-    },
-    {
-        id : 1,
-        home: 'sporting',
-        away: 'varzim',
-        date: 'hoje 22:00',
-        active: true,
-        results: [
-            { id: 3, result : 'Sporting' , odd: 0.4, amount: 0},
-            { id: 4, result : 'Empate' , odd: 0.5, amount: 0},
-            { id: 5, result : 'Varzim' , odd: 0.6, amount: 0},
-        ]
-    }]
+    const {username,games} = props
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
 
@@ -85,7 +62,7 @@ export default function HomeExpert(){
             
 
             <NavBar 
-                user='Carlos' 
+                user={username}
                 searching={searching} 
                 setSearching={setSearching} 
             />

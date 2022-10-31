@@ -38,32 +38,31 @@ export default function AddGame(){
 
 
     return(
-        <div className='AddGame'>
+        <div className='ftAddGame'>
             <div>
                 <NavBarProfile userN = {username}/>
                 <div className='whiteShadow'>
                     <IdSaldo userN = {username}/>
-                    <h2 className='InsertData'>Insira os dados do jogo</h2>
+                    <h2 className='ftInsertData'>Insira os dados do jogo</h2>
                     <form onSubmit = {handleSubmit}>
-                        <h3 className='promptSport'>Insira o Desporto</h3>
-                        <select className='selectSport' value={formData.sport} onChange={handleChange} name ="sport">
+                        <h3 className='ftpromptSport'>Insira o Desporto</h3>
+                        <select className='ftselectSport' value={formData.sport} onChange={handleChange} name ="sport">
                             <option value="Futebol">Futebol</option>
-                            <option value="Ténis">Ténis</option>
                             <option value="">---Escolha---</option>
                         </select>
 
-                        <h3 className="promptParticipantA">Participante A :</h3>
-                        <input className ="selectPartA" type="text" onChange={handleChange}  placeholder='Participante A' name = "participantA" value = {formData.participantA}/>
+                        <h3 className="ftpromptParticipantA">Participante A :</h3>
+                        <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Participante A' name = "participantA" value = {formData.participantA}/>
                         
-                        <h3 className="promptParticipantB">Participante B :</h3>
-                        <input className ="selectPartB" type="text" onChange={handleChange} placeholder='Participante B' name = "participantB" value = {formData.participantB}/>
+                        <h3 className="ftpromptParticipantB">Participante B :</h3>
+                        <input className ="ftselectPartB" type="text" onChange={handleChange} placeholder='Participante B' name = "participantB" value = {formData.participantB}/>
                         
-                        <h3 className="promptOdds">Odds:</h3>
-					    <input className='oddA' type="number" onChange={handleChange} placeholder = "Odd A" name="oddA" value = {formData.oddA}/>
-					    <input className='oddTie' type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/>
-					    <input className='oddB' type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
+                        <h3 className="ftpromptOdds">Odds:</h3>
+					    <input className='ftoddA' type="number" onChange={handleChange} placeholder = "Odd A" name="oddA" value = {formData.oddA}/>
+					    <input className='ftoddTie' type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/>
+					    <input className='ftoddB' type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
 
-                        <button className = "add" > Confirmar</button>
+                        <button className = "ftadd" > Confirmar</button>
                     </form>
 
                 </div>

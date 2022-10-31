@@ -6,10 +6,6 @@
     width: 100%;
 }
 
-
-
-
-
 .logImage{
 
 
@@ -47,5 +43,274 @@
     background: #FEFFFE;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+}
+
+
+/*------ InputsLogIn ------*/
+
+.inputs{
+    position: absolute;
+    top : 5%;
+    left: 3%;
+    bottom: 5%;
+    width : 40%;
+    height: 90%;
+    
+}
+
+/*------ InputsLogIn Texts ------*/
+
+.ftwelcomeTitle{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    font-style:normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    color: #18340C;
+    font-family: 'Spinnaker';
+    font-style: normal;
+
+}
+
+.ftnoAccount{
+    position: absolute;
+    bottom: 18%;
+    font-size: 15px;
+    color: #18340C;
+    left: 37%;
+    font-family: 'Spinnaker';
+}
+
+.ftnoAccountHyper{
+    position: absolute;
+    bottom: 14%;
+    font-size: 13px;
+    color: #18340C;
+    left: 40%;
+    font-family: 'Spinnaker';
+}
+
+.ftnoPass{
+    position: absolute;
+    bottom: 43%;
+    color: #18340C;
+    right: 10% ;
+    font-family: 'Spinnaker';
+    font-size: 10px
+
+}
+
+
+/*------ InputLogIn Input -----*/
+
+
+.ftuserNameLog{
+    
+    position: absolute;
+    top: 33%;
+    left: 10%;
+    width: 80%;
+    height: 8%;
+
+    text-align: center;
+    
+
+    border: 1px solid #18340C;
+    border-radius: 40px;
+}
+
+.ftpasswordLog{
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    left: 10%;
+    height: 8%;
+    width: 80%;
+    text-align: center;
+    
+
+    border: 1px solid #18340C;
+    border-radius: 40px;
+
+
+}
+
+.ftacederLog{
+    position: absolute;
+
+    top: 65%;
+    left: 10%;
+    height: 8%;
+    width: 80%;
+
+
+
+    background: #F07444;
+    border-radius: 20px;
+    color:green;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+
+color: #18340C;
+}
+
+
+.ftrasbetLogo{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    width: 30%;
+}
+
+
+/*----- regAccount -----*/
+
+
+.ftRegisterTitle{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    font-style:normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    color: #18340C;
+    font-family: 'Spinnaker';
+    
+}
+
+.ftnameReg{
+    
+    position: absolute;
+    top: 28%;
+    width: 80%;
+    height: 6%;
+    border-radius: 30px;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+
+}
+
+.ftemailReg{
+    
+    position: absolute;
+    top: 38%;
+    width: 80%;
+    height: 6%;
+    border-radius: 30px;
+    left: 10%;
+    text-align: center;
+}
+
+.ftpassswordReg{
+    position: absolute;
+    top: 48%;
+    border-radius: 30px;
+
+    width: 80%;
+    height: 6%;
+    left: 10%;
+
+    text-align: center;
+}
+
+.ftNIFReg{
+    
+    position: absolute;
+    top: 78%;
+    width: 38%;
+
+    left: 53%;
+    height: 6%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.ftbirthdateReg{
+    
+    position: absolute;
+    top: 68%;
+    width: 38%;
+    left: 53%;
+    height: 6%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.ftaddressReg{
+    
+    position: absolute;
+    top: 58%;
+    width: 80%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.ftphoneReg{
+    
+    position: absolute;
+    top: 78%;
+    width: 38%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.ftCCReg{
+    
+    position: absolute;
+    top: 68%;
+    width: 38%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+
+.acceder{
+    position: absolute;
+
+    left: 11%;
+    height: 8%;
+    width: 80%;
+    top: 92%;
+
+
+
+    background: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+
+    color: #18340C;
+}
+
+.regAccount{
+    position: absolute;
+    top : 5%;
+    left: 3%;
+    bottom: 5%;
+    width : 40%;
+    height: 90%;
+    
 }
 

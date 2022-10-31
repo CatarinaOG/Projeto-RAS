@@ -5,29 +5,47 @@ import IdSaldo from '../components/IdSaldo';
 import { useState } from 'react';
 import ChangeData from '../components/ChangeData';
 import BetHistory from '../components/BetHistory';
-import PopUp from '../components/PopUp'
+import PopUpProfile from '../components/PopUp'
 
-export default function Profile(){
+export default function Profile(props){
 
-    const [username,setUsername] = useState("Francisco Toldy");
-    const [compLoad,setCompLoad] = useState("ChangeData");
-    const [val,setVal] = useState(0);
-    const confirmation=1;
+    
+    const {username,setUsername,setBalance,setRender} = props
 
-    function changeComp(x){
-        setCompLoad(x);
-    }
+    const [dataOrHistory,setDataOrHistory] = useState("Data");
+    const [showPopUp,setShowPopUp] = useState("");
+
 
     return(
-        <div className='Profile'>
+        <div className='ftProfile'>
             <div>
-                <NavBarProfile userN = {username}/>
-                <div className='whiteShadow'>
-                    <IdSaldo userN = {username}/>
-                    {compLoad === "ChangeData" ? <ChangeData val = {val} setVal = {setVal} compLoad = {compLoad} setUser = {setUsername} setCompLoad = {changeComp} userN = {username}/> : <BetHistory compLoad = {compLoad} setCompLoad = {changeComp} userN = {username}/>}
+                <NavBarProfile username={username}/>
+                <div className='ftwhiteShadow'>
+                    <IdSaldo username={username}/>
+                    {dataOrHistory === "Data" ? 
+                        <ChangeData
+                            setUsername={setUsername}
+                            setShowPopUp={setShowPopUp}
+                            setDataOrHistory={setDataOrHistory} 
+                            username={username}
+                        /> 
+                        :
+                        <BetHistory 
+                            setDataOrHistory={setDataOrHistory} 
+                        />
+                    }
                 </div>
             </div>
-            {val !=0 && <div><div  className="backgroundModal"></div><PopUp val = {val} setVal = {setVal} confirmation={confirmation}/></div>} 
+            {showPopUp !== '' && 
+                <div>
+                    <div  className="ftbackgroundModal"></div>
+                    <PopUpProfile 
+                        showPopUp={showPopUp} 
+                        setShowPopUp={setShowPopUp}
+                        setBalance={setBalance} 
+                    />
+                </div>
+            } 
 
         </div>    
     )

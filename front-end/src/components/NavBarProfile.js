@@ -1,15 +1,14 @@
 
-import '../styles/NavBarProfile.css';
+import logo from '../images/logo.png'
 
-export default function NavBarProfile  (props){
+export default function NavBarProfile(props){
     
-    const nome = props.userN;
+    const {username} = props
 
     return (
-        <div className='navBar'>
-		    <img className = "rasbetLogoProf" src = {require('../images/logo.png')}/>
-
-            <h3 className='welcomeMessage'> Bem-vindo , {nome}</h3>
+        <div className="NavBar">
+            <img src={logo} className='logo'/>
+            <h3 className='welcomeUser'> Welcome, {username} </h3>
         </div>
     )
 }
