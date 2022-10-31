@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import '../styles/Profile.css'
 import goBack from "../images/goBack.png"
+
 export default function BetHistory(props){
 
     const {setDataOrHistory} = props

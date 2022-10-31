@@ -1,4 +1,10 @@
 import './styles/App.css';
+import './styles/AddGame.css';
+import './styles/AddExpert.css';
+import './styles/home.css';
+import './styles/Profile.css';
+import './styles/login.css';
+
 
 import {useState} from 'react';
 

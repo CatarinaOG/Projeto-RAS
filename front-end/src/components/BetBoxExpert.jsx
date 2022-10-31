@@ -1,6 +1,5 @@
 import pencil from '../images/pencil.png'
 
-
 export default function BetBoxExpert(props){
 
     const {id,games,gameId,result,odd,setModalWarningActive,setOddToChange,setModalChangeOdd} = props

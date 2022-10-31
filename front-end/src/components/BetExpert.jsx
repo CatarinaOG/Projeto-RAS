@@ -1,8 +1,5 @@
 import BetBoxExpert from './BetBoxExpert'
 
-import { useState } from 'react'
-
-
 export default function BetExpert(props){
 
     const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd} = props
@@ -33,7 +30,5 @@ export default function BetExpert(props){
                 {resultsBoxes}
             </div>
         </div>
-
     )
-
 }

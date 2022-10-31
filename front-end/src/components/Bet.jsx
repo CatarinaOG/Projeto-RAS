@@ -1,8 +1,5 @@
 import BetBox from './BetBox'
 
-import { useState } from 'react'
-
-
 export default function Bet(props){
 
     const {home,away,date,results} = props.game

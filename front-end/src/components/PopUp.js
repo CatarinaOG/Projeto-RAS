@@ -1,4 +1,3 @@
-import '../styles/AddSpecialist.css'
 import {useState} from 'react';
 
 

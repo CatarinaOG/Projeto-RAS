@@ -1,5 +1,3 @@
-import '../styles/logSquare.css';
-
 import logo from '../images/logo.png'
 
 import {useState} from 'react'

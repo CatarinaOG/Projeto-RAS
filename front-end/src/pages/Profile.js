@@ -27,7 +27,6 @@ export default function Profile(props){
                             setUsername={setUsername}
                             setShowPopUp={setShowPopUp}
                             setDataOrHistory={setDataOrHistory} 
-                            username={username}
                         /> 
                         :
                         <BetHistory 

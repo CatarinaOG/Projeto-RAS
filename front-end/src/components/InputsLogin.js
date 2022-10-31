@@ -1,5 +1,4 @@
 
-import '../styles/logSquare.css';
 import { useState } from 'react';
 
 import logo from '../images/logo.png'
@@ -31,7 +30,7 @@ export default function InputsLogin(props) {
 
 		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
 
-		setRender("AddExpert");
+		setRender("Home");
 	}
 
 

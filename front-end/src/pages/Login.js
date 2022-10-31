@@ -1,5 +1,4 @@
 
-import '../styles/logSquare.css';
 import RegAccount from '../components/RegAccount';
 import InputsLogin from '../components/InputsLogin';
 

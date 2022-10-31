@@ -1,13 +1,12 @@
 
-import '../styles/Profile.css'
 import {useState} from 'react'
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDataOrHistory,username} = props
+    const {setUsername,setShowPopUp,setDataOrHistory} = props
 
     function goToHistory(){
-        props.setDataOrHistory("history");
+        setDataOrHistory("history");
     }
 
     const [formData, setFormData] = useState(
@@ -47,7 +46,7 @@ export default function ChangeData(props){
                 
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
                 
-                <button  className='ftChange' onClick={goToHistory}> > </button>
+                <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
                 <form onSubmit = {handleSubmit} >
                     <h4 className='hName'> Nome : </h4>
                 

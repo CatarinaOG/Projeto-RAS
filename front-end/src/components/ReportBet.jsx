@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import close from '../images/close.png'
 
 export default function ReportBet(props){

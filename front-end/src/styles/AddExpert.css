@@ -147,7 +147,7 @@ color: #18340C;
   }
   
   .ftbuttonPaypal {
-    background-image: url(../images/PayPal-Logo_192x192.jpeg); /* 16px x 16px */
+    background-image: url(../images/PayPal.jpeg); /* 16px x 16px */
     background-repeat: no-repeat ;
     width: 20%;
     height: 33%;
@@ -160,7 +160,7 @@ color: #18340C;
   }
   
   .ftbuttonMaestro {
-    background-image: url(../images/logo-visa-28_191x185.jpeg); /* 16px x 16px */
+    background-image: url(../images/visa.jpeg); /* 16px x 16px */
     background-repeat: no-repeat ;
     width: 20%;
     height: 33%;

@@ -1,4 +1,3 @@
-import '../styles/AddSpecialist.css';
 import NavBarProfile from "../components/NavBarProfile";
 import { useState } from 'react';
 import PopUp from '../components/PopUp'
