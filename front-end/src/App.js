@@ -15,8 +15,10 @@ function App() {
 
   const [rendered,setRender] = useState("Login");
 
-  const [username,setUsername] = useState('carlos')
+  const [username,setUsername] = useState('catarina')
   const [balance,setBalance] = useState(0)
+
+
 
 
   return (
@@ -29,6 +31,7 @@ function App() {
       />}
       {rendered==="Home" && 
         <Home
+          username={username}
           setRender={setRender}
         />
       }
@@ -39,9 +42,15 @@ function App() {
           setBalance={setBalance}
           setRender = {setRender}
       />}
-      {rendered==="HomeExpert" && <HomeExpert setRender={setRender}/>}
-      
-      {rendered==="AddExpert" && <AddExpert />}
+      {rendered==="HomeExpert" && 
+        <HomeExpert 
+          username={username}
+          setRender={setRender}
+        />
+      }
+      {rendered==="AddExpert" &&
+        <AddExpert />
+      }
     </div>
 	);
 }

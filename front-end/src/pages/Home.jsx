@@ -10,7 +10,7 @@ import {useState} from 'react'
 
 export default function Home(props){
 
-    const {setRender} = props
+    const {username,setRender} = props
 
     const games = [{
         id : 0,
@@ -52,7 +52,7 @@ export default function Home(props){
     return(
         <div>
             <NavBar 
-                user='Carlos' 
+                user={username} 
                 searching={searching} 
                 setSearching={setSearching} 
                 setRender={setRender}

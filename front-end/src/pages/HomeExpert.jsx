@@ -11,7 +11,9 @@ import "../styles/home.css"
 import {useState} from 'react'
 
 
-export default function HomeExpert(){
+export default function HomeExpert(props){
+
+    const {username} = props
 
     const games = [{
         id : 0,
@@ -85,7 +87,7 @@ export default function HomeExpert(){
             
 
             <NavBar 
-                user='Carlos' 
+                user={username}
                 searching={searching} 
                 setSearching={setSearching} 
             />

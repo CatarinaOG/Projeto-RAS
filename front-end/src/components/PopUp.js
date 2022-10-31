@@ -31,7 +31,6 @@ export default function PopUp(props){
 
         // tratar de verificar verificação de levantar/depositar e alterar com 'setBalance'
 
-
     }
 
     return(
@@ -50,7 +49,6 @@ export default function PopUp(props){
                 <h3 className='ftselectWay'>Selecione a forma de transferência</h3>
             </div>
         </div>
-
     )
 
     /*

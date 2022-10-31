@@ -32,7 +32,6 @@ export default function Profile(props){
                         :
                         <BetHistory 
                             setDataOrHistory={setDataOrHistory} 
-                            username={username}
                         />
                     }
                 </div>

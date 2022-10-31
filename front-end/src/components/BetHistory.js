@@ -3,7 +3,7 @@ import '../styles/Profile.css'
 import goBack from "../images/goBack.png"
 export default function BetHistory(props){
 
-    const {setDataOrHistory,username} = props
+    const {setDataOrHistory} = props
 
     function goToData(){
         setDataOrHistory("Data");

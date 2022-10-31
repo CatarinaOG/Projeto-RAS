@@ -485,6 +485,7 @@
 
 .buttonsModal > button:active{
     background: #18340C;
+    color: white;
 
 }
 
