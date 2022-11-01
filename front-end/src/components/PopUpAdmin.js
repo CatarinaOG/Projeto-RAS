@@ -1,7 +1,4 @@
-import {useState} from 'react';
-import App from '../App';
-import '../styles/AddExpert.css';
-
+import closeImg from '../images/close.png'
 
 
 export default function PopUp(props){
@@ -12,7 +9,7 @@ export default function PopUp(props){
     // vamos precisar do balance tb para efeitos de comparação para ver se o levantar é valido
 
 
-    function cancel(){
+    function close(){
         setConfirmed(false);
     }
 
@@ -23,7 +20,7 @@ export default function PopUp(props){
                 <h2 className='fth2PopAdmin' >Dados adicionados:</h2>
                 <h3 className='fth3PopAdminEmail'>Email : {email}</h3>
                 <h3 className='fth3PopAdminPass'>Password : {password}</h3>
-                <button className="ftclosePop" onClick={cancel}>x</button>
+                <img src = {closeImg} className='close' onClick={close}/>
             </div>
         </div>
     )
