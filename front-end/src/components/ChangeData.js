@@ -1,5 +1,6 @@
 
 import {useState} from 'react'
+import goBack from "../images/goBack.png"
 
 export default function ChangeData(props){
 
@@ -43,6 +44,7 @@ export default function ChangeData(props){
         <div className="changeDataOutDiv">
                 <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
                 <button className='ftdeposit' onClick={depositPop}> Depositar </button>
+                <img src = {goBack} className="ftgoBack"/>
                 
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
                 
