@@ -1,5 +1,6 @@
 package TP.RasBet.model;
 import java.sql.Date;
+import java.io.Serializable;
 
 import javax.persistence.*;
 
@@ -10,8 +11,8 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "Game")
-public class Game{
+@Table(name = "game")
+public class Game implements Serializable{
 
     @Id
     @GeneratedValue
@@ -33,23 +34,17 @@ public class Game{
 
     //one to many de game para odd
     @JsonIgnore
-    @OneToMany(mappedBy = "Game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Odd> odds;
 
     
     //many to one de game para expert
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Expert_id", referencedColumnName = "id")
+    @JoinColumn(name = "expert_id", referencedColumnName = "id")
     private Expert expert;
 
-
-    //many to many com bet
-    @ManyToMany
-    @JoinTable(
-            name = "GamesInOneBet",
-            joinColumns = @JoinColumn(name = "Bet_id"),
-            inverseJoinColumns = @JoinColumn(name = "Game_id"))
-    private List<Bet> bets;
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<GamesInOneBet> games;
 
 
 
@@ -87,5 +82,13 @@ public class Game{
     }
     public void setState(String state){
         this.state = state;
+    }
+    public void setExpert(Expert expert) {
+        this.expert = expert;
+    }
+
+    @Override
+    public String toString() {
+        return "" + this.id + " | " + this.sport;
     }
 }

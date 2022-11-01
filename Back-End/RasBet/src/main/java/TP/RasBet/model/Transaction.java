@@ -1,13 +1,14 @@
 package TP.RasBet.model;
 import java.sql.Date;
+import java.io.Serializable;
 
 import javax.persistence.*;
 
 
 
 @Entity
-@Table(name = "Transaction")
-public class Transaction{
+@Table(name = "transaction")
+public class Transaction implements Serializable{
 
     @Id
     @GeneratedValue
@@ -26,12 +27,12 @@ public class Transaction{
     @Column(name = "FinalBalance")
     private float finalBalance;
 
-
+ 
     //many to one com user -> User_id é o nome da FK e id é a coluna referenciada que é a PK da tabela do user
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "User_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
+ 
 
 
 

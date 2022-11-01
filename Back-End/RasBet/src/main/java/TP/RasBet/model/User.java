@@ -1,12 +1,13 @@
 package TP.RasBet.model;
 import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.*;
 
 
 @Entity
-@Table(name = "User")
-public class User{
+@Table(name = "user")
+public class User implements Serializable{
 
     @Id
     @GeneratedValue
@@ -25,7 +26,7 @@ public class User{
     @Column(name = "name")
     private String name;
 
-    @Column(name = "address")
+    @Column(name = "adress")
     private String address;
 
     @Column(name = "NIF")
@@ -37,22 +38,35 @@ public class User{
     @Column(name = "wallet")
     private float wallet;
     
+     
 
     //one to many com Transaction -> User é a tabela que mapeia
-    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactions;
 
 
     // one to many com Bet -> User é a tabela que mapeia
-    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Bet> bets;
 
+    
 
 
 
 
     public User(){
         
+    }
+
+    public User(String email, String password, String telefone , String nome, String address, String nif, String cc){
+        this.email = email;
+        this.password = password;
+        this.phone = telefone;
+        this.name = nome;
+        this.address = address;
+        this.nif = nif;
+        this.cc = cc;
+        this.wallet = 0.0f;
     }
 
     /* Getters */
