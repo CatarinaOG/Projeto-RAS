@@ -84,6 +84,13 @@ function App() {
       {rendered==="AddExpert" &&
         <AddExpert 
           username={username}
+          setRender={setRender}
+        />
+      }
+      {rendered==="AddGame" &&
+        <AddGame 
+          username={username}
+          setRender={setRender}
         />
       }
     </div>

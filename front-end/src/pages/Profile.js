@@ -5,7 +5,7 @@ import IdSaldo from '../components/IdSaldo';
 import { useState } from 'react';
 import ChangeData from '../components/ChangeData';
 import BetHistory from '../components/BetHistory';
-import PopUpProfile from '../components/PopUp'
+import PopUpProfile from '../components/PopUpOperation'
 
 export default function Profile(props){
 
@@ -27,6 +27,7 @@ export default function Profile(props){
                             setUsername={setUsername}
                             setShowPopUp={setShowPopUp}
                             setDataOrHistory={setDataOrHistory} 
+                            setRender={setRender}
                         /> 
                         :
                         <BetHistory 

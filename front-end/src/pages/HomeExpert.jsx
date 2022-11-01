@@ -1,6 +1,5 @@
 import NavBar from "../components/NavBar"
 import SearchBar from "../components/SearchBar"
-import Report from "../components/Report"
 import BetExpert from '../components/BetExpert'
 import ModalWarningActive from '../components/ModalWarningActive'
 import ModalChangeOdd from '../components/ModalChangeOdd'
@@ -13,7 +12,7 @@ import {useState} from 'react'
 
 export default function HomeExpert(props){
 
-    const {username,games} = props
+    const {username,games,setRender} = props
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
 
@@ -65,6 +64,8 @@ export default function HomeExpert(props){
                 user={username}
                 searching={searching} 
                 setSearching={setSearching} 
+                setRender={setRender}
+                userType='expert'
             />
             <div className="content">
                 <div>

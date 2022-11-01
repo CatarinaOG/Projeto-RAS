@@ -30,7 +30,7 @@ export default function InputsLogin(props) {
 
 		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
 
-		setRender("Home");
+		setRender("HomeExpert");
 	}
 
 
@@ -44,8 +44,8 @@ export default function InputsLogin(props) {
 				<button className = "ftacederLog"> Aceder</button>
 			</form>
 			<a className = "ftnoPass" > Esqueci-me da palavra-passe</a>
-			<h4 className='ftnoAccount'>Não tem conta?</h4>
-			<a onClick={changeComp} className = "ftnoAccountHyper"> Registe-se já! </a>
+			<a className='ftnoAccount'>Não tem conta?</a>
+			<h4 onClick={changeComp} className = "ftnoAccountHyper"> Registe-se já! </h4>
 		</div>
     )
 }

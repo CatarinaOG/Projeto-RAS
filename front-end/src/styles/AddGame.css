@@ -59,65 +59,71 @@ body{
 .ftselectSport{
     position: absolute;
     text-align: center;
-    top:50%;
+    top:29%;
     left: 51%;
     width: 30.5%;
     height: 7%;
     border-radius: 30px;
     background-color: white;
+    border: 1px solid black;
 }
 
 .ftselectPartA{
     position: absolute;
     text-align: center;
-    top:60%;
+    top:38%;
     left: 51%;
     width: 30%;
     height: 7%;
     border-radius: 25px;
+    border: 1px solid black;
 
 }
 
 .ftselectPartB{
     position: absolute;
     text-align: center;
-    top:70%;
+    top:48%;
     left: 51%;
     width: 30%;
     height: 7%;
     border-radius: 25px;
+    border: 1px solid black;
 
 }
 
 .ftoddA{
     position: absolute;
     text-align: center;
-    top:  80%;
+    top:  60%;
     left: 51%;
     width: 8%;
     border-radius: 25px;
     height: 7%;
+    border: 1px solid black;
 }
 
 .ftoddB{
     position: absolute;
     text-align: center;
-    top: 80%;
+    top: 60%;
     left: 73%;
     width: 8%;
     height: 7%;
     border-radius: 25px;
+    border: 1px solid black;
 
 }
 
 .ftoddTie{
     position: absolute;
     text-align: center;
-    top: 80%;
+    top: 60%;
     left: 62.5%;
     width: 8%;
     height: 7%;
     border-radius: 25px;
+    border: 1px solid black;
 }
 
 
@@ -126,7 +132,7 @@ body{
 
 .ftInsertData{
     position: absolute;
-    top : 40%;
+    top : 10%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -135,7 +141,7 @@ body{
 .ftpromptSport{
     position: absolute;
     width: 100%;
-    top : 50%;
+    top : 30%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -144,10 +150,9 @@ body{
 .ftpromptParticipantA{
     position: absolute;
     width: 100%;
-    top : 60%;
+    top : 40%;
     left: 18%;
     font-family: 'Spinnaker';
-    color: #18340C;
 }
 
 
@@ -155,7 +160,7 @@ body{
 .ftpromptParticipantB{
     position: absolute;
     width: 100%;
-    top : 70%;
+    top : 50%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -167,7 +172,7 @@ body{
 .ftpromptOdds{
     position: absolute;
     width: 100%;
-    top : 80%;
+    top : 60%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -178,23 +183,21 @@ body{
 .ftadd{
     position: absolute;
 
-    top: 30%;
     left: 33%;
+    bottom: 10vh;
     height: 8%;
     width: 33%;
-
-
 
     background: #F07444;
     border-radius: 20px;
     font-size: 13px;
-    color:green;
 
     font-family: 'Spinnaker';
-    font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 25px;
     line-height: 38px;
+
+    border: 1px solid #F07444;
 
     color: white;
 }
@@ -215,3 +218,15 @@ body{
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
+
+.goBackImg{
+
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.fth1Pop{
+    margin-top: 20vh;
+}
+

@@ -98,18 +98,8 @@
     right: 15%;
     border: 1px solid #18340C;
     border-radius: 40px;
-    top:37%;
+    top:33%;
     text-align: center;
-}
-
-.ftinputPass{
-    position: absolute;
-    height: 12%;
-    width: 35%;
-    right: 15%;
-    border: 1px solid #18340C;
-    border-radius: 40px;
-    top:77%;
 }
 
 .ftinputSurname{
@@ -119,14 +109,24 @@
     right: 15%;
     border: 1px solid #18340C;
     border-radius: 40px;
-    top : 57%;
+    top : 52%;
+}
+
+.ftinputPass{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:72%;
 }
 
 /*----- ChangeData titles----*/
 
 .clickHistory{
     position: absolute;
-    top:25%;
+    top:15%;
     left: 0%;
     color: #18340C;
     font-size: 19px;
@@ -137,7 +137,15 @@
 
 .hName{
     position: absolute;
-    top:40%;
+    top:35%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hSurname{
+    position: absolute;
+    top:55%;
     font-family: 'Spinnaker';
     font-style: normal;
     color: #18340C;
@@ -145,20 +153,14 @@
 
 .hPassword{
     position: absolute;
-    top:80%;
+    top:75%;
     font-family: 'Spinnaker';
     font-style: normal;
     color: #18340C;
 }
 
 
-.hSurname{
-    position: absolute;
-    top:60%;
-    font-family: 'Spinnaker';
-    font-style: normal;
-    color: #18340C;
-}
+
 
 /*----- ChangeData buttons -----*/
 
@@ -189,16 +191,14 @@
     border-radius: 10px;
     border: 1px solid #F07444 ;
 
-
-
     font-family: 'Spinnaker';
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
 
     background-color: white;
-    left: 10%
+    left: 10%;
+    top: -10%;
 }
 
 
@@ -215,13 +215,13 @@
     border: 1px solid #F07444 ;
 
     font-family: 'Spinnaker';
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
 
     background-color: white;
-    right: 25%
+    right: 25%;
+    top: -10%;
 }
 
 
@@ -238,14 +238,12 @@
     font-size: 13px;
     border: 1px solid #18340C ;
     
-
     font-weight: 400;
     font-size: 15px;
     line-height: 30px;
-    top:23%;
+    top:14%;
     left:50%;
     font-family: 'Spinnaker';
-    font-style: normal;
     color: #18340C;
 
 }
@@ -264,12 +262,12 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 38px;
-    left:60%;
-    top: 5.7vh;
     font-family: 'Spinnaker';
     font-style: normal;
     color: #18340C;
 
+    left: 31vw;
+    top: 39vh;
 }
 
 
@@ -350,10 +348,10 @@
 }
 
 .ftgoBack{
-    position:absolute;
-    top:-3%;
-    left: -10%;
-    scale:0.8;
+    position: absolute;
+    top: -9%;
+    left: -15%;
+    scale: 0.8;
 }
 
 
@@ -420,25 +418,14 @@
   
   .ftclosePop{
     position: absolute;
-    width: 8%;
-    scale: 0.6;
-    right:5%;
-    top:5%;
-  
+    right:2%;
+    top:2%;
+    scale : 0.5;
     height: 10%;
   
-  
-    background: #F07444;
-    border-radius: 20px;
-    font-size: 13px;
-    color:green;
-  
-    font-family: 'Spinnaker';
-    font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 25px;
   
-    color: #18340C;
   }
 
 
@@ -499,46 +486,23 @@
     scale: 0.7;
   }
   
-  .ftclosePop{
-    position: absolute;
-    width: 8%;
-    scale: 0.6;
-    right:5%;
-    top:5%;
-  
-    height: 8%;
-  
-  
-  
-    background: #F07444;
-    border-radius: 20px;
-    font-size: 13px;
-    color:green;
-  
-    font-family: 'Spinnaker';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 38px;
-  
-  color: #18340C;
-  }
+
 
 
 /*------ PopUp Text ------*/
 
 .fth1Pop{
+    margin-top: 15px;
     font-family: 'Spinnaker';
     font-style: normal;
     color: #18340C;
-    top:15%;
 }
 
 .fth2Pop{
+    margin-top: 15px;
     font-family: 'Spinnaker';
     font-style: normal;
     color: #18340C;
-
 }
 
 .fth3Pop{
@@ -560,4 +524,83 @@
 
 
 /*----- PopUpMaestro -----*/
+.ftMaestroPopNum{
+    position: absolute;
+    border-radius: 15px;
+    width:35%;
+    top:30%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid grey;
+    left: 20%;
 
+}
+.ftMaestroPopCCV{
+    position: absolute;
+    border-radius: 15px;
+    width:15%;
+    top:30%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid grey;
+    left: 60%;
+
+}
+
+
+.ftOperationValue{
+    position: absolute;
+    border-radius: 15px;
+    width:15%;
+    top:50%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid grey;
+    left: 54%;
+
+}
+
+.ftOperationValuePrompt{
+    top:52.5%;
+    position: absolute;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+    left:29%;
+}
+
+.ftOperationButton{
+    color: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    height: 10%;
+    width: 20%;
+    top: 0%;
+    border: 1px solid #F07444 ;
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 38px;
+
+    background-color: white;
+    position: absolute;
+    top: 75%;
+    left: 40%;
+}
+
+
+.ftPaypalEmail{
+    position: absolute;
+    border-radius: 15px;
+    width:40%;
+    top:30%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid grey;
+    left: 29%;
+
+}

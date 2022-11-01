@@ -1,10 +1,14 @@
 
 import {useState} from 'react'
-import goBack from "../images/goBack.png"
+import goBackImg from "../images/goBack.png"
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDataOrHistory} = props
+    const {setUsername,setShowPopUp,setDataOrHistory,setRender} = props
+
+    function goBack(){
+        setRender('Home')
+    }
 
     function goToHistory(){
         setDataOrHistory("history");
@@ -44,7 +48,7 @@ export default function ChangeData(props){
         <div className="changeDataOutDiv">
                 <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
                 <button className='ftdeposit' onClick={depositPop}> Depositar </button>
-                <img src = {goBack} className="ftgoBack"/>
+                <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>
                 
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
                 

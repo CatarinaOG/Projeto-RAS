@@ -53,21 +53,24 @@
 .ftpasswordSp{
     position: absolute;
     text-align: center;
-    top: 48%;
+    top: 45%;
     left: 48%;
     width: 30%;
     height: 8%;
     border-radius: 20px;
+    border: 1px solid grey;
 }
 
 .ftemailSp{
     position: absolute;
     text-align: center;
-    top: 35%;
+    top: 33%;
     left: 48%;
     width: 30%;
     height: 8%;
     border-radius: 20px;
+    border: 1px solid grey;
+
 }
 
 
@@ -82,18 +85,16 @@
 
 
 
-    background: #F07444;
+    color: #F07444;
     border-radius: 20px;
     font-size: 13px;
-    color:green;
-
+    background-color:white;
     font-family: 'Spinnaker';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 25px;
     line-height: 38px;
-
-color: #18340C;
+    border : 1px solid #F07444;
 }
 
 
@@ -118,3 +119,41 @@ color: #18340C;
 }
 
 
+
+.fth2PopAdmin{
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:25%;
+    left : 33%
+}
+
+.fth3PopAdminEmail{
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:45%;
+    left : 33%
+}
+
+.fth3PopAdminPass{
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:60%;
+    left : 33%
+}
+
+.ftgoBackImg{
+    position: absolute;
+    left: 22vw;
+    top: 16vh;
+    z-index: 2;
+    scale: 0.8;
+}

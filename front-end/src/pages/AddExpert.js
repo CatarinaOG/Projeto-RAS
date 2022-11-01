@@ -1,10 +1,11 @@
 import NavBarProfile from "../components/NavBarProfile";
 import { useState } from 'react';
-import PopUp from '../components/PopUp'
+import PopUpAdmin from '../components/PopUpAdmin'
+import goBackImg from '../images/goBack.png'
 
 export default function AddSpecialist(props){
 
-    const {username} = props
+    const {username,setRender} = props
 
     //state para retirar
     const [val,setVal] = useState(0);
@@ -15,6 +16,8 @@ export default function AddSpecialist(props){
         {email: "",password:""}
     )
 
+    const emailEx ='';
+    const passEx = '';
 
 	function handleChange(event) {
         setFormData(prevFormData => {
@@ -30,15 +33,22 @@ export default function AddSpecialist(props){
 		event.preventDefault();
 
         // Mandar pedido e esperar por verificação
-
+              
         setConfirmed(true);
+        emailEx = formData.email;
+        passEx = formData.password;
 	}
+
+    function goBack(){
+        setRender('HomeExpert')
+    }
     
 
     return(
         <div className='ftaddSpecialist'>
             <div>
-                <NavBarProfile userN = {username}/>
+                <NavBarProfile username={username}/>
+                <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
                 <div className='ftwhiteShadow'>
                     <h1 className = "ftAddSp">Adicionar Especialista</h1>
                     <form onSubmit = {handleSubmit}>
@@ -53,10 +63,10 @@ export default function AddSpecialist(props){
             {confirmed && 
                 <div>
                     <div className="ftbackgroundModal"></div>
-                    <PopUp 
-                        val={val} 
-                        setVal={setVal} 
-                        setConfirmed={setConfirmed}
+                    <PopUpAdmin 
+                        email = {formData.email}
+                        password = {formData.password}
+                        setConfirmed ={setConfirmed}
                     />
                 </div>
             }           

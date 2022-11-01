@@ -1,48 +1,63 @@
-
-import '../styles/AddGame.css';
-import NavBarProfile from "../components/NavBarProfile";
-import IdSaldo from '../components/IdSaldo';
 import { useState } from 'react';
-import ChangeData from '../components/ChangeData';
-import BetHistory from '../components/BetHistory';
-import PopUp from '../components/PopUp'
 
-export default function AddGame(){
+import goBackImg from '../images/goBack.png'
 
-    const [username,setUsername] = useState("Francisco Toldy");
-    const [val,setVal] = useState(0);
+import NavBarProfile from "../components/NavBarProfile";
+import PopUpAddGame from '../components/PopUpAddGame'
+
+
+export default function AddGame(props){
+
+    const {username,setRender} = props
 
     const [formData, setFormData] = useState(
         {sport: "",participantA:"" , participantB:"",oddA:"",oddB:"",oddTie:""}
     )
 
+    const [confirmed,setConfirmed] = useState(false);
+
+    const sportPop ='';
+    const participantAPop='';
+    const participantBPop='';
+    const oddAPop='';
+    const oddBPop='';
+    const oddTiePop='';
+
+    function goBack(){
+        setRender('HomeExpert')
+    }
 
 	function handleChange(event) {
         setFormData(prevFormData => {
-            console.log(event.target.value)
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
-                
             }
         })
     }
 
 	function handleSubmit(event){
 		event.preventDefault();
-        console.log(formData.oddTie)
+
+        // fazer verificação
+
+        setConfirmed(true);
+        
+        sportPop =formData.sport;
+        participantAPop=formData.participantA;
+        participantBPop=formData.participantB;
+        oddAPop=formData.oddA;
+        oddBPop=formData.oddB;
+        oddTiePop=formData.oddTie;
 	}
     
 
-
-
-
     return(
-        <div className='ftAddGame'>
+        <div>
             <div>
-                <NavBarProfile userN = {username}/>
+                <NavBarProfile username={username}/>
                 <div className='whiteShadow'>
-                    <IdSaldo userN = {username}/>
+                    <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
                     <h2 className='ftInsertData'>Insira os dados do jogo</h2>
                     <form onSubmit = {handleSubmit}>
                         <h3 className='ftpromptSport'>Insira o Desporto</h3>
@@ -62,11 +77,19 @@ export default function AddGame(){
 					    <input className='ftoddTie' type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/>
 					    <input className='ftoddB' type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
 
-                        <button className = "ftadd" > Confirmar</button>
+                        <button className = "ftadd" >Criar Jogo</button>
                     </form>
 
                 </div>
             </div>
+            {confirmed && 
+                <div>
+                    <div className="ftbackgroundModal"></div>
+                    <PopUpAddGame 
+                        setConfirmed={setConfirmed}
+                    />
+                </div>
+            }   
 
         </div>    
     )

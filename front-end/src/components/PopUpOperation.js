@@ -4,6 +4,8 @@ import '../styles/Profile.css';
 
 import PopUpMethod from './PopUpMethod';
 import PopUpMaestro from './PopUpMaestro';
+import PopUpPaypal from './PopUpPaypal';
+
 
 
 
@@ -43,7 +45,9 @@ export default function PopUp(props){
     return(
         <div className="ftboxConfirm">
             {method==='' && <PopUpMethod showPopUp={showPopUp} setShowPopUp={setShowPopUp} setMethod={setMethod}/>}
-            {method==='Maestro' && <PopUpMaestro showPopUp={showPopUp}  setShowPopUp={setShowPopUp}setBalance/>}
+            {method==='Maestro' && <PopUpMaestro setMethod={setMethod} showPopUp={showPopUp}/>}
+            {method==='Paypal' && <PopUpPaypal setMethod={setMethod} showPopUp={showPopUp}/>}
+
         </div>
     )
 }

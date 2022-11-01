@@ -3,7 +3,7 @@ import { PureComponent } from "react";
 import { useState } from "react";
 
 
-export default function PopUpMaestro(props){
+export default function PopUpPaypal(props){
 
     const {setMethod,showPopUp} = props;
 
@@ -12,7 +12,7 @@ export default function PopUpMaestro(props){
     }
 
     const [formData, setFormData] = useState(
-        {operation: showPopUp, cardNum: "",cardCCV:"" ,operationValue:""}
+        {operation: showPopUp, email: "" ,operationValue:""}
     )
     
     function handleChange(event) {
@@ -35,8 +35,7 @@ export default function PopUpMaestro(props){
         <div>
             <h1 className='fth1Pop'>Insira os dados</h1>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} value={formData.cardNum} name="cardNum" type="number" className="ftMaestroPopNum" placeholder="Número do Cartão"></input>
-                <input onChange={handleChange} value={formData.cardCCV} name="cardCCV" type="number" className="ftMaestroPopCCV" placeholder="CCV"></input>
+                <input onChange={handleChange} value={formData.cardNum} name="cardNum" type="number" className="ftPaypalEmail" placeholder="E-mail"></input>
                 <h4 className="ftOperationValuePrompt">Valor a transferir</h4>
                 <input onChange={handleChange} value={formData.operationValue} name="operationValue" type="number" className="ftOperationValue" placeholder="Valor"></input>
                 <button className="ftOperationButton">Confirm</button>

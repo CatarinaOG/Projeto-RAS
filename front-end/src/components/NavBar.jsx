@@ -4,10 +4,12 @@ import Link from '../components/Link'
 
 export default function NavBar(props){
 
-    const {user,searching,setSearching,setRender} = props
+    const {user,searching,setSearching,setRender,userType} = props
 
     function goToProfile(){
-        setRender('Profile')
+
+        if(userType === 'expert') setRender('AddGame')
+        else setRender('Profile')
     }
 
     return(
