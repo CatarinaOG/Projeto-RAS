@@ -16,6 +16,7 @@ import Login from './pages/Login.js';
 import HomeExpert from './pages/HomeExpert';
 import AddExpert from './pages/AddExpert.js'
 import AddGame from './pages/AddGame.js'
+import ProfileExpert from './pages/ProfileExpert'
 
 
 
@@ -100,7 +101,14 @@ function App() {
           username={username}
           setRender={setRender}
         />
+      } 
+      {rendered==="ProfileExpert" &&
+        <ProfileExpert 
+          username={username}
+          setRender={setRender}
+        />
       }
+
     </div>
 	);
 }

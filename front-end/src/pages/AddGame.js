@@ -24,7 +24,7 @@ export default function AddGame(props){
     const oddTiePop='';
 
     function goBack(){
-        setRender('HomeExpert')
+        setRender('ProfileExpert')
     }
 
 	function handleChange(event) {
@@ -80,7 +80,6 @@ export default function AddGame(props){
 
                         <button className = "ftadd" >Criar Jogo</button>
                     </form>
-
                 </div>
             </div>
             {confirmed && 

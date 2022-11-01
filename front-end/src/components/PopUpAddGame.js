@@ -20,7 +20,7 @@ export default function PopUp(props){
                 <h3 className='fth3PopSport'>Desporto : {sportPop}</h3>
                 <h3 className='fth3PopGamePartA'>Participante A : {participantAPop}</h3>
                 <h3 className='fth3PopGamePartB'>Participante B : {participantBPop}</h3>
-                <h3 className='fth3PopGameOdds'>Odds :        A -> {oddAPop}        B -> {oddBPop}        Tie -> {oddAPop} </h3>
+                <h3 className='fth3PopGameOdds'>Odds :        A {'->'} {oddAPop}        B {'->'} {oddBPop}        Tie {'->'} {oddAPop} </h3>
                 
                 <img src={closeImg} className='close' onClick={close}/>
 

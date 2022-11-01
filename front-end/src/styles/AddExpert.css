@@ -160,5 +160,12 @@
     border-radius: 10px;
     text-align: center;
 
+}
+
+.goBackImg2{
+    position: absolute;
+    z-index: 2;
+    left: 21vw;
+    top: 12vh;
 
 }
