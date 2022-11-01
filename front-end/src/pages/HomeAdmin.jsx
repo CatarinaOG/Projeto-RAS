@@ -18,9 +18,11 @@ export default function HomeAdmin(props){
             <NavBarProfile
                 username={username} 
             />
-            <div className="contentAdmin">
-                <button className="ButtonsAdmin1" onClick={goToAddExpert}>Registar Especialista</button>
-                <button className="ButtonsAdmin2" onClick={logout}>Logout</button>
+            <div className='whiteShadow'>
+                <div className="contentAdmin">
+                    <button className="ButtonsAdmin1" onClick={goToAddExpert}>Registar Especialista</button>
+                    <button className="ButtonsAdmin2" onClick={logout}>Logout</button>
+                </div>
             </div>
 
         </div>
