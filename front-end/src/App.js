@@ -15,6 +15,7 @@ import HomeAdmin from './pages/HomeAdmin';
 import Login from './pages/Login.js';
 import HomeExpert from './pages/HomeExpert';
 import AddExpert from './pages/AddExpert.js'
+import AddGame from './pages/AddGame.js'
 
 
 
@@ -90,6 +91,12 @@ function App() {
       }
       {rendered==="HomeAdmin" &&
         <HomeAdmin 
+          username={username}
+          setRender={setRender}
+        />
+      }
+      {rendered==="AddGame" &&
+        <AddGame 
           username={username}
           setRender={setRender}
         />
