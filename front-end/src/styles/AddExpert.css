@@ -149,3 +149,16 @@
 }
 
 
+.ftboxConfirmAdmin{
+    background:  white;
+    opacity: 100;
+    height: 50vh;
+    width: 45vw;
+    position: absolute;
+    left: 27.5vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+
+
+}

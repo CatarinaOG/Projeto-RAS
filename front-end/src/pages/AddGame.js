@@ -40,15 +40,16 @@ export default function AddGame(props){
 		event.preventDefault();
 
         // fazer verificação
-
+       
         setConfirmed(true);
-        
         sportPop =formData.sport;
         participantAPop=formData.participantA;
         participantBPop=formData.participantB;
         oddAPop=formData.oddA;
         oddBPop=formData.oddB;
         oddTiePop=formData.oddTie;
+        console.log(sportPop)
+
 	}
     
 
@@ -87,7 +88,13 @@ export default function AddGame(props){
                     <div className="ftbackgroundModal"></div>
                     <PopUpAddGame 
                         setConfirmed={setConfirmed}
-                    />
+                        sportPop={formData.sport}
+                        participantAPop={formData.participantA}
+                        participantBPop={formData.participantB}
+                        oddAPop={formData.oddA}
+                        oddBPop={formData.oddB}
+                        oddTiePop={formData.oddTie}
+                  />
                 </div>
             }   
 

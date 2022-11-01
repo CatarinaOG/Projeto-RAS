@@ -7,7 +7,6 @@ export default function NavBar(props){
     const {user,searching,setSearching,setRender,userType} = props
 
     function goToProfile(){
-
         if(userType === 'expert') setRender('AddGame')
         else setRender('Profile')
     }

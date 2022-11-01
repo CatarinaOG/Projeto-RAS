@@ -15,11 +15,10 @@ export default function PopUpOperation(props){
 
 
     return(
-        <div className="ftboxConfirm">
+        <div className="ftboxConfirmOp">
             {method==='' && <PopUpMethod showPopUp={showPopUp} setShowPopUp={setShowPopUp} setMethod={setMethod}/>}
             {method==='Maestro' && <PopUpMaestro setMethod={setMethod} showPopUp={showPopUp}/>}
             {method==='Paypal' && <PopUpPaypal setMethod={setMethod} showPopUp={showPopUp}/>}
-
         </div>
     )
 }

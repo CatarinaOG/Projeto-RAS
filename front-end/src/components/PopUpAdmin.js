@@ -14,7 +14,7 @@ export default function PopUp(props){
     }
 
     return(
-        <div className="ftboxConfirm">
+        <div className="ftboxConfirmAdmin">
             <div>
                 <h1 className='fth1Pop'>Especialista adicionado com sucesso!</h1>
                 <h2 className='fth2PopAdmin' >Dados adicionados:</h2>

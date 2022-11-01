@@ -230,3 +230,55 @@ body{
     margin-top: 20vh;
 }
 
+
+/*----- PopUp addGame -----*/
+
+.ftboxConfirmAddGame{
+    background:  white;
+    opacity: 100;
+    height: 50vh;
+    width: 45vw;
+    position: absolute;
+    left: 27.5vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+
+
+}
+
+.fth3PopSport{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:35%;
+    left : 30%
+}
+
+.fth3PopGamePartA{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:45%;
+    left : 30%
+}
+
+.fth3PopGamePartB{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:55%;
+    left : 30%
+}
+
+.fth3PopGameOdds{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:65%;
+    left : 30%
+}
