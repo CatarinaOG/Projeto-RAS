@@ -1,0 +1,63 @@
+
+.contentAdmin{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.ButtonsAdmin1{
+
+    height: 50px;
+    width: 15%;
+
+    background: white;
+    border-radius: 10px;
+    font-size: 13px;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 25px;
+
+    border: 1px solid #F07444;
+
+    color: #F07444;
+
+    margin-left: 20vw;
+    margin-top: 35vh;
+}
+
+.ButtonsAdmin1:active{
+
+    background: #F07444;
+    color: white;
+
+}
+
+.ButtonsAdmin2:active{
+
+    background: #F07444;
+    color: white;
+
+}
+
+.ButtonsAdmin2{
+
+    height: 50px;
+    width: 15%;
+
+    background: white;
+    border-radius: 10px;
+    font-size: 13px;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 25px;
+
+    border: 1px solid #F07444;
+
+    color: #F07444;
+
+    margin-right: 20vw;
+    margin-top: 35vh;
+
+}

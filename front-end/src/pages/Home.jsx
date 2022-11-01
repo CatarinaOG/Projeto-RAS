@@ -3,8 +3,6 @@ import SearchBar from "../components/SearchBar"
 import Report from "../components/Report"
 import Bet from '../components/Bet'
 
-
-import "../styles/home.css"
 import {useState} from 'react'
 
 

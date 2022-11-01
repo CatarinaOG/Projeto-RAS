@@ -40,7 +40,7 @@ export default function AddSpecialist(props){
 	}
 
     function goBack(){
-        setRender('HomeExpert')
+        setRender('HomeAdmin')
     }
     
 
@@ -48,7 +48,7 @@ export default function AddSpecialist(props){
         <div className='ftaddSpecialist'>
             <div>
                 <NavBarProfile username={username}/>
-                <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
+                <img src = {goBackImg} className='ftgoBackImg' onClick={goBack}/>
                 <div className='ftwhiteShadow'>
                     <h1 className = "ftAddSp">Adicionar Especialista</h1>
                     <form onSubmit = {handleSubmit}>
@@ -56,7 +56,7 @@ export default function AddSpecialist(props){
                         <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className="ftemailSp"/>
                         <h3 className='ftpromptPassSp'>Insira a password:</h3>
                         <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ="ftpasswordSp"/>
-                        <button className = "ftaddConcludeSp" > Concluir</button>
+                        <button className = "ftaddConcludeSp">Registar</button>
                     </form>
                 </div>
             </div>

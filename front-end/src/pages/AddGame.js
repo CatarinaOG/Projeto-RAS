@@ -58,7 +58,7 @@ export default function AddGame(props){
                 <NavBarProfile username={username}/>
                 <div className='whiteShadow'>
                     <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
-                    <h2 className='ftInsertData'>Insira os dados do jogo</h2>
+                    <h2 className='ftInsertData'>Criar Jogo</h2>
                     <form onSubmit = {handleSubmit}>
                         <h3 className='ftpromptSport'>Insira o Desporto</h3>
                         <select className='ftselectSport' value={formData.sport} onChange={handleChange} name ="sport">

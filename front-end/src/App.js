@@ -4,13 +4,14 @@ import './styles/AddExpert.css';
 import './styles/home.css';
 import './styles/Profile.css';
 import './styles/login.css';
+import './styles/HomeAdmin.css'
 
 
 import {useState} from 'react';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile.js'
-import AddGame from './pages/AddGame';
+import HomeAdmin from './pages/HomeAdmin';
 import Login from './pages/Login.js';
 import HomeExpert from './pages/HomeExpert';
 import AddExpert from './pages/AddExpert.js'
@@ -87,8 +88,8 @@ function App() {
           setRender={setRender}
         />
       }
-      {rendered==="AddGame" &&
-        <AddGame 
+      {rendered==="HomeAdmin" &&
+        <HomeAdmin 
           username={username}
           setRender={setRender}
         />
