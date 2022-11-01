@@ -17,7 +17,7 @@ export default function PopUp(props){
         <div className="ftboxConfirm">
             <div>
                 <h1 className='fth1Pop'>Jogo adicionado com sucesso!</h1>
-                <img src={closeImg} className='ftclosePop' onClick={close}/>
+                <img src={closeImg} className='close' onClick={close}/>
             </div>
         </div>
     )

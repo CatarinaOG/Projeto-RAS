@@ -41,11 +41,16 @@ export default function ChangeData(props){
 
     function depositPop(x){
         setShowPopUp('deposit');
-     }
+    }
+
+    function logOut(){
+        setRender('Login')
+    }
  
 
     return (
         <div className="changeDataOutDiv">
+                <button className='ftLogout' onClick={logOut}> Log out </button>
                 <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
                 <button className='ftdeposit' onClick={depositPop}> Depositar </button>
                 <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>

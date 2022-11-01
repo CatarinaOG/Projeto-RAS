@@ -1,13 +1,12 @@
-import { cleanup } from "@testing-library/react";
-import { PureComponent } from "react";
 import { useState } from "react";
 
+import closeImg from '../images/close.png'
 
 export default function PopUpPaypal(props){
 
     const {setMethod,showPopUp} = props;
 
-    function cancel(){
+    function close(){
         setMethod('');
     }
 
@@ -28,7 +27,7 @@ export default function PopUpPaypal(props){
         event.preventDefault();
 
         // Tratar do pedido e verificação
-        cancel();
+        close();
     }
 
     return(
@@ -40,7 +39,7 @@ export default function PopUpPaypal(props){
                 <input onChange={handleChange} value={formData.operationValue} name="operationValue" type="number" className="ftOperationValue" placeholder="Valor"></input>
                 <button className="ftOperationButton">Confirm</button>
             </form>
-            <button className="ftclosePop" onClick={cancel}>x</button>
+            <img src = {closeImg} className='close' onClick={close}/>
         </div>
     )
 }

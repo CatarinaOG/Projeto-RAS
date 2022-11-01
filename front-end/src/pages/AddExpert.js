@@ -33,7 +33,7 @@ export default function AddSpecialist(props){
 		event.preventDefault();
 
         // Mandar pedido e esperar por verificação
-              
+
         setConfirmed(true);
         emailEx = formData.email;
         passEx = formData.password;
