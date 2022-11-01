@@ -1,4 +1,5 @@
 package TP.RasBet.model;
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
@@ -7,8 +8,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "Bet")
-public class Bet{
+@Table(name = "bet")
+public class Bet implements Serializable{
 
     @Id
     @GeneratedValue
@@ -30,14 +31,13 @@ public class Bet{
 
     //many to one com user -> User_id é o nome da FK e referenced... id é a PK da tabela do user
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "User_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
 
     // many to many com game
-    @ManyToMany(mappedBy = "bets")
-    private List<Game> games;
-
+    @OneToMany(mappedBy = "bet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<GamesInOneBet> games;
 
 
 

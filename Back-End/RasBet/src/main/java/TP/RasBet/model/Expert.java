@@ -1,12 +1,12 @@
 package TP.RasBet.model;
 import java.util.List;
-
+import java.io.Serializable;
 import javax.persistence.*;
 
 
 @Entity
-@Table(name = "Expert")
-public class Expert{
+@Table(name = "expert")
+public class Expert implements Serializable{
     @Id
     @GeneratedValue
     private int id;
@@ -17,15 +17,18 @@ public class Expert{
     @Column(name = "password")
     private String password;
 
+    @Column(name = "name")
+    private String name;
+
 
     // one to many com a tabela Game
-    @OneToMany(mappedBy = "Expert", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "expert", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Game> games;
 
 
     // many to one com a tabela Admin
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Admin_id", referencedColumnName = "id")
+    @JoinColumn(name = "admin_id", referencedColumnName = "id")
     private Admin admin;
 
 
@@ -47,6 +50,12 @@ public class Expert{
     public String getPassword(){
         return this.password;
     }
+    public String getName() {
+        return name;
+    }
+    public Admin getAdmin() {
+        return admin;
+    }
 
     /* Setters */
     public void setEmail(String email){
@@ -55,4 +64,16 @@ public class Expert{
     public void setPassword(String password){
         this.password = password;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    @Override
+    public String toString(){
+        return this.id + " | " + this.games.toString();
+    }
+
 }

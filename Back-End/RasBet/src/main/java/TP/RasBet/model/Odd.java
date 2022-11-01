@@ -1,12 +1,13 @@
 package TP.RasBet.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 
 @Entity
-@Table(name = "Odd")
-public class Odd{
+@Table(name = "odd")
+public class Odd implements Serializable{
 
     @Id
     @GeneratedValue
@@ -20,9 +21,11 @@ public class Odd{
     private String value;
 
 
+
+      
     // many to one com a tabela Game
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Game_id", referencedColumnName = "id")
+    @JoinColumn(name = "game_id", referencedColumnName = "id")
     private Game game;
 
 

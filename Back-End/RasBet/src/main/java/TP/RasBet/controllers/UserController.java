@@ -1,26 +1,36 @@
 package TP.RasBet.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import TP.RasBet.model.*;
+import TP.RasBet.services.UserService;
 
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping(path = "api/users")
 public class UserController {
     
+    @Autowired
+    private UserService userService;
     
     @PostMapping(value="/login")
-    public void login(@RequestBody LoginForm loginform){
-        System.out.println(loginform.getEmail());
-        System.out.println(loginform.getPass());
+    public String login(@RequestBody LoginForm loginform){
+
+        String email = loginform.getEmail();
+        String pass = loginform.getPass();
+
+        return userService.login(email, pass);
+
     }
 
     @PostMapping(value="/register")
-    public void register(@RequestBody RegisterForm registerForm){
-        System.out.println(registerForm.getEmail()+ " " + " " + registerForm.getPassword());
+    public String register(@RequestBody RegisterForm registerForm){
+       
+        return userService.register(registerForm);
+        
     }
 
 }
