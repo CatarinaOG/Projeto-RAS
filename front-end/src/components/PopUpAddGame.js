@@ -4,7 +4,7 @@ import '../styles/AddGame.css'
 
 export default function PopUp(props){
 
-    const {setConfirmed, sportPop,participantAPop,participantBPop,oddAPop,oddBPop,oddTiePop} = props;
+    const {setConfirmed, sportPop,participantAPop,participantBPop,oddAPop,oddBPop,oddTiePop,date,time} = props;
 
     // talvez utilizar o set Balance e balance em vez deste use state local pq precisa de ser global
     // vamos precisar do balance tb para efeitos de comparação para ver se o levantar é valido
@@ -20,8 +20,10 @@ export default function PopUp(props){
                 <h3 className='fth3PopSport'>Desporto : {sportPop}</h3>
                 <h3 className='fth3PopGamePartA'>Participante A : {participantAPop}</h3>
                 <h3 className='fth3PopGamePartB'>Participante B : {participantBPop}</h3>
-                <h3 className='fth3PopGameOdds'>Odds :        A {'->'} {oddAPop}        B {'->'} {oddBPop}        Tie {'->'} {oddAPop} </h3>
-                
+                <h3 className='fth3PopGameOdds'>Odds :        A {'->'} {oddAPop}        B {'->'} {oddBPop}        Tie {'->'} {oddTiePop} </h3>
+                <h3 className='fth3PopGameDate'>Date: {date}</h3>
+                <h3 className='fth3PopGameTime'>Time: {time}</h3>
+
                 <img src={closeImg} className='close' onClick={close}/>
 
             </div>
