@@ -21,8 +21,8 @@ export default function PopUp(props){
                 <h3 className='fth3PopGamePartA'>Participante A : {participantAPop}</h3>
                 <h3 className='fth3PopGamePartB'>Participante B : {participantBPop}</h3>
                 <h3 className='fth3PopGameOdds'>Odds :        A {'->'} {oddAPop}        B {'->'} {oddBPop}        Tie {'->'} {oddTiePop} </h3>
-                <h3 className='fth3PopGameDate'>Date: {date}</h3>
-                <h3 className='fth3PopGameTime'>Time: {time}</h3>
+                <h3 className='fth3PopGameDate'>Data: {date}</h3>
+                <h3 className='fth3PopGameTime'>Hora: {time}</h3>
 
                 <img src={closeImg} className='close' onClick={close}/>
 

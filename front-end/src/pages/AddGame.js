@@ -78,10 +78,9 @@ export default function AddGame(props){
 					    <input className='ftoddTie' type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/>
 					    <input className='ftoddB' type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
 
-                        <h3 className='ftpromptDate'>Data  : </h3>
+                        <h3 className='ftpromptDate'>Data/Hora: </h3>
                         <input className ="ftselectDate" type="date" onChange={handleChange}  name = "date" value = {formData.date}/>
 
-                        <h3 className='ftpromptTime'>Hora  : </h3>
                         <input className ="ftselectTime" type="time" onChange={handleChange} placeholder='time' name = "time" value = {formData.time}/>
 
 
