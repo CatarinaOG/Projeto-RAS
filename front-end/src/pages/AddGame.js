@@ -11,9 +11,9 @@ export default function AddGame(props){
     const {username,setRender} = props
 
     const [formData, setFormData] = useState(
-        {sport: "",participantA:"" , participantB:"",oddA:"",oddB:"",oddTie:""}
+        {sport: null,participantA:null , participantB:null,oddA:null,oddB:null,oddTie:null,date:null,time:null}
     )
-
+    
     const [confirmed,setConfirmed] = useState(false);
 
     const sportPop ='';
@@ -40,7 +40,7 @@ export default function AddGame(props){
 		event.preventDefault();
 
         // fazer verificação
-       
+        // juntar o input de date e time
         setConfirmed(true);
         sportPop =formData.sport;
         participantAPop=formData.participantA;
@@ -59,7 +59,7 @@ export default function AddGame(props){
                 <NavBarProfile username={username}/>
                 <div className='whiteShadow'>
                     <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
-                    <h2 className='ftInsertData'>Criar Jogo</h2>
+                    <h1 className='ftInsertDataGame'>Criar Jogo</h1>
                     <form onSubmit = {handleSubmit}>
                         <h3 className='ftpromptSport'>Insira o Desporto</h3>
                         <select className='ftselectSport' value={formData.sport} onChange={handleChange} name ="sport">
@@ -78,6 +78,13 @@ export default function AddGame(props){
 					    <input className='ftoddTie' type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/>
 					    <input className='ftoddB' type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
 
+                        <h3 className='ftpromptDate'>Data  : </h3>
+                        <input className ="ftselectDate" type="date" onChange={handleChange}  name = "date" value = {formData.date}/>
+
+                        <h3 className='ftpromptTime'>Hora  : </h3>
+                        <input className ="ftselectTime" type="time" onChange={handleChange} placeholder='time' name = "time" value = {formData.time}/>
+
+
                         <button className = "ftadd" >Criar Jogo</button>
                     </form>
                 </div>
@@ -93,6 +100,8 @@ export default function AddGame(props){
                         oddAPop={formData.oddA}
                         oddBPop={formData.oddB}
                         oddTiePop={formData.oddTie}
+                        date = {formData.date}
+                        time = {formData.time}
                   />
                 </div>
             }   
