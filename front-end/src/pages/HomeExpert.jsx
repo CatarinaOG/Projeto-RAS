@@ -20,7 +20,7 @@ export default function HomeExpert(props){
     const [modalChangeOdd,setModalChangeOdd] = useState(false)
     const [modalChangeOddConfimation,setModalChangeOddConfimation] = useState(false)
 
-    const [oddToChange,setOddToChange] = useState()
+    const [oddToChange,setOddToChange] = useState()   // {id,gameId}
 
 
     //Mostra todas as bets do lado esquerdo

@@ -8,7 +8,7 @@ export default function BetBoxExpert(props){
 
         var game = games.find(game => game.id === gameId)
 
-        if(game.active){
+        /*if(game.active){
             setModalWarningActive(true)
             setOddToChange({
                 id: id,
@@ -16,13 +16,13 @@ export default function BetBoxExpert(props){
                 odd: 0
             })
         }
-        else
-            setModalChangeOdd(true)
-            setOddToChange({
-                id: id,
-                gameId: gameId,
-                odd: 0
-            })
+        else*/
+        
+        setModalChangeOdd(true)
+        setOddToChange({
+            id: id,
+            gameId: gameId
+        })
 
     }
 
