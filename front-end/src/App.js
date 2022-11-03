@@ -35,7 +35,7 @@ function App() {
         date: 'hoje 22:00',
         active: false,
         results: [
-            { id: 0, result : 'Sporting' , odd: 'null', amount: 0},
+            { id: 0, result : 'Sporting' , odd: 0.4, amount: 0},
             { id: 1, result : 'Empate' , odd: 0.2, amount: 0},
             { id: 2, result : 'Varzim' , odd: 0.3, amount: 0},
         ]

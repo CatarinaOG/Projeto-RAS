@@ -63,7 +63,7 @@ body{
     left: 51%;
     width: 30.5%;
     height: 7%;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: white;
     border: 1px solid black;
 }
@@ -75,7 +75,7 @@ body{
     left: 51%;
     width: 30%;
     height: 7%;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px solid black;
 
 }
@@ -87,7 +87,7 @@ body{
     left: 51%;
     width: 30%;
     height: 7%;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px solid black;
 
 }
@@ -95,10 +95,10 @@ body{
 .ftoddA{
     position: absolute;
     text-align: center;
-    top:  60%;
+    top:  58%;
     left: 51%;
     width: 8%;
-    border-radius: 25px;
+    border-radius: 20px;
     height: 7%;
     border: 1px solid black;
 }
@@ -106,11 +106,11 @@ body{
 .ftoddB{
     position: absolute;
     text-align: center;
-    top: 60%;
+    top: 58%;
     left: 73%;
     width: 8%;
     height: 7%;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px solid black;
 
 }
@@ -118,22 +118,46 @@ body{
 .ftoddTie{
     position: absolute;
     text-align: center;
-    top: 60%;
+    top: 58%;
     left: 62.5%;
     width: 8%;
     height: 7%;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px solid black;
 }
+
+
+.ftselectTime{
+    position: absolute;
+    text-align: center;
+    top: 68%;
+    left: 67%;
+    width: 14%;
+    height: 7%;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.ftselectDate{
+    position: absolute;
+    text-align: center;
+    top: 68%;
+    left: 51%;
+    width: 14%;
+    height: 7%;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
 
 
 /*----- Texts -----*/
 
 
-.ftInsertData{
+.ftInsertDataGame{
     position: absolute;
-    top : 10%;
-    left: 18%;
+    top : 12%;
+    left: 43%;
     font-family: 'Spinnaker';
     color: #18340C;
 }
@@ -153,9 +177,29 @@ body{
     top : 40%;
     left: 18%;
     font-family: 'Spinnaker';
+    color: #18340C;
+
 }
 
+.ftpromptDate{
+    position: absolute;
+    width: 100%;
+    top : 70%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
 
+}
+
+.ftpromptTime{
+    position: absolute;
+    width: 100%;
+    top : 70%;
+    left: 52%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
 
 .ftpromptParticipantB{
     position: absolute;
@@ -252,7 +296,7 @@ body{
     color: #18340C;
     position: absolute;
     text-align: center;
-    top:35%;
+    top:25%;
     left : 30%
 }
 
@@ -261,7 +305,7 @@ body{
     color: #18340C;
     position: absolute;
     text-align: center;
-    top:45%;
+    top:35%;
     left : 30%
 }
 
@@ -270,7 +314,7 @@ body{
     color: #18340C;
     position: absolute;
     text-align: center;
-    top:55%;
+    top:45%;
     left : 30%
 }
 
@@ -279,6 +323,24 @@ body{
     color: #18340C;
     position: absolute;
     text-align: center;
+    top:55%;
+    left : 30%
+}
+
+.fth3PopGameDate{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
     top:65%;
+    left : 30%
+}
+
+.fth3PopGameTime{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:75%;
     left : 30%
 }

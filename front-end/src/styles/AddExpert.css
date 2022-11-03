@@ -24,10 +24,21 @@
     font-family: 'Spinnaker';
 }
 
+
+.ftpromptUsernameSp{
+    position: absolute;
+    width: 100%;
+    top : 33%;
+    left:23%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
 .ftpromptEmailSp{
     position: absolute;
     width: 100%;
-    top : 35%;
+    top : 46%;
     left:23%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -37,7 +48,7 @@
 .ftpromptPassSp{
     position: absolute;
     width: 100%;
-    top : 48%;
+    top : 59%;
     left:23%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -49,7 +60,7 @@
 .ftpasswordSp{
     position: absolute;
     text-align: center;
-    top: 45%;
+    top: 56%;
     left: 48%;
     width: 30%;
     height: 8%;
@@ -60,7 +71,7 @@
 .ftemailSp{
     position: absolute;
     text-align: center;
-    top: 33%;
+    top: 43%;
     left: 48%;
     width: 30%;
     height: 8%;
@@ -69,6 +80,18 @@
 
 }
 
+
+.ftUsernameSp{
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 48%;
+    width: 30%;
+    height: 8%;
+    border-radius: 20px;
+    border: 1px solid grey;
+
+}
 
 
 .ftaddConcludeSp{
@@ -122,12 +145,21 @@
     left : 33%
 }
 
+.fth3PopAdminUsername{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:41%;
+    left : 33%
+}
+
 .fth3PopAdminEmail{
     font-family: 'Spinnaker';
     color: #18340C;
     position: absolute;
     text-align: center;
-    top:45%;
+    top:53%;
     left : 33%
 }
 
@@ -136,7 +168,7 @@
     color: #18340C;
     position: absolute;
     text-align: center;
-    top:60%;
+    top:65%;
     left : 33%
 }
 

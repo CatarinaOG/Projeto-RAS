@@ -7,17 +7,12 @@ export default function AddSpecialist(props){
 
     const {username,setRender} = props
 
-    //state para retirar
-    const [val,setVal] = useState(0);
     
     const [confirmed,setConfirmed] = useState(false);
 
     const [formData, setFormData] = useState(
-        {email: "",password:""}
+        {expert_username:null ,email:null,password:null}
     )
-
-    const emailEx ='';
-    const passEx = '';
 
 	function handleChange(event) {
         setFormData(prevFormData => {
@@ -51,6 +46,8 @@ export default function AddSpecialist(props){
                 <div className='ftwhiteShadow'>
                     <h1 className = "ftAddSp">Adicionar Especialista</h1>
                     <form onSubmit = {handleSubmit}>
+                        <h3 className='ftpromptUsernameSp'>Insira o username:</h3>
+                        <input type="text" onChange={handleChange} placeholder='username' name = "expert_username" value = {formData.expert_username} className="ftUsernameSp"/>
                         <h3 className='ftpromptEmailSp'>Insira o email:</h3>
                         <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className="ftemailSp"/>
                         <h3 className='ftpromptPassSp'>Insira a password:</h3>
@@ -65,6 +62,7 @@ export default function AddSpecialist(props){
                     <PopUpAdmin 
                         email = {formData.email}
                         password = {formData.password}
+                        username={formData.expert_username}
                         setConfirmed ={setConfirmed}
                     />
                 </div>

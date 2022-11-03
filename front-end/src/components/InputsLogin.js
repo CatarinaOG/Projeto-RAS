@@ -30,7 +30,7 @@ export default function InputsLogin(props) {
 
 		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
 
-		setRender("HomeAdmin");
+		setRender("Home");
 	}
 
 
