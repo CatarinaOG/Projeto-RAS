@@ -8,6 +8,7 @@ import './styles/HomeAdmin.css'
 
 
 import {useState} from 'react';
+import { useEffect } from 'react';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile.js'
@@ -27,33 +28,27 @@ function App() {
   const [username,setUsername] = useState('catarina')
   const [balance,setBalance] = useState(0)
 
-  const [games,setGames] = useState(
-      [{
-        id : 0,
-        home: 'sporting',
-        away: 'varzim',
-        date: 'hoje 22:00',
-        active: false,
-        results: [
-            { id: 0, result : 'Sporting' , odd: 0.4, amount: 0},
-            { id: 1, result : 'Empate' , odd: 0.2, amount: 0},
-            { id: 2, result : 'Varzim' , odd: 0.3, amount: 0},
-        ]
-    },
-    {
-        id : 1,
-        home: 'sporting',
-        away: 'varzim',
-        date: 'hoje 22:00',
-        active: true,
-        results: [
-            { id: 3, result : 'Sporting' , odd: 0.4, amount: 0},
-            { id: 4, result : 'Empate' , odd: 0.5, amount: 0},
-            { id: 5, result : 'Varzim' , odd: 0.6, amount: 0},
-        ]
-    }]
-  )
+  const [games,setGames] = useState([])
 
+  useEffect(() => {
+    
+    fetch('http://127.0.0.1:8080/api/games/', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.games){
+          setGames(data.games)
+        }
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+        
+  },[games])
 
   return (
     <div>

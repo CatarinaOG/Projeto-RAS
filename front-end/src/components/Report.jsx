@@ -32,7 +32,7 @@ export default function Report(props){
 
         var sum = 0;
 
-        if(type == 'simples') selected.map( elem => {sum += Number(elem.amount)})
+        if(type == 'simple') selected.map( elem => {sum += Number(elem.amount)})
         else sum = amountMultiple
 
         return Number(sum)

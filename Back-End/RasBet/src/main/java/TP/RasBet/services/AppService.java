@@ -43,7 +43,7 @@ public class AppService {
     @Autowired
     private GamesInOneBetRepo gamesInOneBetRepo;
 
-    public JSONArray getGames(){
+    public JSONObject getGames(){
         List<Game> games = gameRepo.findAll();
         JSONArray jogos = new JSONArray();
         for(Game g : games){
@@ -69,7 +69,11 @@ public class AppService {
 
             jogos.put(j);
         }
-        return jogos;
+
+        JSONObject tmp = new JSONObject();
+        tmp.put("games",jogos);
+
+        return tmp;
     }
 
     public String placeBet(BetslipForm betslipForm){
