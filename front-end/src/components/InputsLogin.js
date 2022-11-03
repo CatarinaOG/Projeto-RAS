@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 import logo from '../images/logo.png'
@@ -7,6 +6,8 @@ import logo from '../images/logo.png'
 export default function InputsLogin(props) {
 
 	const {setUsername,setBalance,setRender,setLoadReg} = props
+	const [typeUser,setTypeUser]=useState("");
+	const [email,setEmail] = useState("");
 
     function changeComp(){
         setLoadReg(prevLoadReg => !prevLoadReg);
@@ -28,35 +29,35 @@ export default function InputsLogin(props) {
 	
 	function handleSubmit(event){
 		event.preventDefault();
-
+		console.log(formData.email);
+		console.log(formData.password);
 
 		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
-		/*
-		const typeUser;
-		const requestOptions = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ email: formData.email , password : formData.password})
-		};
-		fetch('', requestOptions)
-			.then(response => response.json())
-			.then(data => {
-				setUsername(data.username);
-				setBalance(data.balance);
-				typeUser = data.type;
-			});
-		if (type === 'apostador'){
-			setRender('Home');
+		
+		fetch('http://127.0.0.1:8080/api/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: formData.email , pass:formData.password })
+        })
+        .then(response => response.json())
+        .then(data => {
+			console.log("aaaaaaa", data);
+			setUsername(data.username);
+			if (data.type === 'especialista'){
+				setRender('HomeExpert');
+			}
+			else if(data.type === 'administrador'){
+				setRender('HomeAdmin');
+			}
 			
-		}
-		else if (type === 'especialista'){
-			setRender('HomeExpert');
-		}
-		else {
-			setRender('HomeAdmin);
-		}
+		});
+		console.log("Type is : ".typeUser)
+		/*
+		
 		*/
-		setRender("HomeExpert");
+		
 	}
 
 

@@ -113,6 +113,12 @@
     border : 1px solid #F07444;
 }
 
+.ftaddConcludeSp:active{
+
+    color: #FEFFFE;
+    background-color: #F07444;
+
+}
 
 .ftwhiteShadow{
 

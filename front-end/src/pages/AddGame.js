@@ -11,7 +11,7 @@ export default function AddGame(props){
     const {username,setRender} = props
 
     const [formData, setFormData] = useState(
-        {sport: null,participantA:null , participantB:null,oddA:null,oddB:null,oddTie:null,date:null,time:null}
+        {sport: null,participantA:null , participantB:null,oddA:0,oddB:0,oddTie:0,date:null,time:null}
     )
     
     const [confirmed,setConfirmed] = useState(false);
