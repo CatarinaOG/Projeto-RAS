@@ -1,5 +1,6 @@
 package TP.RasBet.model;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -15,16 +16,16 @@ public class Transaction implements Serializable{
     @Column(name = "id")
     private int id;
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "Amount")
+    @Column(name = "amount")
     private float amount;
 
-    @Column(name = "Date")
-    private Date date;
+    @Column(name = "date")
+    private Timestamp date;
 
-    @Column(name = "FinalBalance")
+    @Column(name = "final_balance")
     private float finalBalance;
 
  
@@ -42,7 +43,12 @@ public class Transaction implements Serializable{
     }
 
 
-
+    public Transaction(String description, float amount, Timestamp date){
+        this.description = description;
+        this.amount = amount;
+        this.date = date;
+        this.finalBalance = 0.0f;
+    }
 
 
 
@@ -54,7 +60,7 @@ public class Transaction implements Serializable{
     public float getAmount(){
         return this.amount;
     }
-    public Date getDate(){
+    public Timestamp getDate(){
         return this.date;
     }
     public float getFinalBalance(){
@@ -68,11 +74,13 @@ public class Transaction implements Serializable{
     public void setAmount(float ammount){
         this.amount = ammount;
     }
-    public void setDate(Date date){
+    public void setDate(Timestamp date){
         this.date = date;
     }
     public void setFinalBalance(float finalBalance){
-        
         this.finalBalance = finalBalance;
+    }
+    public void setUser(User user) {
+        this.user = user;
     }
 }

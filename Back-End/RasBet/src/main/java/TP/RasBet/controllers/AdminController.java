@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
+import TP.RasBet.services.AdminService;
 import TP.RasBet.services.AppService;
 
 @RestController
@@ -17,18 +18,15 @@ public class AdminController {
 
     @Autowired
     private AppService appService;
-    
-    @PostMapping(value="/login")
-    public void login(@RequestBody LoginForm loginform){
+
+    @Autowired
+    private AdminService adminService;
 
 
-        appService.teste(loginform.getEmail(), loginform.getPass());
-        
-    }
 
-    @PostMapping(value="/register")
-    public void register(@RequestBody RegisterForm registerForm){
-        System.out.println(registerForm.getEmail()+ " " + " " + registerForm.getPassword());
+    @PostMapping(value = "/newExpert")
+    public String newExpert(@RequestBody RegisterForm registerForm){
+        return adminService.createExpert(registerForm);
     }
 
 }

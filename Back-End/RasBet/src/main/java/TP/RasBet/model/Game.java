@@ -1,11 +1,13 @@
 package TP.RasBet.model;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.io.Serializable;
+
 
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,16 +21,22 @@ public class Game implements Serializable{
     @Column (name = "id")
     private int id;
 
-    @Column (name = "Sport")
+    @Column (name = "sport")
     private String sport;
 
-    @Column (name = "Date")
-    private Date date;
+    @Column(name = "participantA")
+    private String participantA;
 
-    @Column (name = "Score")
+    @Column(name = "participantB")
+    private String participantB;
+
+    @Column (name = "date")
+    private Timestamp date;
+
+    @Column (name = "score")
     private String score;
 
-    @Column (name = "State")
+    @Column (name = "state")
     private String state;
 
 
@@ -53,16 +61,26 @@ public class Game implements Serializable{
         
     }
 
-
+    public Game(String sport, String participantA, String participantB, Timestamp date, Expert expert){
+        this.sport = sport;
+        this.participantA = participantA;
+        this.participantB = participantB;
+        this.date = date;
+        this.state = "Before";
+        this.expert = expert;
+    }
 
 
 
 
     /* Getters */
+    public int getId() {
+        return id;
+    }
     public String getSport(){
         return this.sport;
     }
-    public Date getDate(){
+    public Timestamp getDate(){
         return this.date;
     }
     public String getScore(){
@@ -71,13 +89,19 @@ public class Game implements Serializable{
     public String getState(){
         return this.state;
     }
+    public String getParticipantA() {
+        return participantA;
+    }
+    public String getParticipantB() {
+        return participantB;
+    }
     
 
     /* Setters */
     public void setSport(String sport){
         this.sport = sport;
     }
-    public void setDate(Date date){
+    public void setDate(Timestamp date){
         this.date = date;
     }
     public void setState(String state){
@@ -86,9 +110,35 @@ public class Game implements Serializable{
     public void setExpert(Expert expert) {
         this.expert = expert;
     }
+    public void setParticipantA(String participantA) {
+        this.participantA = participantA;
+    }
+    public void setParticipantB(String participantB) {
+        this.participantB = participantB;
+    }
+
+
+    public List<Odd> getOdds() {
+        List<Odd> r = new ArrayList<>();
+        for (Odd d : this.odds)
+            r.add(d.clone());
+        return r;
+    }
+
 
     @Override
     public String toString() {
         return "" + this.id + " | " + this.sport;
     }
+
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if ((o == null) || (o.getClass() != this.getClass())) return false;
+
+        Game g = (Game) o;
+
+        return this.sport.equals(g.getSport()) && g.getParticipantA().equals(this.participantA) 
+        && g.getParticipantB().equals(this.participantB) && g.getDate().equals(this.date);
+    }
+
 }

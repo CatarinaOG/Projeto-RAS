@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="gamesInOneBet")
+@Table(name="games_in_one_bet")
 public class GamesInOneBet implements Serializable{
 
 
@@ -26,6 +26,13 @@ public class GamesInOneBet implements Serializable{
     private Game game;
 
 
+    public GamesInOneBet(){
+
+    }
+
+    public GamesInOneBet(float odd){
+        this.odd = odd;
+    }
 
 
     public int getId(){
@@ -35,5 +42,13 @@ public class GamesInOneBet implements Serializable{
     public float getOdd(){
         return this.odd;
     }
+
+    public void setBet(Bet bet) {
+        this.bet = bet;
+    }
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
 
 }

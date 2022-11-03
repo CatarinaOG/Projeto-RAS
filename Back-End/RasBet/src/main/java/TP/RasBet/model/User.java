@@ -26,13 +26,13 @@ public class User implements Serializable{
     @Column(name = "name")
     private String name;
 
-    @Column(name = "adress")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "NIF")
+    @Column(name = "nif")
     private String nif;
 
-    @Column(name = "CC")
+    @Column(name = "cc")
     private String cc;
     
     @Column(name = "wallet")

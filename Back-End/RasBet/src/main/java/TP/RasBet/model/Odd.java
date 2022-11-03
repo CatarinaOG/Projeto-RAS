@@ -14,11 +14,11 @@ public class Odd implements Serializable{
     @Column(name = "id")
     private int id;
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "Value")
-    private String value;
+    @Column(name = "value")
+    private float value;
 
 
 
@@ -33,10 +33,20 @@ public class Odd implements Serializable{
 
 
     public Odd(){
-        
+
+    }
+
+    public Odd(String description, float value){
+        this.description = description;
+        this.value = value;
     }
 
 
+    public Odd(Odd d){
+        this.description = d.getDescription();
+        this.value = d.getValue();
+        this.id = d.getId();
+    }
 
 
 
@@ -51,12 +61,13 @@ public class Odd implements Serializable{
         return this.description;
     }
 
-    public String getValue(){
+    public float getValue(){
         return this.value;
     }
-
-
-
+    
+    public Game getGame() {
+        return game;
+    }
 
     /* Setters */
 
@@ -68,8 +79,15 @@ public class Odd implements Serializable{
         this.description = description;
     }
 
-    public void setValue(String value){
+    public void setValue(float value){
         this.value = value;
+    }
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Odd clone(){
+        return new Odd(this);
     }
 
 }

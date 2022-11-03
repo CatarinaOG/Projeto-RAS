@@ -1,6 +1,7 @@
 package TP.RasBet.model;
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.*;
@@ -16,16 +17,16 @@ public class Bet implements Serializable{
     @Column(name = "id")
     private int id;
 
-    @Column(name = "Amount")
+    @Column(name = "amount")
     private float amount;
 
-    @Column(name = "Winnings")
+    @Column(name = "winnings")
     private float winnings;
 
-    @Column(name = "Date")
-    private Date date;
+    @Column(name = "date")
+    private Timestamp date;
 
-    @Column(name = "Result")
+    @Column(name = "result")
     private boolean result;
     
 
@@ -47,9 +48,12 @@ public class Bet implements Serializable{
         
     }
 
-
-
-
+    public Bet(float amount, float winnings, Timestamp date, User user){
+        this.amount = amount;
+        this.winnings = winnings;
+        this.date = date;
+        this.user = user;
+    }
 
 
     /* Getters */
@@ -66,7 +70,7 @@ public class Bet implements Serializable{
         return this.winnings;
     }
 
-    public Date getDate(){
+    public Timestamp getDate(){
         return this.date;
     }
 
@@ -91,12 +95,14 @@ public class Bet implements Serializable{
         this.winnings = winnings;
     }
 
-    public void setDate(Date date){
+    public void setDate(Timestamp date){
         this.date = date;
     }
 
     public void setResult(boolean result){
         this.result = result;
     }
+
+
 
 }

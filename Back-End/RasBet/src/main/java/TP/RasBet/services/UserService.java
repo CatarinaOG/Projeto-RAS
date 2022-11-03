@@ -20,25 +20,34 @@ public class UserService {
     private AdminRepo adminRepo;
 
 
+
     public String login(String email, String pass){
+        
          
         Optional<User> findUserByEmail = userRepo.findUserByEmail(email);
         if(findUserByEmail.isPresent()){
             User user = findUserByEmail.get();
-            return "{ \"username\" : " + user.getName() + ", \"type\" : \"apostador\""; 
+
+            if (user.getPassword().equals(pass)){
+                return "{ \"username\" : " + user.getName() + ", \"type\" : \"apostador\"";
+            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : " + user.getWallet() + "}";
         }
         
         Optional<Expert> findExpertByEmail = expertRepo.findExpertByEmail(email);
         if(findExpertByEmail.isPresent()){
             Expert expert = findExpertByEmail.get();
-            return "{ \"username\" : " + expert.getName() + ", \"type\" : \"especialista\"" + "}";
+            if (expert.getPassword().equals(pass)){
+                return "{ \"username\" : " + expert.getName() + ", \"type\" : \"especialista\"";
+            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null}";
         }
         
         
         Optional<Admin> findAdminByEmail = adminRepo.findAdminByEmail(email);
         if(findAdminByEmail.isPresent()){
             Admin admin = findAdminByEmail.get();
-            return "{ \"username\" : " + admin.getName() + ", \"type\" : \"administrador\"" + "}"; 
+            if (admin.getPassword().equals(pass)){
+                return "{ \"username\" : " + admin.getName() + ", \"type\" : \"administrador\"";
+            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null}"; 
         }
 
         return "{ \"username\" : null, \"type\" : null }"; 
@@ -62,5 +71,6 @@ public class UserService {
         return "{ \"state\" : \"good\"" + "}";
         
     }
+
 
 }

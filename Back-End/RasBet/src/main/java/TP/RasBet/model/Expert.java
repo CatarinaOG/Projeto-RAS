@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class Expert implements Serializable{
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private int id;
 
     @Column(name = "email")
@@ -36,6 +37,13 @@ public class Expert implements Serializable{
 
     public Expert(){
         
+    }
+
+    public Expert(String email, String password, String name, Admin admin){
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.admin = admin;
     }
 
 

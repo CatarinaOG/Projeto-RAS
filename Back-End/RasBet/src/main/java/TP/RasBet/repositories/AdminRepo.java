@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 
 
 public interface AdminRepo extends JpaRepository<Admin, Integer>{
-    @Query(value = "SELECT * FROM Admin WHERE email = ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM admin WHERE email = ?1",nativeQuery = true)
     Optional<Admin> findAdminByEmail(String email);
 }
