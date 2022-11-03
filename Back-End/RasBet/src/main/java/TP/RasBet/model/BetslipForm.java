@@ -4,7 +4,7 @@ import java.util.List;
 public class BetslipForm{
     private String type;
     private float multipleAmount;
-	private String email;
+	private String user;
     private List<BetForm> bets;
 
 	public String getType() {
@@ -26,12 +26,12 @@ public class BetslipForm{
 		this.bets = bets;
 	}
 	public String getUser() {
-		return email;
+		return user;
 	}
 
 
 	public String toString(){
-		return this.type + " | " + this.multipleAmount + " | " + this.bets.toString();
+		return this.user + " | " + this.type + " | " + this.multipleAmount + " | " + this.bets.toString();
 	}
 }   
 	

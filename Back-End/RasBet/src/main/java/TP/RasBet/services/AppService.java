@@ -91,7 +91,6 @@ public class AppService {
         if(games.size() != games.stream().distinct().count()){
             return "{\"confirmed\" : \"false\"}";
         }
-        System.out.println(userRepo.findAll());
 
         if(userRepo.findUserByEmail(betslipForm.getUser()).get().getWallet() < betslipForm.getMultipleAmount()){
             return "{\"confirmed\" : \"false\"}";

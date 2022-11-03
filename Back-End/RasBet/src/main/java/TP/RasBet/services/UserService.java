@@ -22,35 +22,35 @@ public class UserService {
 
 
     public String login(String email, String pass){
-        
-         
+
+
         Optional<User> findUserByEmail = userRepo.findUserByEmail(email);
         if(findUserByEmail.isPresent()){
             User user = findUserByEmail.get();
 
             if (user.getPassword().equals(pass)){
-                return "{ \"username\" : " + user.getName() + ", \"type\" : \"apostador\"";
-            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : " + user.getWallet() + "}";
+                return "{ \"username\" : "+ "\"" + user.getName()+ "\"" + ", \"type\" : \"apostador\"}";
+            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : " + "\""+ user.getWallet()+ "\"" + "}";
         }
-        
+
         Optional<Expert> findExpertByEmail = expertRepo.findExpertByEmail(email);
         if(findExpertByEmail.isPresent()){
             Expert expert = findExpertByEmail.get();
             if (expert.getPassword().equals(pass)){
-                return "{ \"username\" : " + expert.getName() + ", \"type\" : \"especialista\"";
+                return "{ \"username\" : " + "\"" + expert.getName() +  "\"" + ", \"type\" : \"especialista\"}";
             }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null}";
         }
-        
-        
+
+
         Optional<Admin> findAdminByEmail = adminRepo.findAdminByEmail(email);
         if(findAdminByEmail.isPresent()){
             Admin admin = findAdminByEmail.get();
             if (admin.getPassword().equals(pass)){
-                return "{ \"username\" : " + admin.getName() + ", \"type\" : \"administrador\"";
-            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null}"; 
+                return "{ \"username\" : " + "\""+ admin.getName() + "\""+ ", \"type\" : \"administrador\"}";
+            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null}";
         }
 
-        return "{ \"username\" : null, \"type\" : null }"; 
+        return "{ \"username\" : null, \"type\" : null }";
 
     }
 
@@ -65,11 +65,11 @@ public class UserService {
                 return "{ \"state\" : \"bad\"" + "}";
             }
         }
-        
+
         User user = new User(rf.getEmail(), rf.getPassword(), rf.getTelefone(), rf.getNome(), rf.getMorada(), rf.getNif(), rf.getCc());
         userRepo.save(user);
         return "{ \"state\" : \"good\"" + "}";
-        
+
     }
 
 

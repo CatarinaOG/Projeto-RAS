@@ -16,7 +16,7 @@ export default function ModalConfirmation(props){
             selected.map(({id,gameId,amount}) => {
 
                 const value = Number(amount)
-                const bet = { email: email, type: type, multipleAmount: value, bets: [{id: id}] }
+                const bet = { user: email, type: type, multipleAmount: value, bets: [{id: id}] }
                 console.log(JSON.stringify(bet))
                 
 
@@ -29,8 +29,9 @@ export default function ModalConfirmation(props){
                 })
                 .then(response => response.json(bet))
                 .then(data => {
-                    if(data.confirmed){
-                        console.log("gotit")
+                    if(data.confirmed == 'true'){
+                        setModalConfirmation(false)
+                        setModalConfirmated(true)
                     }
                 })
                 .catch((error) => {
@@ -38,12 +39,37 @@ export default function ModalConfirmation(props){
                 })
             })
         }
+        else{
 
+            var ids = []
 
-        
+            selected.map(({id,gameId,amount}) => {
+                ids = [...ids,{id: id}]
+            })
 
-        setModalConfirmation(false)
-        setModalConfirmated(true)
+            const bet = { user: email, type: type, multipleAmount: amountMultiple, bets: ids }
+
+            console.log(bet)
+
+            fetch('http://127.0.0.1:8080/api/bets/placeBet',  {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bet),
+            })
+            .then(response => response.json(bet))
+            .then(data => {
+                if(data.confirmed == 'true'){
+                    setModalConfirmation(false)
+                    setModalConfirmated(true)
+                }
+            })
+            .catch((error) => {
+            console.error('Error:', error)
+            })
+            
+        }
     }
 
     return (
