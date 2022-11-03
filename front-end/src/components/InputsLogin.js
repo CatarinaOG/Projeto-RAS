@@ -25,11 +25,37 @@ export default function InputsLogin(props) {
         })
     }
 
+	
 	function handleSubmit(event){
 		event.preventDefault();
 
-		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
 
+		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
+		/*
+		const typeUser;
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email: formData.email , password : formData.password})
+		};
+		fetch('', requestOptions)
+			.then(response => response.json())
+			.then(data => {
+				setUsername(data.username);
+				setBalance(data.balance);
+				typeUser = data.type;
+			});
+		if (type === 'apostador'){
+			setRender('Home');
+			
+		}
+		else if (type === 'especialista'){
+			setRender('HomeExpert');
+		}
+		else {
+			setRender('HomeAdmin);
+		}
+		*/
 		setRender("Home");
 	}
 

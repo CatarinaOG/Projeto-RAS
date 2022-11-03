@@ -20,7 +20,7 @@ export default function PopUpMethod(props){
 
     return (
         <div>
-            {showPopUp === 'withdraw' && <h1 className='fth1Pop'>Levantar</h1>}
+            {showPopUp === 'transfer' && <h1 className='fth1Pop'>Levantar</h1>}
             {showPopUp === 'deposit' && <h1 className='fth1Pop'>Depositar</h1>}
             <img src={close} className="close" onClick={cancel}/>
             <img src={PayPal} onClick={defPaypal} className = 'ftbuttonPaypal'></img>

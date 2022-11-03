@@ -48,7 +48,7 @@ export default function AddGame(props){
         oddAPop=formData.oddA;
         oddBPop=formData.oddB;
         oddTiePop=formData.oddTie;
-        console.log(sportPop)
+        console.log(sportPop);
 
 	}
     

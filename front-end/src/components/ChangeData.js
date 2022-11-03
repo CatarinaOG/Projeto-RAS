@@ -36,7 +36,7 @@ export default function ChangeData(props){
     }
 
     function withdrawPop(){
-        setShowPopUp('withdraw');
+        setShowPopUp('transfer');
     }
 
     function depositPop(x){

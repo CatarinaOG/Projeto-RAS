@@ -10,6 +10,8 @@ export default function AddSpecialist(props){
     
     const [confirmed,setConfirmed] = useState(false);
 
+    const [responseState,setResponseState] = useState("");
+
     const [formData, setFormData] = useState(
         {expert_username:null ,email:null,password:null}
     )
@@ -29,6 +31,21 @@ export default function AddSpecialist(props){
 
         // Mandar pedido e esperar por verificação
 
+
+        /*
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ expert_username : expert_username , email: formData.email , password : formData.password})
+		};
+		fetch('', requestOptions)
+			.then(response => response.json())
+			.then(data => {
+				
+				setResponseState(data.state);
+			});
+
+		*/
         setConfirmed(true);
 
 	}
