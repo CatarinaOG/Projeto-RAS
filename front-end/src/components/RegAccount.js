@@ -23,10 +23,31 @@ export default function RegAccount(props){
         })
     }
 
+
 	function handleSubmit(event){
 		event.preventDefault();
 
 		// Verificação aqui se conta registada
+		/*
+			//verificar se tao todos corretos
+			if(email=== "" || password==="" || phone === "" || name==="" || nif==="" || date===""||cc===""||address===""){
+				//inputs em falta
+				//setPopup com inputs em falta
+			}
+			else{
+				  /*
+				const requestOptions = {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email={formData.email} , password={formData.password} , phone={formData.phone} , name={formData.name} , nif={formData.nif} , date={formData.date} , cc={formData.cc} , address={formData.address}})
+				};
+				fetch('', requestOptions)
+					.then(response => response.json())
+					.then(data => {
+						setResponseState(data.state);
+					});
+			}
+		*/
 
         setLoadReg(prevLoadReg => !prevLoadReg)
 	}
