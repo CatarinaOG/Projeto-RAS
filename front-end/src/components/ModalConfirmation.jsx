@@ -2,15 +2,45 @@ import close from '../images/close.png'
 
 export default function ModalConfirmation(props){
 
-    const {amount,setModalConfirmation,setModalConfirmated} = props
+    const {amountToBet,setModalConfirmation,setModalConfirmated,selected,email,type,amountMultiple} = props
+
 
     function cancel(){
-
         setModalConfirmation(false)
-
     }
 
     function goToConfirmated(){
+
+        if(type === 'simple'){
+
+            selected.map(({id,gameId,amount}) => {
+
+                const value = Number(amount)
+                const bet = { email: email, type: type, multipleAmount: value, bets: [{id: id}] }
+                console.log(JSON.stringify(bet))
+                
+
+                fetch('http://127.0.0.1:8080/api/bets/placeBet',  {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bet),
+                })
+                .then(response => response.json(bet))
+                .then(data => {
+                    if(data.confirmed){
+                        console.log("gotit")
+                    }
+                })
+                .catch((error) => {
+                console.error('Error:', error)
+                })
+            })
+        }
+
+
+        
 
         setModalConfirmation(false)
         setModalConfirmated(true)
@@ -24,7 +54,7 @@ export default function ModalConfirmation(props){
                 <img className='close' onClick={cancel} src={close}/>
                 <h1 className="titleModal">Confirmação</h1>
                 <p className="paragraphModalConfirmation">Confirmação do Pagamento no valor de:</p>
-                <p className="valueConfirmation">{amount}$</p>
+                <p className="valueConfirmation">{amountToBet}$</p>
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>
             </div>
         </div>

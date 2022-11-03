@@ -3,17 +3,17 @@ import java.util.List;
 
 public class BetslipForm{
     private String type;
-    private int multipleAmount;
-	private String user;
+    private float multipleAmount;
+	private String email;
     private List<BetForm> bets;
-    
+
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getMultipleAmount() {
+	public float getMultipleAmount() {
 		return multipleAmount;
 	}
 	public void setMultipleAmount(int multipleAmount) {
@@ -26,7 +26,7 @@ public class BetslipForm{
 		this.bets = bets;
 	}
 	public String getUser() {
-		return user;
+		return email;
 	}
 
 

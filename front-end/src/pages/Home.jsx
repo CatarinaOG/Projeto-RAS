@@ -8,7 +8,7 @@ import {useState} from 'react'
 
 export default function Home(props){
 
-    const {username,games,setRender} = props
+    const {username,email,games,setRender} = props
 
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
@@ -44,6 +44,7 @@ export default function Home(props){
                     games={games}
                     selected={selected}
                     setSelected={setSelected}
+                    email={email}
                 />
             </div>
 

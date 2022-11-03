@@ -23,12 +23,17 @@ import ProfileExpert from './pages/ProfileExpert'
 
 function App() {
 
-  const [rendered,setRender] = useState("Login");
+  const [rendered,setRender] = useState("Login")
 
-  const [username,setUsername] = useState('catarina')
+  const [username,setUsername] = useState('user')
+  const [email,setEmail] = useState('user')
+
   const [balance,setBalance] = useState(0)
 
   const [games,setGames] = useState([])
+
+
+  //--------------- Get Games-----------------
 
   useEffect(() => {
     
@@ -50,6 +55,8 @@ function App() {
         
   },[games])
 
+  //-----------------------------------------
+
   return (
     <div>
       {rendered==="Login" && 
@@ -61,6 +68,7 @@ function App() {
       {rendered==="Home" && 
         <Home
           username={username}
+          email={email}
           games={games}
           setRender={setRender}
         />

@@ -87,9 +87,12 @@ public class AppService {
             games.add(odd.getGame());
             winnings *= odd.getValue();
         }
+
         if(games.size() != games.stream().distinct().count()){
             return "{\"confirmed\" : \"false\"}";
         }
+        System.out.println(userRepo.findAll());
+
         if(userRepo.findUserByEmail(betslipForm.getUser()).get().getWallet() < betslipForm.getMultipleAmount()){
             return "{\"confirmed\" : \"false\"}";
         }

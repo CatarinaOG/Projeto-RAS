@@ -122,6 +122,22 @@ public class User implements Serializable{
     public void setWallet(float wallet){
         this.wallet = wallet;
     }
-    
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", nif='" + nif + '\'' +
+                ", cc='" + cc + '\'' +
+                ", wallet=" + wallet +
+                ", transactions=" + transactions +
+                ", bets=" + bets +
+                '}';
+    }
 }
 

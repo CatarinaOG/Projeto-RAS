@@ -10,7 +10,7 @@ import ModalConfirmated from "./ModalConfirmated"
 
 export default function Report(props){
 
-    const {games,selected,setSelected} = props
+    const {games,selected,setSelected,email} = props
 
     const [type,setType] = useState('simple')                   // Utilizado para saber o tipo de aposta (simples vs multipla)
     const [amountMultiple, setAmountMultiple] = useState(0)     // Utilizado para guardar o amount da aposta múltipla
@@ -121,9 +121,13 @@ export default function Report(props){
         <div>
             {modalConfirmation && 
                 <ModalConfirmation 
-                    amount={getAmountToBet()}
+                    amountToBet={getAmountToBet()}
                     setModalConfirmation={setModalConfirmation}
                     setModalConfirmated={setModalConfirmated} 
+                    selected={selected}
+                    email={email}
+                    type={type}
+                    amountMultiple={amountMultiple}
                 />
             }
 
