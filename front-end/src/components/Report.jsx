@@ -58,36 +58,24 @@ export default function Report(props){
     // Obtem o ganho de aposta multipla
     function getGainsMultiple(){
 
-        var sumOdds = 0
+        var quota = getQuotaMultiple()
+        return quota * amountMultiple
 
-        selected.map( elem => {
-
-            var game = games.find( game => game.id === elem.gameId )
-            var bet = game.results.find( result => result.id === elem.id )
-
-            sumOdds += bet.odd
-        })
-
-        sumOdds *= 1.5
-
-        return sumOdds * amountMultiple
     }
 
     
     // Calcula a cota de uma aposta múltipla
     function getQuotaMultiple(){
 
-        var sumOdds = 0
+        var sumOdds = 1
 
         selected.map( elem => {
 
             var game = games.find( game => game.id === elem.gameId )
             var bet = game.results.find( result => result.id === elem.id )
 
-            sumOdds += bet.odd
+            sumOdds *= bet.odd
         })
-
-        sumOdds *= 1.5
 
         return sumOdds;
     }

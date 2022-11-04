@@ -13,7 +13,7 @@ export default function ModalConfirmated(props){
 
     return (
         <div>
-            <div className="backgroundModal2">
+            <div className="backgroundModal">
             </div>
             <div className="boxConfirm">
                 <img className='close' onClick={cancel} src={close}/>

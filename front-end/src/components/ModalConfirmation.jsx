@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import close from '../images/close.png'
 
 export default function ModalConfirmation(props){
 
     const {amountToBet,setModalConfirmation,setModalConfirmated,selected,email,type,amountMultiple,setBalance} = props
 
+    const [error,setError] = useState(0)
 
     function cancel(){
         setModalConfirmation(false)
@@ -17,8 +19,6 @@ export default function ModalConfirmation(props){
 
                 const value = Number(amount)
                 const bet = { user: email, type: type, multipleAmount: value, bets: [{id: id}] }
-                console.log(JSON.stringify(bet))
-                
 
                 fetch('http://127.0.0.1:8080/api/bets/placeBet',  {
                 method: 'POST',
@@ -33,6 +33,9 @@ export default function ModalConfirmation(props){
                         setBalance(prevBalance => prevBalance - amountToBet)
                         setModalConfirmation(false)
                         setModalConfirmated(true)
+                    }
+                    else {
+                        setError(1)
                     }
                 })
                 .catch((error) => {
@@ -63,6 +66,9 @@ export default function ModalConfirmation(props){
                     setModalConfirmation(false)
                     setModalConfirmated(true)
                 }
+                else{
+                    setError(1)
+                }
             })
             .catch((error) => {
             console.error('Error:', error)
@@ -80,6 +86,7 @@ export default function ModalConfirmation(props){
                 <h1 className="titleModal">Confirmação</h1>
                 <p className="paragraphModalConfirmation2">Confirmação do Pagamento no valor de:</p>
                 <p className="valueConfirmation">{amountToBet}$</p>
+                {error === 1 && <p className='error'>Saldo insuficiente ou Aposta Múltipla Inválida</p>}
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>
             </div>
         </div>

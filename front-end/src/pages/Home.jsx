@@ -22,7 +22,7 @@ export default function Home(props){
 
         game.results.map( game => {
             if (game.odd === 0) notNull = false
-        } )
+        })
 
         if(notNull)
             return(<Bet 

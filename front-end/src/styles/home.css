@@ -131,7 +131,7 @@
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 10px;
-    width: 90px;
+    width: 110px;
     padding: 4px;
     height: 20px;
     margin: 10px 0px 0px 20px;
@@ -146,6 +146,7 @@
     padding: 4px;
     height: 20px;
     margin: 10px 0px 0px 20px;
+    text-align: center;
 }
 
 .betButton{
@@ -518,4 +519,11 @@
     border-radius: 10px;
     padding: 10px;
     margin: 0px 10px 0px 10px
+}
+
+.error{
+    color: red;
+    position: absolute;
+    top: 30vh;
+    left: 13vw;
 }
