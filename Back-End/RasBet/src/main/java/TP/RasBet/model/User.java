@@ -1,6 +1,7 @@
 package TP.RasBet.model;
 import java.util.List;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.*;
 
@@ -38,6 +39,8 @@ public class User implements Serializable{
     @Column(name = "wallet")
     private float wallet;
     
+    @Column(name="data_de_nascimento")
+    private Timestamp data_de_nascimento;
      
 
     //one to many com Transaction -> User é a tabela que mapeia
@@ -58,7 +61,7 @@ public class User implements Serializable{
         
     }
 
-    public User(String email, String password, String telefone , String nome, String address, String nif, String cc){
+    public User(String email, String password, String telefone , String nome, String address, String nif, String cc, Timestamp data_de_nascimento){
         this.email = email;
         this.password = password;
         this.phone = telefone;
@@ -67,6 +70,7 @@ public class User implements Serializable{
         this.nif = nif;
         this.cc = cc;
         this.wallet = 0.0f;
+        this.data_de_nascimento = data_de_nascimento;
     }
 
     /* Getters */

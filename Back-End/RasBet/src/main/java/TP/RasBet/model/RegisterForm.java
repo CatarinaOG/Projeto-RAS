@@ -1,12 +1,12 @@
 package TP.RasBet.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class RegisterForm {
     private String nome;
     private String email;
     private String password;
-    private Date dataDeNascimento;
+    private Timestamp data_de_nascimento;
     private String cc;
     private String nif;
     private String telefone;
@@ -35,8 +35,8 @@ public class RegisterForm {
     public String getMorada() {
         return morada;
     }
-    public Date getDataDeNascimento() {
-        return dataDeNascimento;
+    public Timestamp getDataDeNascimento() {
+        return data_de_nascimento;
     }
 
     /* setters */
@@ -60,6 +60,9 @@ public class RegisterForm {
     }
     public void setMorada(String morada) {
         this.morada = morada;
+    }
+    public void setData_de_nascimento(Timestamp data_de_nascimento) {
+        this.data_de_nascimento = data_de_nascimento;
     }
 
 }
