@@ -10,7 +10,7 @@ public class GameForm{
     private float oddB;
     private float oddTie;
     private Timestamp date;
-    private String expert_name;
+    private String expert_email;
 
 
 
@@ -35,8 +35,8 @@ public class GameForm{
     public Timestamp getDate() {
         return date;
     }
-    public String getExpert_name() {
-        return expert_name;
+    public String getExpert_email() {
+        return expert_email;
     }
     
 

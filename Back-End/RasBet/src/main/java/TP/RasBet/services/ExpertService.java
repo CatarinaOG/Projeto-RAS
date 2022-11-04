@@ -42,7 +42,7 @@ public class ExpertService{
         
 
 
-        Expert expert = expertRepo.findExpertByName(gameForm.getExpert_name()).get();
+        Expert expert = expertRepo.findExpertByEmail(gameForm.getExpert_email()).get();
 
         Game game = new Game(gameForm.getSport(), gameForm.getParticipantA(), gameForm.getParticipantB(), d, expert);
         gameRepo.save(game);

@@ -50,7 +50,7 @@ public class TransactionService{
             t.setFinalBalance(u.getWallet() - transactionForm.getOperationValue());
 
             if(u.getWallet() - transactionForm.getOperationValue() < 0.0f){
-                return "\"confirmed\" : \"false\"" + "}";
+                return "{\"confirmed\" : \"false\"" + "}";
             }
             u.setWallet(u.getWallet() - transactionForm.getOperationValue());
             userRepo.save(u);
@@ -59,7 +59,7 @@ public class TransactionService{
         }
         
         
-        return "\"confirmed\" : \"true\"";
+        return "{\"confirmed\" : \"true\"}";
     }
     
 }
