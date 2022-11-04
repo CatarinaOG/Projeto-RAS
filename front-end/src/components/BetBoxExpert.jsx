@@ -30,7 +30,7 @@ export default function BetBoxExpert(props){
 
         <div className="resultBoxExpert" >
             <h3>{result}</h3>
-            {odd !== 'null' ? 
+            {odd !== 0 ? 
                 <div className='resultBoxOdd'>
                     <p>{odd}</p>
                     <img src={pencil} onClick={editOdd} />
