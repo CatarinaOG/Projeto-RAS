@@ -20,8 +20,8 @@ export default function Home(props){
 
         var notNull = true
 
-        game.results.map( ({id,result,odd,amount}) => {
-            if (odd === 0) notNull = false
+        game.results.map( game => {
+            if (game.odd === 0) notNull = false
         } )
 
         if(notNull)
