@@ -25,7 +25,6 @@ export default function AddGame(props){
 
 	function handleChange(event) {
         setFormData(prevFormData => {
-            console.log("desporto selecionado:" ,event.target.value)
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value

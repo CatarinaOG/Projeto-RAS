@@ -36,7 +36,6 @@ export default function PopUpMaestro(props){
         
 
             if(lengthcardCCV === 3 && lengthcardNum === 9){
-                console.log("operation is : " , formData.operation)
                 
                 fetch('http://127.0.0.1:8080/api/transactions/', {
                     method: 'POST',
@@ -57,18 +56,16 @@ export default function PopUpMaestro(props){
                         setStateOp("success");
                         setMessage("Operação bem sucedida!");
                         if(formData.operation === 'transfer'){
-                            console.log("foi levantamento")
                             setBalance(oldBalance => oldBalance - Number(formData.operationValue)); 
                         }
                         else{
-                            console.log("foi deposito")
                             setBalance(oldBalance => oldBalance + Number(formData.operationValue)); 
         
                         }
                     }
                     else{
                         setStateOp("error");
-                        setMessage("Operação mal sucedida!");
+                        setMessage("Erro! Verifique valor da conta");
                         
                     }
                 });
@@ -78,8 +75,6 @@ export default function PopUpMaestro(props){
                 setMessage("Dados incorretos, volte a tentar")
             }
         
-        // Tratar do pedido e verificação
-        //close();
     }
 
     return(

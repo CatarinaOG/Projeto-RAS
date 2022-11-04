@@ -5,9 +5,6 @@ export default function PopUp(props){
 
     const {email,password,username,setConfirmed} = props;
 
-    // talvez utilizar o set Balance e balance em vez deste use state local pq precisa de ser global
-    // vamos precisar do balance tb para efeitos de comparação para ver se o levantar é valido
-
 
     function close(){
         setConfirmed(false);

@@ -58,7 +58,7 @@ export default function PopUpPaypal(props){
             }
             else{
                 setStateOp("error");
-                setMessage("Operação mal sucedida!");
+                setMessage("Erro! Verifique valor da conta");
                 
             }
         });

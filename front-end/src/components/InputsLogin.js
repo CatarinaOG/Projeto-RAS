@@ -28,11 +28,7 @@ export default function InputsLogin(props) {
 	
 	function handleSubmit(event){
 		event.preventDefault();
-		console.log(formData.email);
-		console.log(formData.password);
 
-		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
-		
 		fetch('http://127.0.0.1:8080/api/users/login', {
             method: 'POST',
             headers: {
@@ -43,8 +39,6 @@ export default function InputsLogin(props) {
         .then(response => response.json())
         .then(data => {
 			setUsername(data.username);
-			console.log("username é : ", data.username);
-			setBalance(data.balance);
 			setEmail(formData.email);
 			if (data.type === 'especialista'){
 				setRender('HomeExpert');
@@ -53,7 +47,9 @@ export default function InputsLogin(props) {
 				setRender('HomeAdmin');
 			}
 			else if(data.type === 'apostador'){
+				setBalance(data.balance);
 				setRender('Home');
+
 			}
 			else if(data.type === null){
 				setErrorReg(2);
