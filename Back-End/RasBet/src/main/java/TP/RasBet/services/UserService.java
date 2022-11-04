@@ -1,5 +1,8 @@
 package TP.RasBet.services;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,7 +69,20 @@ public class UserService {
             }
         }
 
-        User user = new User(rf.getEmail(), rf.getPassword(), rf.getTelefone(), rf.getNome(), rf.getMorada(), rf.getNif(), rf.getCc());
+        User user = new User(rf.getEmail(), rf.getPassword(), rf.getTelefone(), rf.getNome(), rf.getMorada(), rf.getNif(), rf.getCc(),rf.getDataDeNascimento());
+        
+
+        LocalDate ld = rf.getDataDeNascimento().toLocalDateTime().toLocalDate();
+        ld = ld.plusYears(18);
+        LocalDate now = LocalDate.now();
+
+        System.out.println("Data de nascimento + 18 anos: " + ld);
+        System.out.println("Data de hoje: " + now);
+
+        if (ld.isAfter(now)){
+            return "{ \"state\" : \"bad\"" + "}";
+        }
+
         userRepo.save(user);
         return "{ \"state\" : \"good\"" + "}";
 

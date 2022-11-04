@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface GameRepo extends JpaRepository<Game, Integer>{
 
     @Query(value = "SELECT * FROM game WHERE (participantA = ?1) OR (participantB = ?1)",nativeQuery = true)
-    Optional<List<Game>> findGameByParticipant(String participant);
+    List<Game> findGameByParticipant(String participant);
 
 
 }

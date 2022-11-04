@@ -149,10 +149,14 @@ public class AppService {
 
 
     public String getGamesFiltered(String participant){
-        if(gameRepo.findGameByParticipant(participant).isPresent()){
+        JSONObject participantjson = new JSONObject(participant);
+        String p = (String) participantjson.get("filter");
+        if(!gameRepo.findGameByParticipant(p).isEmpty()){
+            
             JSONObject response = new JSONObject();
             JSONArray gamesResponse = new JSONArray();
-            List<Game> games = gameRepo.findGameByParticipant(participant).get();
+            List<Game> games = gameRepo.findGameByParticipant(p);
+            System.out.println(games);
 
             for(Game g : games){
                 JSONObject j = new JSONObject();
@@ -168,16 +172,17 @@ public class AppService {
                     odd.put("result", o.getDescription());
                     odd.put("odd", o.getValue());
                     odd.put("amount", 0);
-                    results.put(o);
+                    results.put(odd);
                 }
                 j.put("results", results);
                 gamesResponse.put(j);
             }
+            
             response.put("games", gamesResponse);
             return response.toString();
         }
         else{
-            return "{\"games\" : null";
+            return "{\"games\" : null }";
         }
     }
 
