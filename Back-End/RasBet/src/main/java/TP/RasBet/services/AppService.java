@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jackson.JsonComponentModule;
 import org.springframework.stereotype.Service;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -143,6 +144,41 @@ public class AppService {
         }
 
         return "{\"confirmed\" : \"false\"}";
+    }
+
+
+
+    public String getGamesFiltered(String participant){
+        if(gameRepo.findGameByParticipant(participant).isPresent()){
+            JSONObject response = new JSONObject();
+            JSONArray gamesResponse = new JSONArray();
+            List<Game> games = gameRepo.findGameByParticipant(participant).get();
+
+            for(Game g : games){
+                JSONObject j = new JSONObject();
+                j.put("id", g.getId());
+                j.put("home", g.getParticipantA());
+                j.put("away", g.getParticipantB());
+                j.put("date", g.getDate());
+                JSONArray results = new JSONArray();
+
+                for(Odd o : g.getOdds()){
+                    JSONObject odd = new JSONObject();
+                    odd.put("id", o.getId());
+                    odd.put("result", o.getDescription());
+                    odd.put("odd", o.getValue());
+                    odd.put("amount", 0);
+                    results.put(o);
+                }
+                j.put("results", results);
+                gamesResponse.put(j);
+            }
+            response.put("games", gamesResponse);
+            return response.toString();
+        }
+        else{
+            return "{\"games\" : null";
+        }
     }
 
 
