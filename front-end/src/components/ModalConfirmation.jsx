@@ -78,7 +78,7 @@ export default function ModalConfirmation(props){
             <div className="boxConfirm">
                 <img className='close' onClick={cancel} src={close}/>
                 <h1 className="titleModal">Confirmação</h1>
-                <p className="paragraphModalConfirmation">Confirmação do Pagamento no valor de:</p>
+                <p className="paragraphModalConfirmation2">Confirmação do Pagamento no valor de:</p>
                 <p className="valueConfirmation">{amountToBet}$</p>
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>
             </div>
