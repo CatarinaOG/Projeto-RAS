@@ -30,7 +30,8 @@ export default function ModalConfirmation(props){
                 .then(response => response.json(bet))
                 .then(data => {
                     if(data.confirmed == 'true'){
-                        setBalance(prevBalance => prevBalance - amountToBet)
+                        console.log(amountToBet)
+                        setBalance(prevBalance => prevBalance - amount)
                         setModalConfirmation(false)
                         setModalConfirmated(true)
                     }
