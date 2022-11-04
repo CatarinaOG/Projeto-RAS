@@ -77,6 +77,7 @@ export default function Report(props){
             sumOdds *= bet.odd
         })
 
+        if (selected.length === 0) return 0
         return sumOdds;
     }
 

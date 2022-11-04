@@ -4,9 +4,6 @@ export default function IdSaldo(props){
 
     const {username,balance} = props
 
-
-    
-
     return(
         <div className="ftsquareDiv">
             <div className='ftuserDiv'>

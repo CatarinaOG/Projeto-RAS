@@ -16,6 +16,8 @@ export default function ModalChangeOdd(props){
 
         const odd = {id: oddToChange.id, odd: newOdd}
 
+        console.log(odd)
+
         fetch('http://127.0.0.1:8080/api/bets/changeOdd', {
             method: 'POST',
             headers: {
