@@ -76,7 +76,7 @@ export default function RegAccount(props){
 					<input className = "ftCCReg" type="number" placeholder = "CC" name ="cc" value = {formData.cc} onChange={handleChange}/>
 					<button className = "acceder"> Concluir</button>
 					{errorReg === 1 && <p className='fterrorReg'>Dados em falta</p>}
-					{errorReg === 2 && <p className='fterrorReg2'>Erro no Registo</p>}
+					{errorReg === 2 && <p className='fterrorReg2'>Erro no Registo, já existe um email com essa conta</p>}
 
 				</form>
 			</div>
