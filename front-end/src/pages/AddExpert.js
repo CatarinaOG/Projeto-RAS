@@ -32,21 +32,22 @@ export default function AddSpecialist(props){
         // Mandar pedido e esperar por verificação
 
 
-        /*
-		const requestOptions = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ expert_username : expert_username , email: formData.email , password : formData.password})
-		};
-		fetch('', requestOptions)
+        fetch('http://127.0.0.1:8080/api/admin/newExpert', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ nome : formData.expert_username , email: formData.email , password : formData.password})
+        	})
 			.then(response => response.json())
 			.then(data => {
-				
-				setResponseState(data.state);
-			});
-
-		*/
-        setConfirmed(true);
+				if (data.state === 'good'){
+                    console.log("correu bem")
+                    setConfirmed(true);
+				}
+			})
+ 		
+        
 
 	}
 
