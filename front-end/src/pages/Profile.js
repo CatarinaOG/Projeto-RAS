@@ -10,7 +10,7 @@ import PopUpProfile from '../components/PopUpOperation'
 export default function Profile(props){
 
     
-    const {username,setUsername,setBalance,setRender} = props
+    const {username,setUsername,setBalance,setRender,balance} = props
 
     const [dataOrHistory,setDataOrHistory] = useState("Data");
     const [showPopUp,setShowPopUp] = useState("");
@@ -21,7 +21,7 @@ export default function Profile(props){
             <div>
                 <NavBarProfile username={username}/>
                 <div className='ftwhiteShadow'>
-                    <IdSaldo username={username}/>
+                    <IdSaldo username={username} balance={balance}/>
                     {dataOrHistory === "Data" ? 
                         <ChangeData
                             setUsername={setUsername}

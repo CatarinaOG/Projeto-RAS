@@ -43,13 +43,17 @@ export default function InputsLogin(props) {
         })
         .then(response => response.json())
         .then(data => {
-			console.log("aaaaaaa", data);
+			console.log("aaaaaaa", data.balance);
 			setUsername(data.username);
+			setBalance(data.balance);
 			if (data.type === 'especialista'){
 				setRender('HomeExpert');
 			}
 			else if(data.type === 'administrador'){
 				setRender('HomeAdmin');
+			}
+			else if(data.type === 'apostador'){
+				setRender('Home');
 			}
 			
 		});

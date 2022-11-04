@@ -26,7 +26,7 @@ function App() {
   const [rendered,setRender] = useState("Login")
 
   const [username,setUsername] = useState('user')
-  const [email,setEmail] = useState('user')
+  const [email,setEmail] = useState('email')
 
   const [balance,setBalance] = useState(0)
 
@@ -64,6 +64,7 @@ function App() {
           setUsername={setUsername}
           setBalance={setBalance}
           setRender={setRender}
+          setEmail={setEmail}
       />}
       {rendered==="Home" && 
         <Home
@@ -79,6 +80,7 @@ function App() {
           setUsername={setUsername}
           setBalance={setBalance}
           setRender = {setRender}
+          balance={balance}
       />}
       {rendered==="HomeExpert" && 
         <HomeExpert 
@@ -103,12 +105,14 @@ function App() {
         <AddGame 
           username={username}
           setRender={setRender}
+          email={email}
         />
       } 
       {rendered==="ProfileExpert" &&
         <ProfileExpert 
           username={username}
           setRender={setRender}
+          
         />
       }
 

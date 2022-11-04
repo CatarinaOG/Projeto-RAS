@@ -8,7 +8,7 @@ import PopUpAddGame from '../components/PopUpAddGame'
 
 export default function AddGame(props){
 
-    const {username,setRender} = props
+    const {username,setRender,email} = props
 
     const [formData, setFormData] = useState(
         {sport: null,participantA:null , participantB:null,oddA:0,oddB:0,oddTie:0,date:null,time:null}
@@ -16,39 +16,58 @@ export default function AddGame(props){
     
     const [confirmed,setConfirmed] = useState(false);
 
-    const sportPop ='';
-    const participantAPop='';
-    const participantBPop='';
-    const oddAPop='';
-    const oddBPop='';
-    const oddTiePop='';
-
     function goBack(){
         setRender('ProfileExpert')
     }
 
 	function handleChange(event) {
         setFormData(prevFormData => {
+            console.log("desporto selecionado:" ,event.target.value)
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
+            
             }
         })
     }
 
 	function handleSubmit(event){
 		event.preventDefault();
+        console.log(formData.date)
+        console.log(formData.time)
+        console.log(formData.sport)
 
+        console.log(email)
+        const timeVal = formData.date + "T"+formData.time+":00"
+        console.log(timeVal)
         // fazer verificação
         // juntar o input de date e time
-        setConfirmed(true);
-        sportPop =formData.sport;
-        participantAPop=formData.participantA;
-        participantBPop=formData.participantB;
-        oddAPop=formData.oddA;
-        oddBPop=formData.oddB;
-        oddTiePop=formData.oddTie;
-        console.log(sportPop);
+        
+        fetch('http://127.0.0.1:8080/api/expert/newGame', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json ',
+            },
+            body: JSON.stringify({ 
+                sport: formData.sport , 
+                participantA:formData.participantA , 
+                participantB:formData.participantB,
+                oddA:formData.oddA,
+                oddB:formData.oddB,
+                oddTie:formData.oddTie,
+                date:timeVal,
+                expert_email:email
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+			if (data.state === 'good'){
+                console.log("aaaaaaaaaaaaaa")
+				setConfirmed(true);
+			}
+			
+			
+		});
 
 	}
     
@@ -63,8 +82,8 @@ export default function AddGame(props){
                     <form onSubmit = {handleSubmit}>
                         <h3 className='ftpromptSport'>Insira o Desporto</h3>
                         <select className='ftselectSport' value={formData.sport} onChange={handleChange} name ="sport">
-                            <option value="Futebol">Futebol</option>
                             <option value="">---Escolha---</option>
+                            <option value="Futebol" name="Futebol" >Futebol</option>
                         </select>
 
                         <h3 className="ftpromptParticipantA">Participante A :</h3>

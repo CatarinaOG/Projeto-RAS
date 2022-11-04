@@ -2,7 +2,7 @@ import '../styles/Profile.css'
 
 export default function IdSaldo(props){
 
-    const {username} = props
+    const {username,balance} = props
 
 
     function getBalance(){
@@ -26,7 +26,7 @@ export default function IdSaldo(props){
                 <h1 className='ftusername'>{username}</h1>
             </div>
             <div className='ftvalDiv'>
-                <h3 className='ftval'>Saldo: {getBalance()}$</h3>
+                <h3 className='ftval'>Saldo: {balance}$</h3>
             </div>
         </div>
     )

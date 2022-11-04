@@ -14,7 +14,6 @@ export default function RegAccount(props){
 
 	function handleChange(event) {
         setFormData(prevFormData => {
-            console.log(event.target.value)
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
@@ -26,7 +25,7 @@ export default function RegAccount(props){
 
 	function handleSubmit(event){
 		event.preventDefault();
-
+		console.log("Address is : ",formData.address)
 		// Verificação aqui se conta registada
 		/*
 			//verificar se tao todos corretos
@@ -48,8 +47,32 @@ export default function RegAccount(props){
 					});
 			}
 		*/
+		fetch('http://127.0.0.1:8080/api/users/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+				email: formData.email,
+				password:formData.password,
+				telefone:formData.phone,
+				nome:formData.name,
+				nif:formData.nif,
+				data:formData.date,
+				cc:formData.cc,
+				morada:formData.address})
+        })
+        .then(response => response.json())
+        .then(data => {
+			if (data.state === 'good'){
+				console.log("the state is" ,data.state)
+				setLoadReg(prevLoadReg => !prevLoadReg)
+			}
+			
+			
+		});
 
-        setLoadReg(prevLoadReg => !prevLoadReg)
+        
 	}
 
 
