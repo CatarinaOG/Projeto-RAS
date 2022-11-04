@@ -1,4 +1,3 @@
-import './styles/App.css';
 import './styles/AddGame.css';
 import './styles/AddExpert.css';
 import './styles/home.css';
