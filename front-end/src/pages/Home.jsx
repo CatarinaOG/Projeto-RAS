@@ -16,14 +16,23 @@ export default function Home(props){
 
 
     //Mostra todas as bets do lado esquerdo
-    const allBets = games.map( (game) => (
-        <Bet 
-            key={game.id}
-            gameId={game.id}
-            game={game} 
-            setSelected={setSelected} 
-            selected={selected}/> 
-    )) 
+    const allBets = games.map( (game) => {
+
+        var notNull = true
+
+        game.results.map( ({id,result,odd,amount}) => {
+            if (odd === 0) notNull = false
+        } )
+
+        if(notNull)
+            return(<Bet 
+                key={game.id}
+                gameId={game.id}
+                game={game} 
+                setSelected={setSelected} 
+                selected={selected}/> 
+            )
+    }) 
 
     return(
         <div>
