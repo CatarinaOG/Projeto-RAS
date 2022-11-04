@@ -27,8 +27,6 @@ export default function InputsLogin(props) {
 	
 	function handleSubmit(event){
 		event.preventDefault();
-		console.log(formData.email);
-		console.log(formData.password);
 
 		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
 		
@@ -42,7 +40,6 @@ export default function InputsLogin(props) {
         .then(response => response.json())
         .then(data => {
 			setUsername(data.username);
-			console.log("username é : ", data.username);
 			setBalance(data.balance);
 			setEmail(formData.email);
 			if (data.type === 'especialista'){
@@ -55,10 +52,6 @@ export default function InputsLogin(props) {
 				setRender('Home');
 			}
 		});
-		console.log("O balanço é : " ,console.log(balance))
-		/*
-		
-		*/
 		
 	}
 

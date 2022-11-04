@@ -2,7 +2,7 @@ import close from '../images/close.png'
 
 export default function ModalConfirmation(props){
 
-    const {amountToBet,setModalConfirmation,setModalConfirmated,selected,email,type,amountMultiple} = props
+    const {amountToBet,setModalConfirmation,setModalConfirmated,selected,email,type,amountMultiple,setBalance} = props
 
 
     function cancel(){
@@ -30,6 +30,7 @@ export default function ModalConfirmation(props){
                 .then(response => response.json(bet))
                 .then(data => {
                     if(data.confirmed == 'true'){
+                        setBalance(prevBalance => prevBalance - amountToBet)
                         setModalConfirmation(false)
                         setModalConfirmated(true)
                     }
@@ -48,8 +49,6 @@ export default function ModalConfirmation(props){
             })
 
             const bet = { user: email, type: type, multipleAmount: amountMultiple, bets: ids }
-
-            console.log(bet)
 
             fetch('http://127.0.0.1:8080/api/bets/placeBet',  {
             method: 'POST',

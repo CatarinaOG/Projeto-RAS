@@ -72,6 +72,7 @@ function App() {
           username={username}
           email={email}
           games={games}
+          setBalance={setBalance}
           setRender={setRender}
         />
       }
