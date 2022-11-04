@@ -97,7 +97,7 @@
 .ftaddConcludeSp{
     position: absolute;
 
-    top: 67%;
+    top: 75%;
     left: 23.5%;
     height: 8%;
     width: 55%;
@@ -196,10 +196,20 @@
 
 }
 
+.fterrorAddEx{
+    position: absolute;
+    top:68%;
+    left:43%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+
 .goBackImg2{
     position: absolute;
     z-index: 2;
     left: 21vw;
-    top: 15vh;
+    top: 12vh;
 
 }

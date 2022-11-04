@@ -7,13 +7,13 @@ export default function AddSpecialist(props){
 
     const {username,setRender} = props
 
+	const [errorReg,setErrorReg]=useState(0);
     
     const [confirmed,setConfirmed] = useState(false);
 
-    const [responseState,setResponseState] = useState("");
 
     const [formData, setFormData] = useState(
-        {expert_username:null ,email:null,password:null}
+        {expert_username:"" ,email:"",password:""}
     )
 
 	function handleChange(event) {
@@ -31,8 +31,8 @@ export default function AddSpecialist(props){
 
         // Mandar pedido e esperar por verificação
 
-
-        fetch('http://127.0.0.1:8080/api/admin/newExpert', {
+        if(formData.expert_username!= "" && formData.email!= "" && formData.password!=""){
+            fetch('http://127.0.0.1:8080/api/admin/newExpert', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -43,10 +43,20 @@ export default function AddSpecialist(props){
 			.then(data => {
 				if (data.state === 'good'){
                     console.log("correu bem")
+			        setErrorReg(0);
+
                     setConfirmed(true);
 				}
+                else{
+                    setErrorReg(2);
+                }
 			})
- 		
+        }
+        else{
+			setErrorReg(1);
+            
+        }
+
         
 
 	}
@@ -71,6 +81,9 @@ export default function AddSpecialist(props){
                         <h3 className='ftpromptPassSp'>Insira a password:</h3>
                         <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ="ftpasswordSp"/>
                         <button className = "ftaddConcludeSp">Registar</button>
+					    {errorReg === 1 && <h3 className='fterrorAddEx'>Dados em falta</h3>}
+					    {errorReg === 2 && <h3 className='fterrorAddEx'>Falha ao criar</h3>}
+
                     </form>
                 </div>
             </div>

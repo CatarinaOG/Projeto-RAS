@@ -11,8 +11,11 @@ export default function AddGame(props){
     const {username,setRender,email} = props
 
     const [formData, setFormData] = useState(
-        {sport: null,participantA:null , participantB:null,oddA:0,oddB:0,oddTie:0,date:null,time:null}
+        {sport: "",participantA:"" , participantB:"",oddA:0,oddB:0,oddTie:0,date:"",time:""}
     )
+
+	const [errorReg,setErrorReg]=useState(0);
+
     
     const [confirmed,setConfirmed] = useState(false);
 
@@ -34,33 +37,38 @@ export default function AddGame(props){
 	function handleSubmit(event){
 		event.preventDefault();
         
-        const timeVal = formData.date + "T"+formData.time+":00"
-        
-        
-        fetch('http://127.0.0.1:8080/api/expert/newGame', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json ',
-            },
-            body: JSON.stringify({ 
-                sport: formData.sport , 
-                participantA:formData.participantA , 
-                participantB:formData.participantB,
-                oddA:formData.oddA,
-                oddB:formData.oddB,
-                oddTie:formData.oddTie,
-                date:timeVal,
-                expert_email:email
+        if(formData.sport!="" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
+            const timeVal = formData.date + "T"+formData.time+":00"
+            
+            fetch('http://127.0.0.1:8080/api/expert/newGame', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json ',
+                },
+                body: JSON.stringify({ 
+                    sport: formData.sport , 
+                    participantA:formData.participantA , 
+                    participantB:formData.participantB,
+                    oddA:formData.oddA,
+                    oddB:formData.oddB,
+                    oddTie:formData.oddTie,
+                    date:timeVal,
+                    expert_email:email
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-			if (data.state === 'good'){
-				setConfirmed(true);
-			}
-			
-			
-		});
+            .then(response => response.json())
+            .then(data => {
+                if (data.state === 'good'){
+                    setConfirmed(true);
+                    setErrorReg(0);
+
+                }
+                
+            });
+        }
+        else{
+            setErrorReg(2);
+        }
 
 	}
     
@@ -97,6 +105,7 @@ export default function AddGame(props){
 
 
                         <button className = "ftadd" >Criar Jogo</button>
+			            {errorReg === 2 && <h3 className='fterrorAddGame'>Dados em falta</h3>}
                     </form>
                 </div>
             </div>

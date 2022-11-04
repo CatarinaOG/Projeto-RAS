@@ -194,6 +194,15 @@
     color: red;
 }
 
+.fterrorReg2{
+    position: absolute;
+    top:87%;
+    left:18%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
 
 .ftnameReg{
     
@@ -336,5 +345,14 @@
     width : 40%;
     height: 90%;
     
+}
+
+.fterrorLogIn{
+    position: absolute;
+    top:59%;
+    left:31%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
 }
 

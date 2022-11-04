@@ -3,7 +3,7 @@ import { useState } from "react";
 import closeImg from '../images/close.png'
 
 export default function PopUpMessage(props){
-    const {setStateOp,message,setMethod,setShowPopUp} = props;
+    const {message} = props;
     function close(){
         
     }

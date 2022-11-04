@@ -48,6 +48,9 @@ export default function RegAccount(props){
 				if (data.state === 'good'){
 					setLoadReg(prevLoadReg => !prevLoadReg)
 				}
+				else if(data.state ==='bad'){
+					setErrorReg(2);
+				}
 			});
 		}
 		else{
@@ -73,6 +76,8 @@ export default function RegAccount(props){
 					<input className = "ftCCReg" type="number" placeholder = "CC" name ="cc" value = {formData.cc} onChange={handleChange}/>
 					<button className = "acceder"> Concluir</button>
 					{errorReg === 1 && <h3 className='fterrorReg'>Dados em falta</h3>}
+					{errorReg === 2 && <h3 className='fterrorReg2'>Erro no Registo, já existe um email com essa conta</h3>}
+
 				</form>
 			</div>
     )

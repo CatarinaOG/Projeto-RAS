@@ -11,6 +11,7 @@ export default function InputsLogin(props) {
         setLoadReg(prevLoadReg => !prevLoadReg);
     }
 
+	const [errorReg,setErrorReg]=useState(0);
 
 	const [formData, setFormData] = useState({email: "",password:""})
     
@@ -27,6 +28,8 @@ export default function InputsLogin(props) {
 	
 	function handleSubmit(event){
 		event.preventDefault();
+		console.log(formData.email);
+		console.log(formData.password);
 
 		// Fazer a verificição do log in aqui e mudar username com 'setUsername' e 'setBalance'
 		
@@ -40,6 +43,7 @@ export default function InputsLogin(props) {
         .then(response => response.json())
         .then(data => {
 			setUsername(data.username);
+			console.log("username é : ", data.username);
 			setBalance(data.balance);
 			setEmail(formData.email);
 			if (data.type === 'especialista'){
@@ -51,7 +55,12 @@ export default function InputsLogin(props) {
 			else if(data.type === 'apostador'){
 				setRender('Home');
 			}
+			else if(data.type === null){
+				setErrorReg(2);
+
+			}
 		});
+		
 		
 	}
 
@@ -68,6 +77,8 @@ export default function InputsLogin(props) {
 			<a className = "ftnoPass" > Esqueci-me da palavra-passe</a>
 			<a className='ftnoAccount'>Não tem conta?</a>
 			<h4 onClick={changeComp} className = "ftnoAccountHyper"> Registe-se já! </h4>
+			{errorReg === 2 && <h3 className='fterrorLogIn'>Email ou password incorretos</h3>}
+
 		</div>
     )
 }
