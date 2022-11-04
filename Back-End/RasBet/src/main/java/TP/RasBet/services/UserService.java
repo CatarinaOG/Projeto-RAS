@@ -29,8 +29,8 @@ public class UserService {
             User user = findUserByEmail.get();
 
             if (user.getPassword().equals(pass)){
-                return "{ \"username\" : "+ "\"" + user.getName()+ "\"" + ", \"type\" : \"apostador\"}";
-            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : " + "\""+ user.getWallet()+ "\"" + "}";
+                return "{ \"username\" : "+ "\"" + user.getName()+ "\"" + ", \"type\" : \"apostador\" + \"balance\" : " + "\""+ user.getWallet()+ "\"" + "}";
+            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null"  + "}";
         }
 
         Optional<Expert> findExpertByEmail = expertRepo.findExpertByEmail(email);
