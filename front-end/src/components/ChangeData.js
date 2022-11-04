@@ -39,7 +39,7 @@ export default function ChangeData(props){
         setShowPopUp('transfer');
     }
 
-    function depositPop(x){
+    function depositPop(){
         setShowPopUp('deposit');
     }
 

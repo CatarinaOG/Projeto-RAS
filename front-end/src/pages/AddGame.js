@@ -33,15 +33,9 @@ export default function AddGame(props){
 
 	function handleSubmit(event){
 		event.preventDefault();
-        console.log(formData.date)
-        console.log(formData.time)
-        console.log(formData.sport)
-
-        console.log(email)
+        
         const timeVal = formData.date + "T"+formData.time+":00"
-        console.log(timeVal)
-        // fazer verificação
-        // juntar o input de date e time
+        
         
         fetch('http://127.0.0.1:8080/api/expert/newGame', {
             method: 'POST',
@@ -62,7 +56,6 @@ export default function AddGame(props){
         .then(response => response.json())
         .then(data => {
 			if (data.state === 'good'){
-                console.log("aaaaaaaaaaaaaa")
 				setConfirmed(true);
 			}
 			

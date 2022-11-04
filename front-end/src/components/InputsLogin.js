@@ -5,9 +5,7 @@ import logo from '../images/logo.png'
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setBalance,setRender,setLoadReg} = props
-	const [typeUser,setTypeUser]=useState("");
-	const [email,setEmail] = useState("");
+	const {setUsername,setBalance,setRender,setLoadReg,setEmail,balance} = props
 
     function changeComp(){
         setLoadReg(prevLoadReg => !prevLoadReg);
@@ -43,9 +41,10 @@ export default function InputsLogin(props) {
         })
         .then(response => response.json())
         .then(data => {
-			console.log("aaaaaaa", data.balance);
 			setUsername(data.username);
+			console.log("username é : ", data.username);
 			setBalance(data.balance);
+			setEmail(formData.email);
 			if (data.type === 'especialista'){
 				setRender('HomeExpert');
 			}
@@ -55,9 +54,8 @@ export default function InputsLogin(props) {
 			else if(data.type === 'apostador'){
 				setRender('Home');
 			}
-			
 		});
-		console.log("Type is : ".typeUser)
+		console.log("O balanço é : " ,console.log(balance))
 		/*
 		
 		*/

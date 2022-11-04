@@ -5,7 +5,7 @@ import PopUpMessage from "./PopUpMessagePayment";
 
 export default function PopUpMaestro(props){
 
-    const {setMethod,showPopUp} = props;
+    const {setMethod,showPopUp,email,setBalance,setShowPopUp} = props;
     const [stateOp,setStateOp] = useState("");
     const [message,setMessage] = useState("");
     
@@ -32,22 +32,46 @@ export default function PopUpMaestro(props){
         var lengthcardCCV = Math.log(formData.cardCCV) * Math.LOG10E + 1 | 0;
 
         var lengthcardNum = Math.log(formData.cardNum) * Math.LOG10E + 1 | 0;
-        console.log(lengthcardCCV);
-        console.log(lengthcardNum);
+        
+        
+
             if(lengthcardCCV === 3 && lengthcardNum === 9){
-                setStateOp("success");
-                /*
-                const requestOptions = {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ operation : showPopUp ,email : email ,cardNum : formData.cardNum, cardCCV : formData.cardCCV, operationValue : formData.operationValue})
-                };
-                fetch('', requestOptions)
-                    .then(response => response.json())
-                    .then(data => this.setState({ postId: data.id }));
+                console.log("operation is : " , formData.operation)
                 
-                */
-                setMessage("Operação bem sucedida!");
+                fetch('http://127.0.0.1:8080/api/transactions/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json ',
+                    },
+                    body: JSON.stringify({ 
+                        operation: formData.operation,
+                        cardNum : formData.cardNum,
+                        cardCCV : formData.cardCCV,
+                        email_user: email,
+                        operationValue:formData.operationValue
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.confirmed === 'true'){
+                        setStateOp("success");
+                        setMessage("Operação bem sucedida!");
+                        if(formData.operation === 'transfer'){
+                            console.log("foi levantamento")
+                            setBalance(oldBalance => oldBalance - Number(formData.operationValue)); 
+                        }
+                        else{
+                            console.log("foi deposito")
+                            setBalance(oldBalance => oldBalance + Number(formData.operationValue)); 
+        
+                        }
+                    }
+                    else{
+                        setStateOp("error");
+                        setMessage("Operação mal sucedida!");
+                        
+                    }
+                });
             }
             else if(lengthcardCCV < 3 && lengthcardNum <8){
                 setStateOp("error")
@@ -73,8 +97,8 @@ export default function PopUpMaestro(props){
                     <img src = {closeImg} className='close' onClick={close}/>
                 
                 </div>}
-            {stateOp === "success" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod}></PopUpMessage>}
-            {stateOp === "error" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} ></PopUpMessage>}
+            {stateOp === "success" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessage>}
+            {stateOp === "error" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessage>}
 
         </div>
     )

@@ -185,6 +185,16 @@
     
 }
 
+.fterrorReg{
+    position: absolute;
+    top:87%;
+    left:42%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+
 .ftnameReg{
     
     position: absolute;

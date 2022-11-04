@@ -5,12 +5,12 @@ import IdSaldo from '../components/IdSaldo';
 import { useState } from 'react';
 import ChangeData from '../components/ChangeData';
 import BetHistory from '../components/BetHistory';
-import PopUpProfile from '../components/PopUpOperation'
+import PopUpOperation from '../components/PopUpOperation'
 
 export default function Profile(props){
 
     
-    const {username,setUsername,setBalance,setRender,balance} = props
+    const {username,setUsername,setBalance,setRender,balance,email} = props
 
     const [dataOrHistory,setDataOrHistory] = useState("Data");
     const [showPopUp,setShowPopUp] = useState("");
@@ -39,10 +39,11 @@ export default function Profile(props){
             {showPopUp !== '' && 
                 <div>
                     <div  className="ftbackgroundModal"></div>
-                    <PopUpProfile 
+                    <PopUpOperation 
                         showPopUp={showPopUp} 
                         setShowPopUp={setShowPopUp}
-                        setBalance={setBalance} 
+                        setBalance={setBalance}
+                        email={email}
                     />
                 </div>
             } 

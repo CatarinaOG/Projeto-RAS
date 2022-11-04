@@ -65,6 +65,7 @@ function App() {
           setBalance={setBalance}
           setRender={setRender}
           setEmail={setEmail}
+          balance={balance}
       />}
       {rendered==="Home" && 
         <Home
@@ -81,6 +82,7 @@ function App() {
           setBalance={setBalance}
           setRender = {setRender}
           balance={balance}
+          email={email}
       />}
       {rendered==="HomeExpert" && 
         <HomeExpert 

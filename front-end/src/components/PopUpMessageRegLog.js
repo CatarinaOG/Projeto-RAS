@@ -5,12 +5,7 @@ import closeImg from '../images/close.png'
 export default function PopUpMessage(props){
     const {setStateOp,message,setMethod,setShowPopUp} = props;
     function close(){
-        if(message==="Operação bem sucedida!"){
-            setMethod('');
-        }
-        else{
-            setShowPopUp("");
-        }
+        
     }
     return(
         <div>
