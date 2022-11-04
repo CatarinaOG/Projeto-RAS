@@ -104,7 +104,7 @@ export default function AddGame(props){
 
 
                         <button className = "ftadd" >Criar Jogo</button>
-			            {errorReg === 2 && <h3 className='fterrorAddGame'>Dados em falta</h3>}
+			            {errorReg === 2 && <p className='fterrorAddGame'>Dados em falta</p>}
                     </form>
                 </div>
             </div>

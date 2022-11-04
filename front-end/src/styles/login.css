@@ -188,7 +188,7 @@
 .fterrorReg{
     position: absolute;
     top:87%;
-    left:42%;
+    left:39%;
     font-family: 'Spinnaker';
     font-style: normal;
     color: red;
@@ -197,7 +197,7 @@
 .fterrorReg2{
     position: absolute;
     top:87%;
-    left:18%;
+    left:10%;
     font-family: 'Spinnaker';
     font-style: normal;
     color: red;
@@ -350,7 +350,7 @@
 .fterrorLogIn{
     position: absolute;
     top:59%;
-    left:31%;
+    left:29%;
     font-family: 'Spinnaker';
     font-style: normal;
     color: red;

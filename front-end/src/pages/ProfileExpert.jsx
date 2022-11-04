@@ -24,7 +24,7 @@ export default function ProfileExpert(props){
 
         <div>
             <NavBarProfile username={username}/>
-            <img src = {goBackImg} className='goBackImg2' onClick={goBack}/>
+            <img src = {goBackImg} className='goBackImg3' onClick={goBack}/>
                 <div className='whiteShadow'>
                     <div className="contentAdmin">
                         <button className="ButtonsAdmin1" onClick={goToAddGame}>Criar jogo</button>

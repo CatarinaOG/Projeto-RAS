@@ -73,7 +73,7 @@ export default function InputsLogin(props) {
 			<a className = "ftnoPass" > Esqueci-me da palavra-passe</a>
 			<a className='ftnoAccount'>Não tem conta?</a>
 			<h4 onClick={changeComp} className = "ftnoAccountHyper"> Registe-se já! </h4>
-			{errorReg === 2 && <h3 className='fterrorLogIn'>Email ou password incorretos</h3>}
+			{errorReg === 2 && <p className='fterrorLogIn'>Email ou password incorretos</p>}
 
 		</div>
     )
