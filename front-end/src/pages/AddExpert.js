@@ -82,7 +82,7 @@ export default function AddSpecialist(props){
                         <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ="ftpasswordSp"/>
                         <button className = "ftaddConcludeSp">Registar</button>
 					    {errorReg === 1 && <h3 className='fterrorAddEx'>Dados em falta</h3>}
-					    {errorReg === 2 && <h3 className='fterrorAddEx'>Falha ao criar</h3>}
+					    {errorReg === 2 && <h3 className='fterrorAddEx'>Erro: email em uso</h3>}
 
                     </form>
                 </div>
