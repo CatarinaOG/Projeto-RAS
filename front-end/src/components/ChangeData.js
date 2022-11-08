@@ -1,13 +1,18 @@
 
 import {useState} from 'react'
+import { useNavigate } from "react-router-dom";
+
 import goBackImg from "../images/goBack.png"
+
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDataOrHistory,setRender} = props
+    const {setUsername,setShowPopUp,setDataOrHistory} = props
+
+    let navigate = useNavigate();
 
     function goBack(){
-        setRender('Home')
+        navigate('/Home')
     }
 
     function goToHistory(){
@@ -44,7 +49,7 @@ export default function ChangeData(props){
     }
 
     function logOut(){
-        setRender('Login')
+        navigate('/')
     }
  
 

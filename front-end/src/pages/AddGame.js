@@ -1,26 +1,28 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 import goBackImg from '../images/goBack.png'
 
-import NavBarProfile from "../components/NavBarProfile";
+import NavBarProfile from "../components/NavBarProfile"
 import PopUpAddGame from '../components/PopUpAddGame'
 
 
 export default function AddGame(props){
 
-    const {username,setRender,email} = props
+    const {username,email} = props
 
     const [formData, setFormData] = useState(
         {sport: "",participantA:"" , participantB:"",oddA:0,oddB:0,oddTie:0,date:"",time:""}
     )
 
-	const [errorReg,setErrorReg]=useState(0);
+	const [errorReg,setErrorReg]=useState(0)
 
-    
-    const [confirmed,setConfirmed] = useState(false);
+    const [confirmed,setConfirmed] = useState(false)
+
+    let navigate = useNavigate()
 
     function goBack(){
-        setRender('ProfileExpert')
+        navigate('/ProfileExpert')
     }
 
 	function handleChange(event) {
@@ -34,7 +36,7 @@ export default function AddGame(props){
     }
 
 	function handleSubmit(event){
-		event.preventDefault();
+		event.preventDefault()
         
         if(formData.sport!="" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
             const timeVal = formData.date + "T"+formData.time+":00"
@@ -58,15 +60,13 @@ export default function AddGame(props){
             .then(response => response.json())
             .then(data => {
                 if (data.state === 'good'){
-                    setConfirmed(true);
-                    setErrorReg(0);
-
+                    setConfirmed(true)
+                    setErrorReg(0)
                 }
-                
-            });
+            })
         }
         else{
-            setErrorReg(2);
+            setErrorReg(2)
         }
 
 	}

@@ -1,16 +1,20 @@
+import { useNavigate } from "react-router-dom"
+
 import NavBarProfile from "../components/NavBarProfile"
 
 
 export default function HomeAdmin(props){
 
-    const {username,setRender} = props
+    const {username} = props
+
+    let navigate = useNavigate()
 
     function goToAddExpert(){
-        setRender('AddExpert')
+        navigate('/AddExpert')
     }
 
     function logout(){
-        setRender('Login')
+        navigate('/')
     }
 
     return(

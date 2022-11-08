@@ -12,7 +12,7 @@ import {useState} from 'react'
 
 export default function HomeExpert(props){
 
-    const {username,games,setRender} = props
+    const {username,games} = props
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
 
@@ -64,7 +64,6 @@ export default function HomeExpert(props){
                 user={username}
                 searching={searching} 
                 setSearching={setSearching} 
-                setRender={setRender}
                 userType='expert'
             />
             <div className="content">

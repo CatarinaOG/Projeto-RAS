@@ -1,4 +1,6 @@
 
+import { useNavigate } from "react-router-dom"
+
 import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
@@ -6,18 +8,20 @@ import goBackImg from '../images/goBack.png'
 
 export default function ProfileExpert(props){
 
-    const {username,setRender} = props
+    const {username} = props
+
+    let navigate = useNavigate()
 
     function goBack(){
-        setRender('HomeExpert')
+        navigate('/HomeExpert')
     }
 
     function goToAddGame(){
-        setRender('AddGame')
+        navigate('/AddGame')
     }
 
     function logout(){
-        setRender('Login')
+        navigate('/')
     }
 
     return(

@@ -1,19 +1,19 @@
-import './styles/AddGame.css';
-import './styles/AddExpert.css';
-import './styles/home.css';
-import './styles/Profile.css';
-import './styles/login.css';
+import './styles/AddGame.css'
+import './styles/AddExpert.css'
+import './styles/home.css'
+import './styles/Profile.css'
+import './styles/login.css'
 import './styles/HomeAdmin.css'
 
+import {useState} from 'react'
+import { useEffect } from 'react'
+import {BrowserRouter,Routes,Route} from "react-router-dom"
 
-import {useState} from 'react';
-import { useEffect } from 'react';
-
-import Home from './pages/Home';
+import Home from './pages/Home'
 import Profile from './pages/Profile.js'
-import HomeAdmin from './pages/HomeAdmin';
-import Login from './pages/Login.js';
-import HomeExpert from './pages/HomeExpert';
+import HomeAdmin from './pages/HomeAdmin'
+import Login from './pages/Login.js'
+import HomeExpert from './pages/HomeExpert'
 import AddExpert from './pages/AddExpert.js'
 import AddGame from './pages/AddGame.js'
 import ProfileExpert from './pages/ProfileExpert'
@@ -21,8 +21,6 @@ import ProfileExpert from './pages/ProfileExpert'
 
 
 function App() {
-
-  const [rendered,setRender] = useState("Login")
 
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
@@ -56,7 +54,76 @@ function App() {
 
   //-----------------------------------------
 
-  return (
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <Login 
+            setUsername={setUsername}
+            setBalance={setBalance}
+            setEmail={setEmail}
+            balance={balance}
+          />
+        } />
+
+        <Route path="/Home" element={
+          <Home
+            username={username}
+            email={email}
+            games={games}
+            setBalance={setBalance}
+          />
+        } />
+
+        <Route path="/Profile" element={
+          <Profile 
+            username={username}
+            setUsername={setUsername}
+            setBalance={setBalance}
+            balance={balance}
+            email={email}
+          />
+        } />
+
+        <Route path="/HomeExpert" element={
+          <HomeExpert 
+            username={username}
+            games={games}
+          />
+        } />
+
+        <Route path="/AddExpert" element={
+          <AddExpert 
+            username={username}
+          />
+        } />
+
+        <Route path="/HomeAdmin" element={
+          <HomeAdmin 
+            username={username}
+          />
+        } />
+
+        <Route path="/AddGame" element={
+          <AddGame 
+            username={username}
+            email={email}
+          />
+        } />
+
+        <Route path="/ProfileExpert" element={
+          <ProfileExpert 
+            username={username}
+          />
+        } />
+
+
+      </Routes>
+  </BrowserRouter>
+  )
+
+
+  /*return (
     <div>
       {rendered==="Login" && 
         <Login 
@@ -119,7 +186,7 @@ function App() {
       }
 
     </div>
-	);
+	)*/
 }
 
 export default App;

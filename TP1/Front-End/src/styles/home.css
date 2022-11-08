@@ -1,0 +1,529 @@
+
+/**-----------------Home--------------**/
+
+.content{
+    display: flex;
+}
+
+.allBets{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 75vh;
+}
+
+
+/**-----------------Bet--------------**/
+
+.bet{
+    width: 52.5vw;
+    height: 110px;
+    border: 2px dashed #18340C;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: flex;
+    font-family: 'Spinnaker';
+}
+
+.info{
+    font-family: 'Spinnaker';
+    margin: 30px 0px 0px 20px;
+    width: 20vw;
+}
+
+.results{
+    display: flex;
+    width: 40vw;
+    justify-content: space-around;
+    font-size: 13px;
+
+}
+
+.resultBoxSelected{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid #F07444;
+}
+
+.resultBoxNotSelected{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+.resultBoxNotSelected > p, .resultBoxSelected > p{
+
+    margin-top: 9px;
+
+}
+
+
+/*---------------NavBar-------------*/
+
+*{
+    margin: 0
+}
+
+.NavBar{
+    background-color: #18340C;
+    height: 80px;
+    font-family: Spinnaker;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.welcomeUser{
+    color: #FFFFFF;
+    margin: 20px;
+}
+
+.search{
+    display: flex;
+}
+
+.searchItem{
+    margin-top: 10px;
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.searchItemHighlighted{
+    margin: 30px;
+    color: #18340C;
+    background: #FEFFFE;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.button{
+    font-family: Spinnaker;
+}
+
+/*-------------PlaceBet-------------*/
+
+
+.placeBet{
+    background-color: #F5F5F5;
+    position: absolute;
+    bottom: 15px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 80px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.quote2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 110px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+}
+
+.amount2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+    text-align: center;
+}
+
+.betButton{
+
+    font-family: Spinnaker;
+    font-size: 20px;
+    background-color: #F07444;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    width: 150px;
+    border: thin solid #F07444;
+
+
+}
+
+
+/*----------------Report-----------*/
+
+
+
+.main{
+    background: #FAFAFA;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 42vw;
+    height: 87vh;
+    position: relative;
+    z-index: 2;
+}
+
+.title{
+
+    text-align: center;
+    font-family: 'Spinnaker';
+    margin-top: 5px;
+
+}
+
+.buttons{
+
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    
+
+}
+
+.typeNotSelected{
+
+    width: 150px;
+    height: 30px;
+    font-family: 'Spinnaker';
+    background-color: #FAFAFA;
+    border-width: thin;
+
+}
+
+.typeSelected{
+
+    width: 150px;
+    height: 30px;
+    background-color: #323332;
+    color: #FAFAFA;
+    border-width: thin;
+    font-family: 'Spinnaker';
+    
+}
+
+.reportBetsSingle{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 72%;
+}
+
+
+.reportBetsMultiple{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 65%;
+}
+
+/*---------------ReportBet-----------*/
+
+
+.top{
+    background-color: #E8E4E4;
+    margin: 0px 10px 0px 10px;
+    height: 20px;
+    top: 10px;
+    padding: 5px 0px 10px 10px;
+    width: 93%;
+    position: relative;
+}
+
+.game{
+    font-family: Spinnaker;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.close{
+    position: absolute;
+    top:10px;
+    right: 5px;
+}
+
+
+.bottom{
+    background-color: #E8E4E4;
+    margin: 0px 10px 0px 10px;
+    height: 40px;
+    top: 15px;
+    padding: 0px 0px 0px 10px;
+    width: 93%;
+    position: relative;
+}
+
+.reportBet{
+    font-family: Spinnaker;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.fullReportBet{
+    margin-bottom: 20px;
+}
+
+.quote{
+    font-family: Spinnaker;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+}
+
+.amount{
+    font-family: Spinnaker;
+    position: absolute;
+    top: 5px;
+    right: 110px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+    height: 20px;
+    text-align: center;
+}
+
+/*----------------SearchBar-----------*/
+
+.searchBar{
+    margin: 20px 10px;
+    width: 50vw;
+    height: 36px;
+    border: 1px solid #18340C;
+    border-radius: 20px;
+
+    background: url(../images/lupa.png) no-repeat left;
+    background-position: 7px 7px ;
+    padding-left: 35px;
+}
+
+
+/*----------------SimpleInput--------*/
+
+
+.simpleInput{
+    background-color: #F5F5F5;
+    position: absolute;
+    bottom: 100px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 50px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.leftSide > h3{
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.leftSide > p {
+    font-size: 20px;
+    margin-top: 6px;
+    color: #F07444;
+    font-weight: 800;
+    text-align: center;
+}
+
+/*----------------Modal Confirmation--------*/
+
+
+.backgroundModal{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+}
+
+.boxConfirm{
+    background:  white;
+    opacity: 4;
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    left: 3vw;
+    top: 30vh;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.titleModal{
+    text-align: center;
+    font-family: Spinnaker;
+    font-size: 25px;
+    margin-top: 3vh;
+
+}
+
+.paragraphModalConfirmated{
+
+    text-align: center;
+    font-family: Spinnaker;
+    margin-top: 15vh;
+
+}
+
+.valueConfirmation{
+    font-family: Spinnaker;
+    text-align: center;
+    width: 60px;
+    padding: 5px;
+    margin: 7vh;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirmButton{
+
+        font-family: Spinnaker;
+        font-size: 20px;
+        background-color: #F07444;
+        border-radius: 10px;
+        margin-top: 15px;
+        height: 50px;
+        width: 150px;
+    
+}
+
+/*---------------------Bet Box Expert-------------------*/
+
+.resultBoxExpert{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 60px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+.resultBoxExpert > button{
+
+    margin-top: 6px;
+    font-family: Spinnaker;
+    color: #F07444;
+    background-color: white;
+    border: 0px;
+    text-decoration: underline;
+    
+}
+
+.resultBoxExpert > button:hover {
+    color: #df0b0b;
+}
+
+.resultBoxOdd{
+    display: flex;
+    justify-content: center;
+}
+
+.resultBoxOdd > p{
+
+    margin-top: 9px;
+
+}
+
+.resultBoxOdd > img{
+
+    height: 18px;
+    margin-top: 7px;
+
+}
+
+
+/*-----------------------Modal Warning Activate--------------------*/
+
+.backgroundModal2{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+    margin-top: 11.5vh
+}
+
+.buttonsModal{
+    margin-top: 7vh;
+
+}
+
+.buttonsModal > button{
+    margin: 20px 50px 0px 50px;
+    font-family: Spinnaker;
+    font-size: 15px;
+    background: #FEFFFE;
+    border: 1px solid #16350E;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+}
+
+.buttonsModal > button:active{
+    background: #18340C;
+    color: white;
+
+}
+
+
+
+/*---------------------Modal Change Odd-------------------*/
+
+.betChangeOdd{
+
+    margin-bottom: 3vh;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.paragraphModalConfirmation2{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.boxConfirm > input{
+
+    width: 80px ;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 10px 0px 10px
+}
+
+.error{
+    color: red;
+    position: absolute;
+    top: 30vh;
+    left: 13vw;
+}

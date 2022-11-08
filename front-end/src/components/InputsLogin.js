@@ -1,20 +1,22 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 
 import logo from '../images/logo.png'
 
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setBalance,setRender,setLoadReg,setEmail,balance} = props
+	const {setUsername,setBalance,setLoadReg,setEmail,balance} = props
 
     function changeComp(){
-        setLoadReg(prevLoadReg => !prevLoadReg);
+        setLoadReg(prevLoadReg => !prevLoadReg)
     }
 
-	const [errorReg,setErrorReg]=useState(0);
+	const [errorReg,setErrorReg]=useState(0)
 
 	const [formData, setFormData] = useState({email: "",password:""})
     
+	let navigate = useNavigate();
 
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -27,7 +29,7 @@ export default function InputsLogin(props) {
 
 	
 	function handleSubmit(event){
-		event.preventDefault();
+		event.preventDefault()
 
 		fetch('http://127.0.0.1:8080/api/users/login', {
             method: 'POST',
@@ -38,28 +40,26 @@ export default function InputsLogin(props) {
         })
         .then(response => response.json())
         .then(data => {
-			setUsername(data.username);
-			setEmail(formData.email);
+			setUsername(data.username)
+			setEmail(formData.email)
 			if (data.type === 'especialista'){
-				setRender('HomeExpert');
+				navigate("/HomeExpert"); 
 			}
 			else if(data.type === 'administrador'){
-				setRender('HomeAdmin');
+				navigate("/HomeAdmin"); 
 			}
 			else if(data.type === 'apostador'){
-				setBalance(data.balance);
-				setRender('Home');
-
+				setBalance(data.balance)
+				navigate("/Home"); 
 			}
 			else if(data.type === null){
-				setErrorReg(2);
+				setErrorReg(2)
 
 			}
-		});
+		})
 		
 		
 	}
-
 
     return (
         <div className='inputs'>

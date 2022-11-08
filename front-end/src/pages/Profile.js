@@ -1,19 +1,22 @@
 
-import '../styles/Profile.css';
-import NavBarProfile from "../components/NavBarProfile";
-import IdSaldo from '../components/IdSaldo';
-import { useState } from 'react';
-import ChangeData from '../components/ChangeData';
-import BetHistory from '../components/BetHistory';
+import '../styles/Profile.css'
+
+import NavBarProfile from "../components/NavBarProfile"
+import IdSaldo from '../components/IdSaldo'
+import ChangeData from '../components/ChangeData'
+import BetHistory from '../components/BetHistory'
 import PopUpOperation from '../components/PopUpOperation'
+
+import { useState } from 'react'
+
 
 export default function Profile(props){
 
     
-    const {username,setUsername,setBalance,setRender,balance,email} = props
+    const {username,setUsername,setBalance,balance,email} = props
 
-    const [dataOrHistory,setDataOrHistory] = useState("Data");
-    const [showPopUp,setShowPopUp] = useState("");
+    const [dataOrHistory,setDataOrHistory] = useState("Data")
+    const [showPopUp,setShowPopUp] = useState("")
 
 
     return(
@@ -27,7 +30,6 @@ export default function Profile(props){
                             setUsername={setUsername}
                             setShowPopUp={setShowPopUp}
                             setDataOrHistory={setDataOrHistory} 
-                            setRender={setRender}
                         /> 
                         :
                         <BetHistory 

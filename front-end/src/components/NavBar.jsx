@@ -2,13 +2,17 @@
 import logo from '../images/logo.png'
 import Link from '../components/Link'
 
+import { useNavigate } from "react-router-dom";
+
 export default function NavBar(props){
 
-    const {user,searching,setSearching,setRender,userType} = props
+    const {user,searching,setSearching,userType} = props
+
+    let navigate = useNavigate();
 
     function goToProfile(){
-        if(userType === 'expert') setRender('ProfileExpert')
-        else setRender('Profile')
+        if(userType === 'expert') navigate("/ProfileExpert")
+        else navigate('/Profile')
     }
 
     return(
