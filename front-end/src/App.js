@@ -17,6 +17,8 @@ import HomeExpert from './pages/HomeExpert'
 import AddExpert from './pages/AddExpert.js'
 import AddGame from './pages/AddGame.js'
 import ProfileExpert from './pages/ProfileExpert'
+import RegisterPage from './pages/RegisterPage'
+
 
 
 
@@ -65,6 +67,11 @@ function App() {
             balance={balance}
           />
         } />
+
+        <Route path="/Register" element={
+          <RegisterPage/>
+
+        }/>
 
         <Route path="/Home" element={
           <Home

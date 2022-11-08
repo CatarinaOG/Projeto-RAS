@@ -9,8 +9,8 @@ export default function InputsLogin(props) {
 	const {setUsername,setBalance,setLoadReg,setEmail,balance} = props
 
     function changeComp(){
-        setLoadReg(prevLoadReg => !prevLoadReg)
-    }
+		navigate("/Register");
+	}
 
 	const [errorReg,setErrorReg]=useState(0)
 
