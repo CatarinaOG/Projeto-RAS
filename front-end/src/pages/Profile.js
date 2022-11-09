@@ -6,6 +6,7 @@ import IdSaldo from '../components/IdSaldo'
 import ChangeData from '../components/ChangeData'
 import BetHistory from '../components/BetHistory'
 import PopUpOperation from '../components/PopUpOperation'
+import PopUpEmail from '../components/PopUpEmail'
 
 import { useState } from 'react'
 
@@ -38,7 +39,7 @@ export default function Profile(props){
                     }
                 </div>
             </div>
-            {showPopUp !== '' && 
+            {(showPopUp == 'deposit' || showPopUp=='transfer') && 
                 <div>
                     <div  className="ftbackgroundModal"></div>
                     <PopUpOperation 
@@ -47,6 +48,12 @@ export default function Profile(props){
                         setBalance={setBalance}
                         email={email}
                     />
+                </div>
+            }
+            {showPopUp == 'changeSec' && 
+                <div>
+                    <div  className="ftbackgroundModal"></div>
+                    <PopUpEmail setShowPopUp={setShowPopUp}/>
                 </div>
             } 
 
