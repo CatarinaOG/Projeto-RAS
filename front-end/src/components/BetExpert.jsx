@@ -38,7 +38,9 @@ export default function BetExpert(props){
                 </div>
             </div>
             <div>
-                <ProgressBox nulls={nulls}/>
+                <ProgressBox 
+                    nulls={nulls}
+                />
             </div>
         </div>
     )

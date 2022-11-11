@@ -30,9 +30,36 @@ function App() {
   const [balance,setBalance] = useState(0)
 
   const [games,setGames] = useState([])
+  const [allGames,setAllGames] = useState([
+      {
+        type: 'futebol',
+        results: [0,1,1]
+      },
+      {
+        type: 'futebol',
+        results: [1,1,1]
+      },
+      {
+        type: 'futebol',
+        results: [0,0,0]
+      },
+      {
+        type: 'basquetebol',
+        results: [1,1,1]
+      },
+      {
+        type: 'basquetebol',
+        results: [1,1,1]
+      },
+      {
+        type: 'basquetebol',
+        results: [0,0,0]
+      }
+    ])
 
 
-  //--------------- Get Games-----------------
+
+  //--------------- Get Games -----------------
 
   useEffect(() => {
     
@@ -53,6 +80,10 @@ function App() {
     });
         
   },[games])
+
+  //--------------- Get All Games -----------------
+
+
 
   //-----------------------------------------
 
@@ -106,6 +137,7 @@ function App() {
           <HomeExpert 
             username={username}
             games={games}
+            allGames={allGames}
           />
         } />
 
