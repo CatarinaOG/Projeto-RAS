@@ -2,7 +2,7 @@
 import closeImg from '../images/close.png'
 import '../styles/AddGame.css'
 
-export default function PopUp(props){
+export default function PopUpAddGame(props){
 
     const {setConfirmed, sportPop,participantAPop,participantBPop,oddAPop,oddBPop,oddTiePop,date,time} = props;
 

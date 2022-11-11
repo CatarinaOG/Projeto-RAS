@@ -15,7 +15,6 @@ function Login(props){
     return(
 		<div className='page'>
 			<div className='mainLog'>
-				{loadReg ? 
 					<InputsLogin 
 						setUsername={setUsername}	
 						setBalance={setBalance}
@@ -24,11 +23,6 @@ function Login(props){
 						setEmail={setEmail}
 						balance={balance}
 					/> 
-					: 
-					<RegAccount 
-						setLoadReg = {setLoadReg}
-					/>
-				}
 				<div className='logImage'>
 					<img src={celebrating} className='imageRight'/>
 				</div>

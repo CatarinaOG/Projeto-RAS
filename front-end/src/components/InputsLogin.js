@@ -9,8 +9,8 @@ export default function InputsLogin(props) {
 	const {setUsername,setBalance,setLoadReg,setEmail,balance} = props
 
     function changeComp(){
-        setLoadReg(prevLoadReg => !prevLoadReg)
-    }
+		navigate("/Register");
+	}
 
 	const [errorReg,setErrorReg]=useState(0)
 
@@ -31,34 +31,34 @@ export default function InputsLogin(props) {
 	function handleSubmit(event){
 		event.preventDefault()
 
-		fetch('http://127.0.0.1:8080/api/users/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: formData.email , pass:formData.password })
-        })
-        .then(response => response.json())
-        .then(data => {
-			setUsername(data.username)
-			setEmail(formData.email)
-			if (data.type === 'especialista'){
-				navigate("/HomeExpert"); 
-			}
-			else if(data.type === 'administrador'){
-				navigate("/HomeAdmin"); 
-			}
-			else if(data.type === 'apostador'){
-				setBalance(data.balance)
-				navigate("/Home"); 
-			}
-			else if(data.type === null){
-				setErrorReg(2)
+		if(formData.email!="" && formData.password!=""){
+			fetch('http://127.0.0.1:8080/api/users/login', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ email: formData.email , pass:formData.password })
+			})
+			.then(response => response.json())
+			.then(data => {
+				setUsername(data.username)
+				setEmail(formData.email)
+				if (data.type === 'especialista'){
+					navigate("/HomeExpert"); 
+				}
+				else if(data.type === 'administrador'){
+					navigate("/HomeAdmin"); 
+				}
+				else if(data.type === 'apostador'){
+					setBalance(data.balance)
+					navigate("/Home"); 
+				}
+				else if(data.type === null){
+					setErrorReg(2)
 
-			}
-		})
-		
-		
+				}
+			})
+		}		
 	}
 
     return (

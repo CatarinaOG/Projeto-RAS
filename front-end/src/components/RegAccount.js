@@ -1,6 +1,9 @@
 import logo from '../images/logo.png'
 
 import {useState} from 'react'
+import goBackImg from "../images/goBack.png"
+
+import { useNavigate } from "react-router-dom"
 
 
 export default function RegAccount(props){
@@ -10,7 +13,6 @@ export default function RegAccount(props){
 	const [formData, setFormData] = useState(
         {email: "",password:"",phone:"",name:"",nif:"",date:"",cc:"",address:""}
     )
-
 	const [errorReg,setErrorReg]=useState(0);
 
 	function handleChange(event) {
@@ -22,7 +24,12 @@ export default function RegAccount(props){
             }
         })
     }
+	let navigate = useNavigate();
 
+
+	function goBack(){
+        navigate('/')
+    }
 
 	function handleSubmit(event){
 		event.preventDefault();
@@ -47,6 +54,8 @@ export default function RegAccount(props){
 			.then(data => {
 				if (data.state === 'good'){
 					setLoadReg(prevLoadReg => !prevLoadReg)
+					navigate("/"); 
+					
 				}
 				else if(data.state ==='bad'){
 					setErrorReg(2);
@@ -65,6 +74,8 @@ export default function RegAccount(props){
 				<img className = "ftrasbetLogo" src = {logo}/>
 
 				<h1 className = "ftRegisterTitle"> Registo</h1>
+                <img src = {goBackImg} className="ftgoBackReg" onClick={goBack}/>
+
 				<form onSubmit={handleSubmit}>
 					<input className = "ftnameReg" type="text" placeholder = "Nome" name = "name" value = {formData.name} onChange={handleChange}/>
 					<input className = "ftemailReg" type="email" placeholder = "E-mail" name ="email" value = {formData.email} onChange={handleChange}/>

@@ -1,13 +1,12 @@
-
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 
 import goBackImg from "../images/goBack.png"
 
 
-export default function ChangeData(props){
+export default function ChangeDataSec(props){
 
-    const {setUsername,setShowPopUp,setDivChoice} = props
+    const {setUsername,setShowPopUp,setDataOrHistory} = props
 
     let navigate = useNavigate();
 
@@ -16,11 +15,11 @@ export default function ChangeData(props){
     }
 
     function goToHistory(){
-        setDivChoice("BetHistory");
+        setDataOrHistory("history");
     }
 
     const [formData, setFormData] = useState(
-        {firstName: "", lastName: "",password:""}
+        {address: "", phoneNum: "",password:""}
     )
     
     function handleChange(event) {
@@ -69,13 +68,22 @@ export default function ChangeData(props){
                 
                 <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
                 <form onSubmit = {handleSubmit} >
-                    <h4 className='hName'> Nome : </h4>
+                    <h4 className='hName'> Número de telemovel : </h4>
                 
-                    <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
+                    <input className= "ftPassword" onChange={handleChange} type = "password" placeholder={props.password} name="passowrd" value = {formData.password}></input>
+
+                    <h4 className='hName'> Password : </h4>
+                
+                    <input className= "ftPassword" onChange={handleChange} type = "password" placeholder={props.password} name="passowrd" value = {formData.password}></input>
                         
+                    <h4 className='hName'> Alterar Morada : </h4>
+                
+                    <input className= "ftPassword" onChange={handleChange} type = "password" placeholder={props.password} name="passowrd" value = {formData.password}></input>
+
+                    
                     <button  className='ftConfirm'> Confirm</button>
                 </form>
-                <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>
+                <button  className='ftChangeSec' > Cancel</button>
         </div>
 
     )
