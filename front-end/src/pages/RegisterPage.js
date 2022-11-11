@@ -1,7 +1,6 @@
 import RegAccount from '../components/RegAccount';
 
-
-import { useState } from 'react';
+import '../styles/RegisterPage.css'
 
 import celebrating from '../images/celebrating.png'
 

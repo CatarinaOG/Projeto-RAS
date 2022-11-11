@@ -2,10 +2,10 @@ import goBack from "../images/goBack.png"
 
 export default function BetHistory(props){
 
-    const {setDataOrHistory} = props
+    const {setDivChoice} = props
 
     function goToData(){
-        setDataOrHistory("Data");
+        setDivChoice("Data");
     }
 
     return(

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import goBackImg from "../images/goBack.png"
 
 
-export default function ChangeData(props){
+export default function ChangeDataSec(props){
 
     const {setUsername,setShowPopUp,setDataOrHistory} = props
 

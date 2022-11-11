@@ -7,7 +7,7 @@ import goBackImg from "../images/goBack.png"
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDataOrHistory} = props
+    const {setUsername,setShowPopUp,setDivChoice} = props
 
     let navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function ChangeData(props){
     }
 
     function goToHistory(){
-        setDataOrHistory("history");
+        setDivChoice("BetHistory");
     }
 
     const [formData, setFormData] = useState(

@@ -74,7 +74,7 @@ export default function RegAccount(props){
 				<img className = "ftrasbetLogo" src = {logo}/>
 
 				<h1 className = "ftRegisterTitle"> Registo</h1>
-                <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>
+                <img src = {goBackImg} className="ftgoBackReg" onClick={goBack}/>
 
 				<form onSubmit={handleSubmit}>
 					<input className = "ftnameReg" type="text" placeholder = "Nome" name = "name" value = {formData.name} onChange={handleChange}/>
