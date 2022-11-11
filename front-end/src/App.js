@@ -117,76 +117,9 @@ function App() {
           />
         } />
 
-
       </Routes>
   </BrowserRouter>
   )
-
-
-  /*return (
-    <div>
-      {rendered==="Login" && 
-        <Login 
-          setUsername={setUsername}
-          setBalance={setBalance}
-          setRender={setRender}
-          setEmail={setEmail}
-          balance={balance}
-      />}
-      {rendered==="Home" && 
-        <Home
-          username={username}
-          email={email}
-          games={games}
-          setBalance={setBalance}
-          setRender={setRender}
-        />
-      }
-      {rendered==="Profile" && 
-        <Profile 
-          username={username}
-          setUsername={setUsername}
-          setBalance={setBalance}
-          setRender = {setRender}
-          balance={balance}
-          email={email}
-      />}
-      {rendered==="HomeExpert" && 
-        <HomeExpert 
-          username={username}
-          games={games}
-          setRender={setRender}
-        />
-      }
-      {rendered==="AddExpert" &&
-        <AddExpert 
-          username={username}
-          setRender={setRender}
-        />
-      }
-      {rendered==="HomeAdmin" &&
-        <HomeAdmin 
-          username={username}
-          setRender={setRender}
-        />
-      }
-      {rendered==="AddGame" &&
-        <AddGame 
-          username={username}
-          setRender={setRender}
-          email={email}
-        />
-      } 
-      {rendered==="ProfileExpert" &&
-        <ProfileExpert 
-          username={username}
-          setRender={setRender}
-          
-        />
-      }
-
-    </div>
-	)*/
 }
 
 export default App;

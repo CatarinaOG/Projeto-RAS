@@ -4,7 +4,7 @@ import BetExpert from '../components/BetExpert'
 import ModalWarningActive from '../components/ModalWarningActive'
 import ModalChangeOdd from '../components/ModalChangeOdd'
 import ModalChangeOddConfirmation from '../components/ModalChangeOddConfirmation'
-
+import Progress from '../components/Progress'
 
 import "../styles/home.css"
 import {useState} from 'react'
@@ -33,7 +33,7 @@ export default function HomeExpert(props){
             setModalWarningActive={setModalWarningActive}
             setModalChangeOdd={setModalChangeOdd}
             setOddToChange={setOddToChange}
-        /> 
+        />
     )) 
 
     return(
@@ -58,7 +58,6 @@ export default function HomeExpert(props){
                     setModalChangeOddConfimation={setModalChangeOddConfimation} 
                 />
             }
-            
 
             <NavBar 
                 user={username}
@@ -69,10 +68,11 @@ export default function HomeExpert(props){
             <div className="content">
                 <div>
                     <SearchBar />
-                    <div className="allBets">
+                    <div className="allBetsExpert">
                         {allBets}
                     </div>
                 </div>
+                <Progress  />
             </div>
 
         </div>

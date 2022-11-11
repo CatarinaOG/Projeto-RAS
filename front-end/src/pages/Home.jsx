@@ -48,7 +48,7 @@ export default function Home(props){
                         {allBets}
                     </div>
                 </div>
-                <Report 
+                <Report
                     games={games}
                     selected={selected}
                     email={email}

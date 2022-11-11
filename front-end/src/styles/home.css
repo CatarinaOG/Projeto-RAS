@@ -9,10 +9,12 @@
     overflow: scroll;
     overflow-x: hidden;
     height: 75vh;
+    width: 56vw;
 }
 
 
 /**-----------------Bet--------------**/
+
 
 .bet{
     width: 52.5vw;
@@ -32,7 +34,7 @@
 
 .results{
     display: flex;
-    width: 40vw;
+    width: 60vw;
     justify-content: space-around;
     font-size: 13px;
 
@@ -413,6 +415,55 @@
 
 /*---------------------Bet Box Expert-------------------*/
 
+.allBetsExpert{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 75vh;
+    width: 65vw;
+}
+
+.progressBoxRed{
+    background-color: #E35041;
+    margin-top: 7vh;
+    margin-left: 2.5vw;
+    border-radius: 10px;
+    padding: 10px;
+    width: 60px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 8px;
+    width: 50px;
+}
+
+.progressBoxYellow{
+    background-color: #FDEA60;
+    margin-top: 7vh;
+    margin-left: 2.5vw;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 8px;
+    width: 50px;
+}
+
+.progressBoxGreen{
+    background-color: #16350E;
+    margin-top: 7vh;
+    margin-left: 2.5vw;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 8px;
+    width: 50px;
+    color: white;
+}
+
+.betWithProgress{
+    display: flex;
+}
+
 .resultBoxExpert{
     margin: 21px 0px 0px 0px;
     text-align: center;
@@ -457,6 +508,85 @@
 
 }
 
+.progress{
+    background: #FAFAFA;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 42vw;
+    height: 87vh;
+    z-index: 2;
+
+}
+
+.displaySections{
+    display: flex;
+    width: 33vw;
+    height: 80vh;
+    border-radius: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.progressSection{
+
+    background-color: white;
+    height: 20vh;
+    width: 93%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+
+}
+
+.progressTitle{
+    font-family: 'Spinnaker';
+    font-size: 10px;
+    margin: 50px 0px 0px 40px;
+    
+}
+
+.progressTitle > h3 {
+    margin-top: 10px;
+}
+
+.progressBoxes{
+    margin-left: 10vw;
+}
+
+.rightProgressBoxGreen{
+    background-color: #16350E;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 15px;
+    width: 50px;
+    color: white;
+    margin-top: 6px;
+    
+}
+
+.rightProgressBoxYellow{
+    background-color: #FDEA60;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 15px;
+    width: 50px;
+    margin-top: 6px;
+}
+
+.rightProgressBoxRed{
+    background-color: #E35041;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 15px;
+    width: 50px;
+    margin-top: 6px;
+}
 
 /*-----------------------Modal Warning Activate--------------------*/
 
