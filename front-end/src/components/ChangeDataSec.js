@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import goBackImg from "../images/goBack.png"
 
+import '../styles/ProfileSec.css'
 
 export default function ChangeDataSec(props){
 
@@ -11,7 +12,7 @@ export default function ChangeDataSec(props){
     let navigate = useNavigate();
 
     function goBack(){
-        navigate('/Home')
+        navigate('/Profile')
     }
 
     function goToHistory(){
@@ -68,17 +69,17 @@ export default function ChangeDataSec(props){
                 
                 <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
                 <form onSubmit = {handleSubmit} >
-                    <h4 className='hName'> Número de telemovel : </h4>
+                    <h4 className='fthPhoneNum'> Número de telemovel : </h4>
                 
-                    <input className= "ftPassword" onChange={handleChange} type = "password" placeholder={props.password} name="passowrd" value = {formData.password}></input>
+                    <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phoneNum" value = {formData.phoneNum}></input>
 
-                    <h4 className='hName'> Password : </h4>
+                    <h4 className='fthPass'> Password : </h4>
                 
-                    <input className= "ftPassword" onChange={handleChange} type = "password" placeholder={props.password} name="passowrd" value = {formData.password}></input>
+                    <input className= "ftPasswordChange" onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
                         
-                    <h4 className='hName'> Alterar Morada : </h4>
+                    <h4 className='fthAddress'> Alterar Morada : </h4>
                 
-                    <input className= "ftPassword" onChange={handleChange} type = "password" placeholder={props.password} name="passowrd" value = {formData.password}></input>
+                    <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="address" value = {formData.address}></input>
 
                     
                     <button  className='ftConfirm'> Confirm</button>
