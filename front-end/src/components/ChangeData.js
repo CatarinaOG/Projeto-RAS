@@ -7,9 +7,12 @@ import goBackImg from "../images/goBack.png"
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDivChoice} = props
+    const {setUsername,setShowPopUp,setDivChoice,sec} = props
 
     let navigate = useNavigate();
+
+    
+
 
     function goBack(){
         navigate('/Home')
@@ -66,16 +69,39 @@ export default function ChangeData(props){
                 <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>
                 
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
-                
-                <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
-                <form onSubmit = {handleSubmit} >
-                    <h4 className='hName'> Nome : </h4>
-                
-                    <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
+                {sec === 0 && 
+                <div>
+                    <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
+                    <form onSubmit = {handleSubmit} >
+                        <h4 className='hName'> Nome : </h4>
+                    
+                        <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
+                            
+                        <button  className='ftConfirm'> Confirm</button>
+                    </form>
+                    <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>
+                </div>
+                }
+                {sec === 1 && 
+                <div>
+                    <form onSubmit = {handleSubmit} >
+                        <h4 className='fthPhoneNum'> Número de telemovel : </h4>
+                    
+                        <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phoneNum" value = {formData.phoneNum}></input>
+
+                        <h4 className='fthPass'> Password : </h4>
+                    
+                        <input className= "ftPasswordChange" onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
+                            
+                        <h4 className='fthAddress'> Alterar Morada : </h4>
+                    
+                        <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="address" value = {formData.address}></input>
+
                         
-                    <button  className='ftConfirm'> Confirm</button>
-                </form>
-                <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>
+                        <button  className='ftConfirm'> Confirm</button>
+                    </form>
+                    <button  className='ftChangeSec' > Cancel</button>        
+                </div>}
         </div>
 
     )

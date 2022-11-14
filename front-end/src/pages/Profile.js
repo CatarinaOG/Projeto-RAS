@@ -20,7 +20,7 @@ export default function Profile(props){
 
     const [divChoice,setDivChoice] = useState("Data")
     const [showPopUp,setShowPopUp] = useState("")
-
+    const [sec,setSec] =useState(0)
 
     return(
         <div className='ftProfile'>
@@ -32,7 +32,8 @@ export default function Profile(props){
                         <ChangeData
                             setUsername={setUsername}
                             setShowPopUp={setShowPopUp}
-                            setDivChoice={setDivChoice} 
+                            setDivChoice={setDivChoice}
+                            sec = {sec}
                         /> 
                     }
                     {divChoice === "BetHistory" && 
@@ -62,7 +63,7 @@ export default function Profile(props){
             {showPopUp == 'confirm' && 
                 <div>
                     <div  className="ftbackgroundModal"></div>
-                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setDivChoice={setDivChoice}/>
+                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec}/>
                 </div>
             }
             

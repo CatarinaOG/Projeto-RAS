@@ -18,7 +18,6 @@ import AddExpert from './pages/AddExpert.js'
 import AddGame from './pages/AddGame.js'
 import ProfileExpert from './pages/ProfileExpert'
 import RegisterPage from './pages/RegisterPage'
-import ProfileSec from './pages/ProfileSec'
 
 
 
@@ -123,15 +122,7 @@ function App() {
           />
         } />
 
-        <Route path="/ProfileSec" element={
-          <ProfileSec 
-            username={username}
-            setUsername={setUsername}
-            setBalance={setBalance}
-            balance={balance}
-            email={email}
-          />
-        } />
+        
 
         <Route path="/HomeExpert" element={
           <HomeExpert 

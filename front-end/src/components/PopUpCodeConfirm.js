@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 
 export default function PopUpConfirm(props){
 
-    const {setShowPopUp,setDivChoice} = props;
+    const {setShowPopUp,setSec} = props;
 
     const [formData, setFormData] = useState(
         {code: ""}
@@ -25,7 +25,9 @@ export default function PopUpConfirm(props){
     }
 
     function handleSubmit(){
-        navigate('/ProfileSec')
+        setSec(1);
+        setShowPopUp('');
+
     }
 
 
