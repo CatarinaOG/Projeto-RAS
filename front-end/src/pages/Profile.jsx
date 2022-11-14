@@ -8,7 +8,6 @@ import BetHistory from '../components/BetHistory'
 import PopUpOperation from '../components/PopUpOperation'
 import PopUpCodeEmail from '../components/PopUpCodeEmail'
 import PopUpCodeConfirm from '../components/PopUpCodeConfirm'
-import ChangeDataSec from '../components/ChangeDataSec'
 
 import { useState } from 'react'
 

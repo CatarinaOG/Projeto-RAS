@@ -69,9 +69,10 @@ export default function ChangeData(props){
                 <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>
                 
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
+                <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
+
                 {sec === 0 && 
                 <div>
-                    <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
                     <form onSubmit = {handleSubmit} >
                         <h4 className='hName'> Nome : </h4>
                     
@@ -84,6 +85,7 @@ export default function ChangeData(props){
                 }
                 {sec === 1 && 
                 <div>
+
                     <form onSubmit = {handleSubmit} >
                         <h4 className='fthPhoneNum'> Número de telemovel : </h4>
                     

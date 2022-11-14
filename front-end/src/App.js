@@ -10,12 +10,12 @@ import { useEffect } from 'react'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 
 import Home from './pages/Home'
-import Profile from './pages/Profile.js'
+import Profile from './pages/Profile'
 import HomeAdmin from './pages/HomeAdmin'
-import Login from './pages/Login.js'
+import Login from './pages/Login'
 import HomeExpert from './pages/HomeExpert'
-import AddExpert from './pages/AddExpert.js'
-import AddGame from './pages/AddGame.js'
+import AddExpert from './pages/AddExpert'
+import AddGame from './pages/AddGame'
 import ProfileExpert from './pages/ProfileExpert'
 import RegisterPage from './pages/RegisterPage'
 
