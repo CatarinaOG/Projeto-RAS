@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useActionData } from 'react-router-dom'
 import close from '../images/close.png'
 
 export default function ModalChangeOdd(props){
@@ -15,8 +14,6 @@ export default function ModalChangeOdd(props){
     function confirm(){
 
         const odd = {id: oddToChange.id, odd: newOdd}
-
-        console.log(odd)
 
         fetch('http://127.0.0.1:8080/api/bets/changeOdd', {
             method: 'POST',
@@ -34,8 +31,6 @@ export default function ModalChangeOdd(props){
         .catch((error) => {
             console.error('Error:', error);
         });
-
-        
     }
 
     function changeOdd(event){

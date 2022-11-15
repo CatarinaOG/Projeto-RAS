@@ -1,0 +1,58 @@
+
+.ftPhoneChange{
+    position: absolute;
+    height: 10%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:31%;
+    text-align: center;
+}
+
+
+.ftPasswordChange{
+    position: absolute;
+    height: 10%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:46%;
+    text-align: center;
+}
+
+.ftAddrChange{
+    position: absolute;
+    height: 10%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:61%;
+    text-align: center;
+}
+
+.fthPhoneNum{
+    position: absolute;
+    top:35%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.fthPass{
+    position: absolute;
+    top:50%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.fthAddress{
+    position: absolute;
+    top:65%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}

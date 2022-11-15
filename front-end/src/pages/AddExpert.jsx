@@ -1,16 +1,20 @@
-import NavBarProfile from "../components/NavBarProfile";
-import { useState } from 'react';
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
+
 import PopUpAdmin from '../components/PopUpAdmin'
 import goBackImg from '../images/goBack.png'
+import NavBarProfile from "../components/NavBarProfile"
+
 
 export default function AddSpecialist(props){
 
-    const {username,setRender} = props
+    const {username} = props
 
-	const [errorReg,setErrorReg]=useState(0);
+	const [errorReg,setErrorReg]=useState(0)
     
-    const [confirmed,setConfirmed] = useState(false);
+    const [confirmed,setConfirmed] = useState(false)
 
+    let navigate = useNavigate()
 
     const [formData, setFormData] = useState(
         {expert_username:"" ,email:"",password:""}
@@ -27,7 +31,7 @@ export default function AddSpecialist(props){
     }
 
 	function handleSubmit(event){
-		event.preventDefault();
+		event.preventDefault()
 
         // Mandar pedido e esperar por verificação
 
@@ -43,17 +47,16 @@ export default function AddSpecialist(props){
 			.then(data => {
 				if (data.state === 'good'){
                     console.log("correu bem")
-			        setErrorReg(0);
-
-                    setConfirmed(true);
+			        setErrorReg(0)
+                    setConfirmed(true)
 				}
                 else{
-                    setErrorReg(2);
+                    setErrorReg(2)
                 }
 			})
         }
         else{
-			setErrorReg(1);
+			setErrorReg(1)
             
         }
 
@@ -62,7 +65,7 @@ export default function AddSpecialist(props){
 	}
 
     function goBack(){
-        setRender('HomeAdmin')
+        navigate('/HomeAdmin')
     }
     
 
@@ -81,8 +84,8 @@ export default function AddSpecialist(props){
                         <h3 className='ftpromptPassSp'>Insira a password:</h3>
                         <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ="ftpasswordSp"/>
                         <button className = "ftaddConcludeSp">Registar</button>
-					    {errorReg === 1 && <h3 className='fterrorAddEx'>Dados em falta</h3>}
-					    {errorReg === 2 && <h3 className='fterrorAddEx'>Erro: email em uso</h3>}
+					    {errorReg === 1 && <p className='fterrorAddEx'>Dados em falta</p>}
+					    {errorReg === 2 && <p className='fterrorAddEx'>Erro: email em uso</p>}
 
                     </form>
                 </div>

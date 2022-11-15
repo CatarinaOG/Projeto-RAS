@@ -1,28 +1,27 @@
-import './styles/AddGame.css';
-import './styles/AddExpert.css';
-import './styles/home.css';
-import './styles/Profile.css';
-import './styles/login.css';
+import './styles/AddGame.css'
+import './styles/AddExpert.css'
+import './styles/home.css'
+import './styles/Profile.css'
+import './styles/login.css'
 import './styles/HomeAdmin.css'
 
+import {useState} from 'react'
+import { useEffect } from 'react'
+import {BrowserRouter,Routes,Route} from "react-router-dom"
 
-import {useState} from 'react';
-import { useEffect } from 'react';
-
-import Home from './pages/Home';
-import Profile from './pages/Profile.js'
-import HomeAdmin from './pages/HomeAdmin';
-import Login from './pages/Login.js';
-import HomeExpert from './pages/HomeExpert';
-import AddExpert from './pages/AddExpert.js'
-import AddGame from './pages/AddGame.js'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import HomeAdmin from './pages/HomeAdmin'
+import Login from './pages/Login'
+import HomeExpert from './pages/HomeExpert'
+import AddExpert from './pages/AddExpert'
+import AddGame from './pages/AddGame'
 import ProfileExpert from './pages/ProfileExpert'
+import RegisterPage from './pages/RegisterPage'
 
 
 
 function App() {
-
-  const [rendered,setRender] = useState("Login")
 
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
@@ -30,9 +29,36 @@ function App() {
   const [balance,setBalance] = useState(0)
 
   const [games,setGames] = useState([])
+  const [allGames,setAllGames] = useState([
+      {
+        type: 'futebol',
+        results: [0,1,1]
+      },
+      {
+        type: 'futebol',
+        results: [1,1,1]
+      },
+      {
+        type: 'futebol',
+        results: [0,0,0]
+      },
+      {
+        type: 'basquetebol',
+        results: [1,1,1]
+      },
+      {
+        type: 'basquetebol',
+        results: [1,1,1]
+      },
+      {
+        type: 'basquetebol',
+        results: [0,0,0]
+      }
+    ])
 
 
-  //--------------- Get Games-----------------
+
+  //--------------- Get Games -----------------
 
   useEffect(() => {
     
@@ -54,72 +80,86 @@ function App() {
         
   },[games])
 
+  //--------------- Get All Games -----------------
+
+
+
   //-----------------------------------------
 
-  return (
-    <div>
-      {rendered==="Login" && 
-        <Login 
-          setUsername={setUsername}
-          setBalance={setBalance}
-          setRender={setRender}
-          setEmail={setEmail}
-          balance={balance}
-      />}
-      {rendered==="Home" && 
-        <Home
-          username={username}
-          email={email}
-          games={games}
-          setBalance={setBalance}
-          setRender={setRender}
-        />
-      }
-      {rendered==="Profile" && 
-        <Profile 
-          username={username}
-          setUsername={setUsername}
-          setBalance={setBalance}
-          setRender = {setRender}
-          balance={balance}
-          email={email}
-      />}
-      {rendered==="HomeExpert" && 
-        <HomeExpert 
-          username={username}
-          games={games}
-          setRender={setRender}
-        />
-      }
-      {rendered==="AddExpert" &&
-        <AddExpert 
-          username={username}
-          setRender={setRender}
-        />
-      }
-      {rendered==="HomeAdmin" &&
-        <HomeAdmin 
-          username={username}
-          setRender={setRender}
-        />
-      }
-      {rendered==="AddGame" &&
-        <AddGame 
-          username={username}
-          setRender={setRender}
-          email={email}
-        />
-      } 
-      {rendered==="ProfileExpert" &&
-        <ProfileExpert 
-          username={username}
-          setRender={setRender}
-          
-        />
-      }
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <Login 
+            setUsername={setUsername}
+            setBalance={setBalance}
+            setEmail={setEmail}
+            balance={balance}
+          />
+        } />
 
-    </div>
-	);
+        <Route path="/Register" element={
+          <RegisterPage/>
+
+        }/>
+
+        <Route path="/Home" element={
+          <Home
+            username={username}
+            email={email}
+            games={games}
+            setBalance={setBalance}
+          />
+        } />
+
+        <Route path="/Profile" element={
+          <Profile 
+            username={username}
+            setUsername={setUsername}
+            setBalance={setBalance}
+            balance={balance}
+            email={email}
+          />
+        } />
+
+        
+
+        <Route path="/HomeExpert" element={
+          <HomeExpert 
+            username={username}
+            games={games}
+            allGames={allGames}
+          />
+        } />
+
+        <Route path="/AddExpert" element={
+          <AddExpert 
+            username={username}
+          />
+        } />
+
+        <Route path="/HomeAdmin" element={
+          <HomeAdmin 
+            username={username}
+          />
+        } />
+
+        <Route path="/AddGame" element={
+          <AddGame 
+            username={username}
+            email={email}
+          />
+        } />
+
+        <Route path="/ProfileExpert" element={
+          <ProfileExpert 
+            username={username}
+          />
+        } />
+
+      </Routes>
+  </BrowserRouter>
+  )
 }
 
 export default App;

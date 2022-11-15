@@ -1,4 +1,5 @@
 import BetBoxExpert from './BetBoxExpert'
+import ProgressBox from './ProgressBetBox'
 
 export default function BetExpert(props){
 
@@ -20,14 +21,26 @@ export default function BetExpert(props){
         />
     )
 
+    // Saber o progresso
+    var nulls = 0
+    
+    results.map( ({id,result,odd}) => {if(odd == 0) nulls++})
+
     return(
-        <div className="bet">
-            <div className="info">
-                <h3>{home} vs {away}</h3>
-                <p>{date}</p>
+        <div className='betWithProgress'>
+            <div className="bet">
+                <div className="info">
+                    <h3>{home} vs {away}</h3>
+                    <p>{date}</p>
+                </div>
+                <div className="results">
+                    {resultsBoxes}
+                </div>
             </div>
-            <div className="results">
-                {resultsBoxes}
+            <div>
+                <ProgressBox 
+                    nulls={nulls}
+                />
             </div>
         </div>
     )

@@ -4,7 +4,7 @@ import BetExpert from '../components/BetExpert'
 import ModalWarningActive from '../components/ModalWarningActive'
 import ModalChangeOdd from '../components/ModalChangeOdd'
 import ModalChangeOddConfirmation from '../components/ModalChangeOddConfirmation'
-
+import Progress from '../components/Progress'
 
 import "../styles/home.css"
 import {useState} from 'react'
@@ -12,7 +12,7 @@ import {useState} from 'react'
 
 export default function HomeExpert(props){
 
-    const {username,games,setRender} = props
+    const {username,games,allGames} = props
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
 
@@ -33,7 +33,7 @@ export default function HomeExpert(props){
             setModalWarningActive={setModalWarningActive}
             setModalChangeOdd={setModalChangeOdd}
             setOddToChange={setOddToChange}
-        /> 
+        />
     )) 
 
     return(
@@ -58,22 +58,24 @@ export default function HomeExpert(props){
                     setModalChangeOddConfimation={setModalChangeOddConfimation} 
                 />
             }
-            
 
             <NavBar 
                 user={username}
                 searching={searching} 
                 setSearching={setSearching} 
-                setRender={setRender}
                 userType='expert'
             />
+
             <div className="content">
                 <div>
                     <SearchBar />
-                    <div className="allBets">
+                    <div className="allBetsExpert">
                         {allBets}
                     </div>
                 </div>
+                <Progress  
+                    allGames={allGames}
+                />
             </div>
 
         </div>
