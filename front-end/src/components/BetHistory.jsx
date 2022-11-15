@@ -1,4 +1,5 @@
 import goBack from "../images/goBack.png"
+import BetHistoryBox from './BetHistoryBox'
 
 export default function BetHistory(props){
 
@@ -9,16 +10,42 @@ export default function BetHistory(props){
         setDivChoice("Data");
     }
 
+
+    const list = [
+        {
+          id: 1
+        },
+        {
+          id: 2
+        },
+        {
+            id: 2
+          },
+          {
+            id: 2
+          },
+      ];
+      
+      const List = () => (
+        <ul>
+          {list.map(item => {
+            return (
+                 <BetHistoryBox></BetHistoryBox>
+                
+            );
+          })}
+        </ul>)
+
     return(
-        <div className="betHistoryDiv">
+      <div>
+        <div className="buttonHistoryDiv">
            <button className='ftsimpleBet'>Simples</button>
            <button className='ftmultipleBet'>Múltiplas</button>
            <img onClick={goToData} src = {goBack} className="ftgoBack"/>
-           <div className="ftBetList">
-           <ul>
-                <li>Aposta Placeholder</li>
-           </ul>
-           </div>
+        </div>
+        <div className="betHistoryDiv">
+              <List></List>
+        </div>
         </div>
     )
 }

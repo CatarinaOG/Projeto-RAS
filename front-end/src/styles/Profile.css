@@ -333,11 +333,20 @@
 
 
 .betHistoryDiv{
-    position: relative;
+    position: absolute;
+    width: 85%;
+    height : 50%;
+    left : 12%;
+    top : 48%;
+    overflow-y: scroll;
+}
+
+.buttonHistoryDiv{
+    position: absolute;
     width: 85%;
     height : 60%;
     left : 15%;
-    top : 8%
+    top : 35%;
 }
 
 /*----- BetHistory Buttons----- */
@@ -400,9 +409,10 @@
 
 
 .ftBetList{
-    position: absolute;
-    top:30%;
-    left:10%
+    position: relative;
+    top:0%;
+    left:0%;
+
 }
 
 .ftgoBack{
@@ -411,6 +421,50 @@
     left: -15%;
     scale: 0.8;
 }
+
+
+/*------ Bet History*/
+
+.ftbetHistBox{
+    width: 40.5vw;
+    border: 2px solid #18340C;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: flex;
+    font-family: 'Spinnaker';
+    padding-bottom: 4%;
+    justify-content: space-around;
+
+}
+
+.ftResultsInfo{
+    position: flex;
+    font-size: 13px;
+    left: 60% ;
+    text-align: center;
+    padding-bottom: 3.5% ;
+    margin-top: 10%;
+    width: 35%;
+}
+
+.ftSingleBetDiv{
+    position: relative;
+    padding-top: 3.5%;
+
+    padding-bottom: 3.5%;
+    
+}
+
+.ftbetHistInfo{
+    font-family: 'Spinnaker';
+    margin: 30px 0px 0px 20px;
+    width: 50%;
+    position: relative;
+    border-right: 2px dashed #18340C;
+    
+}
+
+
 
 
 
@@ -741,6 +795,6 @@
     top: 25vh;
     border-radius: 10px;
     text-align: center;
-
-
 }
+
+
