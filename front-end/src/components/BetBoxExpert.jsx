@@ -19,10 +19,7 @@ export default function BetBoxExpert(props){
         else*/
         
         setModalChangeOdd(true)
-        setOddToChange({
-            id: id,
-            gameId: gameId
-        })
+        setOddToChange({id: id,gameId: gameId})
 
     }
 

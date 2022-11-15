@@ -67,6 +67,7 @@ public class AppService {
             j.put("away", g.getParticipantB());
             j.put("date", g.getDate());
             j.put("results", odds);
+            j.put("sport", g.getSport());
 
             jogos.put(j);
         }

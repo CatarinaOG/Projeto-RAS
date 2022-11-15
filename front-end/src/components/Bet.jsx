@@ -24,7 +24,7 @@ export default function Bet(props){
 
     // Criação das caixas de resultado
     const resultsBoxes = results.map( ({id,result,odd}) => 
-        <BetBox 
+        <BetBox
             key={id}
             id={id}
             gameId={props.gameId}

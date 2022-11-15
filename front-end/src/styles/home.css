@@ -3,6 +3,7 @@
 
 .content{
     display: flex;
+
 }
 
 .allBets{
@@ -10,6 +11,7 @@
     overflow-x: hidden;
     height: 75vh;
     width: 56vw;
+
 }
 
 
@@ -72,7 +74,7 @@
 /*---------------NavBar-------------*/
 
 *{
-    margin: 0
+    margin: 0;
 }
 
 .NavBar{
@@ -175,7 +177,7 @@
     border: 1px solid #000000;
     border-radius: 20px;
     margin: -15px 20px 0px 10px;
-    width: 42vw;
+    width: 41.5vw;
     height: 87vh;
     position: relative;
     z-index: 2;
@@ -194,7 +196,6 @@
     display: flex;
     justify-content: center;
     margin: 20px;
-    
 
 }
 
@@ -206,6 +207,7 @@
     background-color: #FAFAFA;
     border-width: thin;
 
+
 }
 
 .typeSelected{
@@ -216,20 +218,22 @@
     color: #FAFAFA;
     border-width: thin;
     font-family: 'Spinnaker';
-    
+
 }
 
 .reportBetsSingle{
     overflow: scroll;
     overflow-x: hidden;
-    height: 72%;
+    height: 63%;
+
 }
 
 
 .reportBetsMultiple{
     overflow: scroll;
     overflow-x: hidden;
-    height: 65%;
+    height: 55%;
+
 }
 
 /*---------------ReportBet-----------*/

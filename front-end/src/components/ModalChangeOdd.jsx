@@ -25,8 +25,9 @@ export default function ModalChangeOdd(props){
         .then(response => response.json())
         .then(data => {
             if(data.confirmed === 'true')
-                setModalChangeOdd(false)
-                setModalChangeOddConfimation(true)
+                console.log("confirmed")
+                //setModalChangeOdd(false)
+                //setModalChangeOddConfimation(true)
         })
         .catch((error) => {
             console.error('Error:', error);

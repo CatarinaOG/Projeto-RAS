@@ -26,10 +26,35 @@ function App() {
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
 
+  const [rerender,setRerender] = useState(0)
+
   const [balance,setBalance] = useState(0)
 
-  const [games,setGames] = useState([])
-  const [allGames,setAllGames] = useState([
+  const [games,setGames] = useState([/*
+    {date: "2022-11-09 17:12:00.0",
+    sport: "futebol",
+    home:"benfica",
+    away:"porto",
+    id:2,
+    results:[
+      {result:"benfica",id:3,ammount:0,odd:0},
+      {result:"porto",id:4,ammount:0,odd:3},
+      {result:"Empate",id:5,ammount:0,odd:2}],},
+
+    {date:"2022-11-29 18:16:00.0",
+    sport: "futebol",
+    home:"sporting",
+    away:"benfica",
+    id:6,
+    results:[
+      {result:"sporting",id:7,ammount:0,odd:23},
+      {result:"benfica\\",id:8,ammount:0,odd:8},
+      {result:"Empate",id:9,ammount:0,odd:8}]
+    }*/
+  ])
+  
+  
+    const [allGames,setAllGames] = useState([
       {
         type: 'futebol',
         results: [0,1,1]
@@ -62,6 +87,8 @@ function App() {
 
   useEffect(() => {
     
+    console.log("use effect")
+
     fetch('http://127.0.0.1:8080/api/games/', {
                 method: 'GET',
                 headers: {
@@ -78,7 +105,7 @@ function App() {
     console.error('Error:', error);
     });
         
-  },[games])
+  },[])
 
   //--------------- Get All Games -----------------
 
@@ -122,13 +149,10 @@ function App() {
           />
         } />
 
-        
-
         <Route path="/HomeExpert" element={
           <HomeExpert 
             username={username}
             games={games}
-            allGames={allGames}
           />
         } />
 

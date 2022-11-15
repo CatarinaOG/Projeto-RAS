@@ -12,7 +12,7 @@ import {useState} from 'react'
 
 export default function HomeExpert(props){
 
-    const {username,games,allGames} = props
+    const {username,games,setRerender} = props
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
 
@@ -73,8 +73,8 @@ export default function HomeExpert(props){
                         {allBets}
                     </div>
                 </div>
-                <Progress  
-                    allGames={allGames}
+                <Progress
+                    games={games}
                 />
             </div>
 
