@@ -12,7 +12,7 @@ import {useState} from 'react'
 
 export default function HomeExpert(props){
 
-    const {username,games,setRerender} = props
+    const {username,games,setGames} = props
 
     const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
 
@@ -51,6 +51,7 @@ export default function HomeExpert(props){
                     oddToChange={oddToChange}
                     setModalChangeOdd={setModalChangeOdd}
                     setModalChangeOddConfimation={setModalChangeOddConfimation}
+                    setGames={setGames}
                 />
             }
             {modalChangeOddConfimation && 

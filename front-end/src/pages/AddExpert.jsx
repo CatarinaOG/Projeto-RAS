@@ -22,7 +22,6 @@ export default function AddSpecialist(props){
 
 	function handleChange(event) {
         setFormData(prevFormData => {
-            console.log(event.target.value)
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
@@ -46,7 +45,6 @@ export default function AddSpecialist(props){
 			.then(response => response.json())
 			.then(data => {
 				if (data.state === 'good'){
-                    console.log("correu bem")
 			        setErrorReg(0)
                     setConfirmed(true)
 				}
@@ -86,7 +84,6 @@ export default function AddSpecialist(props){
                         <button className = "ftaddConcludeSp">Registar</button>
 					    {errorReg === 1 && <p className='fterrorAddEx'>Dados em falta</p>}
 					    {errorReg === 2 && <p className='fterrorAddEx'>Erro: email em uso</p>}
-
                     </form>
                 </div>
             </div>

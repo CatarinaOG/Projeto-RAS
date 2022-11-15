@@ -3,7 +3,7 @@ import ProgressBox from './ProgressBetBox'
 
 export default function BetExpert(props){
 
-    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd,setRerender} = props
+    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd} = props
     const {home,away,date,results} = game
 
     // Criação das caixas de resultado

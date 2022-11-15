@@ -26,8 +26,6 @@ function App() {
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
 
-  const [rerender,setRerender] = useState(0)
-
   const [balance,setBalance] = useState(0)
 
   const [games,setGames] = useState([/*
@@ -98,6 +96,7 @@ function App() {
     .then(response => response.json())
     .then(data => {
         if(data.games){
+          console.log()
           setGames(data.games)
         }
     })
@@ -106,10 +105,6 @@ function App() {
     });
         
   },[])
-
-  //--------------- Get All Games -----------------
-
-
 
   //-----------------------------------------
 
@@ -153,6 +148,7 @@ function App() {
           <HomeExpert 
             username={username}
             games={games}
+            setGames={setGames}
           />
         } />
 

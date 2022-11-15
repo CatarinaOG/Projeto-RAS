@@ -3,7 +3,7 @@ import close from '../images/close.png'
 
 export default function ModalChangeOdd(props){
 
-    const {games,oddToChange,setModalChangeOdd,setModalChangeOddConfimation} = props
+    const {games,oddToChange,setModalChangeOdd,setModalChangeOddConfimation,setGames} = props
 
     const [newOdd,setNewOdd] = useState()
 
@@ -25,13 +25,32 @@ export default function ModalChangeOdd(props){
         .then(response => response.json())
         .then(data => {
             if(data.confirmed === 'true')
-                console.log("confirmed")
-                //setModalChangeOdd(false)
-                //setModalChangeOddConfimation(true)
+
+                fetch('http://127.0.0.1:8080/api/games/', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.games){
+                        setGames(data.games)
+                    }
+                })
+                .catch((error) => {
+                console.error('Error:', error);
+                });
+
+                setModalChangeOdd(false)
+                setModalChangeOddConfimation(true)
         })
         .catch((error) => {
             console.error('Error:', error);
         });
+
+
+        
     }
 
     function changeOdd(event){
