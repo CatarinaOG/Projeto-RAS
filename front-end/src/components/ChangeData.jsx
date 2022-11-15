@@ -11,20 +11,21 @@ export default function ChangeData(props){
 
     let navigate = useNavigate();
 
-    
+    const [formData, setFormData] = useState(
+        {firstName: "", lastName: "",password:""}
+    )    
 
-
+    //comportamento do botão goBack, que retorna o utilizador à pagina principal
     function goBack(){
         navigate('/Home')
     }
 
+    //utiliza setDivChoice para alterar a variavel usada no conditional rendering do profile
     function goToHistory(){
         setDivChoice("BetHistory");
     }
 
-    const [formData, setFormData] = useState(
-        {firstName: "", lastName: "",password:""}
-    )
+    
     
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -43,10 +44,12 @@ export default function ChangeData(props){
         setUsername(formData.firstName);
     }
 
+    //ativa o popUp de escolha de método de levantamento
     function withdrawPop(){
         setShowPopUp('transfer');
     }
 
+    //ativa o popUp de escolha de método de depósito
     function depositPop(){
         setShowPopUp('deposit');
     }
@@ -55,12 +58,13 @@ export default function ChangeData(props){
         navigate('/')
     }
 
+    //carrega o PopUp que pede o email ao utilizador para enviar o código de confirmaçao
     function loadPopEmail(){
         setShowPopUp('changeSec');
 
     }
  
-
+    // a variável sec determina se é renderizado o changeData normal ou o dos dados seguros
     return (
         <div className="changeDataOutDiv">
                 <button className='ftLogout' onClick={logOut}> Log out </button>

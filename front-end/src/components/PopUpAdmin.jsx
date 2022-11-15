@@ -1,11 +1,11 @@
 import closeImg from '../images/close.png'
 
-
+//PopUp que surge quando é adicionado um especialista, com os dados do mesmo
 export default function PopUp(props){
 
     const {email,password,username,setConfirmed} = props;
 
-
+    // altera a variável responsável pela renderização deste popup de forma a que este desapareça
     function close(){
         setConfirmed(false);
     }

@@ -2,8 +2,9 @@
 import close from '../images/close.png'
 import '../styles/Profile.css'
 import {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
 
+
+//PopUp que surge pedindo ao utilizador o código que terá recebido por email.
 export default function PopUpConfirm(props){
 
     const {setShowPopUp,setSec} = props;
@@ -12,9 +13,7 @@ export default function PopUpConfirm(props){
         {code: ""}
     )
     
-    let navigate = useNavigate();
 
-	
     function handleChange(event) {
         setFormData(prevFormData => {
             return {
@@ -24,6 +23,7 @@ export default function PopUpConfirm(props){
         })
     }
 
+    //Comportamento após submissão do form com o código
     function handleSubmit(){
         setSec(1);
         setShowPopUp('');
@@ -31,7 +31,7 @@ export default function PopUpConfirm(props){
     }
 
 
-
+    //Faz desaprecer o popUp
     function cancel(){
         setShowPopUp('');
     }

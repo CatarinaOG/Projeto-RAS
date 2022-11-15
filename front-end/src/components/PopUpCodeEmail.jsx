@@ -24,7 +24,7 @@ export default function PopUpEmail(props){
         })
     }
 
-
+    //Faz desaprecer o popUp
     function cancel(){
         setShowPopUp('');
     }

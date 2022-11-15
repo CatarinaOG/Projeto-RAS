@@ -8,10 +8,7 @@ export default function InputsLogin(props) {
 
 	const {setUsername,setBalance,setLoadReg,setEmail,balance} = props
 
-    function changeComp(){
-		navigate("/Register");
-	}
-
+	//variavel responsavel pelo conditional rendering 
 	const [errorReg,setErrorReg]=useState(0)
 
 	const [formData, setFormData] = useState({email: "",password:""})
@@ -27,6 +24,19 @@ export default function InputsLogin(props) {
         })
     }
 
+	//muda a pagina para a página de registo
+	function changeToRegister(){
+		navigate("/Register");
+	}
+	
+
+	//Função responsavel pelo submit do form
+	//Começa por verificar se algum dos inputs está vazio . caso esteja, altera a variavel errorReg, 
+	//de forma a ser demonstrada mensagem de erro
+	//Caso estejam ambos os inputs preenchidos, envia os seus valores para a backend e processa a resposta
+	//A variável type irá determinar se será mudada a página para home page do admin, especialista ou apostador.
+	//Caso o type seja nulo é porque houve erro, sendo alterada a variavel errorReg de forma a ser renderizada a 
+	//mensagem de erro apropriada 
 	
 	function handleSubmit(event){
 		event.preventDefault()
@@ -72,7 +82,7 @@ export default function InputsLogin(props) {
 			</form>
 			<a className = "ftnoPass" > Esqueci-me da palavra-passe</a>
 			<a className='ftnoAccount'>Não tem conta?</a>
-			<h4 onClick={changeComp} className = "ftnoAccountHyper"> Registe-se já! </h4>
+			<h4 onClick={changeToRegister} className = "ftnoAccountHyper"> Registe-se já! </h4>
 			{errorReg === 2 && <p className='fterrorLogIn'>Email ou password incorretos</p>}
 
 		</div>

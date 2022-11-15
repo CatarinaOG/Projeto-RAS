@@ -4,6 +4,7 @@ export default function BetHistory(props){
 
     const {setDivChoice} = props
 
+    //comportamento do botão para voltar para tras
     function goToData(){
         setDivChoice("Data");
     }

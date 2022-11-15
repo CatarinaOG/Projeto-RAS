@@ -10,9 +10,12 @@ export default function PopUpMethod(props){
         setShowPopUp('');
     }
 
+    //Caso seja premido o botão do paypal, é alterada a variavel method que irá determinar qual o popup renderizado a seguir
     function defPaypal(){
         setMethod("Paypal");
     }
+
+    //Caso seja premido o botão do maestro, é alterada a variavel method que irá determinar qual o popup renderizado a seguir
 
     function defMaestro(){
         setMethod("Maestro");

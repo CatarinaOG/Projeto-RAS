@@ -2,8 +2,10 @@ import { useState } from "react";
 
 import closeImg from '../images/close.png'
 
+//PopUp de mensagem de sucesso ou insucesso do pagamento 
 export default function PopUpMessage(props){
     const {setStateOp,message,setMethod,setShowPopUp} = props;
+
     function close(){
         if(message==="Operação bem sucedida!"){
             setMethod('');

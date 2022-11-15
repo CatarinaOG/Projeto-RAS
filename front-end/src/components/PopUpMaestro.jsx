@@ -9,9 +9,7 @@ export default function PopUpMaestro(props){
     const [stateOp,setStateOp] = useState("");
     const [message,setMessage] = useState("");
     
-    function close(){
-        setMethod('');
-    }
+    
 
     const [formData, setFormData] = useState(
         {operation: showPopUp, cardNum: 0,cardCCV:0 ,operationValue:""}
@@ -26,6 +24,16 @@ export default function PopUpMaestro(props){
         })
     }
 
+    // fecha o popUp de método de pagamento
+    function close(){
+        setMethod('');
+    }
+
+    //Comportamento após submissão do form. Começa por verificar o tamanho do input do CCV e do CardNum
+    //Caso estes valores tenham o tamanho certo, é enviado um pedido POST com os dados inseridos
+    //Caso estes valores não tenham o tamanho certo é alterado o valor da variável que determina as mensagens de erro
+    //Caso a resposta ao pedido fetch seja de valor true, é alterado o balance mostrado no ecrã e apresentada uma mensagem PopUp de sucesso
+    //Caso a resposta seja um false, então é mostrada uma mensagem de erro.
     function handleSubmit(event){
         event.preventDefault();
         
