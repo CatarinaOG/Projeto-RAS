@@ -28,56 +28,29 @@ function App() {
 
   const [balance,setBalance] = useState(0)
 
-  const [games,setGames] = useState([/*
-    {date: "2022-11-09 17:12:00.0",
-    sport: "futebol",
+  const [games,setGames] = useState([
+    /*{date: "2022-11-09 17:12:00.0",
+    sport: "football",
     home:"benfica",
     away:"porto",
     id:2,
     results:[
-      {result:"benfica",id:3,ammount:0,odd:0},
-      {result:"porto",id:4,ammount:0,odd:3},
-      {result:"Empate",id:5,ammount:0,odd:2}],},
+      {result:"benfica", id:3, ammount:0, odd:1},
+      {result:"porto", id:4, ammount:0, odd:3},
+      {result:"Empate", id:5, ammount:0, odd:2}],},
 
     {date:"2022-11-29 18:16:00.0",
-    sport: "futebol",
+    sport: "football",
     home:"sporting",
     away:"benfica",
     id:6,
     results:[
-      {result:"sporting",id:7,ammount:0,odd:23},
-      {result:"benfica\\",id:8,ammount:0,odd:8},
-      {result:"Empate",id:9,ammount:0,odd:8}]
+      {result:"sporting", id:7, ammount:0, odd:23},
+      {result:"benfica\\", id:8, ammount:0, odd:8},
+      {result:"Empate", id:9, ammount:0, odd:8}]
     }*/
   ])
   
-  
-    const [allGames,setAllGames] = useState([
-      {
-        type: 'futebol',
-        results: [0,1,1]
-      },
-      {
-        type: 'futebol',
-        results: [1,1,1]
-      },
-      {
-        type: 'futebol',
-        results: [0,0,0]
-      },
-      {
-        type: 'basquetebol',
-        results: [1,1,1]
-      },
-      {
-        type: 'basquetebol',
-        results: [1,1,1]
-      },
-      {
-        type: 'basquetebol',
-        results: [0,0,0]
-      }
-    ])
 
 
 

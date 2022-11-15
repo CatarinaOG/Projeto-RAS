@@ -14,7 +14,8 @@ export default function HomeExpert(props){
 
     const {username,games,setGames} = props
 
-    const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
+    const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
+
 
     const [modalWarningActive,setModalWarningActive] = useState(false)
     const [modalChangeOdd,setModalChangeOdd] = useState(false)
@@ -24,17 +25,26 @@ export default function HomeExpert(props){
 
 
     //Mostra todas as bets do lado esquerdo
-    const allBets = games.map( (game) => (
-        <BetExpert 
-            key={game.id}
-            games={games}
-            gameId={game.id}
-            game={game} 
-            setModalWarningActive={setModalWarningActive}
-            setModalChangeOdd={setModalChangeOdd}
-            setOddToChange={setOddToChange}
-        />
-    )) 
+    const allBets = games.map( (game) => {
+
+        var show = false
+
+        if (game.sport === filter)
+            show = true
+
+        if( show || filter === 'all')
+            return(
+                <BetExpert 
+                    key={game.id}
+                    games={games}
+                    gameId={game.id}
+                    game={game} 
+                    setModalWarningActive={setModalWarningActive}
+                    setModalChangeOdd={setModalChangeOdd}
+                    setOddToChange={setOddToChange}
+                />
+            )
+    }) 
 
     return(
         <div>
@@ -62,8 +72,8 @@ export default function HomeExpert(props){
 
             <NavBar 
                 user={username}
-                searching={searching} 
-                setSearching={setSearching} 
+                filter={filter} 
+                setFilter={setFilter} 
                 userType='expert'
             />
 

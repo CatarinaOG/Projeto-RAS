@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function NavBar(props){
 
-    const {user,searching,setSearching,userType} = props
+    const {user,filter,userType,setFilter} = props
 
     let navigate = useNavigate();
 
@@ -22,25 +22,25 @@ export default function NavBar(props){
 
                 <div className='search'>
                     <Link 
-                        search='Todos' 
-                        setSearching={setSearching}
-                        highlight={searching === 'Todos' ? true : false}/>
+                        search='all' 
+                        setFilter={setFilter}
+                        highlight={filter === 'all' ? true : false}/>
                     <Link 
-                        search='Futebol' 
-                        setSearching={setSearching}
-                        highlight={searching === 'Futebol' ? true : false}/>
+                        search='football' 
+                        setFilter={setFilter}
+                        highlight={filter === 'football' ? true : false}/>
                     <Link 
-                        search='Basquetebol' 
-                        setSearching={setSearching}
-                        highlight={searching === 'Basquetebol' ? true : false}/>
+                        search='basketball' 
+                        setFilter={setFilter}
+                        highlight={filter === 'basketball' ? true : false}/>
                     <Link 
-                        search='Tenis' 
-                        setSearching={setSearching}
-                        highlight={searching === 'Tenis' ? true : false}/>
+                        search='tenis' 
+                        setFilter={setFilter}
+                        highlight={filter === 'tenis' ? true : false}/>
                     <Link 
-                        search='MotoGP' 
-                        setSearching={setSearching}
-                        highlight={searching === 'MotoGP' ? true : false}/>
+                        search='motoGP' 
+                        setFilter={setFilter}
+                        highlight={filter === 'motoGP' ? true : false}/>
                 </div>
             <h3 className='welcomeUser' onClick={goToProfile}> Welcome, {user} </h3>
         </div>

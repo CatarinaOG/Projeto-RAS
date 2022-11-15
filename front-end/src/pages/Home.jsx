@@ -11,26 +11,44 @@ export default function Home(props){
     const {username,email,games,setBalance} = props
 
 
-    const [searching,setSearching] = useState('Todos')      //utilizado para saber secção atual
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
+    const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
+
+    function getInEnglish(type){
+        switch (type) {
+            case "futebol": return 'football'
+            case "basquetebol": return 'basketball'
+            case "motoGP": return 'motoGP'
+            case "tenis": return 'tenis'
+        }
+    }
 
 
     //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => {
 
         var notNull = true
+        var show = false
+        var sportPT = getInEnglish(game.sport)
 
         game.results.map( game => {
             if (game.odd === 0) notNull = false
         })
 
-        if(notNull)
-            return(<Bet 
+        if (sportPT === filter)
+            show = true
+
+        
+
+        if(notNull && ( show || filter === 'all'))
+            return(
+            <Bet 
                 key={game.id}
                 gameId={game.id}
                 game={game} 
                 setSelected={setSelected} 
-                selected={selected}/> 
+                selected={selected}
+            /> 
             )
     }) 
 
@@ -38,8 +56,9 @@ export default function Home(props){
         <div>
             <NavBar 
                 user={username} 
-                searching={searching} 
-                setSearching={setSearching} 
+                filter={filter} 
+                setFilter={setFilter}
+                userType="user"
             />
             <div className="content">
                 <div>

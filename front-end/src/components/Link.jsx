@@ -1,11 +1,21 @@
 
 
-export default function Link({search,setSearching,highlight}){
+export default function Link({search,setFilter,highlight}){
 
+    
+    function getInPortugues(){
+        switch (search) {
+            case 'all': return "Todos"
+            case 'football': return "Futebol"
+            case 'basketball': return "Basquetebol"
+            case 'motoGP': return "MotoGP"
+            case 'tenis': return "Tenis"
+        }
+    }
 
     function changeSearching(){
 
-        setSearching(search)
+        setFilter(search)
 
     }
 
@@ -13,7 +23,7 @@ export default function Link({search,setSearching,highlight}){
 
         <h3 
             className={highlight ? 'searchItemHighlighted' : 'searchItem'}
-            onClick={changeSearching}>{search}
+            onClick={changeSearching}>{getInPortugues()}
         </h3>
 
 
