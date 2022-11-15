@@ -1,5 +1,7 @@
 
 import '../styles/Profile.css'
+import '../styles/ProfileSec.css'
+
 
 import NavBarProfile from "../components/NavBarProfile"
 import IdSaldo from '../components/IdSaldo'
