@@ -383,6 +383,27 @@
     background-color: white;
 }
 
+.ftsimpleBetSelected{
+    position: absolute;
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    height: 15%;
+    width: 25%;
+    top: 0%;
+    left:8%;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: #F07444;
+}
+
 .ftmultipleBet{
     color: #F07444;
     border-radius: 20px;
@@ -405,6 +426,51 @@
     top: 0%;
     left: 50%;
 }
+
+.ftmultipleBetSelected{
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    height: 15%;
+    width: 25%;
+    top: 0%;
+    border: 1px solid #F07444 ;
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: #F07444;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+}
+
+.ftChangeToTransact{
+    position: relative;
+
+    height: 9%;
+    width: 5%;
+
+    background: white;
+    border-radius: 20px;
+    font-size: 13px;
+    border: 1px solid #18340C ;
+    
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    top:3%;
+    left:83%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
 
 
 
@@ -798,3 +864,30 @@
 }
 
 
+/*---- TransactionHistory -------*/
+
+table {
+    width: 100%;
+    color: #18340C;
+    font-family: 'Spinnaker';
+    font-style: normal;
+  }
+    
+  th {
+    border-bottom: 1px solid black;
+  }
+    
+  td {
+    text-align: center;
+    padding-top: 3%;
+
+  }
+
+  .tableDiv{
+    position: absolute;
+    width: 85%;
+    height : 50%;
+    left : 10%;
+    top : 40%;
+    overflow-y: scroll;
+}
