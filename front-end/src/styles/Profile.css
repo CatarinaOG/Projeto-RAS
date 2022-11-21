@@ -866,7 +866,7 @@
 
 /*---- TransactionHistory -------*/
 
-table {
+.ftTable {
     width: 100%;
     color: #18340C;
     font-family: 'Spinnaker';
@@ -874,9 +874,14 @@ table {
   }
     
   th {
+
     border-bottom: 1px solid black;
   }
-    
+  .fttablehead{
+    position: fixed;
+    width: 100%;
+
+  }
   td {
     text-align: center;
     padding-top: 3%;

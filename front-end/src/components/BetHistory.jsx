@@ -103,13 +103,14 @@ export default function BetHistory(props){
           <img onClick={goToDataToBet} src = {goBack} className="ftgoBack"/>
         </div>
         <div className="tableDiv">
-          <table>
-            <tr>
-              <th>Data</th>
-              <th>Descrição</th>
-              <th>Operação</th>
-              <th>Saldo Após Transação</th>
-            </tr>
+          <table class="ftTable">
+              <tr className="fttablehead">
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Operação</th>
+                <th>Saldo Após Transação</th>
+              </tr>
+            
             {data.map((val, key) => {
               return (
                 <tr key={key}>
