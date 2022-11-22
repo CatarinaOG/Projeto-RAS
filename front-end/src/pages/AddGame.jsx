@@ -133,7 +133,7 @@ export default function AddGame(props){
         <div className='divPilots'>
             <div className='pilotOdd'>
                 <input className ="ftChoosePilot" type="text" onChange={handleChange}  placeholder='Pilot 1' name = "pilot1" value = {formData.pilot1}/>
-				<input className='ftoddPilot' type="number" onChange={handleChange} placeholder = "Odd 1" name="odd1" value = {formData.odd1}/>
+                <input className='ftoddPilot' type="number" min="0" onChange={handleChange} placeholder = "Odd 1" name="odd1" value = {formData.odd1}/>
             </div>
 
             <div className='pilotOdd'>
@@ -303,7 +303,7 @@ export default function AddGame(props){
                             <h3 className="ftpromptParticipantA">Nome do evento :</h3>
                             <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Event Name' name = "raceName" value = {formData.raceName}/>
 
-                            <h3>Insira o nome dos pilotos e respectiva odd</h3>
+                            <h3 className='ftpromptEvent'>Insira o nome dos pilotos e respectiva odd</h3>
                             {pilotList}
                         </div>}
 
