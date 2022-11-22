@@ -2,8 +2,8 @@
 .contentAdmin{
     position: absolute;
     width: 60vw;
-    height: 80vh;
-    top: 6vh;
+    height: 60vh;
+    top: 12vh;
 }
 
 .adminImg1{
@@ -27,12 +27,7 @@
     top: 35vh;
 }
 
-.adminImg4{
-    position: absolute;
-    height: 22px;
-    left:21.2vw;
-    top: 48.2vh;
-}
+
 
 
 .ButtonsAdmin{

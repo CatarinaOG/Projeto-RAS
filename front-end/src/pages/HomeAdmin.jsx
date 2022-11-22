@@ -23,12 +23,8 @@ export default function HomeAdmin(props){
         navigate('/')
     }
 
-    function goToConsult(){
-        navigate('/')
-    }
-
-    function goToRemoveExpert(){
-        navigate('/')
+    function goToShowExperts(){
+        navigate('/ShowExperts')
     }
 
     return(
@@ -38,14 +34,12 @@ export default function HomeAdmin(props){
             />
             <div className='whiteShadow'>
                 <div className="contentAdmin">
-                    <button className="ButtonsAdmin" onClick={goToConsult}>Consultar Especialistas</button>
+                    <button className="ButtonsAdmin" onClick={goToShowExperts}>Consultar Especialistas</button>
                     <img src={consultExpert} alt="" className="adminImg1"/>
                     <button className="ButtonsAdmin" onClick={goToAddExpert}>Adicionar Especialista</button>
                     <img src={addExpert} alt=""  className="adminImg2"/>
-                    <button className="ButtonsAdmin" onClick={goToRemoveExpert}>Remover Especialista</button>
-                    <img src={deleteExpert} alt=""  className="adminImg3"/>
                     <button className="ButtonsAdmin" onClick={logout}>Logout</button>
-                    <img src={logoutImg} alt=""  className="adminImg4"/>
+                    <img src={logoutImg} alt=""  className="adminImg3"/>
                 </div>
             </div>
         </div>

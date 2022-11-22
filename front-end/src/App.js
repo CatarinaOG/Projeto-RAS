@@ -4,6 +4,7 @@ import './styles/home.css'
 import './styles/Profile.css'
 import './styles/login.css'
 import './styles/HomeAdmin.css'
+import './styles/ShowExperts.css'
 
 import {useState} from 'react'
 import { useEffect } from 'react'
@@ -18,6 +19,7 @@ import AddExpert from './pages/AddExpert'
 import AddGame from './pages/AddGame'
 import ProfileExpert from './pages/ProfileExpert'
 import RegisterPage from './pages/RegisterPage'
+import ShowExperts from './pages/ShowExperts'
 
 
 
@@ -54,7 +56,80 @@ function App() {
   ])
 
   
-
+const [experts,setExperts] = useState([
+  {
+    id: 1 ,
+    username: 'catarina',
+    email: 'catarina@catarina',
+    password: 'catarina'
+  },
+  {
+    id: 2 ,
+    username: 'toldy',
+    email: 'toldy@toldy',
+    password: 'toldy'
+  },
+  {
+    id: 3,
+    username: 'castiço',
+    email: 'castiço@castiço',
+    password: 'castiço'
+  },
+  {
+    id: 4,
+    username: 'catarina',
+    email: 'catarina@catarina',
+    password: 'catarina'
+  },
+  {
+    id:5 ,
+    username: 'toldy',
+    email: 'toldy@toldy',
+    password: 'toldy'
+  },
+  {
+    id: 6,
+    username: 'castiço',
+    email: 'castiço@castiço',
+    password: 'castiço'
+  },
+  {
+    id:7 ,
+    username: 'catarina',
+    email: 'catarina@catarina',
+    password: 'catarina'
+  },
+  {
+    id: 8,
+    username: 'toldy',
+    email: 'toldy@toldy',
+    password: 'toldy'
+  },
+  {
+    id: 9,
+    username: 'castiço',
+    email: 'castiço@castiço',
+    password: 'castiço'
+  },
+  {
+    id:10 ,
+    username: 'catarina',
+    email: 'catarina@catarina',
+    password: 'catarina'
+  },
+  {
+    id: 11,
+    username: 'toldy',
+    email: 'toldy@toldy',
+    password: 'toldy'
+  },
+  {
+    id: 12,
+    username: 'castiço',
+    email: 'castiço@castiço',
+    password: 'castiço'
+  }
+])
 
 
   //--------------- Get Games -----------------
@@ -134,21 +209,28 @@ function App() {
         <Route path="/HomeAdmin" element={
           <HomeAdmin 
             username={username}
+            experts={experts}
           />
         } />
 
         <Route path="/AddGame" element={
           <AddGame 
             username={username}
-            email={email}
           />
         } />
+
+        <Route path="/ShowExperts" element={
+          <ShowExperts 
+            username={username}
+            experts={experts}
+          />
+        }/>
 
         <Route path="/ProfileExpert" element={
           <ProfileExpert 
             username={username}
           />
-        } />
+        }/>
 
       </Routes>
   </BrowserRouter>
