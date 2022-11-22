@@ -29,7 +29,7 @@
 
 .ftsquareDiv{
     position: relative;
-    height: 25%;
+    height: 20%;
     width: 100%;
     box-shadow: 0px 1px rgba(0, 0, 0, 0.25), 0px 1px rgba(0, 0, 0, 0.25);
 
@@ -174,10 +174,7 @@ relative
     
 }
 
-.ftLogout:active{
-    color: white;
-    background-color:#F07444;
-}
+
 
 .ftLogout{
 
@@ -324,13 +321,21 @@ relative
 
 /*----- BetHistory ----- */
 
+.ftDivBetHist{
+    position: relative;
+    width: 100%;
+    height : 95%;
+    left : 0%;
+    top : 0%
+}
+
 
 .betHistoryDiv{
     position: absolute;
     width: 85%;
-    height : 50%;
+    height : 60%;
     left : 12%;
-    top : 48%;
+    top : 20%;
     overflow-y: scroll;
 }
 
@@ -339,7 +344,7 @@ relative
     width: 85%;
     height : 60%;
     left : 15%;
-    top : 35%;
+    top : 10%;
 }
 
 /*----- BetHistory Buttons----- */
@@ -358,12 +363,12 @@ relative
 .ftsimpleBet{
     position: absolute;
     color: #F07444;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 13px;
     
     height: 15%;
     width: 25%;
-    top: 0%;
+    top: -5%;
     left:8%;
     border: 1px solid #F07444 ;
 
@@ -379,12 +384,12 @@ relative
 .ftsimpleBetSelected{
     position: absolute;
     color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 13px;
     
     height: 15%;
     width: 25%;
-    top: 0%;
+    top: -5%;
     left:8%;
     border: 1px solid #F07444 ;
 
@@ -399,7 +404,7 @@ relative
 
 .ftmultipleBet{
     color: #F07444;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 13px;
     
     height: 15%;
@@ -416,13 +421,13 @@ relative
 
     background-color: white;
     position: absolute;
-    top: 0%;
+    top: -5%;
     left: 50%;
 }
 
 .ftmultipleBetSelected{
     color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 13px;
     
     height: 15%;
@@ -439,7 +444,7 @@ relative
 
     background-color: #F07444;
     position: absolute;
-    top: 0%;
+    top: -5%;
     left: 50%;
 }
 
@@ -457,7 +462,7 @@ relative
     font-weight: 400;
     font-size: 15px;
     line-height: 30px;
-    top:3%;
+    top:0%;
     left:83%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -501,22 +506,22 @@ relative
     font-size: 13px;
     left: 60% ;
     text-align: center;
-    padding-bottom: 3.5% ;
-    margin-top: 10%;
+    padding-bottom: 2% ;
+    margin-top: 6%;
     width: 35%;
 }
 
 .ftSingleBetDiv{
     position: relative;
-    padding-top: 3.5%;
+    padding-top: 3%;
 
-    padding-bottom: 3.5%;
+    padding-bottom: 3%;
     
 }
 
 .ftbetHistInfo{
     font-family: 'Spinnaker';
-    margin: 30px 0px 0px 20px;
+    margin: 20px 0px 0px 20px;
     width: 50%;
     position: relative;
     border-right: 2px dashed #18340C;
@@ -886,5 +891,22 @@ relative
     height : 50%;
     left : 10%;
     top : 40%;
-    overflow-y: scroll;
+}
+
+.tableSpace{
+    position: absolute;
+    top: 90px;
+    left: 2.5vw;
+    width: 55vw;
+    height: 70vh;
+    font-family: 'Spinnaker';
+}
+
+
+
+.ftadminImg{
+    position: absolute;
+    height: 24px;
+    left: 35.2vw;
+    top: 37vh;
 }

@@ -83,7 +83,7 @@ export default function BetHistory(props){
 
     return(
       
-      <div>
+      <div className="ftDivBetHist">
         { typeData === 'Bet' &&
         <div>
         <div className="buttonHistoryDiv">
@@ -103,7 +103,49 @@ export default function BetHistory(props){
           <img onClick={goToDataToBet} src = {goBack} className="ftgoBack"/>
         </div>
         <div className="tableDiv">
-          <table class="ftTable">
+            <table width="700">
+                <tr>
+                    <td>
+                        <table width="700">
+                            <tr>
+                                <th width="400">Data</th>
+                                <th width="500">Descrição</th>
+                                <th width="200">Operação</th>
+                                <th width="200">Saldo Após Transação</th>
+
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div className="allowOverflow">
+                            <table width="700" >
+                            {data.map((val, key) => {
+                                return (
+                                  <tr key={key}>
+                                    <td>{val.date}</td>
+                                    <td>{val.description}</td>
+                                    <td>{val.operation}</td>
+                                    <td>{val.balance}</td>
+                                  </tr>
+                                )
+                              })}
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div> 
+       </div>
+       }   
+      </div>
+    )
+}
+
+/*
+<table class="ftTable">
               <tr className="fttablehead">
                 <th>Data</th>
                 <th>Descrição</th>
@@ -122,10 +164,4 @@ export default function BetHistory(props){
               )
             })}
           </table>
-
-        </div> 
-       </div>
-       }   
-      </div>
-    )
-}
+*/

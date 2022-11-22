@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
+import logoutImg from "../images/logout.png"
 
 
 export default function ProfileExpert(props){
@@ -33,6 +34,7 @@ export default function ProfileExpert(props){
                     <div className="contentExpert">
                         <button className="ButtonsExpert1" onClick={goToAddGame}>Criar jogo</button>
                         <button className="ButtonsExpert2" onClick={logout}>Logout</button>
+                        <img src={logoutImg} alt=""  className="ftadminImg"/>
                     </div>
                 </div>
                 
