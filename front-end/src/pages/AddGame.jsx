@@ -36,7 +36,7 @@ export default function AddGame(props){
     )
 
     const motoBody = JSON.stringify({
-        sport: formData.sport , 
+        sport: formData.sport ,
         date: formData.date + "T"+formData.time+":00",
         expert_email:email,
         pilot1:formData.pilot1,odd1:formData.odd1,pilot2:formData.pilot1,odd2:formData.odd1,
@@ -72,25 +72,25 @@ export default function AddGame(props){
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
-            
+
             }
         })
     }
 
 	function handleSubmit(event){
 		event.preventDefault()
-        
+
         if(formData.sport!="" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
             const timeVal = formData.date + "T"+formData.time+":00"
-            
+
             fetch('http://127.0.0.1:8080/api/expert/newGame', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json ',
                 },
-                body: JSON.stringify({ 
-                    sport: formData.sport , 
-                    participantA:formData.participantA , 
+                body: JSON.stringify({
+                    sport: formData.sport ,
+                    participantA:formData.participantA ,
                     participantB:formData.participantB,
                     oddA:formData.oddA,
                     oddB:formData.oddB,
@@ -112,7 +112,7 @@ export default function AddGame(props){
         }
 
 	}
-    
+
     /*
     const rows = [];
     for (let i = 1; i < 25; i++) {
@@ -280,10 +280,10 @@ export default function AddGame(props){
                         {formData.sport != "motoGP" && <div>
                         <h3 className="ftpromptParticipantA">Participante A :</h3>
                         <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Participante A' name = "participantA" value = {formData.participantA}/>
-                        
+
                         <h3 className="ftpromptParticipantB">Participante B :</h3>
                         <input className ="ftselectPartB" type="text" onChange={handleChange} placeholder='Participante B' name = "participantB" value = {formData.participantB}/>
-                        
+
                         <h3 className="ftpromptOdds">Odds:</h3>
 					    <input className='ftoddA' type="number" onChange={handleChange} placeholder = "Odd A" name="oddA" value = {formData.oddA}/>
 					    {formData.sport === "Futebol" && <input className='ftoddTie' type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/> }
@@ -297,8 +297,8 @@ export default function AddGame(props){
 
 
 
-                        {formData.sport==="motoGP" && 
-                        
+                        {formData.sport==="motoGP" &&
+
                         <div >
                             <h3 className="ftpromptParticipantA">Nome do evento :</h3>
                             <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Event Name' name = "raceName" value = {formData.raceName}/>
@@ -315,10 +315,10 @@ export default function AddGame(props){
                     </form>
                 </div>
             </div>
-            {confirmed && 
+            {confirmed &&
                 <div>
                     <div className="ftbackgroundModal"></div>
-                    <PopUpAddGame 
+                    <PopUpAddGame
                         setConfirmed={setConfirmed}
                         sportPop={formData.sport}
                         participantAPop={formData.participantA}
@@ -330,8 +330,8 @@ export default function AddGame(props){
                         time = {formData.time}
                   />
                 </div>
-            }   
+            }
 
-        </div>    
+        </div>
     )
 }

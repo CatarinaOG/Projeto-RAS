@@ -1,6 +1,9 @@
 import BetBoxExpert from './BetBoxExpert'
 import ProgressBox from './ProgressBetBox'
 
+import pause from '../images/pause.png'
+import play from '../images/play.png'
+
 export default function BetExpert(props){
 
     const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd} = props
@@ -21,6 +24,30 @@ export default function BetExpert(props){
         />
     )
 
+    function changeState(){
+
+        console.log("trocar estado")
+
+    }
+
+
+    function icons(){
+
+        if(game.active === true){
+            return(
+            <div>
+                <img src={pause} alt="" className='icon' onClick={changeState}/>
+            </div>
+            )
+        }else{
+            return(
+                <div>
+                    <img src={play} alt="" className='icon' onClick={changeState}/>
+                </div>
+            )
+        }
+    }
+
     // Saber o progresso
     var nulls = 0
     
@@ -32,6 +59,7 @@ export default function BetExpert(props){
                 <div className="info">
                     <h3>{home} vs {away}</h3>
                     <p>{date}</p>
+                        {icons()}
                 </div>
                 <div className="results">
                     {resultsBoxes}
