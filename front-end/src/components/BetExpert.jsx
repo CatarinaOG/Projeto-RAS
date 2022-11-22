@@ -1,5 +1,5 @@
 import BetBoxExpert from './BetBoxExpert'
-import ProgressBox from './ProgressBetBox'
+import ProgressBetBox from './ProgressBetBox'
 
 export default function BetExpert(props){
 
@@ -38,7 +38,7 @@ export default function BetExpert(props){
                 </div>
             </div>
             <div>
-                <ProgressBox 
+                <ProgressBetBox 
                     nulls={nulls}
                 />
             </div>

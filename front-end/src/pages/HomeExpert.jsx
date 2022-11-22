@@ -23,13 +23,21 @@ export default function HomeExpert(props){
 
     const [oddToChange,setOddToChange] = useState()   // {id,gameId}
 
+    function getInEnglish(type){
+        switch (type) {
+            case "futebol": return 'football'
+            case "basquetebol": return 'basketball'
+            case "motoGP": return 'motoGP'
+            case "tenis": return 'tenis'
+        }
+    }
 
     //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => {
 
         var show = false
 
-        if (game.sport === filter)
+        if (getInEnglish(game.sport) === filter)
             show = true
 
         if( show || filter === 'all')
