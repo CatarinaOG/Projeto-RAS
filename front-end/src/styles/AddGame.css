@@ -59,7 +59,7 @@ body{
 .ftselectSport{
     position: absolute;
     text-align: center;
-    top:26%;
+    top:23%;
     left: 51%;
     width: 30.5%;
     height: 7%;
@@ -71,7 +71,7 @@ body{
 .ftselectPartA{
     position: absolute;
     text-align: center;
-    top:36%;
+    top:33%;
     left: 51%;
     width: 30%;
     height: 7%;
@@ -83,7 +83,7 @@ body{
 .ftselectPartB{
     position: absolute;
     text-align: center;
-    top:46%;
+    top:43%;
     left: 51%;
     width: 30%;
     height: 7%;
@@ -95,7 +95,7 @@ body{
 .ftoddA{
     position: absolute;
     text-align: center;
-    top:  56%;
+    top:  53%;
     left: 51%;
     width: 8%;
     border-radius: 20px;
@@ -106,7 +106,7 @@ body{
 .ftoddB{
     position: absolute;
     text-align: center;
-    top: 56%;
+    top: 53%;
     left: 73%;
     width: 8%;
     height: 7%;
@@ -118,7 +118,7 @@ body{
 .ftoddTie{
     position: absolute;
     text-align: center;
-    top: 56%;
+    top: 53%;
     left: 62.5%;
     width: 8%;
     height: 7%;
@@ -130,7 +130,7 @@ body{
 .ftselectTime{
     position: absolute;
     text-align: center;
-    top: 66%;
+    top: 63%;
     left: 67%;
     width: 14%;
     height: 7%;
@@ -141,7 +141,7 @@ body{
 .ftselectDate{
     position: absolute;
     text-align: center;
-    top: 66%;
+    top: 63%;
     left: 51%;
     width: 14%;
     height: 7%;
@@ -156,7 +156,7 @@ body{
 
 .ftInsertDataGame{
     position: absolute;
-    top : 12%;
+    top : 9%;
     left: 43%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -165,7 +165,7 @@ body{
 .ftpromptSport{
     position: absolute;
     width: 100%;
-    top :28%;
+    top :25%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -174,7 +174,7 @@ body{
 .ftpromptParticipantA{
     position: absolute;
     width: 100%;
-    top : 38%;
+    top : 35%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -184,7 +184,7 @@ body{
 .ftpromptDate{
     position: absolute;
     width: 100%;
-    top : 68%;
+    top : 65%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -194,7 +194,7 @@ body{
 .ftpromptTime{
     position: absolute;
     width: 100%;
-    top : 68%;
+    top : 65%;
     left: 52%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -204,7 +204,7 @@ body{
 .ftpromptParticipantB{
     position: absolute;
     width: 100%;
-    top : 48%;
+    top : 45%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -216,7 +216,7 @@ body{
 .ftpromptOdds{
     position: absolute;
     width: 100%;
-    top : 58%;
+    top : 55%;
     left: 18%;
     font-family: 'Spinnaker';
     color: #18340C;
@@ -228,7 +228,7 @@ body{
     position: absolute;
 
     left: 33%;
-    bottom: 10vh;
+    bottom: 6vh;
     height: 8%;
     width: 33%;
 
@@ -248,23 +248,18 @@ body{
 
 
 .whiteShadow{
-
     position: relative;
-
     width: 60vw;
     height: 80vh;
     top: 2vh;
     bottom: 2vh;
-    
     left : 20vw;
-
     background: #FEFFFE;
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
 
 .goBackImg{
-
     position: absolute;
     left: 15px;
     top: 15px;
@@ -277,7 +272,7 @@ body{
 
 .fterrorAddGame{
     position: absolute;
-    top:75%;
+    top:18%;
     left:41%;
     font-family: 'Spinnaker';
     font-style: normal;
@@ -354,3 +349,60 @@ body{
     left : 30%
 }
 
+
+
+.divPilots{
+    position: absolute;
+    width: 85%;
+    height : 35%;
+    left : 8%;
+    top : 47%;
+    overflow-y: scroll;
+}
+
+.pilotOdd{
+    width: 40.5vw;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    font-family: 'Spinnaker';
+    padding-bottom: 6%;
+    justify-content: space-around;
+    margin-left: 10%;
+    height:10%;
+}
+
+.ftChoosePilot{
+    position: relative;
+    width: 40%;
+    text-align: center;
+    left: 10%;
+    height:5vh;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin-top: 1.5vh;
+}
+
+
+
+
+.ftoddPilot{
+    position: relative;
+    width: 15%;
+    left: 30%;
+    top: 9%;
+    height: 5vh;
+
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+
+.ftpromptEvent{
+    position: absolute;
+    width: 100%;
+    top :43%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}

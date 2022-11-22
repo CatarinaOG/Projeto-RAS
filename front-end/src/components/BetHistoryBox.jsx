@@ -36,7 +36,6 @@ export default function BetHistoryBox(){
             <div className="ftbetHistBox">
                 <div className="ftbetHistInfo">
                     {bet1}
-                    <p></p>
                     {bet2}
                     {bet2}
 

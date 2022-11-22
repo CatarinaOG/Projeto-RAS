@@ -16,7 +16,6 @@ export default function HomeExpert(props){
 
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
 
-
     const [modalWarningActive,setModalWarningActive] = useState(false)
     const [modalChangeOdd,setModalChangeOdd] = useState(false)
     const [modalChangeOddConfimation,setModalChangeOddConfimation] = useState(false)
@@ -39,6 +38,7 @@ export default function HomeExpert(props){
 
         if (getInEnglish(game.sport) === filter)
             show = true
+
 
         if( show || filter === 'all')
             return(
