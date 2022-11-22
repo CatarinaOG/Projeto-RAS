@@ -871,9 +871,7 @@ relative
     border-bottom: 1px solid black;
   }
   .fttablehead{
-    position: fixed;
     width: 100%;
-
   }
   td {
     text-align: center;
