@@ -20,6 +20,8 @@ import AddGame from './pages/AddGame'
 import ProfileExpert from './pages/ProfileExpert'
 import RegisterPage from './pages/RegisterPage'
 import ShowExperts from './pages/ShowExperts'
+import Recover from './pages/Recover'
+
 
 
 
@@ -171,6 +173,10 @@ const [experts,setExperts] = useState([
         <Route path="/Register" element={
           <RegisterPage/>
 
+        }/>
+
+        <Route path="/Recover" element={
+          <Recover></Recover>
         }/>
 
         <Route path="/Home" element={

@@ -38,7 +38,6 @@ export default function AddGame(props){
     )
 
     const motoBody = JSON.stringify({
-        sport: formData.sport ,
         date: formData.date + "T"+formData.time+":00",
         expert_email:email,
         pilot1:formData.pilot1,odd1:formData.odd1,pilot2:formData.pilot1,odd2:formData.odd1,
@@ -208,7 +207,6 @@ export default function AddGame(props){
 
 
                         {formData.sport==="motoGP" &&
-
                         <div >
                             <h3 className="ftpromptParticipantA">Nome do evento :</h3>
                             <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Event Name' name = "raceName" value = {formData.raceName}/>
@@ -216,10 +214,6 @@ export default function AddGame(props){
                             <h3 className='ftpromptEvent'>Insira o nome dos pilotos e respectiva odd</h3>
                             <PilotsForm formData={formData} handleChange={handleChange} ></PilotsForm>
                         </div>}
-
-
-
-
                         <button className = "ftadd" >Criar Jogo</button>
 			            {errorReg === 2 && <p className='fterrorAddGame'>Dados em falta</p>}
                     </form>

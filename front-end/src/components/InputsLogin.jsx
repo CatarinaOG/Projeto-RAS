@@ -29,6 +29,9 @@ export default function InputsLogin(props) {
 		navigate("/Register");
 	}
 	
+	function changeToRecover(){
+		navigate("/Recover");
+	}
 
 	//Função responsavel pelo submit do form
 	//Começa por verificar se algum dos inputs está vazio . caso esteja, altera a variavel errorReg, 
@@ -80,10 +83,12 @@ export default function InputsLogin(props) {
 				<input onChange={handleChange} className = "ftpasswordLog" type="password" placeholder = "Password" name = "password" value = {formData.password} />
 				<button className = "ftacederLog"> Aceder</button>
 			</form>
-			<a className = "ftnoPass" > Esqueci-me da palavra-passe</a>
+			<a className = "ftnoPass" onClick={changeToRecover}> Esqueci-me da palavra-passe</a>
 			<a className='ftnoAccount'>Não tem conta?</a>
 			<h4 onClick={changeToRegister} className = "ftnoAccountHyper"> Registe-se já! </h4>
 			{errorReg === 2 && <p className='fterrorLogIn'>Email ou password incorretos</p>}
+			{errorReg === 1 && <p className='fterrorLogIn'>Dados incompletos</p>}
+
 
 		</div>
     )

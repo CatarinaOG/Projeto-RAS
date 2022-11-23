@@ -1,0 +1,13 @@
+.ftEmailRecover{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 80%;
+    height: 8%;
+
+    text-align: center;
+    
+
+    border: 1px solid #18340C;
+    border-radius: 40px; 
+}

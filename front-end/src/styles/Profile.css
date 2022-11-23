@@ -906,7 +906,14 @@ relative
 
 .ftadminImg{
     position: absolute;
-    height: 24px;
+    height: 25px;
     left: 35.2vw;
+    top: 37vh;
+}
+
+.ftaddGameImg{
+    position: absolute;
+    height: 25px;
+    left: 7.2vw;
     top: 37vh;
 }

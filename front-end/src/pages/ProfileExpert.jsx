@@ -5,6 +5,8 @@ import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
 import logoutImg from "../images/logout.png"
+import icon from "../images/achievement.png"
+
 
 
 export default function ProfileExpert(props){
@@ -33,6 +35,7 @@ export default function ProfileExpert(props){
                 <div className='whiteShadow'>
                     <div className="contentExpert">
                         <button className="ButtonsExpert1" onClick={goToAddGame}>Criar jogo</button>
+                        <img src={icon} alt=""  className="ftaddGameImg"/>
                         <button className="ButtonsExpert2" onClick={logout}>Logout</button>
                         <img src={logoutImg} alt=""  className="ftadminImg"/>
                     </div>
