@@ -81,12 +81,7 @@ export default function PilotsForm(props){
             </div>
 
             <div className='pilotOdd'>
-                <input className ="ftChoosePilot" type="text" onChange={handleChange}  placeholder='Pilot 15' name = "pilot15" value = {formData.pilot15}/>
-				<input className='ftoddPilot' type="number" onChange={handleChange} placeholder = "Odd 15" name="odd15" value = {formData.odd15}/>
-            </div>
-
-            <div className='pilotOdd'>
-                <input className ="ftChoosePilot" type="text" onChange={handleChange}  placeholder='Pilot 16' name = "pilot1" value = {formData.pilot16}/>
+                <input className ="ftChoosePilot" type="text" onChange={handleChange}  placeholder='Pilot 16' name = "pilot16" value = {formData.pilot16}/>
 				<input className='ftoddPilot' type="number" onChange={handleChange} placeholder = "Odd 16" name="odd16" value = {formData.odd16}/>
             </div>
 

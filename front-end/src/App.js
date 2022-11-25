@@ -222,6 +222,7 @@ const [experts,setExperts] = useState([
         <Route path="/AddGame" element={
           <AddGame 
             username={username}
+            email={email}
           />
         } />
 

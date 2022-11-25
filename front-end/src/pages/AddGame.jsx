@@ -92,7 +92,8 @@ export default function AddGame(props){
 
 	function handleSubmit(event){
 		event.preventDefault()
-
+        console.log(formData)
+        console.log(email)
         if(formData.sport!="motoGP" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
             const timeVal = formData.date + "T"+formData.time+":00"
 
@@ -114,9 +115,11 @@ export default function AddGame(props){
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data.state)
                 if (data.state === 'true'){
                     setConfirmed(true)
                     setErrorReg(0)
+                    console.log("CONFIRMED")
                 }
             })
         }
@@ -138,6 +141,7 @@ export default function AddGame(props){
                     }
                 })  
             }
+            setConfirmed(true)
         }
         else{
             setErrorReg(2)
@@ -211,6 +215,7 @@ export default function AddGame(props){
                         oddTiePop={formData.oddTie}
                         date = {formData.date}
                         time = {formData.time}
+                        eventName = {formData.raceName}
                   />
                 </div>
             }

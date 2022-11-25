@@ -15,6 +15,7 @@ export default function PopUpAddGame(props){
 
     return(
         <div className="ftboxConfirmAddGame">
+            {sportPop != 'motoGP' &&
             <div>
                 <h1 className='fth1Pop'>Evento adicionado com sucesso!</h1>
                 <h3 className='fth3PopSport'>Desporto : {sportPop}</h3>
@@ -27,6 +28,7 @@ export default function PopUpAddGame(props){
                 <img src={closeImg} className='close' onClick={close}/>
 
             </div>
+        }   
         </div>
     )
 }
