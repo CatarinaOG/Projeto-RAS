@@ -7,7 +7,7 @@ import {useState} from 'react'
 //PopUp que surge pedindo ao utilizador o código que terá recebido por email.
 export default function PopUpConfirm(props){
 
-    const {setShowPopUp,setSec} = props;
+    const {setShowPopUp,setSec, email} = props;
 
     const [formData, setFormData] = useState(
         {code: ""}
@@ -24,16 +24,38 @@ export default function PopUpConfirm(props){
     }
 
     //Comportamento após submissão do form com o código
-    function handleSubmit(){
-        setSec(1);
-        setShowPopUp('');
+    function handleSubmit(event){
+        event.preventDefault();
 
+        if(formData.code != ""){
+            fetch('http://127.0.0.1:8080/api/expert/race', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json ',
+                    },
+                    body: JSON.stringify({
+                        email_user : email,
+                        code : formData.code
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'true'){
+                        setSec(1);
+                        setShowPopUp('');   
+                    }
+                })  
+        }
     }
 
 
     //Faz desaprecer o popUp
     function cancel(){
         setShowPopUp('');
+    }
+
+    function changeBack(){
+        setShowPopUp('changeSec');
     }
 
     return (
@@ -45,7 +67,7 @@ export default function PopUpConfirm(props){
                         <input onChange = {handleChange} type = "code" name = "code" className='ftCode' placeholder='Escreva o código' value = {formData.code}></input>
                         <button  className='ftConfirmEmail'> Confirm</button>
                     </form>
-                    <button  className='ftResend'> Reenviar código</button>
+                    <button  onClick = {changeBack} className='ftResend'> Reenviar código</button>
 
                     <img src={close} className="close" onClick={cancel}/>
                 </div>

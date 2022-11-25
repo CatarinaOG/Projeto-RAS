@@ -43,9 +43,13 @@ export default function RetrievePass() {
 			})
 			.then(response => response.json())
 			.then(data => {
-					setMessage(2)
+				
+					setMessage(1)
 
 			})
+		}
+		else{
+			setMessage(2);
 		}
         	
 	}
@@ -62,7 +66,7 @@ export default function RetrievePass() {
 				<button className = "ftacederLog"> Enviar</button>
 			</form>
 			{message === 2 && <p className='fterrorLogIn'>Email não existe</p>}
-			{message === 2 && <p className='fterrorLogIn'>Email enviado</p>}
+			{message === 1 && <p className='fterrorLogIn'>Email enviado</p>}
 
 
 		</div>

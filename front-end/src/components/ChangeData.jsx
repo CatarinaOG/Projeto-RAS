@@ -7,7 +7,7 @@ import goBackImg from "../images/goBack.png"
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDivChoice,sec} = props
+    const {setUsername,setShowPopUp,setDivChoice,sec,email} = props
 
     let navigate = useNavigate();
 

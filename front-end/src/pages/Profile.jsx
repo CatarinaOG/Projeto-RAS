@@ -34,6 +34,7 @@ export default function Profile(props){
                             setUsername={setUsername}
                             setShowPopUp={setShowPopUp}
                             setDivChoice={setDivChoice}
+                            email = {email}
                             sec = {sec}
                         /> 
                     }
@@ -58,13 +59,13 @@ export default function Profile(props){
             {showPopUp == 'changeSec' && 
                 <div>
                     <div  className="ftbackgroundModal"></div>
-                    <PopUpCodeEmail setShowPopUp={setShowPopUp} setDivChoice={setDivChoice}/>
+                    <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email}/>
                 </div>
             }
             {showPopUp == 'confirm' && 
                 <div>
                     <div  className="ftbackgroundModal"></div>
-                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec}/>
+                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} email = {email} />
                 </div>
             }
             

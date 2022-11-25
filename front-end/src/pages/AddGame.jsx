@@ -114,7 +114,7 @@ export default function AddGame(props){
             })
             .then(response => response.json())
             .then(data => {
-                if (data.state === 'good'){
+                if (data.state === 'true'){
                     setConfirmed(true)
                     setErrorReg(0)
                 }
@@ -132,7 +132,7 @@ export default function AddGame(props){
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.state === 'good'){
+                    if (data.status === 'true'){
                         setConfirmed(true)
                         setErrorReg(0)
                     }
@@ -145,27 +145,6 @@ export default function AddGame(props){
 
 	}
 
-    /*
-    const rows = [];
-    for (let i = 1; i < 25; i++) {
-        // note: we are adding a key prop here to allow react to uniquely identify each
-        // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
-        oddNum = "odd"+i
-        pilotname = "pilot"+i
-        rows.push(
-        <div>
-            <input type="text" onChange={handleChange}  placeholder={pilotname} name = {pilotname} ></input>
-            <input></input>
-        </div>
-            );
-    }
-    
-
-    
-    const pilotList = (
-        
-    )
-    */
 
     return(
         <div>
