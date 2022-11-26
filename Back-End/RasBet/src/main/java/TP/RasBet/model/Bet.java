@@ -86,6 +86,10 @@ public class Bet implements Serializable{
         return this.state;
     }
 
+    public List<GamesInOneBet> getGames(){
+        return this.games;
+    }
+
 
 
 

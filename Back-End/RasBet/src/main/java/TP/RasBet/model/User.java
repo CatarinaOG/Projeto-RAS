@@ -103,8 +103,14 @@ public class User implements Serializable{
         return this.wallet;
     }
     public List<Bet> getBets() {
-        return bets;
+        return this.bets;
     }
+    public List<Transaction> getTransactions(){
+        return this.transactions;
+    }
+
+
+
 
     /* Setters */
     public void setEmail(String email){

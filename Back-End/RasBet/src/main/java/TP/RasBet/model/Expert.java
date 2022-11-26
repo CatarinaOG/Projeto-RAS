@@ -52,6 +52,9 @@ public class Expert implements Serializable{
 
 
     /* Getters */
+    public int getId(){
+        return this.id;
+    }
     public String getEmail(){
         return this.email;
     }

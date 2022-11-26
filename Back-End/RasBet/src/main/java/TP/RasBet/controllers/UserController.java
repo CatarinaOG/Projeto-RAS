@@ -39,14 +39,23 @@ public class UserController {
 
     @PostMapping(value="/register")
     public String register(@RequestBody RegisterForm registerForm){
-       
         return userService.register(registerForm);
-        
     }
 
     @GetMapping(value="/bet_history")
     public String getBetHistory(@RequestBody String email){
         return userService.getBetHistory(email);
     }
+
+    @PostMapping(value = "/change_profile")
+    public String changeProfile(@RequestBody ChangeProfileForm cpf){
+        return userService.changeProfile(cpf);
+    }
+
+    @PostMapping(value = "/transaction_history")
+    public String getTransactionHistory(@RequestBody String email){
+        return userService.getTransactionHistory(email);
+    }
+
 
 }

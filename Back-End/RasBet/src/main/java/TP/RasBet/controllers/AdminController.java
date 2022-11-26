@@ -29,4 +29,13 @@ public class AdminController {
         return adminService.createExpert(registerForm);
     }
 
+    @PostMapping(value = "/removeExpert")
+    public void deleteExpert(@RequestBody String email){
+        adminService.deleteExpert(email);
+    }
+
+    @PostMapping(value = "/getExperts")
+    public void getExperts(){
+        adminService.getExperts();
+    }
 }

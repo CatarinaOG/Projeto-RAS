@@ -43,6 +43,17 @@ public class GamesInOneBet implements Serializable{
         return this.odd;
     }
 
+    public Game getGame(){
+        return this.game;
+    }
+
+    public Bet getBet(){
+        return this.bet;
+    }
+
+
+
+
     public void setBet(Bet bet) {
         this.bet = bet;
     }
