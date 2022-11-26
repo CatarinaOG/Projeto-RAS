@@ -44,4 +44,9 @@ public class UserController {
         
     }
 
+    @GetMapping(value="/bet_history")
+    public String getBetHistory(@RequestBody String email){
+        return userService.getBetHistory(email);
+    }
+
 }

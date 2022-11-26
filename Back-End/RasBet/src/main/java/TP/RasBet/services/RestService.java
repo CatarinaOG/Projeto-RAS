@@ -51,16 +51,17 @@ public class RestService {
 
             for (Game g : gamesDB ){
                 
-                if(j.get("homeTeam").equals(g.getParticipantA()) 
-                || j.get("awayTeam").equals(g.getParticipantB()) 
+                if(j.get("homeTeam").equals(g.getParticipants().split(";")[0]) 
+                || j.get("awayTeam").equals(g.getParticipants().split(";")[1]) 
                 || ts.equals(g.getDate()))
                     jogo_existe = true;
                 
             }
             
             if(!jogo_existe){
-                Game g = new Game("futebol", (String) j.get("homeTeam"), (String) j.get("awayTeam"), 
-                                  ts, expertRepo.findExpertByEmail("jogosAPI").get());
+                String participants = (String) j.get("homeTeam") + ";" + (String) j.get("awayTeam");
+
+                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get());
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 JSONArray marketsList = (JSONArray) bookmaker.get("markets");

@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
+import org.springframework.jdbc.core.metadata.GenericTableMetaDataProvider;
+
 
 @Entity
 @Table(name = "user")
@@ -100,6 +102,9 @@ public class User implements Serializable{
     public float getWallet(){
         return this.wallet;
     }
+    public List<Bet> getBets() {
+        return bets;
+    }
 
     /* Setters */
     public void setEmail(String email){
@@ -125,6 +130,9 @@ public class User implements Serializable{
     }
     public void setWallet(float wallet){
         this.wallet = wallet;
+    }
+    public void setBets(List<Bet> bets) {
+        this.bets = bets;
     }
 
     @Override

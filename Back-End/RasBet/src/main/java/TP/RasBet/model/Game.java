@@ -24,12 +24,6 @@ public class Game implements Serializable{
     @Column (name = "sport")
     private String sport;
 
-    @Column(name = "participantA")
-    private String participantA;
-
-    @Column(name = "participantB")
-    private String participantB;
-
     @Column (name = "date")
     private Timestamp date;
 
@@ -38,6 +32,9 @@ public class Game implements Serializable{
 
     @Column (name = "state")
     private String state;
+
+    @Column(name = "participants")
+    private String participants;
 
 
     //one to many de game para odd
@@ -61,10 +58,9 @@ public class Game implements Serializable{
         
     }
 
-    public Game(String sport, String participantA, String participantB, Timestamp date, Expert expert){
+    public Game(String sport, String participants, Timestamp date, Expert expert){
         this.sport = sport;
-        this.participantA = participantA;
-        this.participantB = participantB;
+        this.participants = participants;
         this.date = date;
         this.state = "Before";
         this.expert = expert;
@@ -89,11 +85,8 @@ public class Game implements Serializable{
     public String getState(){
         return this.state;
     }
-    public String getParticipantA() {
-        return participantA;
-    }
-    public String getParticipantB() {
-        return participantB;
+    public String getParticipants() {
+        return this.participants;
     }
     
 
@@ -110,11 +103,8 @@ public class Game implements Serializable{
     public void setExpert(Expert expert) {
         this.expert = expert;
     }
-    public void setParticipantA(String participantA) {
-        this.participantA = participantA;
-    }
-    public void setParticipantB(String participantB) {
-        this.participantB = participantB;
+    public void setParticipants(String participants) {
+        this.participants = participants;
     }
 
 
@@ -137,8 +127,8 @@ public class Game implements Serializable{
 
         Game g = (Game) o;
 
-        return this.sport.equals(g.getSport()) && g.getParticipantA().equals(this.participantA) 
-        && g.getParticipantB().equals(this.participantB) && g.getDate().equals(this.date);
+        return this.sport.equals(g.getSport()) && g.getParticipants().equals(this.participants) 
+                                               && g.getDate().equals(this.date);
     }
 
 }

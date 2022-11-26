@@ -30,8 +30,10 @@ public class ExpertService{
         String pB = gameForm.getParticipantB();
         Timestamp d = gameForm.getDate(); // DEPOIS ALTERAR
 
+        String cmp = pA + ";" + pB;
+
         for(Game g : games){
-            if(g.getParticipantA().equals(pA) && g.getParticipantB().equals(pB) && d.equals(g.getDate())){
+            if(g.getParticipants().equals(cmp) && d.equals(g.getDate())){
                 return "{\"state\" : \"bad\"}";
             } 
         }
@@ -44,7 +46,7 @@ public class ExpertService{
 
         Expert expert = expertRepo.findExpertByEmail(gameForm.getExpert_email()).get();
 
-        Game game = new Game(gameForm.getSport(), gameForm.getParticipantA(), gameForm.getParticipantB(), d, expert);
+        Game game = new Game(gameForm.getSport(), cmp, d, expert);
         gameRepo.save(game);
         oddA.setGame(game);
         oddB.setGame(game);

@@ -28,6 +28,9 @@ public class Bet implements Serializable{
 
     @Column(name = "result")
     private boolean result;
+
+    @Column(name = "state")
+    private String state;
     
 
     //many to one com user -> User_id é o nome da FK e referenced... id é a PK da tabela do user
@@ -48,11 +51,12 @@ public class Bet implements Serializable{
         
     }
 
-    public Bet(float amount, float winnings, Timestamp date, User user){
+    public Bet(float amount, float winnings, Timestamp date, User user, String state){
         this.amount = amount;
         this.winnings = winnings;
         this.date = date;
         this.user = user;
+        this.state = state;
     }
 
 
@@ -78,6 +82,10 @@ public class Bet implements Serializable{
         return this.result;
     }
 
+    public String getState() {
+        return this.state;
+    }
+
 
 
 
@@ -101,6 +109,10 @@ public class Bet implements Serializable{
 
     public void setResult(boolean result){
         this.result = result;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
 

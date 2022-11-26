@@ -22,6 +22,8 @@ public class UserService {
     @Autowired
     private AdminRepo adminRepo;
 
+    @Autowired
+    private BetRepo betRepo;
 
 
     public String login(String email, String pass){
@@ -86,6 +88,15 @@ public class UserService {
         userRepo.save(user);
         return "{ \"state\" : \"good\"" + "}";
 
+    }
+
+
+    public String getBetHistory(String email){
+        User u = userRepo.findUserByEmail(email).get();
+        
+        List<Bet> betList = u.getBets();
+
+        return "";
     }
 
 

@@ -62,9 +62,10 @@ public class AppService {
             }
 
             
+
             j.put("id", g.getId());
-            j.put("home", g.getParticipantA());
-            j.put("away", g.getParticipantB());
+            j.put("home", g.getParticipants().split(";")[0]);
+            j.put("away", g.getParticipants().split(";")[1]);
             j.put("date", g.getDate());
             j.put("results", odds);
             j.put("sport", g.getSport());
@@ -101,7 +102,7 @@ public class AppService {
         User u = userRepo.findUserByEmail(betslipForm.getUser()).get();
         u.setWallet(u.getWallet()-betslipForm.getMultipleAmount());
 
-        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings, Timestamp.from(Instant.now()), u);
+        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings, Timestamp.from(Instant.now()), u, "Aberta");
         
         betRepo.save(b);
 
@@ -162,8 +163,8 @@ public class AppService {
             for(Game g : games){
                 JSONObject j = new JSONObject();
                 j.put("id", g.getId());
-                j.put("home", g.getParticipantA());
-                j.put("away", g.getParticipantB());
+                j.put("home", g.getParticipants().split(";")[0]);
+                j.put("away", g.getParticipants().split(";")[1]);
                 j.put("date", g.getDate());
                 JSONArray results = new JSONArray();
 
