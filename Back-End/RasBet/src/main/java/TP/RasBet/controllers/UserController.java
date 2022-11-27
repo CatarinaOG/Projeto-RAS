@@ -51,7 +51,16 @@ public class UserController {
 
     @PostMapping(value = "/change_profile")
     public String changeProfile(@RequestBody ChangeProfileForm cpf){
-        return userService.changeProfile(cpf);
+        if(cpf.getPhone_num() == null && cpf.getPassword() == null && cpf.getNew_add() == null){
+            return userService.changeProfile(cpf);
+        }
+        else return userService.changeSensitive(cpf);
+    }
+
+    @GetMapping(value = "/get_code")
+    public String getCode(@RequestBody String email){
+        JSONObject j = new JSONObject(email);
+        return userService.getCode((String) j.get("email_user"));
     }
 
     @PostMapping(value = "/transaction_history")

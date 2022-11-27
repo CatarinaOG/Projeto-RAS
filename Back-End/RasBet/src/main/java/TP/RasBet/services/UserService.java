@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class UserService {
     @Autowired
     private BetRepo betRepo;
 
+    @Autowired
+    private EmailSenderService mailService;
 
     public String login(String email, String pass){
 
@@ -144,14 +147,36 @@ public class UserService {
 
     public String changeProfile(ChangeProfileForm cpf){
         String email = cpf.getEmail_user();
-
         User u = userRepo.findUserByEmail(email).get();
         u.setName(cpf.getName());
         userRepo.save(u);
 
+        return "{\"state\" : \"good\"}";
+    }
+
+    public String changeSensitive(ChangeProfileForm cpf){
+        String email = cpf.getEmail_user();
+        User u = userRepo.findUserByEmail(email).get();
+
+        u.setAddress(cpf.getNew_add());
+        u.setPassword(cpf.getPassword());
+        u.setPhone(cpf.getPhone_num());
+
+        userRepo.save(u);
 
         return "{\"state\" : \"good\"}";
     }
+
+    public String getCode(String email){
+        JSONObject response = new JSONObject();
+        UUID uuid = UUID.randomUUID();
+        response.put("code", uuid);
+
+        mailService.sendSimpleEmail(email, "Insert this code to change your sensitive personal information: " + uuid, "Change Personal Information Code");
+
+        return response.toString();
+    }
+
 
     public String getTransactionHistory(String email){
         User u = userRepo.findUserByEmail(email).get();
@@ -248,6 +273,7 @@ public class UserService {
         if(u.isPresent()){
             String password = u.get().getPassword();
             //enviar email para o email acima com a password do utilizador
+            mailService.sendSimpleEmail(u.get().getEmail(), "This is your password: " + password, "Password recovery");
             return "{ \"status\" : \"true\" }";
         }
 
@@ -256,6 +282,7 @@ public class UserService {
         if(e.isPresent()){    
             String password = e.get().getPassword();
             //enviar email para o email acima com a password do utilizador
+            mailService.sendSimpleEmail(e.get().getEmail(), "This is your password: " + password, "Password recovery");
             return "{ \"status\" : \"true\"}";
         }
 
