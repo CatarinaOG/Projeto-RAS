@@ -2,11 +2,12 @@ package TP.RasBet.controllers;
 
 import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.json.*;
 import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
 import TP.RasBet.services.AdminService;
@@ -30,12 +31,13 @@ public class AdminController {
     }
 
     @PostMapping(value = "/removeExpert")
-    public void deleteExpert(@RequestBody String email){
-        adminService.deleteExpert(email);
+    public String deleteExpert(@RequestBody String id){
+        JSONObject j = new JSONObject(id);
+        return adminService.deleteExpert((int) j.get("id"));
     }
 
-    @PostMapping(value = "/getExperts")
-    public void getExperts(){
-        adminService.getExperts();
+    @GetMapping(value = "/getExperts")
+    public String getExperts(){
+       return adminService.getExperts();
     }
 }

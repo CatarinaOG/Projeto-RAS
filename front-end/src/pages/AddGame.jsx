@@ -32,7 +32,7 @@ export default function AddGame(props){
 
         pilot19:"",odd19:0,pilot20:"",odd20:0,
         pilot21:"",odd21:0,pilot22:"",odd22:0,
-        pilot23:"",odd23:0,pilot24:"",odd24:0,
+        
 
         date:"",time:"",raceName:""}
     )
@@ -54,7 +54,6 @@ export default function AddGame(props){
 
         pilot19:formData.pilot1,odd19:formData.odd1,pilot20:formData.pilot1,odd20:formData.odd1,
         pilot21:formData.pilot1,odd21:formData.odd1,pilot22:formData.pilot1,odd22:formData.odd1,
-        pilot23:formData.pilot1,odd23:formData.odd1,pilot24:formData.pilot1,odd24:formData.odd1,
         raceName: formData.raceName
     })
 
@@ -82,7 +81,7 @@ export default function AddGame(props){
         if(formData.pilot1==="" || formData.pilot2==="" || formData.pilot3==="" || formData.pilot4==="" || formData.pilot5==="" || formData.pilot6==="" ||
         formData.pilot7==="" || formData.pilot8==="" || formData.pilot9==="" || formData.pilot10==="" || formData.pilot11==="" || formData.pilot12==="" ||
         formData.pilot13==="" || formData.pilot14==="" || formData.pilot15==="" || formData.pilot16==="" || formData.pilot17==="" || formData.pilot8==="" ||
-        formData.pilot19==="" || formData.pilot20==="" || formData.pilot21==="" || formData.pilot22==="" || formData.pilot23==="" || formData.pilot24===""){
+        formData.pilot19==="" || formData.pilot20==="" || formData.pilot21==="" || formData.pilot22==="" ){
             setPilotError(1);
         }
         else{
@@ -97,6 +96,7 @@ export default function AddGame(props){
         if(formData.sport!="motoGP" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
             const timeVal = formData.date + "T"+formData.time+":00"
 
+            console.log("entrei aqui")
             fetch('http://127.0.0.1:8080/api/expert/newGame', {
                 method: 'POST',
                 headers: {

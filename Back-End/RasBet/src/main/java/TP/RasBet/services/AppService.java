@@ -4,6 +4,7 @@ import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
 
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.sql.Date;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -91,6 +92,9 @@ public class AppService {
             winnings *= odd.getValue();
         }
 
+        int aux = (int) (winnings*100);
+        winnings = aux/100f; 
+
         if(games.size() != games.stream().distinct().count()){
             return "{\"confirmed\" : \"false\"}";
         }
@@ -102,7 +106,7 @@ public class AppService {
         User u = userRepo.findUserByEmail(betslipForm.getUser()).get();
         u.setWallet(u.getWallet()-betslipForm.getMultipleAmount());
 
-        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings, Timestamp.from(Instant.now()), u, "Aberta");
+        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings*betslipForm.getMultipleAmount(), Timestamp.from(Instant.now()), u, "Aberta");
         
         betRepo.save(b);
 
@@ -110,7 +114,7 @@ public class AppService {
         
         for (BetForm bf : bets){
             Odd o = oddRepo.findById(bf.getId()).get();
-            GamesInOneBet giob = new GamesInOneBet(o.getValue());
+            GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
             giob.setBet(b);
             giob.setGame(o.getGame());
             gamesInOneBetRepo.save(giob);

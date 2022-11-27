@@ -31,10 +31,10 @@ public class AdminService{
     }
 
 
-    public String deleteExpert(String email){
-        if(expertRepo.findExpertByEmail(email).isPresent()){
-            Expert e = expertRepo.findExpertByEmail(email).get();
-            expertRepo.deleteById(e.getId());
+    public String deleteExpert(int id){
+        if(expertRepo.findById(id).isPresent()){
+            Expert e = expertRepo.findById(id).get();
+            expertRepo.deleteById(id);
 
             return "{\"state\" : \"good\"}";
         }
