@@ -2,6 +2,7 @@
 import '../styles/Profile.css'
 import '../styles/ProfileSec.css'
 
+import { useEffect } from 'react'
 
 import NavBarProfile from "../components/NavBarProfile"
 import IdSaldo from '../components/IdSaldo'
@@ -23,6 +24,34 @@ export default function Profile(props){
     const [showPopUp,setShowPopUp] = useState("")
     const [sec,setSec] =useState(0)
 
+
+    const [betHist,setBetHist] = useState([])
+    
+
+    useEffect(() => {
+        /*
+        fetch('http://127.0.0.1:8080/api/users/bet_history',{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ 
+					email: email
+        	})
+        .then(response => response.json())
+        .then(data => {
+            if(data.betHistory){
+              setBetHist(data.betHistory)
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+        splitBetHist()*/
+        
+      },[])
+
+
     return(
         <div className='ftProfile'>
             <div>
@@ -40,7 +69,8 @@ export default function Profile(props){
                     }
                     {divChoice === "BetHistory" && 
                         <BetHistory 
-                            setDivChoice={setDivChoice} 
+                            setDivChoice={setDivChoice}
+                            betHist = {betHist}
                         />
                     }
                 </div>
