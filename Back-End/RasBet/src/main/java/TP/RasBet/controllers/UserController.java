@@ -60,7 +60,7 @@ public class UserController {
     @GetMapping(value = "/get_code")
     public String getCode(@RequestBody String email){
         JSONObject j = new JSONObject(email);
-        return userService.getCode((String) j.get("email"));
+        return userService.getCode((String) j.get("email_user"));
     }
 
     @PostMapping(value = "/transaction_history")

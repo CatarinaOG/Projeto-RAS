@@ -172,7 +172,7 @@ public class UserService {
         UUID uuid = UUID.randomUUID();
         response.put("code", uuid);
 
-        mailService.sendSimpleEmail(email, "Insert this code to change your information: " + uuid, "Change Personal Information Code");
+        mailService.sendSimpleEmail(email, "Insert this code to change your sensitive personal information: " + uuid, "Change Personal Information Code");
 
         return response.toString();
     }
