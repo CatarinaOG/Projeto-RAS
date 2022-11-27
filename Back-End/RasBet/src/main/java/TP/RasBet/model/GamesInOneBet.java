@@ -16,6 +16,8 @@ public class GamesInOneBet implements Serializable{
     @Column(name = "odd")
     private float odd;
 
+    @Column(name = "description")
+    private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bet_id", referencedColumnName="id")
@@ -30,8 +32,9 @@ public class GamesInOneBet implements Serializable{
 
     }
 
-    public GamesInOneBet(float odd){
+    public GamesInOneBet(float odd, String description){
         this.odd = odd;
+        this.description = description;
     }
 
 
@@ -49,6 +52,9 @@ public class GamesInOneBet implements Serializable{
 
     public Bet getBet(){
         return this.bet;
+    }
+    public String getDescription() {
+        return description;
     }
 
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import TP.RasBet.model.*;
 import TP.RasBet.services.AppService;
 import TP.RasBet.services.UserService;
+import org.json.*;
 
 
 @RestController
@@ -44,7 +45,8 @@ public class UserController {
 
     @GetMapping(value="/bet_history")
     public String getBetHistory(@RequestBody String email){
-        return userService.getBetHistory(email);
+        JSONObject j = new JSONObject(email);
+        return userService.getBetHistory((String) j.get("email"));
     }
 
     @PostMapping(value = "/change_profile")
@@ -54,8 +56,19 @@ public class UserController {
 
     @PostMapping(value = "/transaction_history")
     public String getTransactionHistory(@RequestBody String email){
-        return userService.getTransactionHistory(email);
+        JSONObject j = new JSONObject(email);
+        return userService.getTransactionHistory((String) j.get("email"));
     }
 
+    @PostMapping(value = "/winnings")
+    public String getWinnings(@RequestBody String email){
+        JSONObject j = new JSONObject(email);
+        return userService.getWinnings((String) j.get("email"));
+    }
 
+    @PostMapping(value = "/recover_password")
+    public String recoverPassword(@RequestBody String email_user){
+        JSONObject j = new JSONObject(email_user);
+        return userService.recoverPassword((String) j.get("email_user"));
+    }
 }
