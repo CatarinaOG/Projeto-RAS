@@ -2,13 +2,15 @@ import SingleBetHist from "./SingleBetHist"
 
 export default function BetHistoryBox(){
 
-    //const {results,ammount,winnings} = props.game
+    //const {bet,ammount,winnings} = props.game
 
     
     // Criação das caixas de resultado
-    
-
-    var notNull = true
+    /*
+    const bets = bet.map( (instance) => {
+        <SingleBetHist name = {instance.name} winner = {instance.winner} />
+    }) 
+    */
     
     //cada results será uma lista de result em que 
     // -> temos participant A
@@ -24,6 +26,7 @@ export default function BetHistoryBox(){
             winner = {result.winner}
         />
     )*/
+    const notNull = true
 
     const bet1 = <SingleBetHist name = "Sporting vs Varzim" winner = "Sporting" />
     const bet2 = <SingleBetHist name = "Malasya GP 2022" winner = "M. Oliveira" />
@@ -38,7 +41,6 @@ export default function BetHistoryBox(){
                     {bet1}
                     {bet2}
                     {bet2}
-
                 </div>
                 <div className="ftResultsInfo">
                     <h3>Montante apostado :{ammount}</h3>

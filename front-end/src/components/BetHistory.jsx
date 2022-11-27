@@ -4,7 +4,7 @@ import BetHistoryBox from './BetHistoryBox'
 
 export default function BetHistory(props){
 
-    const {setDivChoice} = props
+    const {setDivChoice, betHist} = props
 
     const [typeData, setTypeData] = useState('Bet');
 
@@ -55,6 +55,13 @@ export default function BetHistory(props){
           })}
         </ul>)
 
+/*
+const fullbetHist = betHistory.map( (box) => {
+     <ul> 
+          <BetHistoryBox list = {box.bet} ammount = {box.ammount} winnings = {box.winnings} multipleState={multipleState} simpleState={simpleState}></BetHistoryBox>                
+     </ul>
+}) 
+*/
 
       const data = [
         { date: "18/11/22", description: "Levantamento", operation: "+13,45" , balance : 20},

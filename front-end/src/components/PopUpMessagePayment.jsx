@@ -11,7 +11,7 @@ export default function PopUpMessage(props){
             setMethod('');
         }
         else{
-            setShowPopUp("");
+            setStateOp("");
         }
     }
     return(

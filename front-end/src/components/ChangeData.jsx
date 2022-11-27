@@ -12,9 +12,9 @@ export default function ChangeData(props){
     let navigate = useNavigate();
 
     const [formData, setFormData] = useState(
-        {firstName: ""}
-    )    
-
+        {name: "" , phone_num : "" , password : "" , add : ""}
+    )
+    
     //comportamento do botão goBack, que retorna o utilizador à pagina principal
     function goBack(){
         navigate('/Home')
@@ -49,18 +49,18 @@ export default function ChangeData(props){
 				},
 				body: JSON.stringify({ 
                     email_user: email , 
-                    name : formData.firstName,
-                    phone_num : "",
-                    password : "",
-                    newAdd : "",
-                    })
+                    name : formData.name, 
+                    phone_num: formData.phone_num,
+                    newAdd: formData.add,
+                    password: formData.password})
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data.status)
-			})
-		}
-        setUsername(formData.firstName);
+                console.log(data.state)
+                setUsername(formData.name);
+
+            })
+        }
     }
 
     //ativa o popUp de escolha de método de levantamento
@@ -99,18 +99,16 @@ export default function ChangeData(props){
                 <div>
                         <h4 className='hName'> Nome : </h4>
                     
-                        <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
+                        <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="name" value = {formData.name}></input>
                             
                         <button  className='ftConfirm'> Confirm</button>
-                    <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>
                 </div>
                 }
                 {sec === 1 && 
                 <div>
-
                         <h4 className='fthPhoneNum'> Número de telemovel : </h4>
                     
-                        <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phoneNum" value = {formData.phoneNum}></input>
+                        <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phoneNum" value = {formData.phone_num}></input>
 
                         <h4 className='fthPass'> Password : </h4>
                     
@@ -118,14 +116,15 @@ export default function ChangeData(props){
                             
                         <h4 className='fthAddress'> Alterar Morada : </h4>
                     
-                        <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="address" value = {formData.address}></input>
+                        <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="address" value = {formData.add}></input>
 
                         
                         <button  className='ftConfirm'> Confirm</button>
-                    <button  className='ftChangeSec' > Cancel</button>        
                 </div>}
                 </form>
-
+                {sec === 0 && <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>} 
+                {sec === 1 && <button  className='ftChangeSec' > Cancel</button>        }
+                
         </div>
 
     )
