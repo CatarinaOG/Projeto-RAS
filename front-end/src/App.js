@@ -112,8 +112,7 @@ function App() {
     }
   ])
 
-  
-const [experts,setExperts] = useState([
+  /*
   {
     id: 1 ,
     username: 'catarina',
@@ -186,7 +185,7 @@ const [experts,setExperts] = useState([
     email: 'castiço@castiço',
     password: 'castiço'
   }
-])
+])*/
 
 
   //--------------- Get Games -----------------
@@ -270,7 +269,6 @@ const [experts,setExperts] = useState([
         <Route path="/HomeAdmin" element={
           <HomeAdmin 
             username={username}
-            experts={experts}
           />
         } />
 
@@ -284,7 +282,6 @@ const [experts,setExperts] = useState([
         <Route path="/ShowExperts" element={
           <ShowExperts 
             username={username}
-            experts={experts}
           />
         }/>
 

@@ -83,13 +83,21 @@ button:hover {
     height: 20px;
 }
 
+.icon:hover{
+    cursor: pointer;
+}
+
 .iconMotoGP{
     position: absolute;
     height: 20px;
     left: 1.5vw;
     top: 4vh;
-
 }
+
+.iconMotoGP:hover{
+    cursor: pointer;
+}
+
 
 .resultBoxSelected{
     margin: 21px 0px 0px 0px;
@@ -350,6 +358,9 @@ button:hover {
     top:10px;
     right: 5px;
 }
+.close:hover{
+    cursor: pointer;
+}
 
 
 .bottom{
@@ -465,6 +476,8 @@ button:hover {
     top: 30vh;
     border-radius: 10px;
     text-align: center;
+    z-index: 3;
+
 }
 
 .titleModal{
@@ -614,6 +627,12 @@ button:hover {
 
 }
 
+.resultBoxOdd > img:hover{
+
+    cursor: pointer;
+
+}
+
 .progress{
     background: #FAFAFA;
     border: 1px solid #000000;
@@ -709,7 +728,8 @@ button:hover {
     left: 0;
     width: 100vw;
     height: 88.4vh;
-    margin-top: 11.5vh
+    margin-top: 11.5vh;
+    z-index: 2;
 }
 
 .buttonsModal{
@@ -760,7 +780,7 @@ button:hover {
     border: 1px solid #000000;
     border-radius: 10px;
     padding: 10px;
-    margin: 0px 10px 0px 10px
+    margin: 0px 10px 0px 10px;
 }
 
 .error{
