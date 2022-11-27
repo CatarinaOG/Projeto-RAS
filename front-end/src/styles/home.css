@@ -34,10 +34,12 @@ button:hover {
 
 .betMotoGP{
     width: 52.5vw;
-    height: 70vh;
+    height: 68vh;
     border: 2px dashed #18340C;
     border-radius: 10px;
     margin: 10px 0px 0px 12px;
+    position: relative;
+
 }
 
 .info{
@@ -79,6 +81,14 @@ button:hover {
     position: absolute;
     bottom: 1vh;
     height: 20px;
+}
+
+.iconMotoGP{
+    position: absolute;
+    height: 20px;
+    left: 1.5vw;
+    top: 4vh;
+
 }
 
 .resultBoxSelected{
@@ -549,11 +559,23 @@ button:hover {
 }
 
 .resultBoxExpert{
-    margin: 16px 0px 0px 0px;
+    font-family: 'Spinnaker';
     text-align: center;
     border-radius: 10px;
     background-color: white;
-    height: 60px;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+    margin: 21px 0px 0px 0px;
+}
+
+.resultBoxExpertMotoGP{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
     width: 100px;
     padding: 7px 7px 7px 7px;
     border: 1px solid black;

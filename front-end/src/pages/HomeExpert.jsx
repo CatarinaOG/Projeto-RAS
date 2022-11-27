@@ -5,6 +5,7 @@ import ModalWarningActive from '../components/ModalWarningActive'
 import ModalChangeOdd from '../components/ModalChangeOdd'
 import ModalChangeOddConfirmation from '../components/ModalChangeOddConfirmation'
 import Progress from '../components/Progress'
+import BetExpertMotoGP from '../components/BetExpertMotoGP'
 
 import "../styles/home.css"
 import {useState} from 'react'
@@ -41,17 +42,31 @@ export default function HomeExpert(props){
 
 
         if( show || filter === 'all')
-            return(
-                <BetExpert 
-                    key={game.id}
-                    games={games}
-                    gameId={game.id}
-                    game={game} 
-                    setModalWarningActive={setModalWarningActive}
-                    setModalChangeOdd={setModalChangeOdd}
-                    setOddToChange={setOddToChange}
-                />
-            )
+            if(game.sport === 'motoGP'){
+                return(
+                    <BetExpertMotoGP 
+                        key={game.id}
+                        games={games}
+                        gameId={game.id}
+                        game={game} 
+                        setModalWarningActive={setModalWarningActive}
+                        setModalChangeOdd={setModalChangeOdd}
+                        setOddToChange={setOddToChange}
+                    />
+                )
+            }else{
+                return(
+                    <BetExpert 
+                        key={game.id}
+                        games={games}
+                        gameId={game.id}
+                        game={game} 
+                        setModalWarningActive={setModalWarningActive}
+                        setModalChangeOdd={setModalChangeOdd}
+                        setOddToChange={setOddToChange}
+                    />
+                )
+            }
     }) 
 
     return(
