@@ -5,6 +5,8 @@ import './styles/Profile.css'
 import './styles/login.css'
 import './styles/HomeAdmin.css'
 import './styles/ShowExperts.css'
+import './styles/Register.css'
+
 
 import {useState} from 'react'
 import { useEffect } from 'react'
@@ -18,7 +20,7 @@ import HomeExpert from './pages/HomeExpert'
 import AddExpert from './pages/AddExpert'
 import AddGame from './pages/AddGame'
 import ProfileExpert from './pages/ProfileExpert'
-import RegisterPage from './pages/RegisterPage'
+import RegisterPage from './pages/Register'
 import ShowExperts from './pages/ShowExperts'
 import Recover from './pages/Recover'
 
@@ -40,9 +42,9 @@ function App() {
     active: false,
     id:2,
     results:[
-      {result:"benfica", id:3, ammount:0, odd:1},
-      {result:"porto", id:4, ammount:0, odd:3},
-      {result:"Empate", id:5, ammount:0, odd:2}],},
+      {result:"benfica", id:1, ammount:0, odd:1},
+      {result:"porto", id:2, ammount:0, odd:3},
+      {result:"Empate", id:3, ammount:0, odd:2}],},
 
     {date:"2022-11-29 18:16:00.0",
     sport: "futebol",
@@ -51,9 +53,62 @@ function App() {
     active: true,
     id:6,
     results:[
-      {result:"sporting", id:7, ammount:0, odd:23},
-      {result:"benfica\\", id:8, ammount:0, odd:8},
+      {result:"sporting", id:4, ammount:0, odd:23},
+      {result:"benfica", id:5, ammount:0, odd:8},
+      {result:"Empate", id:6, ammount:0, odd:8}]
+    },
+
+    {date:"2022-11-29 18:16:00.0",
+    sport: "basquetebol",
+    home:"lakers",
+    away:"warriors",
+    active: true,
+    id:7,
+    results:[
+      {result:"lakers", id:7, ammount:0, odd:23},
+      {result:"warriors", id:8, ammount:0, odd:8},
       {result:"Empate", id:9, ammount:0, odd:8}]
+    },
+
+    {date:"2022-11-29 18:16:00.0",
+    sport: "tenis",
+    home:"Djokovic",
+    away:"Federer",
+    active: true,
+    id:8,
+    results:[
+      {result:"Djokovic", id:10, ammount:0, odd:23},
+      {result:"Federer", id:11, ammount:0, odd:8}]
+    },
+
+    {date:"2022-11-29 18:16:00.0",
+    sport: "motoGP",
+    name: "Finals",
+    active: true,
+    id:9,
+    results:[
+      {result:"Djokovic", id:12, ammount:0, odd:23},
+      {result:"Djokovic", id:13, ammount:0, odd:23},
+      {result:"Djokovic", id:14, ammount:0, odd:23},
+      {result:"Djokovic", id:15, ammount:0, odd:23},
+      {result:"Djokovic", id:16, ammount:0, odd:23},
+      {result:"Djokovic", id:17, ammount:0, odd:23},
+      {result:"Djokovic", id:18, ammount:0, odd:23},
+      {result:"Djokovic", id:19, ammount:0, odd:23},
+      {result:"Djokovic", id:20, ammount:0, odd:23},
+      {result:"Djokovic", id:21, ammount:0, odd:23},
+      {result:"Djokovic", id:22, ammount:0, odd:23},
+      {result:"Djokovic", id:23, ammount:0, odd:23},
+      {result:"Djokovic", id:24, ammount:0, odd:23},
+      {result:"Djokovic", id:25, ammount:0, odd:23},
+      {result:"Djokovic", id:26, ammount:0, odd:23},
+      {result:"Djokovic", id:27, ammount:0, odd:23},
+      {result:"Djokovic", id:28, ammount:0, odd:23},
+      {result:"Djokovic", id:29, ammount:0, odd:23},
+      {result:"Djokovic", id:30, ammount:0, odd:23},
+      {result:"Djokovic", id:31, ammount:0, odd:23},
+      {result:"Djokovic", id:32, ammount:0, odd:23},
+      {result:"Federer", id:33, ammount:0, odd:8}]
     }
   ])
 

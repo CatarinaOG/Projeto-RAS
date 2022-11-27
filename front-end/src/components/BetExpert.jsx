@@ -57,9 +57,11 @@ export default function BetExpert(props){
         <div className='betWithProgress'>
             <div className="bet">
                 <div className="info">
-                    <h3>{home} vs {away}</h3>
-                    <p>{date}</p>
-                        {icons()}
+                    <div>
+                        <h3>{home} vs {away}</h3>
+                        <p>{date}</p>
+                            {icons()}
+                    </div>
                 </div>
                 <div className="results">
                     {resultsBoxes}

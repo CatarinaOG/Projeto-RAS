@@ -88,8 +88,6 @@ export default function InputsLogin(props) {
 			<h4 onClick={changeToRegister} className = "ftnoAccountHyper"> Registe-se já! </h4>
 			{errorReg === 2 && <p className='fterrorLogIn'>Email ou password incorretos</p>}
 			{errorReg === 1 && <p className='fterrorLogIn'>Dados incompletos</p>}
-
-
 		</div>
     )
 }

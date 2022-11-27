@@ -1,8 +1,9 @@
-import BetBox from './BetBox'
+import BetBoxMotoGP from './BetBoxMotoGP'
 
-export default function Bet(props){
 
-    const {sport,home,away,date,results} = props.game
+export default function BetMotoGP(props){
+
+    const {sport,name,date,results} = props.game
     const setSelected = props.setSelected
     const selected = props.selected
 
@@ -24,7 +25,7 @@ export default function Bet(props){
 
     // Criação das caixas de resultado
     const resultsBoxes = results.map( ({id,result,odd}) => 
-        <BetBox
+        <BetBoxMotoGP
             key={id}
             sport={sport}
             id={id}
@@ -45,14 +46,14 @@ export default function Bet(props){
 
     if(notNull){
         return(
-            <div className="bet">
-                <div className="info">
+            <div className="betMotoGP">
+                <div className="infoMotoGP">
                     <div>
-                        <h3>{home} vs {away}</h3>
+                        <h3>{name}</h3>
                         <p>{date}</p>
                     </div>
                 </div>
-                <div className="results">
+                <div className="resultsMotoGP">
                     {resultsBoxes}
                 </div>
             </div>

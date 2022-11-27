@@ -1,13 +1,10 @@
 import RegAccount from '../components/RegAccount';
 
-import '../styles/RegisterPage.css'
 
 import celebrating from '../images/celebrating.png'
 
 export function RegisterPage(){
 
-
-	
     return(
 		<div className='page'>
 			<div className='mainLog'>

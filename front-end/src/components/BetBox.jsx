@@ -1,12 +1,12 @@
 
 export default function BetBox(props){
 
-    const {id,gameId,result,odd,selected,changeSelected} = props
+    const {id,sport,gameId,result,odd,selected,changeSelected} = props
 
     // Retirar aposta de selecionada se clicar no bloco
     function changeSelectedResults(){
 
-        changeSelected(id,gameId)
+        changeSelected(sport,id,gameId)
 
     }
 

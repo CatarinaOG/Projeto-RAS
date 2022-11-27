@@ -18,6 +18,20 @@ export default function Progress(props){
         reds: 0
     }
 
+    var tennis = {
+        total: 0,
+        greens: 0,
+        yellows:0,
+        reds: 0
+    }
+
+    var motoGP = {
+        total: 0,
+        greens: 0,
+        yellows:0,
+        reds: 0
+    }
+
 
     games.map( game => {
     
@@ -33,7 +47,7 @@ export default function Progress(props){
             football.total++
         }
 
-        if (game.sport === 'basquetebol'){
+        else if (game.sport === 'basquetebol'){
             var nulls = 0
 
             game.results.map( result => {if(result.odd == 0) nulls++})
@@ -44,6 +58,30 @@ export default function Progress(props){
 
             basketball.total++
         }
+
+        else if (game.sport === 'tenis'){
+            var nulls = 0
+
+            game.results.map( result => {if(result.odd == 0) nulls++})
+
+            if(nulls === 0) tennis.greens++
+            else if(nulls === 3) tennis.reds++
+            else tennis.yellows++
+
+            tennis.total++
+        }
+
+        else {
+            var nulls = 0
+
+            game.results.map( result => {if(result.odd == 0) nulls++})
+
+            if(nulls === 0) motoGP.greens++
+            else if(nulls === 3) motoGP.reds++
+            else motoGP.yellows++
+
+            motoGP.total++
+        }
     })
 
 
@@ -53,18 +91,32 @@ export default function Progress(props){
             <h1 className="title">Progresso</h1>
             <div className="displaySections">
                 <ProgressSection  
-                    type='futebol'
+                    type='Futebol'
                     total={football.total}
                     green ={football.greens}
                     yellow ={football.yellows}
                     red ={football.reds}
                 />
                 <ProgressSection  
-                    type='basquetebol'
+                    type='Basquetebol'
                     total={basketball.total}
                     green ={basketball.greens}
                     yellow ={basketball.yellows}
                     red ={basketball.reds}
+                />
+                <ProgressSection  
+                    type='Tenis'
+                    total={tennis.total}
+                    green ={tennis.greens}
+                    yellow ={tennis.yellows}
+                    red ={tennis.reds}
+                />
+                <ProgressSection  
+                    type='MotoGP'
+                    total={motoGP.total}
+                    green ={motoGP.greens}
+                    yellow ={motoGP.yellows}
+                    red ={motoGP.reds}
                 />
             </div>
         </div>

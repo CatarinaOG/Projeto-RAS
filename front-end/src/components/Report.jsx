@@ -5,6 +5,7 @@ import SimpleInput from './SimpleInput'
 import PlaceBet from './PlaceBet'
 import ModalConfirmation from "./ModalConfirmation"
 import ModalConfirmated from "./ModalConfirmated"
+import ReportBetMotoGP from "./ReportBetMotoGP"
 
 
 
@@ -85,13 +86,14 @@ export default function Report(props){
     // Mostra todas as apostas selecionadas
     const reportBets = selected.map( betSelected => {
         
-        const {id,gameId,amount} = betSelected
+        const {sport,id,gameId,amount} = betSelected
         const game = games.find( game => game.id === gameId )
         const bet = game.results.find( result => result.id === id )
 
-        return(
-            <div className="fullReportBet">
-                <ReportBet 
+        if(sport === 'motoGP'){
+            return(
+                <div className="fullReportBet">
+                <ReportBetMotoGP
                     key={id}
                     id={id}
                     games={games}
@@ -102,7 +104,23 @@ export default function Report(props){
                     setSelected={setSelected}
                 />
             </div>
-        )
+            )
+        }else{
+            return(
+                <div className="fullReportBet">
+                    <ReportBet 
+                        key={id}
+                        id={id}
+                        games={games}
+                        game={game}
+                        bet={bet}
+                        type={type}
+                        selected={selected}
+                        setSelected={setSelected}
+                    />
+                </div>
+            )
+        }
     } )
 
 

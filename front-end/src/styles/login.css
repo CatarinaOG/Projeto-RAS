@@ -93,6 +93,10 @@
     
 }
 
+.ftnoAccountHyper:hover{
+    cursor: pointer;
+}
+
 .ftnoPass{
     position: absolute;
     bottom: 43%;
@@ -102,6 +106,10 @@
     font-size: 10px;
     text-decoration: underline;
 
+}
+
+.ftnoPass:hover{
+    cursor: pointer;
 }
 
 

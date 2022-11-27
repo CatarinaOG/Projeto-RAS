@@ -2,6 +2,8 @@ import NavBar from "../components/NavBar"
 import SearchBar from "../components/SearchBar"
 import Report from "../components/Report"
 import Bet from '../components/Bet'
+import BetMotoGP from '../components/BetMotoGP'
+
 
 import {useState} from 'react'
 
@@ -29,27 +31,35 @@ export default function Home(props){
 
         var notNull = true
         var show = false
-        var sportPT = getInEnglish(game.sport)
+        var sportENG = getInEnglish(game.sport)
 
         game.results.map( game => {
             if (game.odd === 0) notNull = false
         })
 
-        if (sportPT === filter)
+        if (sportENG === filter)
             show = true
 
-        
-
         if(notNull && ( show || filter === 'all'))
-            return(
-            <Bet 
-                key={game.id}
-                gameId={game.id}
-                game={game} 
-                setSelected={setSelected} 
-                selected={selected}
-            /> 
-            )
+            if(game.sport === 'motoGP'){
+                return(
+                    <BetMotoGP 
+                        key={game.id}
+                        game={game} 
+                        setSelected={setSelected} 
+                        selected={selected}
+                    /> 
+                )
+            }else{
+                return(
+                    <Bet 
+                        key={game.id}
+                        game={game} 
+                        setSelected={setSelected} 
+                        selected={selected}
+                    /> 
+                )
+            }
     }) 
 
     return(

@@ -183,3 +183,7 @@
     left: 0%;
     scale: 0.8;
 }
+
+.ftgoBackReg:hover{
+    cursor: pointer;
+}
