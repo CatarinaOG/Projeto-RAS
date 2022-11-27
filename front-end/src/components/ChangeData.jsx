@@ -12,7 +12,7 @@ export default function ChangeData(props){
     let navigate = useNavigate();
 
     const [formData, setFormData] = useState(
-        {firstName: "", lastName: "",password:""}
+        {firstName: ""}
     )    
 
     //comportamento do botão goBack, que retorna o utilizador à pagina principal
@@ -39,8 +39,27 @@ export default function ChangeData(props){
     function handleSubmit(event){
         event.preventDefault();
 
-        // Tratar do pedido e verificação
+        event.preventDefault()
 
+		if(formData.firstName!=""){
+			fetch('http://127.0.0.1:8080/api/users/change_profile', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ 
+                    email_user: email , 
+                    name : formData.firstName,
+                    phone_num : "",
+                    password : "",
+                    newAdd : "",
+                    })
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data.status)
+			})
+		}
         setUsername(formData.firstName);
     }
 
@@ -74,23 +93,21 @@ export default function ChangeData(props){
                 
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
                 <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
+                <form onSubmit = {handleSubmit} >
 
                 {sec === 0 && 
                 <div>
-                    <form onSubmit = {handleSubmit} >
                         <h4 className='hName'> Nome : </h4>
                     
                         <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="firstName" value = {formData.firstName}></input>
                             
                         <button  className='ftConfirm'> Confirm</button>
-                    </form>
                     <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>
                 </div>
                 }
                 {sec === 1 && 
                 <div>
 
-                    <form onSubmit = {handleSubmit} >
                         <h4 className='fthPhoneNum'> Número de telemovel : </h4>
                     
                         <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phoneNum" value = {formData.phoneNum}></input>
@@ -105,9 +122,10 @@ export default function ChangeData(props){
 
                         
                         <button  className='ftConfirm'> Confirm</button>
-                    </form>
                     <button  className='ftChangeSec' > Cancel</button>        
                 </div>}
+                </form>
+
         </div>
 
     )

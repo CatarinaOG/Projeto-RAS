@@ -116,7 +116,7 @@ export default function AddGame(props){
             .then(response => response.json())
             .then(data => {
                 console.log(data.state)
-                if (data.state === 'true'){
+                if (data.state === 'good'){
                     setConfirmed(true)
                     setErrorReg(0)
                     console.log("CONFIRMED")
@@ -194,7 +194,7 @@ export default function AddGame(props){
                             <h3 className="ftpromptParticipantA">Nome do evento :</h3>
                             <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Event Name' name = "raceName" value = {formData.raceName}/>
 
-                            <h3 className='ftpromptEvent'>Insira o nome dos pilotos e respectiva odd</h3>
+                            <h3 className='ftpromptEvent'>Insira os Pilotos/odds/data/hora</h3>
                             <PilotsForm formData={formData} handleChange={handleChange} ></PilotsForm>
                         </div>}
                         <button className = "ftadd" >Criar Jogo</button>
