@@ -56,13 +56,13 @@ export default function Profile(props){
                     />
                 </div>
             }
-            {showPopUp == 'changeSec' && 
+            {(showPopUp == 'changeSec') && 
                 <div>
                     <div  className="ftbackgroundModal"></div>
                     <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email}/>
                 </div>
             }
-            {showPopUp == 'confirm' && 
+            {(showPopUp == 'confirm') && 
                 <div>
                     <div  className="ftbackgroundModal"></div>
                     <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} email = {email} />

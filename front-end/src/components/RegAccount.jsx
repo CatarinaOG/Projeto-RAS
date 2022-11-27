@@ -35,6 +35,7 @@ export default function RegAccount(props){
 		event.preventDefault();
 		if(formData.email !="" && formData.password !="" && formData.phone !="" && formData.name !="" && formData.nif !="" && formData.date !="" && formData.cc !="" && formData.address !=""){
 			setErrorReg(0);
+			console.log(formData)
 			fetch('http://127.0.0.1:8080/api/users/register', {
 				method: 'POST',
 				headers: {
@@ -46,14 +47,14 @@ export default function RegAccount(props){
 					telefone:formData.phone,
 					nome:formData.name,
 					nif:formData.nif,
-					data:formData.date,
+					data_de_nascimento:formData.date,
 					cc:formData.cc,
 					morada:formData.address})
         	})
 			.then(response => response.json())
 			.then(data => {
+				console.log(data.state)
 				if (data.state === 'good'){
-					setLoadReg(prevLoadReg => !prevLoadReg)
 					navigate("/"); 
 					
 				}
