@@ -52,6 +52,8 @@ export default function PopUpEmail(props){
                     setShowPopUp('confirm');
                 }
             })
+            setShowPopUp('confirm');
+
         }
         else if (checked){
             
@@ -71,8 +73,9 @@ export default function PopUpEmail(props){
                     setShowPopUp('confirm');
                 }
             })
+            setShowPopUp('confirm');
+
         }
-        setShowPopUp('confirm');
     }
 
     return (

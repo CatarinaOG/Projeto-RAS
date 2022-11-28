@@ -1,6 +1,8 @@
 import { useState } from "react";
 import goBack from "../images/goBack.png"
 import BetHistoryBox from './BetHistoryBox'
+import { useEffect } from 'react'
+import TableTransact from "./TableTransact";
 
 export default function BetHistory(props){
 
@@ -29,41 +31,73 @@ export default function BetHistory(props){
       setSimpleState('inactive');
     }
 
+  const betHistory = [ 
+      {
+          bet : [
+              {
+                  type : "team", 
+                  name : "Sporting vs Varzim",
+                  winner : "Sporting"
+              }
+          ]
+          ,
+          ammount : 18123,
+          winnings : 1233
+      }
+      ,
+      {
+        bet : [
+            {
+                type : "team", 
+                name : "Sporting vs Varzim",
+                winner : "Sporting"
+            },
+            {
+              type : "team", 
+              name : "Benfica vs Porto",
+              winner : "Benfica"
+            }
+        ]
+        ,
+        ammount : 18123,
+        winnings : 1233
+    }
+  ]
 
-    const list = [
-        {
-          id: 1
-        },
-        {
-          id: 2
-        },
-        {
-            id: 2
-          },
-          {
-            id: 2
-          },
-      ];
+
+
+const fullbetHist = () => (
+  <ul>
+    {betHistory.map(item => {
+      console.log("TOU")
+      console.log("Length is: ", item.bet.length)
+      console.log("Multi state is:",multipleState)
+      console.log("Simple state is:",simpleState)
+
+      if(multipleState==="active" && item.bet.length>1){
+
+        console.log("ENTREI AQUI")
+        return (
+          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings}></BetHistoryBox>
+         
+        );
+      }
+      else if (simpleState === "active" && item.bet.length==1){
+        console.log("ENTREI ACOLÁ")
+        
+        return (
+          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings}></BetHistoryBox>
       
-      const List = () => (
-        <ul>
-          {list.map(item => {
-            return (
-                 <BetHistoryBox></BetHistoryBox>
-                
-            );
-          })}
-        </ul>)
-
-/*
-const fullbetHist = betHistory.map( (box) => {
-     <ul> 
-          <BetHistoryBox list = {box.bet} ammount = {box.ammount} winnings = {box.winnings} multipleState={multipleState} simpleState={simpleState}></BetHistoryBox>                
-     </ul>
-}) 
-*/
+        );
+      }
+      
+    })}
+  </ul>)
 
 
+useEffect(() => {
+ 
+},[])
 
 
     const data = [
@@ -96,15 +130,23 @@ const fullbetHist = betHistory.map( (box) => {
       <div className="ftDivBetHist">
         { typeData === 'Bet' &&
         <div>
-        <div className="buttonHistoryDiv">
-           <button className={ simpleState ==='inactive' ? "ftsimpleBet" : "ftsimpleBetSelected"} onClick={changeSimpleState}>Simples</button>
-           <button className={ multipleState ==='inactive' ? "ftmultipleBet" : "ftmultipleBetSelected"} onClick={changeMultState}>Múltiplas</button>
-           <img onClick={goToData} src = {goBack} className="ftgoBack"/>
-           <button  className='ftChangeToTransact' onClick={changeToTransact} > {'>'} </button>
-        </div>
-        <div className="betHistoryDiv">
-              <List></List>
-        </div>
+          <div className="buttonHistoryDiv">
+            <button className={ simpleState ==='inactive' ? "ftsimpleBet" : "ftsimpleBetSelected"} onClick={changeSimpleState}>Simples</button>
+            <button className={ multipleState ==='inactive' ? "ftmultipleBet" : "ftmultipleBetSelected"} onClick={changeMultState}>Múltiplas</button>
+            <img onClick={goToData} src = {goBack} className="ftgoBack"/>
+            <button  className='ftChangeToTransact' onClick={changeToTransact} > {'>'} </button>
+          </div>
+          {simpleState === 'active'  &&
+            <div className="betHistoryDiv">
+                  {fullbetHist()}
+            </div>
+          }
+          {multipleState === 'active'  &&
+            <div className="betHistoryDiv">
+                  {fullbetHist()}
+            </div>
+          }
+
         </div>
       }
        {typeData === 'Transact' &&
@@ -112,42 +154,7 @@ const fullbetHist = betHistory.map( (box) => {
         <div className="buttonHistoryDiv">
           <img onClick={goToDataToBet} src = {goBack} className="ftgoBack"/>
         </div>
-        <div className="tableDiv">
-            <table width="700">
-                <tr>
-                    <td>
-                        <table width="700">
-                            <tr>
-                                <th width="400">Data</th>
-                                <th width="500">Descrição</th>
-                                <th width="200">Operação</th>
-                                <th width="200">Saldo Após Transação</th>
-
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div className="allowOverflow">
-                            <table width="700" >
-                            {data.map((val, key) => {
-                                return (
-                                  <tr key={key}>
-                                    <td width="400">{val.date}</td>
-                                    <td width="500">{val.description}</td>
-                                    <td width="200">{val.operation}</td>
-                                    <td width="200">{val.balance}</td>
-                                  </tr>
-                                )
-                              })}
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-        </div> 
+        <TableTransact data={data}></TableTransact>
        </div>
        }   
       </div>

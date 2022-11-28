@@ -43,10 +43,11 @@ export default function RetrievePass() {
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data)
-				if(data.status === true)
+				console.log("data response is:", data)
+				if(data.status === "true")
 					setMessage(1)
 				else{
+					console.log("ENTROU AQUI")
 					setMessage(2)
 				}
 			})

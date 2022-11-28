@@ -88,6 +88,7 @@ export default function Profile(props){
                             setDivChoice={setDivChoice}
                             email = {email}
                             sec = {sec}
+                            setSec={setSec}
                         /> 
                     }
                     {divChoice === "BetHistory" && 

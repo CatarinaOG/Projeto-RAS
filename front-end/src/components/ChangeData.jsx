@@ -7,7 +7,7 @@ import goBackImg from "../images/goBack.png"
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDivChoice,sec,email} = props
+    const {setUsername,setShowPopUp,setDivChoice,sec,email,setSec} = props
 
     let navigate = useNavigate();
 
@@ -83,6 +83,11 @@ export default function ChangeData(props){
 
     }
  
+    function cancelBut(){
+        setSec(0);
+
+    }
+
     // a variável sec determina se é renderizado o changeData normal ou o dos dados seguros
     return (
         <div className="changeDataOutDiv">
@@ -108,7 +113,7 @@ export default function ChangeData(props){
                 <div>
                         <h4 className='fthPhoneNum'> Número de telemovel : </h4>
                     
-                        <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phoneNum" value = {formData.phone_num}></input>
+                        <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phone_num" value = {formData.phone_num}></input>
 
                         <h4 className='fthPass'> Password : </h4>
                     
@@ -116,14 +121,14 @@ export default function ChangeData(props){
                             
                         <h4 className='fthAddress'> Alterar Morada : </h4>
                     
-                        <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="address" value = {formData.add}></input>
+                        <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="add" value = {formData.add}></input>
 
                         
                         <button  className='ftConfirm'> Confirm</button>
                 </div>}
                 </form>
                 {sec === 0 && <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>} 
-                {sec === 1 && <button  className='ftChangeCancel' > Cancel</button>        }
+                {sec === 1 && <button  className='ftChangeCancel' onClick={cancelBut}> Cancel</button>        }
                 
         </div>
 

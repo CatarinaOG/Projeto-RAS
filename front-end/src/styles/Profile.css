@@ -86,11 +86,11 @@
 
 .ftinputName{
     position: absolute;
-    height: 12%;
+    height: 10%;
     width: 35%;
     right: 15%;
     border: 1px solid #18340C;
-    border-radius: 40px;
+    border-radius: 20px;
     top:33%;
     text-align: center;
 }
@@ -353,9 +353,9 @@
 .betHistoryDiv{
     position: absolute;
     width: 85%;
-    height : 60%;
+    height : 50%;
     left : 12%;
-    top : 20%;
+    top : 15%;
     overflow-y: scroll;
 }
 
