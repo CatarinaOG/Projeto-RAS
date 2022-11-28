@@ -166,6 +166,11 @@
 
 }
 
+.acceder:active{
+    background-color: white;
+    color: #F07444;
+}
+
 .regAccount{
     position: absolute;
     top : 5%;

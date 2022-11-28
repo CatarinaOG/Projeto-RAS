@@ -9,12 +9,12 @@ import celebrating from '../images/celebrating.png'
 function Login(props){
 
 	const [loadReg,setLoadReg] = useState(true);
-	const {setUsername,setBalance,setRender,setEmail,balance} = props;
+	const {setUsername,setBalance,setRender,setEmail,balance,dark} = props;
 
 	
     return(
-		<div className='page'>
-			<div className='mainLog'>
+		<div className={`page${dark}`}>
+			<div className={`mainLog${dark}`}>
 					<InputsLogin 
 						setUsername={setUsername}	
 						setBalance={setBalance}
@@ -22,6 +22,7 @@ function Login(props){
 						setLoadReg = {setLoadReg}
 						setEmail={setEmail}
 						balance={balance}
+						dark={dark}
 					/> 
 				<div className='logImage'>
 					<img src={celebrating} className='imageRight'/>

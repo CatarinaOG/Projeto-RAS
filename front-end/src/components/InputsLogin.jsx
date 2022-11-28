@@ -6,7 +6,7 @@ import logo from '../images/logo.png'
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setBalance,setLoadReg,setEmail,balance} = props
+	const {setUsername,setBalance,setLoadReg,setEmail,balance,dark} = props
 
 	//variavel responsavel pelo conditional rendering 
 	const [errorReg,setErrorReg]=useState(0)
@@ -57,14 +57,14 @@ export default function InputsLogin(props) {
 				setUsername(data.username)
 				setEmail(formData.email)
 				if (data.type === 'especialista'){
-					navigate("/HomeExpert"); 
+					navigate("/HomeExpert", { replace: true }); 
 				}
 				else if(data.type === 'administrador'){
-					navigate("/HomeAdmin"); 
+					navigate("/HomeAdmin", { replace: true }); 
 				}
 				else if(data.type === 'apostador'){
 					setBalance(data.balance)
-					navigate("/Home"); 
+					navigate("/Home", { replace: true }); 
 				}
 				else if(data.type === null){
 					setErrorReg(2)
@@ -77,17 +77,17 @@ export default function InputsLogin(props) {
     return (
         <div className='inputs'>
 			<img className = "ftrasbetLogo" src = {logo}/>
-			<h1 className = "ftwelcomeTitle"> Bem-vindo</h1>
+			<h1 className = {`ftwelcomeTitle${dark}`}> Bem-vindo</h1>
 			<form onSubmit={handleSubmit}>
-				<input onChange={handleChange} className = "ftuserNameLog" type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
-				<input onChange={handleChange} className = "ftpasswordLog" type="password" placeholder = "Password" name = "password" value = {formData.password} />
-				<button className = "ftacederLog"> Aceder</button>
+				<input onChange={handleChange} className = {`ftuserNameLog${dark}`} type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
+				<input onChange={handleChange} className = {`ftpasswordLog${dark}`} type="password" placeholder = "Password" name = "password" value = {formData.password} />
+				<button className = {`ftacederLog${dark}`}> Aceder</button>
 			</form>
-			<a className = "ftnoPass" onClick={changeToRecover}> Esqueci-me da palavra-passe</a>
-			<a className='ftnoAccount'>Não tem conta?</a>
-			<h4 onClick={changeToRegister} className = "ftnoAccountHyper"> Registe-se já! </h4>
-			{errorReg === 2 && <p className='fterrorLogIn'>Email ou password incorretos</p>}
-			{errorReg === 1 && <p className='fterrorLogIn'>Dados incompletos</p>}
+			<a className = {`ftnoPass${dark}`} onClick={changeToRecover}> Esqueci-me da palavra-passe</a>
+			<a className={`ftnoAccount${dark}`}>Não tem conta?</a>
+			<h4 onClick={changeToRegister} className = {`ftnoAccountHyper${dark}`}> Registe-se já! </h4>
+			{errorReg === 2 && <p className={`fterrorLogIn${dark}`}>Email ou password incorretos</p>}
+			{errorReg === 1 && <p className={`fterrorLogIn${dark}`}>Dados incompletos</p>}
 		</div>
     )
 }

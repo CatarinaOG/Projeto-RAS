@@ -14,10 +14,10 @@ export default function ChangeData(props){
     const [formData, setFormData] = useState(
         {name: "" , phone_num : "" , password : "" , add : ""}
     )
-    
+
     //comportamento do botão goBack, que retorna o utilizador à pagina principal
     function goBack(){
-        navigate('/Home')
+        navigate('/Home', { replace: true })
     }
 
     //utiliza setDivChoice para alterar a variavel usada no conditional rendering do profile
@@ -25,8 +25,8 @@ export default function ChangeData(props){
         setDivChoice("BetHistory");
     }
 
-    
-    
+
+
     function handleChange(event) {
         setFormData(prevFormData => {
             return {
@@ -47,9 +47,9 @@ export default function ChangeData(props){
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ 
-                    email_user: email , 
-                    name : formData.name, 
+				body: JSON.stringify({
+                    email_user: email ,
+                    name : formData.name,
                     phone_num: formData.phone_num,
                     newAdd: formData.add,
                     password: formData.password})
@@ -74,7 +74,7 @@ export default function ChangeData(props){
     }
 
     function logOut(){
-        navigate('/')
+        navigate('/', { replace: true })
     }
 
     //carrega o PopUp que pede o email ao utilizador para enviar o código de confirmaçao

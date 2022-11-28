@@ -785,7 +785,8 @@ button:hover {
 
 .error{
     color: red;
-    position: absolute;
-    top: 30vh;
-    left: 13vw;
+}
+
+.hide{
+    color: white;
 }

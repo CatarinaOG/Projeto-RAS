@@ -63,7 +63,7 @@ export default function AddSpecialist(props){
 	}
 
     function goBack(){
-        navigate('/HomeAdmin')
+        navigate('/HomeAdmin', { replace: true })
     }
     
 

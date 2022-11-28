@@ -64,7 +64,7 @@ export default function AddGame(props){
     let navigate = useNavigate()
 
     function goBack(){
-        navigate('/ProfileExpert')
+        navigate('/ProfileExpert', { replace: true })
     }
 
 	function handleChange(event) {

@@ -6,6 +6,7 @@ import './styles/login.css'
 import './styles/HomeAdmin.css'
 import './styles/ShowExperts.css'
 import './styles/Register.css'
+import './styles/DarkMode.css'
 
 
 import {useState} from 'react'
@@ -31,6 +32,7 @@ function App() {
 
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
+	const [dark,setDark] = useState('')
 
   const [balance,setBalance] = useState(0)
 
@@ -221,6 +223,7 @@ function App() {
             setBalance={setBalance}
             setEmail={setEmail}
             balance={balance}
+            dark={dark}
           />
         } />
 
