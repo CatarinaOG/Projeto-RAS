@@ -125,6 +125,7 @@ export default function AddGame(props){
         }
         else if(formData.sport==="motoGP"){
             checkFormPilot();
+            console.log("MOTO BODY IS: " ,motoBody)
             if(pilotError===0){
                 fetch('http://127.0.0.1:8080/api/expert/race', {
                     method: 'POST',
@@ -139,9 +140,15 @@ export default function AddGame(props){
                         setConfirmed(true)
                         setErrorReg(0)
                     }
-                })  
+                })
+                setConfirmed(true)
+                setErrorReg(0)
+
             }
-            setConfirmed(true)
+            else{
+                setErrorReg(2)
+
+            }
         }
         else{
             setErrorReg(2)

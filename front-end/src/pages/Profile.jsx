@@ -26,7 +26,7 @@ export default function Profile(props){
 
 
     const [betHist,setBetHist] = useState([])
-    
+    const [transactHist,setTransactHist] = useState([])
 
     useEffect(() => {
         /*
@@ -41,15 +41,38 @@ export default function Profile(props){
         .then(response => response.json())
         .then(data => {
             if(data.betHistory){
-              setBetHist(data.betHistory)
+                setBetHist(data.betHistory)
             }
         })
         .catch((error) => {
           console.error('Error:', error);
         });
-        splitBetHist()*/
+        */
         
       },[])
+
+      useEffect(() => {
+        /*
+        fetch('http://127.0.0.1:8080/api/users/transaction_history',{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ 
+					email_user: email
+        	})
+        .then(response => response.json())
+        .then(data => {
+            if(data.transactions){
+                setTransactHist(data.transactions)
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+        */
+        
+      },[])  
 
 
     return(

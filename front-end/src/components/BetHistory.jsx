@@ -63,23 +63,26 @@ const fullbetHist = betHistory.map( (box) => {
 }) 
 */
 
-      const data = [
-        { date: "18/11/22", description: "Levantamento", operation: "+13,45" , balance : 20},
-        { date: "18/11/22", description: "Depósito", operation: "+13,45" , balance : 32},
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Aposta feita", operation: "+13,45", balance : 50 }
-      ]
-  
+
+
+
+    const data = [
+      { date: "18/11/22", description: "Levantamento", operation: "+13,45" , balance : 20},
+      { date: "18/11/22", description: "Depósito", operation: "+13,45" , balance : 32},
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Aposta feita", operation: "+13,45", balance : 50 }
+    ]
+      
 
     function changeToTransact(){
       setMultipleState('inactive')
@@ -131,10 +134,10 @@ const fullbetHist = betHistory.map( (box) => {
                             {data.map((val, key) => {
                                 return (
                                   <tr key={key}>
-                                    <td>{val.date}</td>
-                                    <td>{val.description}</td>
-                                    <td>{val.operation}</td>
-                                    <td>{val.balance}</td>
+                                    <td width="400">{val.date}</td>
+                                    <td width="500">{val.description}</td>
+                                    <td width="200">{val.operation}</td>
+                                    <td width="200">{val.balance}</td>
                                   </tr>
                                 )
                               })}

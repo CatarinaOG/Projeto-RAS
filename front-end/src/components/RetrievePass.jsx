@@ -34,18 +34,21 @@ export default function RetrievePass() {
 		event.preventDefault()
         
 		if(formData.email!=""){
-			fetch('http://127.0.0.1:8080/api/users/retrieve', {
+			fetch('http://127.0.0.1:8080/api/users/recover_password', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ email: formData.email })
+				body: JSON.stringify({ email_user: formData.email })
 			})
 			.then(response => response.json())
 			.then(data => {
-				
+				console.log(data)
+				if(data.status === true)
 					setMessage(1)
-
+				else{
+					setMessage(2)
+				}
 			})
 		}
 		else{
