@@ -246,7 +246,7 @@
 
 
 
-.ftChange{
+.ftChangeToHist{
     position: relative;
 
     height: 9%;
@@ -260,8 +260,8 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 30px;
-    top:14%;
-    left:35%;
+    top:13%;
+    left:38%;
     font-family: 'Spinnaker';
     color: #18340C;
 
@@ -307,7 +307,7 @@
 
     font-family: 'Spinnaker';
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
 
     background-color: white;
@@ -316,7 +316,27 @@
     left: 30%;
 }
 
+.ftChangeCancel{
 
+    position: absolute;
+
+    height: 15%;
+    width: 18%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    background-color: white;
+    
+    top: 80%;
+    left: 30%;
+}
 
 
 /*----- BetHistory ----- */

@@ -29,8 +29,8 @@ export default function PopUpPaypal(props){
     function handleSubmit(event){
         event.preventDefault();
     
-
-           
+        console.log(formData.email)
+        if(formData.email != "" && formData.operationValue!= ""){           
         fetch('http://127.0.0.1:8080/api/transactions/', {
             method: 'POST',
             headers: {
@@ -45,6 +45,7 @@ export default function PopUpPaypal(props){
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data.confirmed)
             if (data.confirmed === 'true'){
                 setStateOp("success");
                 setMessage("Operação bem sucedida!");
@@ -62,7 +63,13 @@ export default function PopUpPaypal(props){
                 
             }
         });
+        
     }
+    else{
+        setStateOp("error")
+        setMessage("Dados incorretos, volte a tentar")
+    }
+}
 
     return(
         <div>
@@ -70,7 +77,7 @@ export default function PopUpPaypal(props){
                 <div>
                     <h1 className='fth1Pop'>Insira os dados</h1>
                     <form onSubmit={handleSubmit}>
-                        <input onChange={handleChange} value={formData.cardNum} name="cardNum" type="email" className="ftPaypalEmail" placeholder="E-mail"></input>
+                        <input onChange={handleChange} value={formData.email} name="email" type="email" className="ftPaypalEmail" placeholder="E-mail"></input>
                         <h4 className="ftOperationValuePrompt">Valor a transferir</h4>
                         <input onChange={handleChange} value={formData.operationValue} name="operationValue" type="number" className="ftOperationValue" placeholder="Valor"></input>
                         <button className="ftOperationButton">Confirm</button>

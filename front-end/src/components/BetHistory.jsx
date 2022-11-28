@@ -4,7 +4,7 @@ import BetHistoryBox from './BetHistoryBox'
 
 export default function BetHistory(props){
 
-    const {setDivChoice} = props
+    const {setDivChoice, betHist} = props
 
     const [typeData, setTypeData] = useState('Bet');
 
@@ -55,24 +55,34 @@ export default function BetHistory(props){
           })}
         </ul>)
 
+/*
+const fullbetHist = betHistory.map( (box) => {
+     <ul> 
+          <BetHistoryBox list = {box.bet} ammount = {box.ammount} winnings = {box.winnings} multipleState={multipleState} simpleState={simpleState}></BetHistoryBox>                
+     </ul>
+}) 
+*/
 
-      const data = [
-        { date: "18/11/22", description: "Levantamento", operation: "+13,45" , balance : 20},
-        { date: "18/11/22", description: "Depósito", operation: "+13,45" , balance : 32},
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-        { date: "18/11/22", description: "Aposta feita", operation: "+13,45", balance : 50 }
-      ]
-  
+
+
+
+    const data = [
+      { date: "18/11/22", description: "Levantamento", operation: "+13,45" , balance : 20},
+      { date: "18/11/22", description: "Depósito", operation: "+13,45" , balance : 32},
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
+      { date: "18/11/22", description: "Aposta feita", operation: "+13,45", balance : 50 }
+    ]
+      
 
     function changeToTransact(){
       setMultipleState('inactive')
@@ -124,10 +134,10 @@ export default function BetHistory(props){
                             {data.map((val, key) => {
                                 return (
                                   <tr key={key}>
-                                    <td>{val.date}</td>
-                                    <td>{val.description}</td>
-                                    <td>{val.operation}</td>
-                                    <td>{val.balance}</td>
+                                    <td width="400">{val.date}</td>
+                                    <td width="500">{val.description}</td>
+                                    <td width="200">{val.operation}</td>
+                                    <td width="200">{val.balance}</td>
                                   </tr>
                                 )
                               })}

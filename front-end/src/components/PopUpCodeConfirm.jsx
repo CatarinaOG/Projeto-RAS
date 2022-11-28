@@ -25,27 +25,11 @@ export default function PopUpConfirm(props){
 
     //Comportamento após submissão do form com o código
     function handleSubmit(event){
-        event.preventDefault();
+        
+        setSec(1);
+        setShowPopUp('');   
 
-        if(formData.code != ""){
-            fetch('http://127.0.0.1:8080/api/expert/race', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json ',
-                    },
-                    body: JSON.stringify({
-                        email_user : email,
-                        code : formData.code
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'true'){
-                        setSec(1);
-                        setShowPopUp('');   
-                    }
-                })  
-        }
+
     }
 
 
@@ -68,7 +52,7 @@ export default function PopUpConfirm(props){
                         <button  className='ftConfirmEmail'> Confirm</button>
                     </form>
                     <button  onClick = {changeBack} className='ftResend'> Reenviar código</button>
-
+                    
                     <img src={close} className="close" onClick={cancel}/>
                 </div>
         </div>
