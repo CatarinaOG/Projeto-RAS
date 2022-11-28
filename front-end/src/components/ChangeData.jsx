@@ -86,53 +86,45 @@ export default function ChangeData(props){
     // a variável sec determina se é renderizado o changeData normal ou o dos dados seguros
     return (
         <div className="changeDataOutDiv">
-            <button className='ftLogout' onClick={logOut}> Log out </button>
-            <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
-            <button className='ftdeposit' onClick={depositPop}> Depositar </button>
-            <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>
-
-            <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
-            <button  className='ftChange' onClick={goToHistory}> {'>'} </button>
-            <form onSubmit = {handleSubmit} >
-
-            {sec === 0 &&
-            <div>
-                    <h4 className='hName'> Nome : </h4>
-
+                <button className='ftLogout' onClick={logOut}> Log out </button>
+                <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
+                <button className='ftdeposit' onClick={depositPop}> Depositar </button>
+                <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>
+                
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
                 <button  className='ftChangeToHist' onClick={goToHistory}> {'>'} </button>
                 <form onSubmit = {handleSubmit} >
 
-                {sec === 0 &&
+                {sec === 0 && 
                 <div>
                         <h4 className='hName'> Nome : </h4>
-
+                    
                         <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="name" value = {formData.name}></input>
-
+                            
                         <button  className='ftConfirm'> Confirm</button>
                 </div>
                 }
-                {sec === 1 &&
+                {sec === 1 && 
                 <div>
                         <h4 className='fthPhoneNum'> Número de telemovel : </h4>
-
+                    
                         <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phoneNum" value = {formData.phone_num}></input>
 
                         <h4 className='fthPass'> Password : </h4>
-
+                    
                         <input className= "ftPasswordChange" onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
-
+                            
                         <h4 className='fthAddress'> Alterar Morada : </h4>
-
+                    
                         <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="address" value = {formData.add}></input>
 
-
+                        
                         <button  className='ftConfirm'> Confirm</button>
                 </div>}
                 </form>
-                {sec === 0 && <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>}
+                {sec === 0 && <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>} 
                 {sec === 1 && <button  className='ftChangeCancel' > Cancel</button>        }
-
+                
         </div>
 
     )
