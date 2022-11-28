@@ -8,6 +8,7 @@ import {useState} from 'react'
 export default function PopUpConfirm(props){
 
     const {setShowPopUp,setSec, email} = props;
+    const [errorMsg, setErrorMsg] = useState(0)
 
     const [formData, setFormData] = useState(
         {code: ""}
@@ -26,9 +27,9 @@ export default function PopUpConfirm(props){
     //Comportamento após submissão do form com o código
     function handleSubmit(event){
         
-        setSec(1);
-        setShowPopUp('');   
-
+        //setSec(1);
+        //setShowPopUp('');   
+        setErrorMsg(1)
 
     }
 
@@ -46,12 +47,13 @@ export default function PopUpConfirm(props){
         <div className="ftboxCode">
 
                 <div>
-                    <h1 className='fth1Pop'>Insira o código recebido</h1>
+                    <h2 className='fth2Pop'>Insira o código recebido</h2>
                     <form onSubmit={handleSubmit}>
                         <input onChange = {handleChange} type = "code" name = "code" className='ftCode' placeholder='Escreva o código' value = {formData.code}></input>
-                        <button  className='ftConfirmEmail'> Confirm</button>
+                        <button  className='ftConfirmCode'> Confirm</button>
                     </form>
                     <button  onClick = {changeBack} className='ftResend'> Reenviar código</button>
+			        {errorMsg===1 && <p className='ftErrorMsgCode'>Código errado</p>}
                     
                     <img src={close} className="close" onClick={cancel}/>
                 </div>

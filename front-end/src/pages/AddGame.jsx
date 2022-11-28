@@ -163,7 +163,7 @@ export default function AddGame(props){
                 <NavBarProfile username={username}/>
                 <div className='whiteShadow'>
                     <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
-                    <h1 className='ftInsertDataGame'>Criar Jogo</h1>
+                    <h1 className='ftInsertDataGame'>Criar Evento</h1>
                     <form onSubmit = {handleSubmit}>
                         <h3 className='ftpromptSport'>Insira o Desporto</h3>
                         <select className='ftselectSport' value={formData.sport} onChange={handleChange} name ="sport">
@@ -204,7 +204,7 @@ export default function AddGame(props){
                             <h3 className='ftpromptEvent'>Insira os Pilotos/odds/data/hora</h3>
                             <PilotsForm formData={formData} handleChange={handleChange} ></PilotsForm>
                         </div>}
-                        <button className = "ftadd" >Criar Jogo</button>
+                        <button className = "ftadd" >Confirmar</button>
 			            {errorReg === 2 && <p className='fterrorAddGame'>Dados em falta</p>}
                     </form>
                 </div>

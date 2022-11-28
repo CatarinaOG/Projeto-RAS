@@ -9,5 +9,14 @@
     
 
     border: 1px solid #18340C;
-    border-radius: 20px; 
+    border-radius: 10px; 
+}
+
+.fterrorRecover{
+    position: absolute;
+    top:59%;
+    left:37%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
 }

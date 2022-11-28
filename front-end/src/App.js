@@ -21,7 +21,7 @@ import HomeExpert from './pages/HomeExpert'
 import AddExpert from './pages/AddExpert'
 import AddGame from './pages/AddGame'
 import ProfileExpert from './pages/ProfileExpert'
-import RegisterPage from './pages/Register'
+import Register from './pages/Register'
 import ShowExperts from './pages/ShowExperts'
 import Recover from './pages/Recover'
 
@@ -228,7 +228,9 @@ function App() {
         } />
 
         <Route path="/Register" element={
-          <RegisterPage/>
+          <Register
+            dark={dark}
+          />
 
         }/>
 
@@ -242,6 +244,7 @@ function App() {
             email={email}
             games={games}
             setBalance={setBalance}
+            dark={dark}
           />
         } />
 

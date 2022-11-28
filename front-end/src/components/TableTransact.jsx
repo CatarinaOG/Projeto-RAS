@@ -20,7 +20,7 @@ export default function TableTransact(props){
                         <table width="700">
                             <tr>
                                 <th width="400">Data</th>
-                                <th width="500">Descrição</th>
+                                <th width="400">Descrição</th>
                                 <th width="200">Operação</th>
                                 <th width="200">Saldo Após Transação</th>
 
@@ -30,13 +30,13 @@ export default function TableTransact(props){
                 </tr>
                 <tr>
                     <td>
-                        <div className="allowOverflow">
+                        <div className="allowOverflowTransact">
                             <table width="700" >
                             {data.map((val, key) => {
                                 return (
                                   <tr key={key}>
                                     <td width="400">{val.date}</td>
-                                    <td width="500">{val.description}</td>
+                                    <td width="400">{val.description}</td>
                                     <td width="200">{val.operation}</td>
                                     <td width="200">{val.balance}</td>
                                   </tr>

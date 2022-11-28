@@ -34,7 +34,7 @@ export default function ProfileExpert(props){
             <img src = {goBackImg} className='goBackImg3' onClick={goBack}/>
                 <div className='whiteShadow'>
                     <div className="contentExpert">
-                        <button className="ButtonsExpert1" onClick={goToAddGame}>Criar jogo</button>
+                        <button className="ButtonsExpert1" onClick={goToAddGame}>Criar Evento</button>
                         <img src={icon} alt=""  className="ftaddGameImg"/>
                         <button className="ButtonsExpert2" onClick={logout}>Logout</button>
                         <img src={logoutImg} alt=""  className="ftadminImg"/>

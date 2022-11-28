@@ -98,7 +98,7 @@
     background-color: #635d5f;
     border: 1px solid black;
 
-    border-radius: 40px;
+    border-radius: 20px;
 }
 
 .ftpasswordLogDark{
@@ -112,7 +112,7 @@
     
 
     border: 1px solid black;
-    border-radius: 40px;
+    border-radius: 20px;
     background-color: #635d5f;
 
 
@@ -159,3 +159,231 @@
 
 
 
+
+/*-------------------------- Register -------------------------*/
+
+/*----- regAccount -----*/
+
+
+.ftRegisterTitleDark{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    font-style:normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    color: white;
+    font-family: 'Spinnaker';
+    
+}
+
+.fterrorReg{
+    position: absolute;
+    top:87%;
+    left:39%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+.fterrorReg2{
+    position: absolute;
+    top:87%;
+    left:38%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+
+.ftnameRegDark{
+    
+    position: absolute;
+    top: 28%;
+    width: 80%;
+    height: 6%;
+    border-radius: 30px;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+.ftemailRegDark{
+    
+    position: absolute;
+    top: 38%;
+    width: 80%;
+    height: 6%;
+    border-radius: 30px;
+    left: 10%;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+.ftpassswordRegDark{
+    position: absolute;
+    top: 48%;
+    border-radius: 30px;
+
+    width: 80%;
+    height: 6%;
+    left: 10%;
+
+    text-align: center;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+.ftNIFRegDark{
+    
+    position: absolute;
+    top: 78%;
+    width: 38%;
+
+    left: 53%;
+    height: 6%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+.ftbirthdateRegDark{
+    
+    position: absolute;
+    top: 68%;
+    width: 38%;
+    left: 53%;
+    height: 6%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+.ftaddressRegDark{
+    
+    position: absolute;
+    top: 58%;
+    width: 80%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+.ftphoneRegDark{
+    
+    position: absolute;
+    top: 78%;
+    width: 38%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+.ftCCRegDark{
+    
+    position: absolute;
+    top: 68%;
+    width: 38%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+
+}
+
+
+.accederDark{
+    position: absolute;
+
+    left: 11%;
+    height: 8%;
+    width: 80%;
+    top: 92%;
+
+    background: #292929;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+
+    color: white;
+    border: 1px solid black;
+
+}
+
+.accederDark:active{
+    border: 1px solid white ;
+
+}
+
+.regAccount{
+    position: absolute;
+    top : 5%;
+    left: 3%;
+    bottom: 5%;
+    width : 40%;
+    height: 90%;
+    
+}
+
+.ftgoBackRegDark{
+    position: absolute;
+    top: 19%;
+    left: 0%;
+    scale: 0.8;
+    filter: invert(100%);
+}
+
+.ftgoBackRegDark:hover{
+    cursor: pointer;
+}
+
+
+/*------------------------- Link -----------------------*/
+
+.searchItemDark{
+    margin-top: 10px;
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.searchItemDark:hover{
+    cursor: pointer;
+}
+
+.searchItemHighlightedDark{
+    margin: 30px;
+    color: #18340C;
+    background: #FEFFFE;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.searchItemHighlightedDark:hover{
+    cursor: pointer;
+}

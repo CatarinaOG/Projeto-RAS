@@ -1,6 +1,8 @@
 
 import closeImg from '../images/close.png'
 import '../styles/AddGame.css'
+import { useState } from 'react'
+
 
 // PopUp que é mostrado com a informação do jogo que se acabou de adicionar
 
@@ -12,6 +14,7 @@ export default function PopUpAddGame(props){
     function close(){
         setConfirmed(false);
     }
+
 
     return(
         <div className="ftboxConfirmAddGame">

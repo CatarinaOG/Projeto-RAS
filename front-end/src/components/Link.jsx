@@ -1,6 +1,6 @@
 
 
-export default function Link({search,setFilter,highlight}){
+export default function Link({search,setFilter,highlight,dark}){
 
     
     function getInPortugues(){
@@ -22,10 +22,9 @@ export default function Link({search,setFilter,highlight}){
     return(
 
         <h3 
-            className={highlight ? 'searchItemHighlighted' : 'searchItem'}
+            className={highlight ? `searchItemHighlighted${dark}` : `searchItem${dark}`}
             onClick={changeSearching}>{getInPortugues()}
         </h3>
-
 
     )
 }

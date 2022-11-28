@@ -47,13 +47,12 @@ export default function RetrievePass() {
 				if(data.status === "true")
 					setMessage(1)
 				else{
-					console.log("ENTROU AQUI")
 					setMessage(2)
 				}
 			})
 		}
 		else{
-			setMessage(2);
+			setMessage(3);
 		}
         	
 	}
@@ -69,8 +68,9 @@ export default function RetrievePass() {
 				<input onChange={handleChange} className = "ftEmailRecover" type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
 				<button className = "ftacederLog"> Enviar</button>
 			</form>
-			{message === 2 && <p className='fterrorLogIn'>Email não existe</p>}
-			{message === 1 && <p className='fterrorLogIn'>Email enviado</p>}
+			{message === 2 && <p className='fterrorRecover'>Email não existe</p>}
+			{message === 1 && <p className='fterrorRecover'>Email enviado</p>}
+			{message === 3 && <p className='fterrorRecover'>Insira um email</p>}
 
 
 		</div>

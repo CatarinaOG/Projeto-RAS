@@ -10,7 +10,7 @@ import {useState} from 'react'
 
 export default function Home(props){
 
-    const {username,email,games,setBalance} = props
+    const {username,email,games,setBalance,dark} = props
 
 
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
@@ -69,6 +69,7 @@ export default function Home(props){
                 filter={filter} 
                 setFilter={setFilter}
                 userType="user"
+                dark={dark}
             />
             <div className="content">
                 <div>

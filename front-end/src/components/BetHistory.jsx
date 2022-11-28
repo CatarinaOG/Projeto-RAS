@@ -134,6 +134,7 @@ useEffect(() => {
             <button className={ simpleState ==='inactive' ? "ftsimpleBet" : "ftsimpleBetSelected"} onClick={changeSimpleState}>Simples</button>
             <button className={ multipleState ==='inactive' ? "ftmultipleBet" : "ftmultipleBetSelected"} onClick={changeMultState}>Múltiplas</button>
             <img onClick={goToData} src = {goBack} className="ftgoBack"/>
+            <h4 className="ftTotalGains">Gastos Totais/ Ganhos totais:</h4>
             <button  className='ftChangeToTransact' onClick={changeToTransact} > {'>'} </button>
           </div>
           {simpleState === 'active'  &&

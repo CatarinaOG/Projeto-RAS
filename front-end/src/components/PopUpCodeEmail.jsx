@@ -14,6 +14,8 @@ export default function PopUpEmail(props){
         {email: ""}
     )
     
+    const [errorMsg, setErrorMsg] = useState(0)
+
     function handleChange(event) {
         setFormData(prevFormData => {
             console.log(formData.email)
@@ -76,13 +78,16 @@ export default function PopUpEmail(props){
             setShowPopUp('confirm');
 
         }
+        else{
+            setErrorMsg(1)
+        }
     }
 
     return (
         <div className="ftboxConfirmOp">
 
                 <div>
-                    <h1 className='fth1Pop'>Insira email para onde será enviado o código</h1>
+                    <h2 className='fth2Pop'>Insira email para onde será enviado o código</h2>
                     <form onSubmit = {handleSubmit}>
                         <input onChange={handleChange} type = "email" name = "email" className='ftemailCode' placeholder='Escreva o email' value={formData.email}></input>
                         <h3 className='fth3PopEmail'>Usar email da conta</h3>
@@ -90,6 +95,8 @@ export default function PopUpEmail(props){
                         <button  className='ftConfirmEmail' > Confirm</button>
                     </form>
                     <img src={close} className="close" onClick={cancel}/>
+			        {errorMsg===1 && <p className='ftErrorMsgEmail'>Selecione uma opção</p>}
+
                 </div>
         </div>
     )
