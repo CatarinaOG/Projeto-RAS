@@ -16,15 +16,15 @@ export default function HomeAdmin(props){
     let navigate = useNavigate()
 
     function goToAddExpert(){
-        navigate('/AddExpert')
+        navigate('/AddExpert', { replace: true })
     }
 
     function logout(){
-        navigate('/')
+        navigate('/', { replace: true })
     }
 
     function goToShowExperts(){
-        navigate('/ShowExperts')
+        navigate('/ShowExperts', { replace: true })
     }
 
     return(

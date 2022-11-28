@@ -16,15 +16,15 @@ export default function ProfileExpert(props){
     let navigate = useNavigate()
 
     function goBack(){
-        navigate('/HomeExpert')
+        navigate('/HomeExpert', { replace: true })
     }
 
     function goToAddGame(){
-        navigate('/AddGame')
+        navigate('/AddGame', { replace: true })
     }
 
     function logout(){
-        navigate('/')
+        navigate('/', { replace: true })
     }
 
     return(

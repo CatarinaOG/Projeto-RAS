@@ -57,14 +57,14 @@ export default function InputsLogin(props) {
 				setUsername(data.username)
 				setEmail(formData.email)
 				if (data.type === 'especialista'){
-					navigate("/HomeExpert"); 
+					navigate("/HomeExpert", { replace: true }); 
 				}
 				else if(data.type === 'administrador'){
-					navigate("/HomeAdmin"); 
+					navigate("/HomeAdmin", { replace: true }); 
 				}
 				else if(data.type === 'apostador'){
 					setBalance(data.balance)
-					navigate("/Home"); 
+					navigate("/Home", { replace: true }); 
 				}
 				else if(data.type === null){
 					setErrorReg(2)

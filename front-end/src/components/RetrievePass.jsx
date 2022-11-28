@@ -27,7 +27,7 @@ export default function RetrievePass() {
 
 
 	function goBack(){
-        navigate('/')
+        navigate('/', { replace: true })
     }
     
 	function handleSubmit(event){

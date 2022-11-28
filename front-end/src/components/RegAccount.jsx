@@ -28,7 +28,7 @@ export default function RegAccount(props){
 
 
 	function goBack(){
-        navigate('/')
+        navigate('/', { replace: true })
     }
 
 	function handleSubmit(event){
@@ -55,7 +55,7 @@ export default function RegAccount(props){
 			.then(data => {
 				console.log(data.state)
 				if (data.state === 'good'){
-					navigate("/"); 
+					navigate("/", { replace: true }); 
 					
 				}
 				else if(data.state ==='bad'){

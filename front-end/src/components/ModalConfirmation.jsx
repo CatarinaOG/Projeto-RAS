@@ -13,7 +13,10 @@ export default function ModalConfirmation(props){
 
     function goToConfirmated(){
 
-        if(type === 'simple'){
+        if(selected.length === 0)
+            setError(2)
+
+        else if(type === 'simple'){
 
             selected.map(({id,gameId,amount}) => {
 
@@ -30,13 +33,13 @@ export default function ModalConfirmation(props){
                 .then(response => response.json(bet))
                 .then(data => {
                     if(data.confirmed == 'true'){
-                        console.log(amountToBet)
                         setBalance(prevBalance => prevBalance - amount)
                         setModalConfirmation(false)
                         setModalConfirmated(true)
                     }
                     else {
                         setError(1)
+                        //Adicionar outros erros
                     }
                 })
                 .catch((error) => {
@@ -72,9 +75,8 @@ export default function ModalConfirmation(props){
                 }
             })
             .catch((error) => {
-            console.error('Error:', error)
+                console.error('Error:', error)
             })
-            
         }
     }
 
@@ -87,7 +89,13 @@ export default function ModalConfirmation(props){
                 <h1 className="titleModal">Confirmação</h1>
                 <p className="paragraphModalConfirmation2">Confirmação do Pagamento no valor de:</p>
                 <p className="valueConfirmation">{amountToBet}$</p>
-                {error === 1 && <p className='error'>Saldo insuficiente ou Aposta Múltipla Inválida</p>}
+                <div className='errorsBox'>
+                    {error === 1 && <p className='error'>Saldo insuficiente ou Aposta Múltipla Inválida</p>}
+                    {error === 2 && <p className='error'>Sem apostas para apostar</p>}
+                    {error === 3 && <p className='error'>Apostas com valor mínimo superior a 0</p>}
+                    {error === 0 && <p className='hide'>Hide</p>}
+                </div>
+                
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>
             </div>
         </div>

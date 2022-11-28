@@ -11,8 +11,8 @@ export default function NavBar(props){
     let navigate = useNavigate();
 
     function goToProfile(){
-        if(userType === 'expert') navigate("/ProfileExpert")
-        else navigate('/Profile')
+        if(userType === 'expert') navigate("/ProfileExpert", { replace: true })
+        else navigate('/Profile', { replace: true })
     }
 
     return(

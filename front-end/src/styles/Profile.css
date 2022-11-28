@@ -486,6 +486,10 @@
     scale: 0.8;
 }
 
+.ftgoBack:hover{
+    cursor: pointer;
+}
+
 
 /*------ Bet History*/
 
