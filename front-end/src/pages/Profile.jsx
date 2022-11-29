@@ -2,8 +2,6 @@
 import '../styles/Profile.css'
 import '../styles/ProfileSec.css'
 
-import { useEffect } from 'react'
-
 import NavBarProfile from "../components/NavBarProfile"
 import IdSaldo from '../components/IdSaldo'
 import ChangeData from '../components/ChangeData'
@@ -51,6 +49,7 @@ export default function Profile(props){
       },[])})
     */
   
+      console.log(username)
 
 
     return(
