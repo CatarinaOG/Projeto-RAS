@@ -191,6 +191,7 @@ function App() {
             username={username}
             games={games}
             setGames={setGames}
+            dark={dark}
           />
         } />
 
@@ -226,6 +227,7 @@ function App() {
         <Route path="/ProfileExpert" element={
           <ProfileExpert
             username={username}
+            dark={dark}
           />
         }/>
 

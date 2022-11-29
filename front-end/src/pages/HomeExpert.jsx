@@ -13,7 +13,7 @@ import {useState} from 'react'
 
 export default function HomeExpert(props){
 
-    const {username,games,setGames} = props
+    const {username,games,setGames,dark} = props
 
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
 
@@ -98,11 +98,14 @@ export default function HomeExpert(props){
                 filter={filter} 
                 setFilter={setFilter} 
                 userType='expert'
+                dark={dark}
             />
 
             <div className="content">
                 <div>
-                    <SearchBar />
+                    <SearchBar 
+                        dark={dark}
+                    />
                     <div className="allBetsExpert">
                         {allBets}
                     </div>

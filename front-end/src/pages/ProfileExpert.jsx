@@ -11,7 +11,7 @@ import icon from "../images/achievement.png"
 
 export default function ProfileExpert(props){
 
-    const {username} = props
+    const {username,dark} = props
 
     let navigate = useNavigate()
 
@@ -30,7 +30,10 @@ export default function ProfileExpert(props){
     return(
 
         <div>
-            <NavBarProfile username={username}/>
+            <NavBarProfile 
+                username={username}
+                dark={dark}
+                />
             <img src = {goBackImg} className='goBackImg3' onClick={goBack}/>
                 <div className='whiteShadow'>
                     <div className="contentExpert">
