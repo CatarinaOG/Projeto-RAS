@@ -8,7 +8,7 @@ import NavBarProfile from "../components/NavBarProfile"
 
 export default function AddSpecialist(props){
 
-    const {username} = props
+    const {username,dark} = props
 
 	const [errorReg,setErrorReg]=useState(0)
     
@@ -70,7 +70,10 @@ export default function AddSpecialist(props){
     return(
         <div className='ftaddSpecialist'>
             <div>
-                <NavBarProfile username={username}/>
+                <NavBarProfile 
+                    username={username}
+                    dark={dark}
+                />
                 <img src = {goBackImg} className='ftgoBackImg' onClick={goBack}/>
                 <div className='ftwhiteShadow'>
                     <h1 className = "ftAddSp">Adicionar Especialista</h1>

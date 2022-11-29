@@ -10,7 +10,7 @@ import PilotsForm from '../components/PilotsForm';
 
 export default function AddGame(props){
 
-    const {username,email} = props
+    const {username,email,dark} = props
     const [pilotError,setPilotError] = useState(0);
 
     const [formData, setFormData] = useState(
@@ -160,7 +160,10 @@ export default function AddGame(props){
     return(
         <div>
             <div>
-                <NavBarProfile username={username}/>
+                <NavBarProfile 
+                    username={username}
+                    dark={dark}
+                />
                 <div className='whiteShadow'>
                     <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
                     <h1 className='ftInsertDataGame'>Criar Evento</h1>

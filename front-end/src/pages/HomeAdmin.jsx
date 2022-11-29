@@ -11,7 +11,7 @@ import logoutImg from "../images/logout.png"
 
 export default function HomeAdmin(props){
 
-    const {username} = props
+    const {username,dark} = props
 
     let navigate = useNavigate()
 
@@ -31,6 +31,7 @@ export default function HomeAdmin(props){
         <div>
             <NavBarProfile
                 username={username}
+                dark={dark}
             />
             <div className='whiteShadow'>
                 <div className="contentAdmin">

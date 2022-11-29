@@ -35,7 +35,7 @@ function App() {
 
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
-	const [dark,setDark] = useState('')
+	const [dark,setDark] = useState('Dark')
 
   const [balance,setBalance] = useState(0)
 
@@ -273,12 +273,14 @@ function App() {
         <Route path="/AddExpert" element={
           <AddExpert 
             username={username}
+            dark={dark}
           />
         } />
 
         <Route path="/HomeAdmin" element={
           <HomeAdmin 
             username={username}
+            dark={dark}
           />
         } />
 
@@ -286,12 +288,14 @@ function App() {
           <AddGame 
             username={username}
             email={email}
+            dark={dark}
           />
         } />
 
         <Route path="/ShowExperts" element={
           <ShowExperts 
             username={username}
+            dark={dark}
           />
         }/>
 

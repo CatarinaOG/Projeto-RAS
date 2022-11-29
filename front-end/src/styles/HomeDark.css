@@ -395,21 +395,6 @@
     position: relative;
 }
 
-.game{
-    font-family: Spinnaker;
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.close{
-    position: absolute;
-    top:10px;
-    right: 5px;
-}
-.close:hover{
-    cursor: pointer;
-}
-
 
 .bottomDark{
     background-color: darkgrey;
@@ -421,42 +406,9 @@
     position: relative;
 }
 
-.reportBet{
-    font-family: Spinnaker;
-    font-size: 15px;
-    padding-top: 10px;
-}
-
-.fullReportBet{
+.fullReportBetDark{
     margin-bottom: 20px;
 }
-
-.quote{
-    font-family: Spinnaker;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    width: 90px;
-    padding: 4px;
-}
-
-.amount{
-    font-family: Spinnaker;
-    position: absolute;
-    top: 5px;
-    right: 110px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    width: 90px;
-    padding: 4px;
-    height: 20px;
-    text-align: center;
-}
-
 
 /*------------------------------ MODAL CONFIRMATION ----------------------------*/
 
