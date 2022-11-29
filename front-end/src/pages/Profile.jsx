@@ -93,6 +93,7 @@ export default function Profile(props){
                             email = {email}
                             sec = {sec}
                             setSec={setSec}
+                            dark={dark}
                         /> 
                     }
                     {divChoice === "BetHistory" && 
