@@ -6,6 +6,7 @@ import './styles/Login.css'
 import './styles/HomeAdmin.css'
 import './styles/ShowExperts.css'
 import './styles/SignIn.css'
+import './styles/ProfileExpert.css'
 
 import './styles/LoginDark.css'
 import './styles/ProfileDark.css'
@@ -27,6 +28,8 @@ import ProfileExpert from './pages/ProfileExpert'
 import Register from './pages/Register'
 import ShowExperts from './pages/ShowExperts'
 import Recover from './pages/Recover'
+import ShowGamesExpert from './pages/ShowGamesExpert'
+
 
 
 
@@ -40,81 +43,6 @@ function App() {
   const [balance,setBalance] = useState(0)
 
   const [games,setGames] = useState([])
-
-  /*
-  {
-    id: 1 ,
-    username: 'catarina',
-    email: 'catarina@catarina',
-    password: 'catarina'
-  },
-  {
-    id: 2 ,
-    username: 'toldy',
-    email: 'toldy@toldy',
-    password: 'toldy'
-  },
-  {
-    id: 3,
-    username: 'castiço',
-    email: 'castiço@castiço',
-    password: 'castiço'
-  },
-  {
-    id: 4,
-    username: 'catarina',
-    email: 'catarina@catarina',
-    password: 'catarina'
-  },
-  {
-    id:5 ,
-    username: 'toldy',
-    email: 'toldy@toldy',
-    password: 'toldy'
-  },
-  {
-    id: 6,
-    username: 'castiço',
-    email: 'castiço@castiço',
-    password: 'castiço'
-  },
-  {
-    id:7 ,
-    username: 'catarina',
-    email: 'catarina@catarina',
-    password: 'catarina'
-  },
-  {
-    id: 8,
-    username: 'toldy',
-    email: 'toldy@toldy',
-    password: 'toldy'
-  },
-  {
-    id: 9,
-    username: 'castiço',
-    email: 'castiço@castiço',
-    password: 'castiço'
-  },
-  {
-    id:10 ,
-    username: 'catarina',
-    email: 'catarina@catarina',
-    password: 'catarina'
-  },
-  {
-    id: 11,
-    username: 'toldy',
-    email: 'toldy@toldy',
-    password: 'toldy'
-  },
-  {
-    id: 12,
-    username: 'castiço',
-    email: 'castiço@castiço',
-    password: 'castiço'
-  }
-])*/
 
 
   //--------------- Get Games -----------------
@@ -219,6 +147,13 @@ function App() {
 
         <Route path="/ShowExperts" element={
           <ShowExperts
+            username={username}
+            dark={dark}
+          />
+        }/>
+
+        <Route path="/ShowGames" element={
+          <ShowGamesExpert
             username={username}
             dark={dark}
           />
