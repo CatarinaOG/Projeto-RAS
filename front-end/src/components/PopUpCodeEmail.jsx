@@ -43,7 +43,7 @@ export default function PopUpEmail(props){
 
         if (formData.email != ""){
             fetch('http://127.0.0.1:8080/api/users/get_code', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json ',
                 },
@@ -52,17 +52,15 @@ export default function PopUpEmail(props){
             })
             .then(response => response.json())
             .then(data => {
-                if (data.status === 'true'){
-                    setShowPopUp('confirm');
-                }
+                setShowPopUp('confirm');
             })
             //setShowPopUp('confirm');
 
         }
         else if (checked){
-            
+            console.log("ENTROU AQUI")
             fetch('http://127.0.0.1:8080/api/users/get_code', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json ',
                 },
