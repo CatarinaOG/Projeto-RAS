@@ -3,7 +3,7 @@ import close from '../images/close.png'
 
 export default function ModalConfirmation(props){
 
-    const {amountToBet,setModalConfirmation,setModalConfirmated,selected,email,type,amountMultiple,setBalance} = props
+    const {amountToBet,setModalConfirmation,setModalConfirmated,selected,email,type,amountMultiple,setBalance,dark} = props
 
     const [error,setError] = useState(0)
 
@@ -82,20 +82,19 @@ export default function ModalConfirmation(props){
 
     return (
         <div>
-            <div className="backgroundModal">
+            <div className={`backgroundModal${dark}`}>
             </div>
-            <div className="boxConfirm">
+            <div className={`boxConfirm${dark}`}>
                 <img className='close' onClick={cancel} src={close}/>
                 <h1 className="titleModal">Confirmação</h1>
-                <p className="paragraphModalConfirmation2">Confirmação do Pagamento no valor de:</p>
-                <p className="valueConfirmation">{amountToBet}$</p>
+                <p className={`paragraphModalConfirmation2${dark}`}>Confirmação do Pagamento no valor de:</p>
+                <p className={`valueConfirmation${dark}`}>{amountToBet}$</p>
                 <div className='errorsBox'>
                     {error === 1 && <p className='error'>Saldo insuficiente ou Aposta Múltipla Inválida</p>}
                     {error === 2 && <p className='error'>Sem apostas para apostar</p>}
                     {error === 3 && <p className='error'>Apostas com valor mínimo superior a 0</p>}
-                    {error === 0 && <p className='hide'>Hide</p>}
+                    {error === 0 && <p className={`hide${dark}`}>Hide</p>}
                 </div>
-                
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>
             </div>
         </div>

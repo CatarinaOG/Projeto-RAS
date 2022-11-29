@@ -8,6 +8,7 @@ import './styles/ShowExperts.css'
 import './styles/SignIn.css'
 
 import './styles/LoginDark.css'
+import './styles/ProfileDark.css'
 import './styles/HomeDark.css'
 
 
@@ -51,7 +52,7 @@ function App() {
       {result:"Empate", id:3, ammount:0, odd:2}],},
 
     {date:"2022-11-29 18:16:00.0",
-    sport: "futebol",
+    sport:"futebol",
     home:"sporting",
     away:"benfica",
     active: true,
@@ -257,6 +258,7 @@ function App() {
             setBalance={setBalance}
             balance={balance}
             email={email}
+            dark={dark}
           />
         } />
 

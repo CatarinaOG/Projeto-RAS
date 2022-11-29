@@ -94,7 +94,7 @@ export default function ChangeData(props){
                 <button className='ftLogout' onClick={logOut}> Log out </button>
                 <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
                 <button className='ftdeposit' onClick={depositPop}> Depositar </button>
-                <img src = {goBackImg} className="ftgoBack" onClick={goBack}/>
+                <img src = {goBackImg} className={`ftgoBack${dark}`} onClick={goBack}/>
                 
                 <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
                 <button  className='ftChangeToHist' onClick={goToHistory}> {'>'} </button>
