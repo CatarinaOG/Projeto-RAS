@@ -5,7 +5,7 @@ import PopUpMessagePayment from "./PopUpMessagePayment";
 
 export default function PopUpPaypal(props){
 
-    const {setMethod,showPopUp,email,setBalance,setShowPopUp} = props;
+    const {setMethod,showPopUp,email,setBalance,setShowPopUp,dark} = props;
     const [stateOp,setStateOp] = useState("");
     const [message,setMessage] = useState("");
 
@@ -75,12 +75,12 @@ export default function PopUpPaypal(props){
         <div>
             {stateOp==="" && 
                 <div>
-                    <h1 className='fth1Pop'>Insira os dados</h1>
+                    <h1 className={`fth1Pop${dark}`}>Insira os dados</h1>
                     <form onSubmit={handleSubmit}>
-                        <input onChange={handleChange} value={formData.email} name="email" type="email" className="ftPaypalEmail" placeholder="E-mail"></input>
-                        <h4 className="ftOperationValuePrompt">Valor a transferir</h4>
-                        <input onChange={handleChange} value={formData.operationValue} name="operationValue" type="number" className="ftOperationValue" placeholder="Valor"></input>
-                        <button className="ftOperationButton">Confirm</button>
+                        <input onChange={handleChange} value={formData.email} name="email" type="email" className={`ftPaypalEmail${dark}`} placeholder="E-mail"></input>
+                        <h4 className={`ftOperationValuePrompt${dark}`}>Valor a transferir</h4>
+                        <input onChange={handleChange} value={formData.operationValue} name="operationValue" type="number" className={`ftOperationValue${dark}`} placeholder="Valor"></input>
+                        <button className={`ftOperationButton${dark}`}>Confirm</button>
                     </form>
                     <img src = {closeImg} className='close' onClick={close}/>
                 </div>

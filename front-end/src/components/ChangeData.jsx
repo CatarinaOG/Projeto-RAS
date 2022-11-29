@@ -111,17 +111,17 @@ export default function ChangeData(props){
                 }
                 {sec === 1 && 
                 <div>
-                        <h4 className='fthPhoneNum'> Número de telemovel : </h4>
+                        <h4 className={`fthPhoneNum${dark}`}> Número de telemovel : </h4>
                     
-                        <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phone_num" value = {formData.phone_num}></input>
+                        <input className= {`ftPhoneChange${dark}`} onChange={handleChange} type = "number" placeholder="Phone" name="phone_num" value = {formData.phone_num}></input>
 
-                        <h4 className='fthPass'> Password : </h4>
+                        <h4 className={`fthPass${dark}`}> Password : </h4>
                     
-                        <input className= "ftPasswordChange" onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
+                        <input className= {`ftPasswordChange${dark}`} onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
                             
-                        <h4 className='fthAddress'> Alterar Morada : </h4>
+                        <h4 className={`fthAddress${dark}`}> Alterar Morada : </h4>
                     
-                        <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="add" value = {formData.add}></input>
+                        <input className= {`ftAddrChange${dark}`} onChange={handleChange} type = "text" placeholder="Morada" name="add" value = {formData.add}></input>
 
                         
                         <button  className={`ftConfirm${dark}`}> Confirm</button>

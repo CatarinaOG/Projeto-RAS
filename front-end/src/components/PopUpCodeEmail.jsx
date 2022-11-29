@@ -6,7 +6,7 @@ import {useState} from 'react'
 
 export default function PopUpEmail(props){
 
-    const {setShowPopUp,email} = props;
+    const {setShowPopUp,email,setSafeCode,safeCode,dark} = props;
 
     const [checked, setChecked] = useState(false)
 
@@ -52,13 +52,16 @@ export default function PopUpEmail(props){
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
+                setSafeCode(data.code);
                 setShowPopUp('confirm');
             })
-            //setShowPopUp('confirm');
+            setShowPopUp('confirm');
 
         }
         else if (checked){
             console.log("ENTROU AQUI")
+            /*
             fetch('http://127.0.0.1:8080/api/users/get_code', {
                 method: 'POST',
                 headers: {
@@ -71,28 +74,30 @@ export default function PopUpEmail(props){
             })
             .then(response => response.json())
             .then(data => {
-                if (data.status === 'true'){
-                    setShowPopUp('confirm');
-                }
+                console.log(data);
+                setSafeCode(data.code);
+                setShowPopUp('confirm');
             })
-            //setShowPopUp('confirm');
+            */
+            setShowPopUp('confirm');
 
         }
         else{
             setErrorMsg(1)
         }
+
     }
 
     return (
-        <div className="ftboxConfirmOp">
+        <div className={`ftboxConfirmOp${dark}`}>
 
                 <div>
-                    <h2 className='fth2Pop'>Insira email para onde será enviado o código</h2>
+                    <h2 className={`fth2Pop${dark}`}>Insira email para onde será enviado o código</h2>
                     <form onSubmit = {handleSubmit}>
-                        <input onChange={handleChange} type = "email" name = "email" className='ftemailCode' placeholder='Escreva o email' value={formData.email}></input>
-                        <h3 className='fth3PopEmail'>Usar email da conta</h3>
-                        <input onChange={handleChangeCheck} type = "checkbox" className='ftcheckBoxEmail'></input>
-                        <button  className='ftConfirmEmail' > Confirm</button>
+                        <input onChange={handleChange} type = "email" name = "email" className={`ftemailCode${dark}`} placeholder='Escreva o email' value={formData.email}></input>
+                        <h3 className={`fth3PopEmail${dark}`}>Usar email da conta</h3>
+                        <input onChange={handleChangeCheck} type = "checkbox" className={`ftcheckBoxEmail${dark}`}></input>
+                        <button  className={`ftConfirmEmail${dark}`} > Confirm</button>
                     </form>
                     <img src={close} className="close" onClick={cancel}/>
 			        {errorMsg===1 && <p className='ftErrorMsgEmail'>Selecione uma opção</p>}

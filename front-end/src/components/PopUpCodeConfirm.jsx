@@ -7,7 +7,7 @@ import {useState} from 'react'
 //PopUp que surge pedindo ao utilizador o código que terá recebido por email.
 export default function PopUpConfirm(props){
 
-    const {setShowPopUp,setSec, email} = props;
+    const {setShowPopUp,setSec,safeCode,dark} = props;
     const [errorMsg, setErrorMsg] = useState(0)
 
     const [formData, setFormData] = useState(
@@ -26,10 +26,13 @@ export default function PopUpConfirm(props){
 
     //Comportamento após submissão do form com o código
     function handleSubmit(event){
-        
-        //setSec(1);
-        //setShowPopUp('');   
-        setErrorMsg(1)
+        if(formData.code === safeCode){
+            setSec(1);
+            setShowPopUp('');  
+        }
+        else{
+            setErrorMsg(1)
+        }
 
     }
 
@@ -44,15 +47,15 @@ export default function PopUpConfirm(props){
     }
 
     return (
-        <div className="ftboxCode">
+        <div className={`ftboxCode${dark}`}>
 
                 <div>
-                    <h2 className='fth2Pop'>Insira o código recebido</h2>
+                    <h2 className={`fth2Pop${dark}`}>Insira o código recebido</h2>
                     <form onSubmit={handleSubmit}>
-                        <input onChange = {handleChange} type = "code" name = "code" className='ftCode' placeholder='Escreva o código' value = {formData.code}></input>
-                        <button  className='ftConfirmCode'> Confirm</button>
+                        <input onChange = {handleChange} type = "code" name = "code" className={`ftCode${dark}`} placeholder='Escreva o código' value = {formData.code}></input>
+                        <button  className={`ftConfirmCode${dark}`} > Confirm</button>
                     </form>
-                    <button  onClick = {changeBack} className='ftResend'> Reenviar código</button>
+                    <button  onClick = {changeBack} className={`ftResend${dark}`} > Reenviar código</button>
 			        {errorMsg===1 && <p className='ftErrorMsgCode'>Código errado</p>}
                     
                     <img src={close} className="close" onClick={cancel}/>

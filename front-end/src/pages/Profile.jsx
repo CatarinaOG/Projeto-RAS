@@ -23,7 +23,7 @@ export default function Profile(props){
     const [divChoice,setDivChoice] = useState("Data")
     const [showPopUp,setShowPopUp] = useState("")
     const [sec,setSec] =useState(0)
-
+    const [safeCode,setSafeCode] = useState("")
 
     const [betHist,setBetHist] = useState([])
 
@@ -85,25 +85,26 @@ export default function Profile(props){
             </div>
             {(showPopUp == 'deposit' || showPopUp=='transfer') && 
                 <div>
-                    <div  className="ftbackgroundModal"></div>
+                    <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpOperation 
                         showPopUp={showPopUp} 
                         setShowPopUp={setShowPopUp}
                         setBalance={setBalance}
                         email={email}
+                        dark={dark}
                     />
                 </div>
             }
             {(showPopUp == 'changeSec') && 
                 <div>
-                    <div  className="ftbackgroundModal"></div>
-                    <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email}/>
+                    <div  className={`ftbackgroundModal${dark}`}></div>
+                    <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email} setSafeCode={setSafeCode} safeCode={safeCode} dark={dark}/>
                 </div>
             }
             {(showPopUp == 'confirm') && 
                 <div>
-                    <div  className="ftbackgroundModal"></div>
-                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} email = {email} />
+                    <div  className={`ftbackgroundModal${dark}`}></div>
+                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} safeCode={safeCode} dark={dark}/>
                 </div>
             }
             
