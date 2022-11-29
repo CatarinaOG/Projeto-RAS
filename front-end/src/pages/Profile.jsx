@@ -26,10 +26,10 @@ export default function Profile(props){
 
 
     const [betHist,setBetHist] = useState([])
-    const [transactHist,setTransactHist] = useState([])
 
+    /*
     useEffect(() => {
-        /*
+        
         fetch('http://127.0.0.1:8080/api/users/bet_history',{
 				method: 'POST',
 				headers: {
@@ -46,33 +46,11 @@ export default function Profile(props){
         })
         .catch((error) => {
           console.error('Error:', error);
-        });
-        */
-        
-      },[])
-
-      useEffect(() => {
-        /*
-        fetch('http://127.0.0.1:8080/api/users/transaction_history',{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ 
-					email_user: email
-        	})
-        .then(response => response.json())
-        .then(data => {
-            if(data.transactions){
-                setTransactHist(data.transactions)
-            }
         })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-        */
         
-      },[])  
+      },[])})
+    */
+  
 
 
     return(
@@ -100,6 +78,7 @@ export default function Profile(props){
                         <BetHistory 
                             setDivChoice={setDivChoice}
                             betHist = {betHist}
+                            email = {email}
                         />
                     }
                 </div>

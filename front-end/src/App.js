@@ -2,7 +2,7 @@ import './styles/AddGame.css'
 import './styles/AddExpert.css'
 import './styles/home.css'
 import './styles/Profile.css'
-import './styles/Login.css'
+import './styles/login.css'
 import './styles/HomeAdmin.css'
 import './styles/ShowExperts.css'
 import './styles/SignIn.css'
@@ -35,7 +35,7 @@ function App() {
 
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
-	const [dark,setDark] = useState('Dark')
+	const [dark,setDark] = useState('')
 
   const [balance,setBalance] = useState(0)
 

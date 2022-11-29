@@ -57,7 +57,7 @@ public class UserController {
         else return userService.changeSensitive(cpf);
     }
 
-    @GetMapping(value = "/get_code")
+    @PostMapping(value = "/get_code")
     public String getCode(@RequestBody String email){
         JSONObject j = new JSONObject(email);
         return userService.getCode((String) j.get("email_user"));

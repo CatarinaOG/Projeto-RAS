@@ -38,10 +38,12 @@ export default function PopUpEmail(props){
 
     function handleSubmit(event){
         event.preventDefault();
+        console.log("o email é: ",email)
+        console.log("o email inserido é: ",formData.email)
 
         if (formData.email != ""){
-            fetch('http://127.0.0.1:8080/api/expert/newGame', {
-                method: 'POST',
+            fetch('http://127.0.0.1:8080/api/users/get_code', {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json ',
                 },
@@ -54,13 +56,13 @@ export default function PopUpEmail(props){
                     setShowPopUp('confirm');
                 }
             })
-            setShowPopUp('confirm');
+            //setShowPopUp('confirm');
 
         }
         else if (checked){
             
-            fetch('http://127.0.0.1:8080/api/expert/newGame', {
-                method: 'POST',
+            fetch('http://127.0.0.1:8080/api/users/get_code', {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json ',
                 },
@@ -75,7 +77,7 @@ export default function PopUpEmail(props){
                     setShowPopUp('confirm');
                 }
             })
-            setShowPopUp('confirm');
+            //setShowPopUp('confirm');
 
         }
         else{
