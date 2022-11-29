@@ -1,0 +1,200 @@
+
+
+/*---------------------------------- LINK --------------------------*/
+
+.searchItemDark{
+    margin-top: 10px;
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.searchItemDark:hover{
+    cursor: pointer;
+}
+
+.searchItemHighlightedDark{
+    margin: 30px;
+    color: #292929;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.searchItemHighlightedDark:hover{
+    cursor: pointer;
+}
+
+
+/*--------------------------------- NAVBAR -----------------------*/
+
+*{
+    margin: 0;
+}
+
+.NavBarDark{
+    background-color: #292929;
+    height: 80px;
+    font-family: Spinnaker;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.logoDark{
+    filter: grayscale(100%);
+}
+
+
+/*----------------------------------- HOME ----------------------------*/
+
+
+.contentDark{
+    display: flex;
+    background-color: black;
+    height: 88.4vh;
+}
+
+
+/*------------------------------ SEARCH BAR --------------------------*/
+
+.searchBarDark{
+    margin: 20px 10px;
+    width: 50vw;
+    height: 36px;
+    border: 1px solid black;
+    border-radius: 20px;
+
+    background: url(../images/lupa.png) no-repeat left;
+    filter: invert(100%);
+    background-position: 7px 7px ;
+    padding-left: 35px;
+}
+
+
+/*--------------------------------BETS ----------------------------------*/
+
+.allBetsDark{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 75vh;
+    width: 56vw;
+}
+
+
+.allBetsDark::-webkit-scrollbar{
+    width: 1em;
+}
+
+.allBetsDark::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.allBetsDark::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+
+/*-------------------------------- BET ----------------------------------*/
+
+
+.betDark{
+    width: 52.5vw;
+    height: 110px;
+    border: 2px dashed white;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: flex;
+    font-family: 'Spinnaker';
+    position: relative;
+}
+
+.betMotoGPDark{
+    width: 52.5vw;
+    height: 68vh;
+    border: 2px dashed white;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    position: relative;
+
+}
+
+.infoDark{
+    font-family: 'Spinnaker';
+    margin-left: 20px;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.infoMotoGPDark{
+    font-family: 'Spinnaker';
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+    color: white;
+
+}
+
+
+.resultBoxSelectedDark{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid #F07444;
+}
+
+.resultBoxNotSelectedDark{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #635d5f;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+
+.resultBoxSelectedMotoGP{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid #F07444;
+}
+
+.resultBoxNotSelectedMotoGP{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: #635d5f;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+.resultBoxNotSelectedDark > p, .resultBoxSelectedDark > p{
+
+    margin-top: 9px;
+
+}
+
+.resultBoxNotSelectedMotoGPDark > p, .resultBoxSelectedMotoGPDark > p{
+
+    margin-top: 9px;
+
+}
+

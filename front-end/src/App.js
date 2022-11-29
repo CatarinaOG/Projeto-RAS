@@ -2,11 +2,13 @@ import './styles/AddGame.css'
 import './styles/AddExpert.css'
 import './styles/home.css'
 import './styles/Profile.css'
-import './styles/login.css'
+import './styles/Login.css'
 import './styles/HomeAdmin.css'
 import './styles/ShowExperts.css'
-import './styles/Register.css'
-import './styles/DarkMode.css'
+import './styles/SignIn.css'
+
+import './styles/LoginDark.css'
+import './styles/HomeDark.css'
 
 
 import {useState} from 'react'
@@ -32,7 +34,7 @@ function App() {
 
   const [username,setUsername] = useState('user')
   const [email,setEmail] = useState('email')
-	const [dark,setDark] = useState('')
+	const [dark,setDark] = useState('Dark')
 
   const [balance,setBalance] = useState(0)
 

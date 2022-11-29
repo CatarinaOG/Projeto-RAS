@@ -48,6 +48,7 @@ export default function Home(props){
                         game={game} 
                         setSelected={setSelected} 
                         selected={selected}
+                        dark={dark}
                     /> 
                 )
             }else{
@@ -57,6 +58,7 @@ export default function Home(props){
                         game={game} 
                         setSelected={setSelected} 
                         selected={selected}
+                        dark={dark}
                     /> 
                 )
             }
@@ -71,10 +73,10 @@ export default function Home(props){
                 userType="user"
                 dark={dark}
             />
-            <div className="content">
+            <div className={`content${dark}`}>
                 <div>
-                    <SearchBar />
-                    <div className="allBets">
+                    <SearchBar dark={dark}/>
+                    <div className={`allBets${dark}`}>
                         {allBets}
                     </div>
                 </div>

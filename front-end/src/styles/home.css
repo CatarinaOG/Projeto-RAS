@@ -11,8 +11,8 @@
     overflow-x: hidden;
     height: 75vh;
     width: 56vw;
-
 }
+
 
 button:hover {
     cursor: pointer;
@@ -527,6 +527,7 @@ button:hover {
     overflow-x: hidden;
     height: 75vh;
     width: 65vw;
+    
 }
 
 .progressBoxRed{

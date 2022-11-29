@@ -6,6 +6,7 @@ export default function BetMotoGP(props){
     const {sport,name,date,results} = props.game
     const setSelected = props.setSelected
     const selected = props.selected
+    const dark = props.dark
 
     // Adicionar bet a lista de selecionadas
     function changeSelected(sport,id,gameId){
@@ -46,8 +47,8 @@ export default function BetMotoGP(props){
 
     if(notNull){
         return(
-            <div className="betMotoGP">
-                <div className="infoMotoGP">
+            <div className={`betMotoGP${dark}`}>
+                <div className={`infoMotoGP${dark}`}>
                     <div>
                         <h3>{name}</h3>
                         <p>{date}</p>

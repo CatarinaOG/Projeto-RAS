@@ -1,7 +1,7 @@
 
 export default function BetBox(props){
 
-    const {id,sport,gameId,result,odd,selected,changeSelected} = props
+    const {id,sport,gameId,result,odd,selected,changeSelected,dark} = props
 
     // Retirar aposta de selecionada se clicar no bloco
     function changeSelectedResults(){
@@ -12,7 +12,7 @@ export default function BetBox(props){
 
     return(
 
-        <div className={ selected ? "resultBoxSelected" : "resultBoxNotSelected"} onClick={changeSelectedResults}>
+        <div className={ selected ? `resultBoxSelected${dark}` : `resultBoxNotSelected${dark}`} onClick={changeSelectedResults}>
             <h3>{result}</h3>
             <p>{odd}</p>
         </div>

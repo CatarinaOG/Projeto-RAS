@@ -5,6 +5,7 @@ export default function Bet(props){
     const {sport,home,away,date,results} = props.game
     const setSelected = props.setSelected
     const selected = props.selected
+    const dark = props.dark
 
     // Adicionar bet a lista de selecionadas
     function changeSelected(sport,id,gameId){
@@ -33,6 +34,7 @@ export default function Bet(props){
             odd={odd}
             selected={getIfSelected(id)}
             changeSelected={changeSelected}
+            dark={dark}
         />
     )
 
@@ -45,8 +47,8 @@ export default function Bet(props){
 
     if(notNull){
         return(
-            <div className="bet">
-                <div className="info">
+            <div className={`bet${dark}`}>
+                <div className={`info${dark}`}>
                     <div>
                         <h3>{home} vs {away}</h3>
                         <p>{date}</p>
