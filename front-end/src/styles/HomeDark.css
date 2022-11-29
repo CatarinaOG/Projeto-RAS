@@ -164,7 +164,7 @@
 }
 
 
-.resultBoxSelectedMotoGP{
+.resultBoxSelectedMotoGPDark{
     font-family: 'Spinnaker';
     text-align: center;
     border-radius: 10px;
@@ -175,7 +175,7 @@
     border: 1px solid #F07444;
 }
 
-.resultBoxNotSelectedMotoGP{
+.resultBoxNotSelectedMotoGPDark{
     font-family: 'Spinnaker';
     text-align: center;
     border-radius: 10px;
@@ -385,7 +385,7 @@
 /*---------------------------- REPORT BET -------------------------*/
 
 
-.top{
+.topDark{
     background-color: darkgrey;
     margin: 0px 10px 0px 10px;
     height: 20px;
@@ -411,7 +411,7 @@
 }
 
 
-.bottom{
+.bottomDark{
     background-color: darkgrey;
     margin: 0px 10px 0px 10px;
     height: 40px;
