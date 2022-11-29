@@ -120,7 +120,7 @@ function App() {
   //--------------- Get Games -----------------
 
   useEffect(() => {
-    
+
     fetch('http://127.0.0.1:8080/api/games/', {
                 method: 'GET',
                 headers: {
@@ -136,7 +136,7 @@ function App() {
     .catch((error) => {
       console.error('Error:', error);
     });
-        
+
   },[])
 
   //-----------------------------------------
@@ -145,7 +145,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={
-          <Login 
+          <Login
             setUsername={setUsername}
             setBalance={setBalance}
             setEmail={setEmail}
@@ -176,7 +176,7 @@ function App() {
         } />
 
         <Route path="/Profile" element={
-          <Profile 
+          <Profile
             username={username}
             setUsername={setUsername}
             setBalance={setBalance}
@@ -187,7 +187,7 @@ function App() {
         } />
 
         <Route path="/HomeExpert" element={
-          <HomeExpert 
+          <HomeExpert
             username={username}
             games={games}
             setGames={setGames}
@@ -195,21 +195,21 @@ function App() {
         } />
 
         <Route path="/AddExpert" element={
-          <AddExpert 
+          <AddExpert
             username={username}
             dark={dark}
           />
         } />
 
         <Route path="/HomeAdmin" element={
-          <HomeAdmin 
+          <HomeAdmin
             username={username}
             dark={dark}
           />
         } />
 
         <Route path="/AddGame" element={
-          <AddGame 
+          <AddGame
             username={username}
             email={email}
             dark={dark}
@@ -217,14 +217,14 @@ function App() {
         } />
 
         <Route path="/ShowExperts" element={
-          <ShowExperts 
+          <ShowExperts
             username={username}
             dark={dark}
           />
         }/>
 
         <Route path="/ProfileExpert" element={
-          <ProfileExpert 
+          <ProfileExpert
             username={username}
           />
         }/>
