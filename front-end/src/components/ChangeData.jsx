@@ -91,44 +91,44 @@ export default function ChangeData(props){
     // a variável sec determina se é renderizado o changeData normal ou o dos dados seguros
     return (
         <div className="changeDataOutDiv">
-                <button className='ftLogout' onClick={logOut}> Log out </button>
-                <button className='fttakeOut' onClick={withdrawPop}> Levantar </button>
-                <button className='ftdeposit' onClick={depositPop}> Depositar </button>
+                <button className={`ftLogout${dark}`} onClick={logOut}> Log out </button>
+                <button className={`fttakeOut${dark}`} onClick={withdrawPop}> Levantar </button>
+                <button className={`ftdeposit${dark}`} onClick={depositPop}> Depositar </button>
                 <img src = {goBackImg} className={`ftgoBack${dark}`} onClick={goBack}/>
                 
-                <h4 className="clickHistory"> Consultar Histórico de Apostas</h4>
-                <button  className='ftChangeToHist' onClick={goToHistory}> {'>'} </button>
-                <form onSubmit = {handleSubmit} >
+                <h4 className={`clickHistory${dark}`}> Consultar Histórico de Apostas</h4>
+                <button  className={`ftChangeToHist${dark}`} onClick={goToHistory}> {'>'} </button>
+                <form onSubmit = {handleSubmit}>
 
                 {sec === 0 && 
                 <div>
-                        <h4 className='hName'> Nome : </h4>
+                        <h4 className={`hName${dark}`}> Nome : </h4>
                     
-                        <input className= "ftinputName" onChange={handleChange} type = "text" placeholder={props.userN} name="name" value = {formData.name}></input>
+                        <input className= {`ftinputName${dark}`} onChange={handleChange} type = "text" placeholder={props.userN} name="name" value = {formData.name}></input>
                             
-                        <button  className='ftConfirm'> Confirm</button>
+                        <button  className={`ftConfirm${dark}`}> Confirm</button>
                 </div>
                 }
                 {sec === 1 && 
                 <div>
-                        <h4 className='fthPhoneNum'> Número de telemovel : </h4>
+                        <h4 className={`fthPhoneNum${dark}`}> Número de telemovel : </h4>
                     
-                        <input className= "ftPhoneChange" onChange={handleChange} type = "number" placeholder="Phone" name="phone_num" value = {formData.phone_num}></input>
+                        <input className= {`ftPhoneChange${dark}`} onChange={handleChange} type = "number" placeholder="Phone" name="phone_num" value = {formData.phone_num}></input>
 
-                        <h4 className='fthPass'> Password : </h4>
+                        <h4 className={`fthPass${dark}`}> Password : </h4>
                     
-                        <input className= "ftPasswordChange" onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
+                        <input className= {`ftPasswordChange${dark}`} onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
                             
-                        <h4 className='fthAddress'> Alterar Morada : </h4>
+                        <h4 className={`fthAddress${dark}`}> Alterar Morada : </h4>
                     
-                        <input className= "ftAddrChange" onChange={handleChange} type = "text" placeholder="Morada" name="add" value = {formData.add}></input>
+                        <input className= {`ftAddrChange${dark}`} onChange={handleChange} type = "text" placeholder="Morada" name="add" value = {formData.add}></input>
 
                         
-                        <button  className='ftConfirm'> Confirm</button>
+                        <button  className={`ftConfirm${dark}`}> Confirm</button>
                 </div>}
                 </form>
-                {sec === 0 && <button  className='ftChangeSec' onClick={loadPopEmail}> Mudar Dados Seguros</button>} 
-                {sec === 1 && <button  className='ftChangeCancel' onClick={cancelBut}> Cancel</button>        }
+                {sec === 0 && <button  className={`ftChangeSec${dark}`} onClick={loadPopEmail}> Mudar Dados Seguros</button>} 
+                {sec === 1 && <button  className={`ftChangeCancel${dark}`} onClick={cancelBut}> Cancel</button>        }
                 
         </div>
 

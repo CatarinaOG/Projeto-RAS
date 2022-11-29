@@ -164,7 +164,7 @@
 }
 
 
-.resultBoxSelectedMotoGP{
+.resultBoxSelectedMotoGPDark{
     font-family: 'Spinnaker';
     text-align: center;
     border-radius: 10px;
@@ -175,7 +175,7 @@
     border: 1px solid #F07444;
 }
 
-.resultBoxNotSelectedMotoGP{
+.resultBoxNotSelectedMotoGPDark{
     font-family: 'Spinnaker';
     text-align: center;
     border-radius: 10px;
@@ -385,7 +385,7 @@
 /*---------------------------- REPORT BET -------------------------*/
 
 
-.top{
+.topDark{
     background-color: darkgrey;
     margin: 0px 10px 0px 10px;
     height: 20px;
@@ -395,23 +395,8 @@
     position: relative;
 }
 
-.game{
-    font-family: Spinnaker;
-    font-size: 18px;
-    font-weight: 800;
-}
 
-.close{
-    position: absolute;
-    top:10px;
-    right: 5px;
-}
-.close:hover{
-    cursor: pointer;
-}
-
-
-.bottom{
+.bottomDark{
     background-color: darkgrey;
     margin: 0px 10px 0px 10px;
     height: 40px;
@@ -421,42 +406,9 @@
     position: relative;
 }
 
-.reportBet{
-    font-family: Spinnaker;
-    font-size: 15px;
-    padding-top: 10px;
-}
-
-.fullReportBet{
+.fullReportBetDark{
     margin-bottom: 20px;
 }
-
-.quote{
-    font-family: Spinnaker;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    width: 90px;
-    padding: 4px;
-}
-
-.amount{
-    font-family: Spinnaker;
-    position: absolute;
-    top: 5px;
-    right: 110px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    width: 90px;
-    padding: 4px;
-    height: 20px;
-    text-align: center;
-}
-
 
 /*------------------------------ MODAL CONFIRMATION ----------------------------*/
 

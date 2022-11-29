@@ -9,16 +9,16 @@ import PopUpPaypal from './PopUpPaypal';
 
 export default function PopUpOperation(props){
 
-    const {showPopUp, setShowPopUp,setBalance,email} = props;
+    const {showPopUp, setShowPopUp,setBalance,email,dark} = props;
 
     const [method , setMethod] = useState('');
 
 
     return(
-        <div className="ftboxConfirmOp">
-            {method==='' && <PopUpMethod showPopUp={showPopUp} setShowPopUp={setShowPopUp} setMethod={setMethod}/>}
-            {method==='Maestro' && <PopUpMaestro setMethod={setMethod} showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp}/>}
-            {method==='Paypal' && <PopUpPaypal setMethod={setMethod} showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp}/>}
+        <div className={`ftboxConfirmOps${dark}`}>
+            {method==='' && <PopUpMethod showPopUp={showPopUp} setShowPopUp={setShowPopUp} setMethod={setMethod} dark={dark}/>}
+            {method==='Maestro' && <PopUpMaestro setMethod={setMethod} showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp} dark={dark}/>}
+            {method==='Paypal' && <PopUpPaypal setMethod={setMethod} showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp} dark={dark}/>}
         </div>
     )
 }

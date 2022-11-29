@@ -13,12 +13,8 @@ export default function Link({search,setFilter,highlight,dark}){
         }
     }
 
-    console.log(dark)
-
     function changeSearching(){
-
         setFilter(search)
-
     }
 
     return(

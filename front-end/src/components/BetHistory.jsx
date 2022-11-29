@@ -6,12 +6,13 @@ import TableTransact from "./TableTransact";
 
 export default function BetHistory(props){
 
-    const {setDivChoice, betHist} = props
+    const {setDivChoice, betHist,email} = props
 
     const [typeData, setTypeData] = useState('Bet');
 
     const [multipleState,setMultipleState] = useState('inactive');
     const [simpleState,setSimpleState] = useState("inactive");
+    const [transactHist,setTransactHist] = useState([])
 
     //comportamento do botão para voltar para tras
     function goToData(){
@@ -64,6 +65,31 @@ export default function BetHistory(props){
     }
   ]
 
+  useEffect(() => {
+    
+    fetch('http://127.0.0.1:8080/api/users/transaction_history',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          email: email})
+        })
+    .then(response => response.json())
+    .then(data => {
+        if(data.transactions){
+            setTransactHist(data.transactions)
+        }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    })
+    
+    
+
+    
+  },[])  
+
 
 
 const fullbetHist = () => (
@@ -95,9 +121,7 @@ const fullbetHist = () => (
   </ul>)
 
 
-useEffect(() => {
- 
-},[])
+
 
 
     const data = [
@@ -155,7 +179,7 @@ useEffect(() => {
         <div className="buttonHistoryDiv">
           <img onClick={goToDataToBet} src = {goBack} className="ftgoBack"/>
         </div>
-        <TableTransact data={data}></TableTransact>
+        <TableTransact data={transactHist}></TableTransact>
        </div>
        }   
       </div>

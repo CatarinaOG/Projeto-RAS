@@ -1,7 +1,7 @@
 
 export default function BetBoxMotoGP(props){
 
-    const {sport,name,id,gameId,result,odd,selected,changeSelected} = props
+    const {sport,name,id,gameId,result,odd,selected,changeSelected,dark} = props
 
     // Retirar aposta de selecionada se clicar no bloco
     function changeSelectedResults(){
@@ -12,7 +12,7 @@ export default function BetBoxMotoGP(props){
 
     return(
 
-        <div className={ selected ? "resultBoxSelectedMotoGP" : "resultBoxNotSelectedMotoGP"} onClick={changeSelectedResults}>
+        <div className={ selected ? `resultBoxSelectedMotoGP${dark}` : `resultBoxNotSelectedMotoGP${dark}`} onClick={changeSelectedResults}>
             <h3>{result}</h3>
             <p>{odd}</p>
         </div>

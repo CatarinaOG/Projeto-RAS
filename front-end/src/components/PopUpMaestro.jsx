@@ -5,7 +5,7 @@ import PopUpMessage from "./PopUpMessagePayment";
 
 export default function PopUpMaestro(props){
 
-    const {setMethod,showPopUp,email,setBalance,setShowPopUp} = props;
+    const {setMethod,showPopUp,email,setBalance,setShowPopUp,dark} = props;
     const [stateOp,setStateOp] = useState("");
     const [message,setMessage] = useState("");
     
@@ -89,13 +89,13 @@ export default function PopUpMaestro(props){
         <div>
             {stateOp=== "" && 
                 <div>
-                    <h1 className='fth1Pop'>Insira os dados</h1>
+                    <h1 className={`fth1Pop${dark}`}>Insira os dados</h1>
                     <form onSubmit={handleSubmit}>
-                        <input onChange={handleChange} value={formData.cardNum} name="cardNum" type="number" className="ftMaestroPopNum" placeholder="Número do Cartão"></input>
-                        <input onChange={handleChange} value={formData.cardCCV} name="cardCCV" type="number" className="ftMaestroPopCCV" placeholder="CCV"></input>
-                        <h4 className="ftOperationValuePrompt">Valor a transferir</h4>
-                        <input onChange={handleChange} value={formData.operationValue} name="operationValue" type="number" className="ftOperationValue" placeholder="Valor"></input>
-                        <button className="ftOperationButton">Confirm</button>
+                        <input onChange={handleChange} value={formData.cardNum} name="cardNum" type="number" className={`ftMaestroPopNum${dark}`} placeholder="Número do Cartão"></input>
+                        <input onChange={handleChange} value={formData.cardCCV} name="cardCCV" type="number" className={`ftMaestroPopCCV${dark}`} placeholder="CCV"></input>
+                        <h4 className={`ftOperationValuePrompt${dark}`}>Valor a transferir</h4>
+                        <input onChange={handleChange} value={formData.operationValue} name="operationValue" type="number" className={`ftOperationValue${dark}`} placeholder="Valor"></input>
+                        <button className={`ftOperationButton${dark}`}>Confirm</button>
                     </form>
                     <img src = {closeImg} className='close' onClick={close}/>
                 

@@ -9,7 +9,7 @@ import remove from '../images/remove.png'
 
 export default function ShowExperts(props){
 
-    const {username} = props
+    const {username,dark} = props
 
     let navigate = useNavigate()
     
@@ -90,7 +90,10 @@ export default function ShowExperts(props){
 
     return(
         <div>
-            <NavBarProfile username={username}/>
+            <NavBarProfile 
+                username={username}
+                dark={dark}
+            />
             <div className='ftwhiteShadow'>
                 <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
                 <h1 className = "ftAddSp">Consultar Especialista</h1>

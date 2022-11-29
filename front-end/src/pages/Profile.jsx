@@ -2,8 +2,6 @@
 import '../styles/Profile.css'
 import '../styles/ProfileSec.css'
 
-import { useEffect } from 'react'
-
 import NavBarProfile from "../components/NavBarProfile"
 import IdSaldo from '../components/IdSaldo'
 import ChangeData from '../components/ChangeData'
@@ -23,13 +21,13 @@ export default function Profile(props){
     const [divChoice,setDivChoice] = useState("Data")
     const [showPopUp,setShowPopUp] = useState("")
     const [sec,setSec] =useState(0)
-
+    const [safeCode,setSafeCode] = useState("")
 
     const [betHist,setBetHist] = useState([])
-    const [transactHist,setTransactHist] = useState([])
 
+    /*
     useEffect(() => {
-        /*
+        
         fetch('http://127.0.0.1:8080/api/users/bet_history',{
 				method: 'POST',
 				headers: {
@@ -46,33 +44,12 @@ export default function Profile(props){
         })
         .catch((error) => {
           console.error('Error:', error);
-        });
-        */
-        
-      },[])
-
-      useEffect(() => {
-        /*
-        fetch('http://127.0.0.1:8080/api/users/transaction_history',{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ 
-					email_user: email
-        	})
-        .then(response => response.json())
-        .then(data => {
-            if(data.transactions){
-                setTransactHist(data.transactions)
-            }
         })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-        */
         
-      },[])  
+      },[])})
+    */
+  
+      console.log(username)
 
 
     return(
@@ -100,31 +77,33 @@ export default function Profile(props){
                         <BetHistory 
                             setDivChoice={setDivChoice}
                             betHist = {betHist}
+                            email = {email}
                         />
                     }
                 </div>
             </div>
             {(showPopUp == 'deposit' || showPopUp=='transfer') && 
                 <div>
-                    <div  className="ftbackgroundModal"></div>
+                    <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpOperation 
                         showPopUp={showPopUp} 
                         setShowPopUp={setShowPopUp}
                         setBalance={setBalance}
                         email={email}
+                        dark={dark}
                     />
                 </div>
             }
             {(showPopUp == 'changeSec') && 
                 <div>
-                    <div  className="ftbackgroundModal"></div>
-                    <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email}/>
+                    <div  className={`ftbackgroundModal${dark}`}></div>
+                    <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email} setSafeCode={setSafeCode} safeCode={safeCode} dark={dark}/>
                 </div>
             }
             {(showPopUp == 'confirm') && 
                 <div>
-                    <div  className="ftbackgroundModal"></div>
-                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} email = {email} />
+                    <div  className={`ftbackgroundModal${dark}`}></div>
+                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} safeCode={safeCode} dark={dark}/>
                 </div>
             }
             
