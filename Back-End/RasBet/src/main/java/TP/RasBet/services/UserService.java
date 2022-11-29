@@ -158,9 +158,18 @@ public class UserService {
         String email = cpf.getEmail_user();
         User u = userRepo.findUserByEmail(email).get();
 
-        u.setAddress(cpf.getNew_add());
-        u.setPassword(cpf.getPassword());
-        u.setPhone(cpf.getPhone_num());
+        if(u.getAddress() != null){
+            u.setAddress(cpf.getNew_add());
+        }
+        if(u.getPassword() != null){
+            u.setPassword(cpf.getPassword());
+        }
+        if(u.getPassword() != null){
+            u.setPhone(cpf.getPhone_num());
+        }
+        
+        
+        
 
         userRepo.save(u);
 
