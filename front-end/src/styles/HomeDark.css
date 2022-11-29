@@ -156,7 +156,7 @@
     margin: 21px 0px 0px 0px;
     text-align: center;
     border-radius: 10px;
-    background-color: #635d5f;
+    background-color: darkgray;
     height: 50px;
     width: 100px;
     padding: 7px 7px 7px 7px;
@@ -179,7 +179,7 @@
     font-family: 'Spinnaker';
     text-align: center;
     border-radius: 10px;
-    background-color: #635d5f;
+    background-color: darkgray;
     height: 50px;
     width: 100px;
     padding: 7px 7px 7px 7px;
@@ -198,3 +198,315 @@
 
 }
 
+
+/*--------------------------- REPORT ------------------------*/
+
+
+
+.mainDark{
+    background: #635d5f;
+    border: 1px solid #ABB0B8;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 41.5vw;
+    height: 87vh;
+    position: relative;
+    z-index: 2;
+}
+
+.title{
+
+    text-align: center;
+    font-family: 'Spinnaker';
+    margin-top: 5px;
+
+}
+
+.buttons{
+
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+
+.typeNotSelected{
+
+    width: 150px;
+    height: 30px;
+    font-family: 'Spinnaker';
+    background-color: #FAFAFA;
+    border-width: thin;
+
+
+}
+
+.typeSelected{
+
+    width: 150px;
+    height: 30px;
+    background-color: #323332;
+    color: #FAFAFA;
+    border-width: thin;
+    font-family: 'Spinnaker';
+
+}
+
+.reportBetsSingle{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 63%;
+
+}
+
+
+.reportBetsMultiple{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 55%;
+
+}
+
+.reportBetsSingle::-webkit-scrollbar{
+    width: 1em;
+}
+
+.reportBetsSingle::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.reportBetsSingle::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+
+
+.reportBetsMultiple::-webkit-scrollbar{
+    width: 1em;
+}
+
+.reportBetsMultiple::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.reportBetsMultiple::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+/*---------------------------- PLACEBET ---------------------*/
+
+
+.placeBetDark{
+    background-color: #323332;
+    position: absolute;
+    bottom: 15px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 80px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.quote2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 110px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+}
+
+.amount2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+    text-align: center;
+}
+
+.betButton{
+
+    font-family: Spinnaker;
+    font-size: 20px;
+    background-color: #F07444;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    width: 150px;
+    border: thin solid #F07444;
+    color: white;
+
+
+}
+
+
+/*-------------------------- SIMPLEINPUT -----------------------*/
+
+.simpleInputDark{
+    background-color: #323332;
+    position: absolute;
+    bottom: 100px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 50px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.leftSideDark > h3{
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.leftSideDark > p {
+    font-size: 20px;
+    margin-top: 6px;
+    color: #F07444;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+/*---------------------------- REPORT BET -------------------------*/
+
+
+.top{
+    background-color: darkgrey;
+    margin: 0px 10px 0px 10px;
+    height: 20px;
+    top: 10px;
+    padding: 5px 0px 10px 10px;
+    width: 93%;
+    position: relative;
+}
+
+.game{
+    font-family: Spinnaker;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.close{
+    position: absolute;
+    top:10px;
+    right: 5px;
+}
+.close:hover{
+    cursor: pointer;
+}
+
+
+.bottom{
+    background-color: darkgrey;
+    margin: 0px 10px 0px 10px;
+    height: 40px;
+    top: 15px;
+    padding: 0px 0px 0px 10px;
+    width: 93%;
+    position: relative;
+}
+
+.reportBet{
+    font-family: Spinnaker;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.fullReportBet{
+    margin-bottom: 20px;
+}
+
+.quote{
+    font-family: Spinnaker;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+}
+
+.amount{
+    font-family: Spinnaker;
+    position: absolute;
+    top: 5px;
+    right: 110px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+    height: 20px;
+    text-align: center;
+}
+
+
+/*------------------------------ MODAL CONFIRMATION ----------------------------*/
+
+
+.backgroundModalDark{
+    background: #000000;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+}
+
+.boxConfirmDark{
+    background:  #A9A9A9;
+    opacity: 4;
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    left: 3vw;
+    top: 30vh;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 3;
+
+}
+
+
+.paragraphModalConfirmation2Dark{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-family: Spinnaker;
+}
+
+
+.valueConfirmationDark{
+    font-family: Spinnaker;
+    text-align: center;
+    width: 60px;
+    padding: 5px;
+    margin: 7vh;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+
+
+.hideDark{
+    color: #A9A9A9;
+}

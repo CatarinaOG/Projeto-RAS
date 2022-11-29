@@ -18,7 +18,7 @@ import { useState } from 'react'
 export default function Profile(props){
 
     
-    const {username,setUsername,setBalance,balance,email} = props
+    const {username,setUsername,setBalance,balance,email,dark} = props
 
     const [divChoice,setDivChoice] = useState("Data")
     const [showPopUp,setShowPopUp] = useState("")
@@ -54,11 +54,15 @@ export default function Profile(props){
 
 
     return(
-        <div className='ftProfile'>
+        <div className={`ftProfile${dark}`}>
             <div>
-                <NavBarProfile username={username}/>
-                <div className='ftwhiteShadow'>
-                    <IdSaldo username={username} balance={balance}/>
+                <NavBarProfile username={username} dark={dark}/>
+                <div className= {`ftwhiteShadow${dark}`}>
+                    <IdSaldo 
+                        username={username} 
+                        balance={balance}
+                        dark={dark}
+                    />
                     {divChoice === "Data" && 
                         <ChangeData
                             setUsername={setUsername}
@@ -67,6 +71,7 @@ export default function Profile(props){
                             email = {email}
                             sec = {sec}
                             setSec={setSec}
+                            dark={dark}
                         /> 
                     }
                     {divChoice === "BetHistory" && 

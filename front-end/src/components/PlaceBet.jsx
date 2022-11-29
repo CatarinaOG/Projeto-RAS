@@ -1,7 +1,7 @@
 
 export default function PlaceBet(props){
 
-    const {gains,setModalConfirmation} = props;
+    const {gains,setModalConfirmation,dark} = props;
 
     function bet() {
         setModalConfirmation(true)
@@ -9,8 +9,8 @@ export default function PlaceBet(props){
 
     return(
 
-        <div className='placeBet'>
-            <div className='leftSide'>
+        <div className={`placeBet${dark}`}>
+            <div className={`leftSide${dark}`}>
                 <h3>Total de Ganhos:</h3>
                 <p>{gains.toFixed(2)} $</p>
             </div>

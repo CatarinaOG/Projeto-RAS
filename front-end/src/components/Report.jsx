@@ -11,7 +11,7 @@ import ReportBetMotoGP from "./ReportBetMotoGP"
 
 export default function Report(props){
 
-    const {games,selected,email,setBalance,setSelected} = props
+    const {games,selected,email,setBalance,setSelected,dark} = props
 
     const [type,setType] = useState('simple')                   // Utilizado para saber o tipo de aposta (simples vs multipla)
     const [amountMultiple, setAmountMultiple] = useState(0)     // Utilizado para guardar o amount da aposta múltipla
@@ -136,6 +136,7 @@ export default function Report(props){
                     type={type}
                     amountMultiple={amountMultiple}
                     setBalance={setBalance}
+                    dark={dark}
                 />
             }
 
@@ -145,7 +146,7 @@ export default function Report(props){
                 />
             }
 
-            <div className="main">
+            <div className={`main${dark}`}>
                 <h1 className="title">Boletim</h1>
                 <div className="buttons">
                     <button id='simple' className={ type == 'simple' ? "typeSelected" : 'typeNotSelected'} onClick={changeType}>Simples</button>
@@ -154,11 +155,17 @@ export default function Report(props){
                 <div className={type == 'simple' ? "reportBetsSingle" : "reportBetsMultiple"}>
                     {reportBets}
                 </div>
-                {type === 'multiple' && <SimpleInput quote={getQuotaMultiple()} setAmountMultiple={setAmountMultiple}/>}
-
+                {type === 'multiple' && 
+                    <SimpleInput 
+                        quote={getQuotaMultiple()} 
+                        setAmountMultiple={setAmountMultiple}
+                        dark={dark}
+                    />
+                }
                 <PlaceBet 
                     setModalConfirmation={setModalConfirmation} 
                     gains={ type === 'simple' ? getGainsSimple() : getGainsMultiple()}
+                    dark={dark}
                 />
             </div>
 

@@ -1,0 +1,117 @@
+/*------------------------------- PROFILE ---------------------------*/
+
+.ftProfileDark{
+    background-color: black;
+    height: 100vh;
+}
+
+.ftwhiteShadowDark{
+    position: relative;
+    width: 60vw;
+    height: 80vh;
+    top: 2vh;
+    bottom: 2vh;
+    left : 20vw;
+    background: #323332;
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+
+/*-------------------------------- IDSALDO ---------------------*/
+
+.ftusernameDark{
+    color: white;
+    font-family: 'Spinnaker';
+    font-style: normal;
+}
+
+.ftvalDark{
+    color: white;
+    font-family: 'Spinnaker';
+    font-style: normal;
+
+}
+
+/*------------------------------ CHANGEDATA ----------------------------*/
+
+
+.ftinputName{
+    position: absolute;
+    height: 10%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 10px;
+    top:33%;
+    text-align: center;
+}
+
+.ftinputSurname{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top : 52%;
+}
+
+.ftinputPass{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:72%;
+}
+
+/*----- ChangeData titles----*/
+
+.clickHistory{
+    position: absolute;
+    top:15%;
+    left: 0%;
+    color: #18340C;
+    font-size: 19px;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hName{
+    position: absolute;
+    top:35%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hSurname{
+    position: absolute;
+    top:55%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hPassword{
+    position: absolute;
+    top:75%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+
+.ftgoBackDark{
+    position: absolute;
+    top: -9%;
+    left: -15%;
+    scale: 0.8;
+}
+
+.ftgoBackDark:hover{
+    cursor: pointer;
+}

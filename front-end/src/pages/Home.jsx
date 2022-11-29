@@ -86,9 +86,9 @@ export default function Home(props){
                     email={email}
                     setBalance={setBalance}
                     setSelected={setSelected}
+                    dark={dark}
                 />
             </div>
-
         </div>
     )
 
