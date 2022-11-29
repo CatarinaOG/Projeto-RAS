@@ -267,7 +267,7 @@
     position: absolute;
 
     height: 15%;
-    width: 18%;
+    width: 30%;
 
     color: #F07444;
     border-radius: 10px;
@@ -275,7 +275,7 @@
 
     font-family: 'Spinnaker';
     font-weight: 400;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 30px;
 
     background-color: white;
@@ -295,7 +295,7 @@
     position: absolute;
 
     height: 15%;
-    width: 18%;
+    width: 30%;
 
     color: #F07444;
     border-radius: 10px;
@@ -309,7 +309,7 @@
     background-color: white;
 
     top: 80%;
-    left: 20%;
+    left: 10%;
 }
 
 .ftChangeCancel{

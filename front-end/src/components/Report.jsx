@@ -92,7 +92,7 @@ export default function Report(props){
 
         if(sport === 'motoGP'){
             return(
-                <div className="fullReportBet">
+                <div className={`fullReportBet${dark}`} >
                 <ReportBetMotoGP
                     key={id}
                     id={id}
@@ -102,12 +102,13 @@ export default function Report(props){
                     type={type}
                     selected={selected}
                     setSelected={setSelected}
+                    dark={dark}
                 />
             </div>
             )
         }else{
             return(
-                <div className="fullReportBet">
+                <div className={`fullReportBet${dark}`} >
                     <ReportBet 
                         key={id}
                         id={id}
@@ -117,6 +118,7 @@ export default function Report(props){
                         type={type}
                         selected={selected}
                         setSelected={setSelected}
+                        dark={dark}
                     />
                 </div>
             )

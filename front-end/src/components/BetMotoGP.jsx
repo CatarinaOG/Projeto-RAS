@@ -35,6 +35,7 @@ export default function BetMotoGP(props){
             odd={odd}
             selected={getIfSelected(id)}
             changeSelected={changeSelected}
+            dark={dark}
         />
     )
 
