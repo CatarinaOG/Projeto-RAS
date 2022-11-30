@@ -13,12 +13,15 @@ public class Expert implements Serializable{
     private int id;
 
     @Column(name = "email")
+    @Convert(converter = Encrypt.class)
     private String email;
 
     @Column(name = "password")
+    @Convert(converter = Encrypt.class)
     private String password;
 
     @Column(name = "name")
+    @Convert(converter = Encrypt.class)
     private String name;
 
 
