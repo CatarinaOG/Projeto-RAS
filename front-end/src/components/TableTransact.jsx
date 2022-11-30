@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 
 export default function TableTransact(props){
 
-    const {data} = props
+    const {data,dark} = props
 
       
 
@@ -19,10 +19,10 @@ export default function TableTransact(props){
                     <td>
                         <table width="700">
                             <tr>
-                                <th width="400">Data</th>
-                                <th width="400">Descrição</th>
-                                <th width="200">Operação</th>
-                                <th width="200">Saldo Após Transação</th>
+                                <th className={`ftth${dark}`} width="400">Data</th>
+                                <th className={`ftth${dark}`} width="400">Descrição</th>
+                                <th className={`ftth${dark}`} width="200">Operação</th>
+                                <th className={`ftth${dark}`} width="200">Saldo Após Transação</th>
 
                             </tr>
                         </table>
@@ -35,10 +35,10 @@ export default function TableTransact(props){
                             {data.map((val, key) => {
                                 return (
                                   <tr key={key}>
-                                    <td width="400">{val.date}</td>
-                                    <td width="400">{val.description}</td>
-                                    <td width="200">{val.operation}</td>
-                                    <td width="200">{val.balance}</td>
+                                    <td className={`fttd${dark}`} width="400">{val.date}</td>
+                                    <td className={`fttd${dark}`} width="400">{val.description}</td>
+                                    <td className={`fttd${dark}`} width="200">{val.operation}</td>
+                                    <td className={`fttd${dark}`} width="200">{val.balance}</td>
                                   </tr>
                                 )
                               })}

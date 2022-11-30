@@ -613,3 +613,102 @@
     background-color: #ABB0B8;
 
 }
+
+/*------------------------------ BET HISTORY ----------------------------*/
+
+
+.ftsimpleBetDark{
+    position: absolute;
+    color: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+
+    height: 15%;
+    width: 25%;
+    top: -5%;
+    left:8%;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+    background-color: #635d5f;
+}
+
+.ftmultipleBetDark{
+    color: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+
+    height: 15%;
+    width: 25%;
+    top: 0%;
+    border: 1px solid #F07444 ;
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+    background-color: #635d5f;
+
+    position: absolute;
+    top: -5%;
+    left: 50%;
+}
+
+.ftTotalGainsDark{
+    top:15.5%;
+    left: 20%;
+    position: absolute;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: white;
+}
+
+.ftbetHistBoxDark{
+    width: 40.5vw;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: flex;
+    font-family: 'Spinnaker';
+    padding-bottom: 3%;
+    justify-content: space-around;
+    background-color: #323332;
+}
+
+.ftbetHistInfoDark{
+    font-family: 'Spinnaker';
+    margin: 14px 0px 0px 20px;
+    width: 50%;
+    position: relative;
+    border-right: 2px dashed white;
+
+}
+
+.fth4SingleBetHistDark{
+    color: white;
+}
+
+.ftpSingleBetHistDark{
+    color: white;
+}
+
+.fth3SingleBetHistDark{
+    color: white;
+}
+
+
+.ftthDark{
+    color: white;
+    border-bottom: 1px solid white;
+
+}
+
+.fttdDark{
+    color: white;
+}

@@ -2,7 +2,7 @@ import SingleBetHist from "./SingleBetHist"
 
 export default function BetHistoryBox(props){
 
-    const {bet,ammount,winnings} = props
+    const {bet,ammount,winnings,dark} = props
 
     
     
@@ -25,6 +25,7 @@ export default function BetHistoryBox(props){
         <SingleBetHist
             name = {result.name}
             winner = {result.winner}
+            dark = {dark}
         />
     )
     const notNull = true
@@ -37,13 +38,13 @@ export default function BetHistoryBox(props){
 
     if(notNull){
         return(
-            <div className="ftbetHistBox">
-                <div className="ftbetHistInfo">
+            <div className={`ftbetHistBox${dark}`}>
+                <div className={`ftbetHistInfo${dark}`}>
                     {betResults}
                 </div>
                 <div className="ftResultsInfo">
-                    <h3>Montante apostado :{ammount}</h3>
-                    <h3>Total ganho : {winnings}</h3>
+                    <h3 className={`fth3SingleBetHist${dark}`}>Montante apostado :{ammount}</h3>
+                    <h3 className={`fth3SingleBetHist${dark}`}>Total ganho : {winnings}</h3>
 
                 </div>
             </div>

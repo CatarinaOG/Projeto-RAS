@@ -6,7 +6,7 @@ import TableTransact from "./TableTransact";
 
 export default function BetHistory(props){
 
-    const {setDivChoice, betHist,email} = props
+    const {setDivChoice, betHist,email,dark} = props
 
     const [typeData, setTypeData] = useState('Bet');
 
@@ -104,7 +104,7 @@ const fullbetHist = () => (
 
         console.log("ENTREI AQUI")
         return (
-          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings}></BetHistoryBox>
+          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
          
         );
       }
@@ -112,7 +112,7 @@ const fullbetHist = () => (
         console.log("ENTREI ACOLÁ")
         
         return (
-          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings}></BetHistoryBox>
+          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
       
         );
       }
@@ -155,10 +155,10 @@ const fullbetHist = () => (
         { typeData === 'Bet' &&
         <div>
           <div className="buttonHistoryDiv">
-            <button className={ simpleState ==='inactive' ? "ftsimpleBet" : "ftsimpleBetSelected"} onClick={changeSimpleState}>Simples</button>
-            <button className={ multipleState ==='inactive' ? "ftmultipleBet" : "ftmultipleBetSelected"} onClick={changeMultState}>Múltiplas</button>
-            <img onClick={goToData} src = {goBack} className="ftgoBack"/>
-            <h4 className="ftTotalGains">Gastos Totais/ Ganhos totais:</h4>
+            <button className={ simpleState ==='inactive' ? `ftsimpleBet${dark}` : "ftsimpleBetSelected"} onClick={changeSimpleState}>Simples</button>
+            <button className={ multipleState ==='inactive' ? `ftmultipleBet${dark}` : "ftmultipleBetSelected"} onClick={changeMultState}>Múltiplas</button>
+            <img onClick={goToData} src = {goBack} className={`ftgoBack${dark}`}/>
+            <h4 className={`ftTotalGains${dark}`}>Gastos Totais/ Ganhos totais:</h4>
             <button  className='ftChangeToTransact' onClick={changeToTransact} > {'>'} </button>
           </div>
           {simpleState === 'active'  &&
@@ -177,9 +177,9 @@ const fullbetHist = () => (
        {typeData === 'Transact' &&
        <div>
         <div className="buttonHistoryDiv">
-          <img onClick={goToDataToBet} src = {goBack} className="ftgoBack"/>
+          <img onClick={goToDataToBet} src = {goBack} className={`ftgoBack${dark}`}/>
         </div>
-        <TableTransact data={transactHist}></TableTransact>
+        <TableTransact data={transactHist} dark={dark}></TableTransact>
        </div>
        }   
       </div>

@@ -78,6 +78,7 @@ export default function Profile(props){
                             setDivChoice={setDivChoice}
                             betHist = {betHist}
                             email = {email}
+                            dark={dark}
                         />
                     }
                 </div>
