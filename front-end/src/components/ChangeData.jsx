@@ -38,9 +38,7 @@ export default function ChangeData(props){
 
     function handleSubmit(event){
         event.preventDefault();
-
-        event.preventDefault()
-
+                
 		if(formData.firstName!=""){
 			fetch('http://127.0.0.1:8080/api/users/change_profile', {
 				method: 'POST',

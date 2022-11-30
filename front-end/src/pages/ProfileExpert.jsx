@@ -5,7 +5,9 @@ import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
 import logoutImg from "../images/logout.png"
-import icon from "../images/achievement.png"
+import addEvent from "../images/achievement.png"
+import editEvent from "../images/edit.png"
+
 
 
 
@@ -23,6 +25,10 @@ export default function ProfileExpert(props){
         navigate('/AddGame', { replace: true })
     }
 
+    function goToShowGamesExpert(){
+        navigate('/ShowGames', { replace: true })
+    }
+
     function logout(){
         navigate('/', { replace: true })
     }
@@ -36,11 +42,13 @@ export default function ProfileExpert(props){
                 />
             <img src = {goBackImg} className='goBackImg3' onClick={goBack}/>
                 <div className='whiteShadow'>
-                    <div className="contentExpert">
-                        <button className="ButtonsExpert1" onClick={goToAddGame}>Criar Evento</button>
-                        <img src={icon} alt=""  className="ftaddGameImg"/>
-                        <button className="ButtonsExpert2" onClick={logout}>Logout</button>
-                        <img src={logoutImg} alt=""  className="ftadminImg"/>
+                    <div className="contentAdmin">
+                        <button className="ButtonsAdmin" onClick={goToAddGame}>Criar Evento</button>
+                        <img src={addEvent} alt="" className="expertImg1"/>
+                        <button className="ButtonsAdmin" onClick={goToShowGamesExpert}>Consultar Eventos</button>
+                        <img src={editEvent} alt="" className="expertImg2"/>
+                        <button className="ButtonsAdmin" onClick={logout}>Logout</button>
+                        <img src={logoutImg} alt=""  className="adminImg3"/>
                     </div>
                 </div>
                 

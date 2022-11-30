@@ -38,8 +38,6 @@ export default function PopUpEmail(props){
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log("o email é: ",email)
-        console.log("o email inserido é: ",formData.email)
 
         if (formData.email != ""){
             fetch('http://127.0.0.1:8080/api/users/get_code', {
