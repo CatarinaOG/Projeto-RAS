@@ -8,6 +8,7 @@ import './styles/ShowExperts.css'
 import './styles/SignIn.css'
 import './styles/ProfileExpert.css'
 import './styles/ShowGamesExpert.css'
+import './styles/ChangeGameExpert.css'
 
 import './styles/LoginDark.css'
 import './styles/ProfileDark.css'
@@ -38,14 +39,14 @@ import ChangeGameExpert from './pages/ChangeGameExpert'
 
 function App() {
 
-  const [username,setUsername] = useState('')
+  const [username,setUsername] = useState('expert')
   const [email,setEmail] = useState('')
   const [balance,setBalance] = useState(0)
 
 	const [dark,setDark] = useState('')
 
   const [games,setGames] = useState([])
-  const [changeGame,setChangeGame] = useState('')
+  const [expertGame,setExpertGame] = useState('')
 
 
   //--------------- Get Games -----------------
@@ -151,7 +152,6 @@ function App() {
         <Route path="/ShowExperts" element={
           <ShowExperts
             username={username}
-            setChangeGame={setChangeGame}
             dark={dark}
           />
         }/>
@@ -159,6 +159,7 @@ function App() {
         <Route path="/ShowGamesExpert" element={
           <ShowGamesExpert
             username={username}
+            setExpertGame={setExpertGame}
             dark={dark}
           />
         }/>
@@ -166,6 +167,7 @@ function App() {
         <Route path="/ChangeGameExpert" element={
           <ChangeGameExpert
             username={username}
+            expertGame={expertGame}
             dark={dark}
           />
         }/>
