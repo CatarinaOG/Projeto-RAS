@@ -8,13 +8,13 @@ import { useState } from 'react';
 import celebrating from '../images/celebrating.png'
 import RetrievePass from '../components/RetrievePass';
 
-function Recover(){
-
+function Recover(props){
+	const {dark} = props
 	
     return(
-		<div className='page'>
-			<div className='mainLog'>
-					<RetrievePass></RetrievePass>
+		<div className={`page${dark}`}>
+			<div className={`mainLog${dark}`}>
+					<RetrievePass dark={dark}></RetrievePass>
 				<div className='logImage'>
 					<img src={celebrating} className='imageRight'/>
 				</div>

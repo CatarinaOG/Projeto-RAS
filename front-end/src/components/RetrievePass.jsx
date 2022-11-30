@@ -5,9 +5,9 @@ import goBackImg from "../images/goBack.png"
 import logo from '../images/logo.png'
 
 
-export default function RetrievePass() {
+export default function RetrievePass(props) {
 
-
+	const {dark} = props
 	//variavel responsavel pelo conditional rendering 
 	const [message,setMessage]=useState(0)
 
@@ -61,12 +61,12 @@ export default function RetrievePass() {
     return (
         <div className='inputs'>
 			<img className = "ftrasbetLogo" src = {logo}/>
-			<h1 className = "ftwelcomeTitle"> Insira o Email</h1>
-            <img src = {goBackImg} className="ftgoBackReg" onClick={goBack}/>
+			<h1 className = {`ftwelcomeTitle${dark}`}> Insira o Email</h1>
+            <img src = {goBackImg} className={`ftgoBackReg${dark}`} onClick={goBack}/>
 
 			<form onSubmit={handleSubmit}>
-				<input onChange={handleChange} className = "ftEmailRecover" type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
-				<button className = "ftacederLog"> Enviar</button>
+				<input onChange={handleChange} className = {`ftEmailRecover${dark}`} type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
+				<button className = {`ftacederLog${dark}`}> Enviar</button>
 			</form>
 			{message === 2 && <p className='fterrorRecover'>Email não existe</p>}
 			{message === 1 && <p className='fterrorRecover'>Email enviado</p>}

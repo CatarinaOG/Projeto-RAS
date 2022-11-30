@@ -12,6 +12,7 @@ import './styles/ShowGamesExpert.css'
 import './styles/LoginDark.css'
 import './styles/ProfileDark.css'
 import './styles/HomeDark.css'
+import './styles/RecoverDark.css'
 
 
 import {useState} from 'react'
@@ -42,7 +43,7 @@ function App() {
   const [email,setEmail] = useState('')
   const [balance,setBalance] = useState(0)
 
-	const [dark,setDark] = useState('')
+	const [dark,setDark] = useState('Dark')
 
   const [games,setGames] = useState([])
   const [changeGame,setChangeGame] = useState('')
@@ -93,7 +94,7 @@ function App() {
         }/>
 
         <Route path="/Recover" element={
-          <Recover></Recover>
+          <Recover dark={dark}></Recover>
         }/>
 
         <Route path="/Home" element={

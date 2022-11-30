@@ -1,0 +1,154 @@
+
+.pageDark{
+    background-color: #292929;
+    position: absolute;
+    height: 100%;
+    top: 0%;
+    width: 100%;
+}
+
+
+.mainLogDark{
+
+    position: relative;
+
+    width: 90vw;
+    height: 88vh;
+    top: 6vh;
+    bottom: 6vh;
+    
+    left : 5vw;
+    
+    background: #000000 ;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.ftEmailRecoverDark{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 80%;
+    height: 8%;
+
+    text-align: center;
+    
+
+    border: 1px solid black;
+    border-radius: 10px; 
+    background-color: #635d5f;
+
+}
+
+
+
+
+.ftwelcomeTitleDark{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    font-style:normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    color: white;
+    font-family: 'Spinnaker';
+
+}
+
+
+.ftnoAccountHyperDark:hover{
+    cursor: pointer;
+}
+
+.ftnoPassDark{
+    position: absolute;
+    bottom: 43%;
+    color: white;
+    right: 10% ;
+    font-family: 'Spinnaker';
+    font-size: 10px;
+    text-decoration: underline;
+
+}
+
+.ftnoPassDark:hover{
+    cursor: pointer;
+}
+
+
+/*------ InputLogIn Input -----*/
+
+
+.ftuserNameLogDark{
+    
+    position: absolute;
+    top: 33%;
+    left: 10%;
+    width: 80%;
+    height: 8%;
+
+    text-align: center;
+    background-color: #635d5f;
+    border: 1px solid black;
+
+    border-radius: 20px;
+}
+
+.ftpasswordLogDark{
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    left: 10%;
+    height: 8%;
+    width: 80%;
+    text-align: center;
+    
+
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #635d5f;
+
+
+}
+
+.ftacederLogDark:active{
+    border: solid white 1px;
+    background-color: #635d5f;
+
+}
+
+.ftacederLogDark{
+    position: absolute;
+
+    top: 65%;
+    left: 10%;
+    height: 8%;
+    width: 80%;
+
+    background: #292929;
+    border-radius: 20px;
+    color: white;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    border: 1px solid #292929;
+}
+
+.ftacederLogDark:active{
+    border: solid white 1px;
+}
+
+
+.fterrorLogInDark{
+    position: absolute;
+    top:59%;
+    left:29%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: white;
+}
+
