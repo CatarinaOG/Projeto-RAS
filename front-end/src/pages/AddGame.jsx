@@ -165,16 +165,16 @@ export default function AddGame(props){
                     dark={dark}
                 />
                 <div className={`whiteShadow${dark}`}>
-                    <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
+                    <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                     <h1 className={`ftInsertDataGame${dark}`}>Criar Evento</h1>
                     <form onSubmit = {handleSubmit}>
                         <h3 className={`ftpromptSport${dark}`}>Insira o Desporto</h3>
                         <select className={`ftselectSport${dark}`} value={formData.sport} onChange={handleChange} name ="sport">
-                            <option value="">---Escolha---</option>
-                            <option value="Futebol" name="Futebol" >Futebol</option>
-                            <option value="Tenis" name="Tenis" >Ténis</option>
-                            <option value="Basquetebol" name="Basquetebol" >Basquetebol</option>
-                            <option value="motoGP" name="motoGP" >MotoGP</option>
+                            <option className={`ftselectSportOption${dark}`} value="">---Escolha---</option>
+                            <option className={`ftselectSportOption${dark}`} value="Futebol" name="Futebol" >Futebol</option>
+                            <option className={`ftselectSportOption${dark}`} value="Tenis" name="Tenis" >Ténis</option>
+                            <option className={`ftselectSportOption${dark}`} value="Basquetebol" name="Basquetebol" >Basquetebol</option>
+                            <option className={`ftselectSportOption${dark}`} value="motoGP" name="motoGP" >MotoGP</option>
 
 
 

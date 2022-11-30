@@ -68,6 +68,24 @@ body{
     border: 1px solid black;
 }
 
+.ftselectSportOptionDark{
+    color: white;
+}
+
+
+
+.ftselectSportDark::placeholder{
+    position: absolute;
+    text-align: center;
+    top:23%;
+    left: 51%;
+    width: 30.5%;
+    height: 7%;
+    border-radius: 10px;
+    background-color: #A9A9A9;
+    border: 1px solid black;
+}
+
 .ftselectPartADark{
     position: absolute;
     text-align: center;
@@ -78,6 +96,13 @@ body{
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
+
+}
+
+.ftselectPartADark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
 
 }
 
@@ -94,6 +119,13 @@ body{
 
 }
 
+.ftselectPartBDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
 .ftoddADark{
     position: absolute;
     text-align: center;
@@ -104,6 +136,13 @@ body{
     height: 7%;
     border: 1px solid black;
     background:  #A9A9A9;
+
+}
+
+.ftoddADark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
 
 }
 
@@ -120,6 +159,13 @@ body{
 
 }
 
+.ftoddBDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
 .ftoddTieDark{
     position: absolute;
     text-align: center;
@@ -132,6 +178,11 @@ body{
     border: 1px solid black;
 }
 
+.ftoddTieDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
 
 .ftselectTimeDark{
     position: absolute;
@@ -145,6 +196,12 @@ body{
     border: 1px solid black;
 }
 
+.ftselectTimeDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
+
 .ftselectDateDark{
     position: absolute;
     text-align: center;
@@ -155,6 +212,12 @@ body{
     border-radius: 10px;
     background:  #A9A9A9;
     border: 1px solid black;
+}
+
+.ftselectDateDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
 }
 
 
@@ -296,6 +359,14 @@ body{
     font-family: 'Spinnaker';
     font-style: normal;
     color: red;
+}
+
+.goBackImgDark{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    filter: invert(100%);
+
 }
 
 /*----- PopUp addGame -----*/

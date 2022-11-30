@@ -11,6 +11,7 @@ import PopUpCodeEmail from '../components/PopUpCodeEmail'
 import PopUpCodeConfirm from '../components/PopUpCodeConfirm'
 
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 
 export default function Profile(props){
@@ -35,9 +36,10 @@ export default function Profile(props){
 				},
 				body: JSON.stringify({ 
 					email: email
-        	})
+        	})})
         .then(response => response.json())
         .then(data => {
+            console.log("OS DADOS são:",data)
             if(data.betHistory){
                 setBetHist(data.betHistory)
             }
@@ -45,8 +47,9 @@ export default function Profile(props){
         .catch((error) => {
           console.error('Error:', error);
         })
-        
-      },[])})
+        console.log(betHist)
+  },[])  
+      
     */
   
       console.log(username)

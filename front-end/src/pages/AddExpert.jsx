@@ -74,16 +74,16 @@ export default function AddSpecialist(props){
                     username={username}
                     dark={dark}
                 />
-                <img src = {goBackImg} className='ftgoBackImg' onClick={goBack}/>
-                <div className='ftwhiteShadow'>
-                    <h1 className = "ftAddSp">Adicionar Especialista</h1>
+                <img src = {goBackImg} className={`ftgoBackImg${dark}`}onClick ={goBack}/>
+                <div className={`ftwhiteShadow${dark}`}>
+                    <h1 className = {`ftAddSp${dark}`}>Adicionar Especialista</h1>
                     <form onSubmit = {handleSubmit}>
-                        <h3 className='ftpromptUsernameSp'>Insira o username:</h3>
-                        <input type="text" onChange={handleChange} placeholder='username' name = "expert_username" value = {formData.expert_username} className="ftUsernameSp"/>
-                        <h3 className='ftpromptEmailSp'>Insira o email:</h3>
-                        <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className="ftemailSp"/>
-                        <h3 className='ftpromptPassSp'>Insira a password:</h3>
-                        <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ="ftpasswordSp"/>
+                        <h3 className={`ftpromptUsernameSp${dark}`}>Insira o username:</h3>
+                        <input type="text" onChange={handleChange} placeholder='username' name = "expert_username" value = {formData.expert_username} className={`ftUsernameSp${dark}`}/>
+                        <h3 className={`ftpromptEmailSp${dark}`}>Insira o email:</h3>
+                        <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className={`ftemailSp${dark}`}/>
+                        <h3 className={`ftpromptPassSp${dark}`}>Insira a password:</h3>
+                        <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ={`ftpasswordSp${dark}`}/>
                         <button className = "ftaddConcludeSp">Registar</button>
 					    {errorReg === 1 && <p className='fterrorAddEx'>Dados em falta</p>}
 					    {errorReg === 2 && <p className='fterrorAddEx'>Erro: email em uso</p>}
