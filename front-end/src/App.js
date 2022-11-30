@@ -38,7 +38,7 @@ function App() {
 
   const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
-	const [dark,setDark] = useState('')
+	const [dark,setDark] = useState('Dark')
 
   const [balance,setBalance] = useState(0)
 

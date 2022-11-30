@@ -164,12 +164,12 @@ export default function AddGame(props){
                     username={username}
                     dark={dark}
                 />
-                <div className='whiteShadow'>
+                <div className={`whiteShadow${dark}`}>
                     <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
-                    <h1 className='ftInsertDataGame'>Criar Evento</h1>
+                    <h1 className={`ftInsertDataGame${dark}`}>Criar Evento</h1>
                     <form onSubmit = {handleSubmit}>
-                        <h3 className='ftpromptSport'>Insira o Desporto</h3>
-                        <select className='ftselectSport' value={formData.sport} onChange={handleChange} name ="sport">
+                        <h3 className={`ftpromptSport${dark}`}>Insira o Desporto</h3>
+                        <select className={`ftselectSport${dark}`} value={formData.sport} onChange={handleChange} name ="sport">
                             <option value="">---Escolha---</option>
                             <option value="Futebol" name="Futebol" >Futebol</option>
                             <option value="Tenis" name="Tenis" >Ténis</option>
@@ -180,41 +180,41 @@ export default function AddGame(props){
 
                         </select>
                         {formData.sport != "motoGP" && <div>
-                        <h3 className="ftpromptParticipantA">Participante A :</h3>
-                        <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Participante A' name = "participantA" value = {formData.participantA}/>
+                        <h3 className={`ftpromptParticipantA${dark}`}>Participante A :</h3>
+                        <input className ={`ftselectPartA${dark}`} type="text" onChange={handleChange}  placeholder='Participante A' name = "participantA" value = {formData.participantA}/>
 
-                        <h3 className="ftpromptParticipantB">Participante B :</h3>
-                        <input className ="ftselectPartB" type="text" onChange={handleChange} placeholder='Participante B' name = "participantB" value = {formData.participantB}/>
+                        <h3 className={`ftpromptParticipantB${dark}`}>Participante B :</h3>
+                        <input className ={`ftselectPartB${dark}`} type="text" onChange={handleChange} placeholder='Participante B' name = "participantB" value = {formData.participantB}/>
 
-                        <h3 className="ftpromptOdds">Odds:</h3>
-					    <input className='ftoddA' type="number" onChange={handleChange} placeholder = "Odd A" name="oddA" value = {formData.oddA}/>
-					    {formData.sport === "Futebol" && <input className='ftoddTie' type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/> }
-					    <input className='ftoddB' type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
+                        <h3 className={`ftpromptOdds${dark}`}>Odds:</h3>
+					    <input className={`ftoddA${dark}`} type="number" onChange={handleChange} placeholder = "Odd A" name="oddA" value = {formData.oddA}/>
+					    {formData.sport === "Futebol" && <input className={`ftoddTie${dark}`} type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/> }
+					    <input className={`ftoddB${dark}`} type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
 
-                        <h3 className='ftpromptDate'>Data/Hora: </h3>
-                        <input className ="ftselectDate" type="date" onChange={handleChange}  name = "date" value = {formData.date}/>
+                        <h3 className={`ftpromptDate${dark}`}>Data/Hora: </h3>
+                        <input className ={`ftselectDate${dark}`} type="date" onChange={handleChange}  name = "date" value = {formData.date}/>
 
-                        <input className ="ftselectTime" type="time" onChange={handleChange} placeholder='time' name = "time" value = {formData.time}/>
+                        <input className ={`ftselectTime${dark}`} type="time" onChange={handleChange} placeholder='time' name = "time" value = {formData.time}/>
                         </div>}
 
 
 
                         {formData.sport==="motoGP" &&
                         <div >
-                            <h3 className="ftpromptParticipantA">Nome do evento :</h3>
-                            <input className ="ftselectPartA" type="text" onChange={handleChange}  placeholder='Event Name' name = "raceName" value = {formData.raceName}/>
+                            <h3 className={`ftpromptParticipantA${dark}`}>Nome do evento :</h3>
+                            <input className ={`ftselectPartA${dark}`}  type="text" onChange={handleChange}  placeholder='Event Name' name = "raceName" value = {formData.raceName}/>
 
-                            <h3 className='ftpromptEvent'>Insira os Pilotos/odds/data/hora</h3>
-                            <PilotsForm formData={formData} handleChange={handleChange} ></PilotsForm>
+                            <h3 className={`ftpromptEvent${dark}`}>Insira os Pilotos/odds/data/hora</h3>
+                            <PilotsForm formData={formData} handleChange={handleChange} dark={dark}></PilotsForm>
                         </div>}
-                        <button className = "ftadd" >Confirmar</button>
+                        <button className = {`ftadd${dark}`} >Confirmar</button>
 			            {errorReg === 2 && <p className='fterrorAddGame'>Dados em falta</p>}
                     </form>
                 </div>
             </div>
             {confirmed &&
                 <div>
-                    <div className="ftbackgroundModal"></div>
+                    <div className={`ftbackgroundModal${dark}`}></div>
                     <PopUpAddGame
                         setConfirmed={setConfirmed}
                         sportPop={formData.sport}
@@ -226,6 +226,7 @@ export default function AddGame(props){
                         date = {formData.date}
                         time = {formData.time}
                         eventName = {formData.raceName}
+                        dark={dark}
                   />
                 </div>
             }
