@@ -26,7 +26,7 @@ export default function ProfileExpert(props){
     }
 
     function goToShowGamesExpert(){
-        navigate('/ShowGames', { replace: true })
+        navigate('/ShowGamesExpert', { replace: true })
     }
 
     function logout(){

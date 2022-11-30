@@ -19,11 +19,11 @@ public class GamesInOneBet implements Serializable{
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bet_id", referencedColumnName="id")
     private Bet bet;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "game_id", referencedColumnName="id")
     private Game game;
 
