@@ -9,84 +9,14 @@ import remove from '../images/remove.png'
 
 export default function ShowExperts(props){
 
-    const {username,dark} = props
+    const {username,expertGame,dark} = props
+    const {id,sport,home,away} = expertGame
 
     let navigate = useNavigate()
-    
-    const [experts,setExperts] = useState([])
-
-    useEffect(() => {
-      
-      fetch('http://127.0.0.1:8080/api/admin/getExperts', {
-                  method: 'GET',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  }
-      })
-      .then(response => response.json())
-      .then(data => {
-        setExperts(data)
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-          
-    },[])
-
-
-
-    const showExperts = experts.map( ({id,user,email,password}) => {
-
-        function handleRemove(){
-
-          fetch('http://127.0.0.1:8080/api/admin/removeExpert', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id : id })
-          })
-          .then(response => response.json())
-          .then(data => {
-            if(data.state === 'good')
-
-              fetch('http://127.0.0.1:8080/api/admin/getExperts', {
-                  method: 'GET',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  }
-              })
-              .then(response => response.json())
-              .then(data => {
-                setExperts(data)
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
-
-        }
-
-        return(
-            <tr>
-                <img src={remove} alt="" onClick={handleRemove}/>
-                <td width="400">{user}</td>
-                <td width="700">{email}</td>
-                <td width="200">{password}</td>
-            </tr>
-        )
-
-    } )
-
-
 
     function goBack(){
         navigate('/ShowGamesExpert', { replace: true })
     }
-
 
     return(
         <div>
@@ -96,7 +26,28 @@ export default function ShowExperts(props){
             />
             <div className='ftwhiteShadow'>
                 <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
-                <h1 className = "ftAddSp">Finalizar Jogo</h1>
+                <div className="expertGameCenter">
+                    <div>
+                        <h1 className = "expertGameTitle">Finalizar Jogo</h1>
+                        <div className="expertGame">
+                            <div className="resultExpert">
+                                <div>
+                                    <h3 className="resultExpertTitle">{home}</h3>
+                                    <input className="resultExpertInput" type="number" />
+                                </div>
+                            </div>
+                            <div className="resultExpert">
+                                <div>
+                                    <h3 className="resultExpertTitle">{away}</h3>
+                                    <input className="resultExpertInput" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="centerButton">
+                            <button className="buttonConfirmExpertGame">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

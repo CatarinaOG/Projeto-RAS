@@ -9,12 +9,11 @@ import podio from '../images/podio.png'
 
 export default function ShowExperts(props){
 
-    const {username,setChangeGame,dark} = props
+    const {username,setExpertGame,dark} = props
 
     let navigate = useNavigate()
     
-    const [experts,setExperts] = useState([])
-    const [games,setGames] = useState([
+    const [expertGames,setExpertGames] = useState([
       {
         id: 1,
         sport: "motoGP",
@@ -28,23 +27,7 @@ export default function ShowExperts(props){
       }
     ])
 
-    useEffect(() => {
-      
-      fetch('http://127.0.0.1:8080/api/admin/getExperts', {
-                  method: 'GET',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  }
-      })
-      .then(response => response.json())
-      .then(data => {
-        setExperts(data)
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-      
-    },[])
+
 
     function getInEnglish(type){
       switch (type) {
@@ -56,11 +39,12 @@ export default function ShowExperts(props){
     }
     
 
-    const allGames = games.map( game => {
+    const allGames = expertGames.map( game => {
 
       function handleEnd(){
         console.log("seee game with id:",game.id)
-        setChangeGame(game)
+        setExpertGame(game)
+        navigate('/ChangeGameExpert', { replace: true })
       }
 
       if(getInEnglish(game.sport) === 'motoGP'){

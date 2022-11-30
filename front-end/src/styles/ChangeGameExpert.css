@@ -1,0 +1,58 @@
+
+.expertGameCenter{
+    display: flex;
+    justify-content: center;
+}
+
+.expertGameTitle{
+    font-family: 'Spinnaker';
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.expertGame{
+    display: flex;
+    justify-content: space-around;
+    width: 30vw;
+    height: 50vh;
+    align-items: center;
+}
+
+.resultExpertTitle {
+    font-family: 'Spinnaker';
+    text-align: center;
+}
+
+.resultExpertInput{
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #F07444;
+    width: 50px;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.resultExpert{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.centerButton{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonConfirmExpertGame{
+    background: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Spinnaker';
+    font-size: 24px;
+    width: 12vw;
+    height: 6vh;
+}
