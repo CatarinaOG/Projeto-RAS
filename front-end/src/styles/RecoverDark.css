@@ -40,7 +40,12 @@
 
 }
 
+.ftEmailRecoverDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium;
 
+}
 
 
 .ftwelcomeTitleDark{

@@ -100,6 +100,25 @@
     border-radius: 20px;
 }
 
+.ftuserNameLogDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium;
+    font-family: 'Spinnaker';
+
+}
+
+
+.ftpasswordLogDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium;
+    font-family: 'Spinnaker';
+}
+
+
 .ftpasswordLogDark{
     position: absolute;
     text-align: center;
@@ -212,6 +231,14 @@
 
 }
 
+.ftnameRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
 .ftemailRegDark{
     
     position: absolute;
@@ -226,6 +253,12 @@
 
 }
 
+.ftemailRegDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
+
 .ftpassswordRegDark{
     position: absolute;
     top: 48%;
@@ -238,6 +271,13 @@
     text-align: center;
     border: 1px solid black;
     background-color: #635d5f;
+
+}
+
+.ftpassswordRegDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
 
 }
 
@@ -256,6 +296,16 @@
 
 }
 
+.ftNIFRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
+
+
 .ftbirthdateRegDark{
     
     position: absolute;
@@ -270,6 +320,13 @@
 
 }
 
+.ftbirthdateRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
+
 .ftaddressRegDark{
     
     position: absolute;
@@ -281,6 +338,15 @@
     border-radius: 30px;
     border: 1px solid black;
     background-color: #635d5f;
+
+}
+
+
+.ftaddressRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
 
 }
 
@@ -298,6 +364,14 @@
 
 }
 
+.ftphoneRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
 .ftCCRegDark{
     
     position: absolute;
@@ -312,6 +386,13 @@
 
 }
 
+
+.ftCCRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
 
 .accederDark{
     position: absolute;
