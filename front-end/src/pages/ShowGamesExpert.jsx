@@ -9,20 +9,23 @@ import podio from '../images/podio.png'
 
 export default function ShowExperts(props){
 
-    const {username,dark} = props
+    const {username,setChangeGame,dark} = props
 
     let navigate = useNavigate()
     
     const [experts,setExperts] = useState([])
     const [games,setGames] = useState([
-
       {
         id: 1,
+        sport: "motoGP",
+        name: "Finals",
+      },
+      {
+        id: 2,
         sport: "futebol",
-        home: "sporting",
-        away: "benfica",
+        home: "espanha",
+        away: "portugal",
       }
-
     ])
 
     useEffect(() => {
@@ -57,22 +60,27 @@ export default function ShowExperts(props){
 
       function handleEnd(){
         console.log("seee game with id:",game.id)
+        setChangeGame(game)
       }
 
-      if(getInEnglish(game.sport) === 'MotoGP'){
+      if(getInEnglish(game.sport) === 'motoGP'){
         return(
-          <tr>
-              <td width="100"><img src={podio} alt="" onClick={handleEnd}/></td>
-              <td width="400">{game.name}</td>
-          </tr>
+          <div className="gameExpert">
+            <div>
+              <img src={podio} className='podioImg' onClick={handleEnd}/>
+              <p>{game.name}</p>
+            </div>
+          </div>
         )
       }
       else{
         return(
-          <tr>
-              <img src={podio} alt="" onClick={handleEnd}/>
-              <td width="400">{game.home} vs {game.away}</td>
-          </tr>
+          <div className="gameExpert">
+            <div>
+              <img src={podio} className='podioImg' onClick={handleEnd}/>
+              <p>{game.home} vs {game.away}</p>
+            </div>
+          </div>
         )
       }
       }
@@ -92,27 +100,8 @@ export default function ShowExperts(props){
             <div className='ftwhiteShadow'>
                 <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
                 <h1 className = "ftAddSp">Consultar Eventos Criados</h1>
-                <div className="tableSpace">
-                    <table width="700">
-                        <tr>
-                            <td>
-                                <table width="700">
-                                    <tr>
-                                        <th width="400">Evento</th>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="allowOverflow">
-                                    <table width="700" >
-                                        {allGames}
-                                    </table>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                <div className="gamesSpace">
+                    {allGames}
                 </div>
             </div>
         </div>

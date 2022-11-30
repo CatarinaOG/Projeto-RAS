@@ -7,6 +7,7 @@ import './styles/HomeAdmin.css'
 import './styles/ShowExperts.css'
 import './styles/SignIn.css'
 import './styles/ProfileExpert.css'
+import './styles/ShowGamesExpert.css'
 
 import './styles/LoginDark.css'
 import './styles/ProfileDark.css'
@@ -15,7 +16,7 @@ import './styles/HomeDark.css'
 
 import {useState} from 'react'
 import { useEffect } from 'react'
-import {BrowserRouter,Routes,Route} from "react-router-dom"
+import {BrowserRouter,Routes,Route, useAsyncError} from "react-router-dom"
 
 import Home from './pages/Home'
 import Profile from './pages/Profile'
@@ -29,6 +30,7 @@ import Register from './pages/Register'
 import ShowExperts from './pages/ShowExperts'
 import Recover from './pages/Recover'
 import ShowGamesExpert from './pages/ShowGamesExpert'
+import ChangeGameExpert from './pages/ChangeGameExpert'
 
 
 
@@ -38,11 +40,12 @@ function App() {
 
   const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
-	const [dark,setDark] = useState('')
-
   const [balance,setBalance] = useState(0)
 
+	const [dark,setDark] = useState('')
+
   const [games,setGames] = useState([])
+  const [changeGame,setChangeGame] = useState('')
 
 
   //--------------- Get Games -----------------
@@ -148,12 +151,20 @@ function App() {
         <Route path="/ShowExperts" element={
           <ShowExperts
             username={username}
+            setChangeGame={setChangeGame}
             dark={dark}
           />
         }/>
 
-        <Route path="/ShowGames" element={
+        <Route path="/ShowGamesExpert" element={
           <ShowGamesExpert
+            username={username}
+            dark={dark}
+          />
+        }/>
+
+        <Route path="/ChangeGameExpert" element={
+          <ChangeGameExpert
             username={username}
             dark={dark}
           />

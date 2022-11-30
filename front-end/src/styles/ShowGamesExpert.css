@@ -1,0 +1,37 @@
+
+.gamesSpace{
+    position: absolute;
+    top: 90px;
+    left: 2.5vw;
+    width: 55vw;
+    height: 65vh;
+    font-family: 'Spinnaker';
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+.titleEvents{
+    display: flex;
+    font-family: 'Spinnaker';
+    justify-content: center;
+}
+
+
+.podioImg{
+    height: 25px;
+    position: absolute;
+    left: 10vw;
+    top: -3px;
+}
+
+.podioImg:hover{
+    cursor: pointer;
+}
+
+.gameExpert{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 10px;
+}
