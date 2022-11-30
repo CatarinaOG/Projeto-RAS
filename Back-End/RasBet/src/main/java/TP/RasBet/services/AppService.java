@@ -7,11 +7,14 @@ import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.sql.Date;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jackson.JsonComponentModule;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -42,6 +45,8 @@ public class AppService {
     @Autowired
     private UserService userService;
 
+    @Autowired EmailSenderService emailSenderService;
+
     @Autowired
     private GamesInOneBetRepo gamesInOneBetRepo;
 
@@ -62,13 +67,15 @@ public class AppService {
                 odds.put(odd);
             }
 
-            
-
             j.put("id", g.getId());
             j.put("home", g.getParticipants().split(";")[0]);
             j.put("away", g.getParticipants().split(";")[1]);
             j.put("date", g.getDate());
             j.put("results", odds);
+            if(g.getState().equals("TBD")){
+                j.put("active", "false");
+            }
+            else j.put("active", "true");
             j.put("sport", g.getSport());
 
             jogos.put(j);
@@ -106,7 +113,7 @@ public class AppService {
         User u = userRepo.findUserByEmail(betslipForm.getUser()).get();
         u.setWallet(u.getWallet()-betslipForm.getMultipleAmount());
 
-        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings*betslipForm.getMultipleAmount(), Timestamp.from(Instant.now()), u, "Aberta");
+        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings*betslipForm.getMultipleAmount(), Timestamp.from(Instant.now()), u, "Open");
         
         betRepo.save(b);
 
@@ -192,5 +199,75 @@ public class AppService {
         }
     }
 
+
+    //@Scheduled(fixedRate = 10000)
+    public void updateStatus() {
+
+        List<Game> games = gameRepo.findAll();
+
+        for(Game g : games){
+            if(!g.getState().equals("Over"))
+                if(g.getDate().toLocalDateTime().isBefore(LocalDateTime.now()))
+                    g.setState("Over");
+        }
+
+        List<Bet> bets = betRepo.findAll();
+        for(Bet b : bets){
+            List<GamesInOneBet> gamesInBet = b.getGames();
+            boolean flag = true;
+            for(GamesInOneBet giob : gamesInBet){
+                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore().equals("null"))
+                    flag = false;
+                    break;
+            }
+            if(flag){
+                b.setState("Closed");
+                //verificar se as apostas ganharam todas
+                if(check_results(gamesInBet)){
+                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won" + b.getWinnings(), "Bet closed");
+                    User u = b.getUser();
+                    u.setWallet(u.getWallet() + b.getWinnings());
+                    userRepo.save(u);
+                }
+                else{
+                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You lost!", "Bet closed");
+                } 
+            }
+        }  
+    }
+
+
+    private boolean check_results(List<GamesInOneBet> giob){
+        
+        // se for futebol ou basket, é preciso verificar o resultado, ver qual das equipas ganhou ou se houve empate
+
+        // se for motoGP ou ténis basta verificar em quem é que foi a aposta e ver o result, que terá o nome do vencedor da corrida/jogo
+        for(GamesInOneBet g : giob){
+            if(g.getGame().getSport().equals("motoGP") || g.getGame().getSport().equals("tennis")){
+                String bet_res = g.getDescription();
+                String res = g.getGame().getScore();
+                if(!bet_res.equals(res)) return false;
+            }
+            else{
+                Game game = g.getGame();
+                String bet_res = g.getDescription();
+                String home_res = game.getScore().split("-")[0];
+                String away_res = game.getScore().split("-")[1];
+                
+                if (Integer.parseInt(home_res) > Integer.parseInt(away_res) && 
+                   (bet_res.equals(game.getParticipants().split(";")[1]) || bet_res.equals("Draw")) ){
+                    return false;
+                }
+                if (Integer.parseInt(away_res) > Integer.parseInt(home_res) && 
+                   (bet_res.equals(game.getParticipants().split(";")[0]) || bet_res.equals("Draw"))){
+                    return false;
+                }
+                if (Integer.parseInt(home_res) == Integer.parseInt(away_res) && (!bet_res.equals("Draw"))){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 }

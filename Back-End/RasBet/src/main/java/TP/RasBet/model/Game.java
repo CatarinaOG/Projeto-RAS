@@ -48,7 +48,7 @@ public class Game implements Serializable{
     @JoinColumn(name = "expert_id", referencedColumnName = "id")
     private Expert expert;
 
-    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<GamesInOneBet> games;
 
 
@@ -62,7 +62,7 @@ public class Game implements Serializable{
         this.sport = sport;
         this.participants = participants;
         this.date = date;
-        this.state = "Before";
+        this.state = "TBD";
         this.expert = expert;
     }
 
