@@ -58,7 +58,7 @@
 
 /*----- Inputs -----*/
 
-.ftpasswordSp{
+.ftpasswordSpDark{
     position: absolute;
     text-align: center;
     top: 56%;
@@ -67,9 +67,11 @@
     height: 8%;
     border-radius: 20px;
     border: 1px solid grey;
+    background-color: #635d5f;
+    
 }
 
-.ftemailSp{
+.ftemailSpDark{
     position: absolute;
     text-align: center;
     top: 43%;
@@ -78,11 +80,12 @@
     height: 8%;
     border-radius: 20px;
     border: 1px solid grey;
+    background-color: #635d5f;
 
 }
 
 
-.ftUsernameSp{
+.ftUsernameSpDark{
     position: absolute;
     text-align: center;
     top: 30%;
@@ -91,11 +94,32 @@
     height: 8%;
     border-radius: 20px;
     border: 1px solid grey;
+    background-color: #635d5f;
 
 }
 
+.ftUsernameSpDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
 
-.ftaddConcludeSp{
+}
+
+.ftemailSpDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
+.ftpasswordSpDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
+
+
+.ftaddConcludeSpDark{
     position: absolute;
 
     top: 75%;
@@ -106,7 +130,7 @@
     color: #F07444;
     border-radius: 20px;
     font-size: 13px;
-    background-color:white;
+    background-color:#635d5f;
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 25px;
@@ -139,36 +163,36 @@
 
 
 
-.fth2PopAdmin{
+.fth2PopAdminDark{
     font-family: 'Spinnaker';
-    color: #18340C;
+    color: black;
     position: absolute;
     text-align: center;
     top:25%;
     left : 33%
 }
 
-.fth3PopAdminUsername{
+.fth3PopAdminUsernameDark{
     font-family: 'Spinnaker';
-    color: #18340C;
+    color: black;
     position: absolute;
     text-align: center;
     top:41%;
     left : 33%
 }
 
-.fth3PopAdminEmail{
+.fth3PopAdminEmailDark{
     font-family: 'Spinnaker';
-    color: #18340C;
+    color:black;
     position: absolute;
     text-align: center;
     top:53%;
     left : 33%
 }
 
-.fth3PopAdminPass{
+.fth3PopAdminPassDark{
     font-family: 'Spinnaker';
-    color: #18340C;
+    color: black;
     position: absolute;
     text-align: center;
     top:65%;
@@ -188,8 +212,8 @@
 }
 
 
-.ftboxConfirmAdmin{
-    background:  white;
+.ftboxConfirmAdminDark{
+    background:  #A9A9A9;
     opacity: 100;
     height: 50vh;
     width: 45vw;

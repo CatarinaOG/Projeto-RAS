@@ -57,7 +57,7 @@
 
 /*----- Inputs -----*/
 
-.ftpasswordSpDark{
+.ftpasswordSp{
     position: absolute;
     text-align: center;
     top: 56%;
@@ -68,13 +68,8 @@
     border: 1px solid grey;
 }
 
-.ftpasswordSpDark::placeholder{
-    color: white;
-    opacity: 1;
-    font-size: medium; 
-}
 
-.ftemailSpDark{
+.ftemailSp{
     position: absolute;
     text-align: center;
     top: 43%;
@@ -86,16 +81,10 @@
 
 }
 
-.ftemailSpDark::placeholder{
-    color: white;
-    opacity: 1;
-    font-size: medium; 
-
-}
 
 
 
-.ftUsernameSpDark{
+.ftUsernameSp{
     position: absolute;
     text-align: center;
     top: 30%;
@@ -107,12 +96,7 @@
 
 }
 
-.ftUsernameSpDark::placeholder{
-    color: white;
-    opacity: 1;
-    font-size: medium; 
 
-}
 
 
 .ftaddConcludeSp{

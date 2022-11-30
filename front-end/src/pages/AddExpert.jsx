@@ -84,7 +84,7 @@ export default function AddSpecialist(props){
                         <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className={`ftemailSp${dark}`}/>
                         <h3 className={`ftpromptPassSp${dark}`}>Insira a password:</h3>
                         <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ={`ftpasswordSp${dark}`}/>
-                        <button className = "ftaddConcludeSp">Registar</button>
+                        <button className = {`ftaddConcludeSp${dark}`}>Registar</button>
 					    {errorReg === 1 && <p className='fterrorAddEx'>Dados em falta</p>}
 					    {errorReg === 2 && <p className='fterrorAddEx'>Erro: email em uso</p>}
                     </form>
@@ -92,12 +92,14 @@ export default function AddSpecialist(props){
             </div>
             {confirmed && 
                 <div>
-                    <div className="ftbackgroundModal"></div>
+                    <div className={`ftbackgroundModal${dark}`}>
+                    </div>
                     <PopUpAdmin 
                         email = {formData.email}
                         password = {formData.password}
                         username={formData.expert_username}
                         setConfirmed ={setConfirmed}
+                        dark={dark}
                     />
                 </div>
             }           
