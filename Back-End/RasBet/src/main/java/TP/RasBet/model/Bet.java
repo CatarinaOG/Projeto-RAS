@@ -40,7 +40,7 @@ public class Bet implements Serializable{
 
 
     // many to many com game
-    @OneToMany(mappedBy = "bet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "bet", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<GamesInOneBet> games;
 
 
@@ -90,6 +90,10 @@ public class Bet implements Serializable{
         return this.games;
     }
 
+    public User getUser() {
+        return user;
+    }
+
 
 
 
@@ -119,6 +123,15 @@ public class Bet implements Serializable{
         this.state = state;
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String ret = "";
+        for(GamesInOneBet g : this.games){
+            ret += "" + g.getId() + " | ";
+        }
+        return ret;
+    }
 
 
 }
