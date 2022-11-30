@@ -85,9 +85,9 @@ export default function PopUpPaypal(props){
                 </div>
             }
             {stateOp === "success" && 
-                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessagePayment>}
+                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
             {stateOp === "error" && 
-                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessagePayment>}
+                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
 
         </div>
     )

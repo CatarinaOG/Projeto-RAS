@@ -26,7 +26,7 @@ export default function Profile(props){
 
     const [betHist,setBetHist] = useState([])
 
-    /*
+    
     useEffect(() => {
         
         fetch('http://127.0.0.1:8080/api/users/bet_history',{
@@ -39,7 +39,6 @@ export default function Profile(props){
         	})})
         .then(response => response.json())
         .then(data => {
-            console.log("OS DADOS são:",data)
             if(data.betHistory){
                 setBetHist(data.betHistory)
             }
@@ -50,9 +49,8 @@ export default function Profile(props){
         console.log(betHist)
   },[])  
       
-    */
+    
   
-      console.log(username)
 
 
     return(

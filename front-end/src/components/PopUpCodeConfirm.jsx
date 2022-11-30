@@ -26,12 +26,14 @@ export default function PopUpConfirm(props){
 
     //Comportamento após submissão do form com o código
     function handleSubmit(event){
+
         if(formData.code === safeCode){
             setSec(1);
             setShowPopUp('');  
         }
         else{
             setErrorMsg(1)
+            setShowPopUp('');  
         }
 
     }
