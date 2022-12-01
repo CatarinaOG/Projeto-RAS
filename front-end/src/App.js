@@ -35,16 +35,13 @@ import ShowGamesExpert from './pages/ShowGamesExpert'
 import ChangeGameExpert from './pages/ChangeGameExpert'
 
 
-
-
-
 function App() {
 
   const [username,setUsername] = useState('expert')
   const [email,setEmail] = useState('')
   const [balance,setBalance] = useState(0)
 
-	const [dark,setDark] = useState('')
+	const [dark,setDark] = useState('Dark')
 
   const [games,setGames] = useState([])
   const [expertGame,setExpertGame] = useState('')

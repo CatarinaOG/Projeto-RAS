@@ -37,7 +37,7 @@
     border: 1px solid black;
     border-radius: 10px; 
     background-color: #635d5f;
-
+    color: white;
 }
 
 .ftEmailRecoverDark::placeholder{
@@ -109,42 +109,27 @@
     height: 8%;
     width: 80%;
     text-align: center;
-    
-
     border: 1px solid black;
     border-radius: 20px;
     background-color: #635d5f;
-
-
 }
 
-.ftacederLogDark:active{
-    border: solid white 1px;
-    background-color: #635d5f;
 
-}
 
 .ftacederLogDark{
     position: absolute;
-
     top: 65%;
     left: 10%;
     height: 8%;
     width: 80%;
-
     background: #292929;
     border-radius: 20px;
     color: white;
-
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 24px;
     line-height: 38px;
     border: 1px solid #292929;
-}
-
-.ftacederLogDark:active{
-    border: solid white 1px;
 }
 
 

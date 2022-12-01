@@ -134,6 +134,7 @@ export default function Report(props){
                     setModalConfirmation={setModalConfirmation}
                     setModalConfirmated={setModalConfirmated} 
                     selected={selected}
+                    setSelected={setSelected}
                     email={email}
                     type={type}
                     amountMultiple={amountMultiple}
@@ -145,6 +146,7 @@ export default function Report(props){
             {modalConfirmated && 
                 <ModalConfirmated 
                     setModalConfirmated={setModalConfirmated} 
+                    dark={dark}
                 />
             }
 

@@ -2,7 +2,7 @@ import close from '../images/close.png'
 
 export default function ModalConfirmated(props){
 
-    const {setModalConfirmated} = props
+    const {setModalConfirmated,dark} = props
 
     function cancel(){
 
@@ -10,12 +10,11 @@ export default function ModalConfirmated(props){
 
     }
 
-
     return (
         <div>
-            <div className="backgroundModal">
+            <div className={`backgroundModal${dark}`}>
             </div>
-            <div className="boxConfirm">
+            <div className={`boxConfirm${dark}`}>
                 <img className='close' onClick={cancel} src={close}/>
                 <h1 className="titleModal">Confirmado</h1>
                 <p className="paragraphModalConfirmated">Aposta realizada com sucesso!</p>

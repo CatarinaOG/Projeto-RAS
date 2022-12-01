@@ -284,6 +284,11 @@
     left: 45%;
 }
 
+.ftConfirm:active{
+    background-color: #F07444;
+    color: white;
+}
+
 
 .ftChangeSec:active{
     color: white;

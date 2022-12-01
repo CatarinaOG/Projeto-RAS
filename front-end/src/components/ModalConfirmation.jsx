@@ -3,7 +3,7 @@ import close from '../images/close.png'
 
 export default function ModalConfirmation(props){
 
-    const {amountToBet,setModalConfirmation,setModalConfirmated,selected,email,type,amountMultiple,setBalance,dark} = props
+    const {amountToBet,setModalConfirmation,setModalConfirmated,setSelected,selected,email,type,amountMultiple,setBalance,dark} = props
 
     const [error,setError] = useState(0)
 
@@ -36,6 +36,7 @@ export default function ModalConfirmation(props){
                         setBalance(prevBalance => prevBalance - amount)
                         setModalConfirmation(false)
                         setModalConfirmated(true)
+                        setSelected([])
                     }
                     else {
                         setError(1)
@@ -70,6 +71,7 @@ export default function ModalConfirmation(props){
                     setBalance(prevBalance => prevBalance - amountMultiple)
                     setModalConfirmation(false)
                     setModalConfirmated(true)
+                    setSelected([])
                 }
                 else{
                     setError(1)

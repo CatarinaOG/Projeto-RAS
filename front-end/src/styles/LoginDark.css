@@ -136,11 +136,6 @@
 
 }
 
-.ftacederLogDark:active{
-    border: solid white 1px;
-    background-color: #635d5f;
-
-}
 
 .ftacederLogDark{
     position: absolute;
@@ -228,6 +223,7 @@
     border-radius: 30px;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
 
 }
 
@@ -250,6 +246,8 @@
     text-align: center;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
+
 
 }
 
@@ -271,6 +269,8 @@
     text-align: center;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
+
 
 }
 
@@ -293,6 +293,8 @@
     border-radius: 30px;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
+
 
 }
 
@@ -317,6 +319,8 @@
     border-radius: 30px;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
+
 
 }
 
@@ -338,6 +342,8 @@
     border-radius: 30px;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
+
 
 }
 
@@ -361,6 +367,8 @@
     border-radius: 30px;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
+
 
 }
 
@@ -383,6 +391,8 @@
     border-radius: 30px;
     border: 1px solid black;
     background-color: #635d5f;
+    color: white;
+
 
 }
 
