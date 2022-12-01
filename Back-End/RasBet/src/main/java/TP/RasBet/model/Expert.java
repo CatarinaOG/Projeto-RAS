@@ -13,15 +13,15 @@ public class Expert implements Serializable{
     private int id;
 
     @Column(name = "email")
-    @Convert(converter = Encrypt.class)
+    // @Convert(converter = Encrypt.class)
     private String email;
 
     @Column(name = "password")
-    @Convert(converter = Encrypt.class)
+    //@Convert(converter = Encrypt.class)
     private String password;
 
     @Column(name = "name")
-    @Convert(converter = Encrypt.class)
+    // @Convert(converter = Encrypt.class)
     private String name;
 
 
@@ -69,6 +69,9 @@ public class Expert implements Serializable{
     }
     public Admin getAdmin() {
         return admin;
+    }
+    public List<Game> getGames() {
+        return games;
     }
 
     /* Setters */

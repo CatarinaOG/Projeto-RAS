@@ -2,8 +2,11 @@ package TP.RasBet.services;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,8 +67,38 @@ public class ExpertService{
 
     public String getGames(){
 
+        List<Expert> experts = expertRepo.findAll();
 
-        return "";
+        JSONArray games = new JSONArray();
+
+        for(Expert e : experts){
+            for(Game g : e.getGames()){
+                JSONObject game = new JSONObject();
+                if(!g.getSport().equals("motoGP")){
+                    game.put("id", g.getId());
+                    game.put("sport", g.getSport());
+                    game.put("away", g.getParticipants().split(";")[0]);
+                    game.put("home", g.getParticipants().split(";")[1]);
+                }
+                else{
+                    game.put("id", g.getId());
+                    game.put("sport", g.getSport());
+                    game.put("name", g.getParticipants()); // O que eles querem aqui é o nome do evento que ainda nao esta a ser guardado. 
+                    JSONArray participants = new JSONArray();
+                    String[] pts = g.getParticipants().split(";");
+                    for(String s : pts){
+                        JSONObject jo = new JSONObject();
+                        jo.put("name", s);
+                        participants.put(jo);
+                    }
+                    game.put("participants", participants);
+                }
+                games.put(game);
+            }
+        }
+
+
+        return games.toString();
     }
 
 

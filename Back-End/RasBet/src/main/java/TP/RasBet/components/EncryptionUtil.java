@@ -9,11 +9,11 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Component;
-
+/*
 @Component
 public class EncryptionUtil {
-private String key = "1234567812345678";
-private String initVector = "1234567812345678";
+    private String key = "1234567812345678";
+    private String initVector = "1234567812345678";
 private String algo = "AES/CBC/PKCS5PADDING";
 public String encrypt(String value) {
     try {
@@ -47,3 +47,4 @@ public String decrypt(String encrypted) {
     return null;
 }
 }
+*/
