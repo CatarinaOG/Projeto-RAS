@@ -44,7 +44,7 @@ public class UserController {
         return userService.register(registerForm);
     }
 
-    @GetMapping(value="/bet_history")
+    @PostMapping(value="/bet_history")
     public String getBetHistory(@RequestBody String email){
         JSONObject j = new JSONObject(email);
         return userService.getBetHistory((String) j.get("email"));

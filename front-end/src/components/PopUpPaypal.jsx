@@ -44,7 +44,6 @@ export default function PopUpPaypal(props){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data.confirmed)
             if (data.confirmed === 'true'){
                 setStateOp("success");
                 setMessage("Operação bem sucedida!");
@@ -85,9 +84,9 @@ export default function PopUpPaypal(props){
                 </div>
             }
             {stateOp === "success" && 
-                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessagePayment>}
+                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
             {stateOp === "error" && 
-                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessagePayment>}
+                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
 
         </div>
     )

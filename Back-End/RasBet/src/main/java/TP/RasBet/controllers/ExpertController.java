@@ -24,4 +24,10 @@ public class ExpertController {
     public String newGame(@RequestBody GameForm gameForm){
         return expertService.createGame(gameForm);
     }
+
+    //GetJogosCreatedByExpert
+    @GetMapping(value="/getGames")
+    public String getGames(){
+        return expertService.getGames();
+    }
 }

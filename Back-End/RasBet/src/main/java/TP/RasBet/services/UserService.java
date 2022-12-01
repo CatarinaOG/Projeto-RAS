@@ -222,7 +222,7 @@ public class UserService {
             //primeiro colocar a aposta em si
 
             betObj.put("date", b.getDate());
-            betObj.put("description", "aposta");
+            betObj.put("description", "Aposta");
             betObj.put("operation", "-" + b.getAmount());
 
             ts.put(betObj);
@@ -235,13 +235,14 @@ public class UserService {
                 winObj.put("date", b.getDate());
                 winObj.put("description", "ganho de aposta");
                 winObj.put("operation", "+" + b.getWinnings());
+                // winObj.put("balance", b.get); -> Temos de guardar o balance final depois de uma aposta?
 
                 ts.put(winObj);
             }
 
         }
 
-        response.put("transactions",ts);
+        response.put("transactions", ts);
     
         return response.toString();
     }

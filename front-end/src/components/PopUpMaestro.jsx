@@ -100,8 +100,8 @@ export default function PopUpMaestro(props){
                     <img src = {closeImg} className='close' onClick={close}/>
                 
                 </div>}
-            {stateOp === "success" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessage>}
-            {stateOp === "error" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp}></PopUpMessage>}
+            {stateOp === "success" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessage>}
+            {stateOp === "error" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessage>}
 
         </div>
     )
