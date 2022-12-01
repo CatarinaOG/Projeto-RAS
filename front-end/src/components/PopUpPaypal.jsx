@@ -44,7 +44,6 @@ export default function PopUpPaypal(props){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data.confirmed)
             if (data.confirmed === 'true'){
                 setStateOp("success");
                 setMessage("Operação bem sucedida!");

@@ -54,7 +54,6 @@ export default function ChangeData(props){
 			})
 			.then(response => response.json())
 			.then(data => {
-                console.log(data.state)
                 setUsername(formData.name);
 
             })

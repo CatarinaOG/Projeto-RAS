@@ -18,8 +18,6 @@ export default function PopUpEmail(props){
 
     function handleChange(event) {
         setFormData(prevFormData => {
-            console.log(formData.email)
-
             return {
                 ...prevFormData,
                 [event.target.name] : event.target.value
@@ -50,16 +48,13 @@ export default function PopUpEmail(props){
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 setSafeCode(data.code);
                 setShowPopUp('confirm');
             })
-            setShowPopUp('confirm');
 
         }
         else if (checked){
-            console.log("ENTROU AQUI")
-            /*
+            
             fetch('http://127.0.0.1:8080/api/users/get_code', {
                 method: 'POST',
                 headers: {
@@ -76,8 +71,7 @@ export default function PopUpEmail(props){
                 setSafeCode(data.code);
                 setShowPopUp('confirm');
             })
-            */
-            setShowPopUp('confirm');
+            
 
         }
         else{

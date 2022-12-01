@@ -44,9 +44,7 @@ export default function Profile(props){
             }
         })
         .catch((error) => {
-          console.error('Error:', error);
         })
-        console.log(betHist)
   },[])  
       
     

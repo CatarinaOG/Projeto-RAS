@@ -95,22 +95,17 @@ export default function BetHistory(props){
 
 const fullbetHist = () => (
   <ul>
-    {betHistory.map(item => {
-      console.log("TOU")
-      console.log("Length is: ", item.bet.length)
-      console.log("Multi state is:",multipleState)
-      console.log("Simple state is:",simpleState)
+    {betHist.map(item => {
+      
 
       if(multipleState==="active" && item.bet.length>1){
 
-        console.log("ENTREI AQUI")
         return (
           <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
          
         );
       }
       else if (simpleState === "active" && item.bet.length==1){
-        console.log("ENTREI ACOLÁ")
         
         return (
           <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
