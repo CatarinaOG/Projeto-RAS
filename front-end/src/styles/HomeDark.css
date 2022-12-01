@@ -386,7 +386,7 @@
 
 
 .topDark{
-    background-color: darkgrey;
+    background-color: #BFBBBB;
     margin: 0px 10px 0px 10px;
     height: 20px;
     top: 10px;
@@ -397,7 +397,7 @@
 
 
 .bottomDark{
-    background-color: darkgrey;
+    background-color: #BFBBBB;
     margin: 0px 10px 0px 10px;
     height: 40px;
     top: 15px;

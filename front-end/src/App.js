@@ -44,7 +44,7 @@ import ChangeGameExpert from './pages/ChangeGameExpert'
 
 function App() {
 
-  const [username,setUsername] = useState('expert')
+  const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
   const [balance,setBalance] = useState(0)
 

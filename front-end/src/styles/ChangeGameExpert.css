@@ -61,6 +61,11 @@
     border: 1px solid black;
 }
 
+.buttonConfirmExpertGame:active{
+    background-color: white;
+    color: #F07444;
+}
+
 .backgroundModalExpert{
     background:#18340C;
     opacity: 0.5;

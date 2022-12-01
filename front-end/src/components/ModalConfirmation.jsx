@@ -93,9 +93,9 @@ export default function ModalConfirmation(props){
                 <p className={`paragraphModalConfirmation2${dark}`}>Confirmação do Pagamento no valor de:</p>
                 <p className={`valueConfirmation${dark}`}>{amountToBet}$</p>
                 <div className='errorsBox'>
-                    {error === 1 && <p className='error'>Saldo insuficiente ou Aposta Múltipla Inválida</p>}
-                    {error === 2 && <p className='error'>Sem apostas para apostar</p>}
-                    {error === 3 && <p className='error'>Apostas com valor mínimo superior a 0</p>}
+                    {error === 1 && <p className='error'>Saldo insuficiente</p>}
+                    {error === 2 && <p className='error'>Saldo insuficiente</p>}
+                    {error === 3 && <p className='error'>Sem apostas para apostar</p>}
                     {error === 0 && <p className={`hide${dark}`}>Hide</p>}
                 </div>
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>

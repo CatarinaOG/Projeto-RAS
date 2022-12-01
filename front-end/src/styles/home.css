@@ -273,8 +273,19 @@ button:hover {
     height: 50px;
     width: 150px;
     border: thin solid #F07444;
+}
 
+.betButton:active{
+    background-color: white;
+    color: #F07444;
 
+}
+
+.errorPlaceBet{
+    position: absolute;
+    top: -58vh;
+    color: red;
+    font-weight: 600;
 }
 
 
@@ -334,7 +345,7 @@ button:hover {
 .reportBetsSingle{
     overflow: scroll;
     overflow-x: hidden;
-    height: 63%;
+    height: 63vh;
 
 }
 
@@ -342,7 +353,7 @@ button:hover {
 .reportBetsMultiple{
     overflow: scroll;
     overflow-x: hidden;
-    height: 55%;
+    height: 55vh;
 
 }
 
@@ -521,15 +532,19 @@ button:hover {
 }
 
 .confirmButton{
+    font-family: Spinnaker;
+    font-size: 20px;
+    background-color: #F07444;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #000000;
+}
 
-        font-family: Spinnaker;
-        font-size: 20px;
-        background-color: #F07444;
-        border-radius: 10px;
-        margin-top: 15px;
-        height: 50px;
-        width: 150px;
-    
+.confirmButton:active{
+    background-color: white;
+    color: #F07444;
 }
 
 /*---------------------Bet Box Expert-------------------*/
@@ -797,6 +812,7 @@ button:hover {
 .paragraphModalConfirmation2{
     margin-top: 3vh;
     margin-bottom: 3vh;
+    font-family: Spinnaker;
 }
 
 .boxConfirm > input{
@@ -811,8 +827,18 @@ button:hover {
 
 .error{
     color: red;
+    font-family: Spinnaker;
 }
 
 .hide{
     color: white;
+}
+
+.errorChangeOdd{
+    color: red;
+    font-weight: 600;
+    position: absolute;
+    font-family: Spinnaker;
+    left: 16.5vw;
+    bottom: 19vh;
 }

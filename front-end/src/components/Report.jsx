@@ -18,6 +18,7 @@ export default function Report(props){
 
     const [modalConfirmation,setModalConfirmation] = useState(false)    // modal confirmação
     const [modalConfirmated,setModalConfirmated] = useState(false)      // modal confirmado
+    const [error,setError] = useState(0)
 
 
     // Mudança do tipo de aposta (simples vs multipla)
@@ -125,10 +126,9 @@ export default function Report(props){
         }
     } )
 
-
     return(
         <div>
-            {modalConfirmation && 
+            {modalConfirmation && error == 0 && 
                 <ModalConfirmation 
                     amountToBet={getAmountToBet()}
                     setModalConfirmation={setModalConfirmation}
@@ -143,7 +143,7 @@ export default function Report(props){
                 />
             }
 
-            {modalConfirmated && 
+            {modalConfirmated && error == 0 &&
                 <ModalConfirmated 
                     setModalConfirmated={setModalConfirmated} 
                     dark={dark}
@@ -169,6 +169,11 @@ export default function Report(props){
                 <PlaceBet 
                     setModalConfirmation={setModalConfirmation} 
                     gains={ type === 'simple' ? getGainsSimple() : getGainsMultiple()}
+                    selected={selected}
+                    error={error}
+                    setError={setError}
+                    type={type}
+                    amountMultiple={amountMultiple}
                     dark={dark}
                 />
             </div>
