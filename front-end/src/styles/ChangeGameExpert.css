@@ -2,6 +2,7 @@
 .expertGameCenter{
     display: flex;
     justify-content: center;
+    height: 80vh;
 }
 
 .expertGameTitle{
@@ -45,6 +46,7 @@
 .centerButton{
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 
 .buttonConfirmExpertGame{
@@ -55,4 +57,63 @@
     font-size: 24px;
     width: 12vw;
     height: 6vh;
+    border: 1px solid black;
+}
+
+.backgroundModalExpert{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.boxConfirmExpert{
+    background:  white;
+    opacity: 4;
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    left: 25vw;
+    top: 30vh;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 3;
+}
+
+.gridExpertMotoGP{
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1.4vw;
+    row-gap: 1em; 
+    width: 51vw;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.participantSelected{
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    border: 1px solid #F07444;
+}
+
+.participant{
+    text-align: center;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    border: 1px solid #F07444;
+}
+
+.pExpert{
+    font-family: 'Spinnaker';
+    margin-top: 40px;
+    position: absolute;
+    top: 40px;
+    left: 21vw;
 }

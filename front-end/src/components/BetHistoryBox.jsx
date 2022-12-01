@@ -45,7 +45,6 @@ export default function BetHistoryBox(props){
                 <div className="ftResultsInfo">
                     <h3 className={`fth3SingleBetHist${dark}`}>Montante apostado :{ammount}</h3>
                     <h3 className={`fth3SingleBetHist${dark}`}>Total ganho : {winnings}</h3>
-
                 </div>
             </div>
         )

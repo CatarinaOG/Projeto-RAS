@@ -15,15 +15,39 @@ export default function ShowExperts(props){
     
     const [expertGames,setExpertGames] = useState([
       {
-        id: 1,
-        sport: "motoGP",
-        name: "Finals",
-      },
-      {
         id: 2,
         sport: "futebol",
         home: "espanha",
         away: "portugal",
+      },
+      {
+        id: 3,
+        sport: "motoGP",
+        name: "Finals2",
+        participants: [
+          {id: 1, name: 'Bernardo'},
+          {id: 2, name: 'Fernando'},
+          {id: 3, name: 'Bruno'},
+          {id: 4, name: 'Pedro'},
+          {id: 5, name: 'Bernardo'},
+          {id: 6, name: 'Bernardo'},
+          {id: 7, name: 'Bernardo'},
+          {id: 8, name: 'Bernardo'},
+          {id: 9, name: 'Bernardo'},
+          {id: 10, name: 'Bernardo'},
+          {id: 11, name: 'Bernardo'},
+          {id: 12, name: 'Bernardo'},
+          {id: 13, name: 'Bernardo'},
+          {id: 14, name: 'Bernardo'},
+          {id: 15, name: 'Bernardo'},
+          {id: 16, name: 'Bernardo'},
+          {id: 17, name: 'Bernardo'},
+          {id: 18, name: 'Bernardo'},
+          {id: 19, name: 'Bernardo'},
+          {id: 20, name: 'Bernardo'},
+          {id: 21, name: 'Bernardo'},
+          {id: 22, name: 'Bernardo'}
+        ]
       }
     ])
 
@@ -42,7 +66,6 @@ export default function ShowExperts(props){
     const allGames = expertGames.map( game => {
 
       function handleEnd(){
-        console.log("seee game with id:",game.id)
         setExpertGame(game)
         navigate('/ChangeGameExpert', { replace: true })
       }

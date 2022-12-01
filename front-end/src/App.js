@@ -44,7 +44,7 @@ function App() {
   const [email,setEmail] = useState('')
   const [balance,setBalance] = useState(0)
 
-	const [dark,setDark] = useState('Dark')
+	const [dark,setDark] = useState('')
 
   const [games,setGames] = useState([])
   const [expertGame,setExpertGame] = useState('')
@@ -169,6 +169,7 @@ function App() {
           <ChangeGameExpert
             username={username}
             expertGame={expertGame}
+            setExpertGame={setExpertGame}
             dark={dark}
           />
         }/>

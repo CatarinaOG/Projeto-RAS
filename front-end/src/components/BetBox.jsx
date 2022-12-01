@@ -11,7 +11,6 @@ export default function BetBox(props){
     }
 
     return(
-
         <div className={ selected ? `resultBoxSelected${dark}` : `resultBoxNotSelected${dark}`} onClick={changeSelectedResults}>
             <h3>{result}</h3>
             <p>{odd}</p>
