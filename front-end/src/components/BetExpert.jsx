@@ -6,7 +6,7 @@ import play from '../images/play.png'
 
 export default function BetExpert(props){
 
-    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd} = props
+    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd,dark} = props
     const {home,away,date,results} = game
 
     // Criação das caixas de resultado
@@ -55,8 +55,8 @@ export default function BetExpert(props){
 
     return(
         <div className='betWithProgress'>
-            <div className="bet">
-                <div className="info">
+            <div className={`bet${dark}`}>
+                <div className={`info${dark}`}>
                     <div>
                         <h3>{home} vs {away}</h3>
                         <p>{date}</p>

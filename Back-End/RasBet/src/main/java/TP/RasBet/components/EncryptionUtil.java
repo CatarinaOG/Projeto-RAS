@@ -2,7 +2,6 @@ package TP.RasBet.components;
 
 
 import java.nio.charset.StandardCharsets;
-import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;

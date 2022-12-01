@@ -14,15 +14,12 @@ public class Admin implements Serializable{
     @Column(name = "id")
     private int id;
 
-    @Convert(converter = Encrypt.class)
     @Column(name = "email")
     private String email;
 
-    @Convert(converter = Encrypt.class)
     @Column(name = "password")
     private String password;
 
-    @Convert(converter = Encrypt.class)
     @Column(name = "name")
     private String name;
 

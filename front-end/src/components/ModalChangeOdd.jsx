@@ -3,7 +3,7 @@ import close from '../images/close.png'
 
 export default function ModalChangeOdd(props){
 
-    const {games,oddToChange,setModalChangeOdd,setModalChangeOddConfimation,setGames} = props
+    const {games,oddToChange,setModalChangeOdd,setModalChangeOddConfimation,setGames,dark} = props
 
     const [newOdd,setNewOdd] = useState()
 
@@ -69,9 +69,9 @@ export default function ModalChangeOdd(props){
 
     return (
         <div>
-            <div className="backgroundModal2">
+            <div className={`backgroundModal2${dark}`}>
             </div>
-            <div className="boxConfirm">
+            <div className={`boxConfirm${dark}`}>
                 <img className='close' onClick={cancel} src={close}/>
                 <h1 className="titleModal">Alteração de Odd</h1>
                 <p className="paragraphModalConfirmation2">Alterar odd na aposta:</p>

@@ -2,7 +2,7 @@ import close from '../images/close.png'
 
 export default function ModalChangeOddConfirmation(props){
 
-    const {setModalChangeOddConfimation} = props
+    const {setModalChangeOddConfimation,dark} = props
 
 
     function cancel(){
@@ -12,7 +12,7 @@ export default function ModalChangeOddConfirmation(props){
 
     return (
         <div>
-            <div className="backgroundModal2">
+            <div className={`backgroundModal2${dark}`}>
             </div>
             <div className="boxConfirm">
                 <img className='close' onClick={cancel} src={close}/>
