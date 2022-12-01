@@ -35,13 +35,13 @@ export default function ProfileExpert(props){
 
     return(
 
-        <div>
+        <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile 
                 username={username}
                 dark={dark}
-                />
-            <img src = {goBackImg} className='goBackImg3' onClick={goBack}/>
-                <div className='whiteShadow'>
+            />
+            <img src = {goBackImg} className={`goBackImg3${dark}`} onClick={goBack}/>
+                <div className={`whiteShadow${dark}`}>
                     <div className="contentAdmin">
                         <button className="ButtonsAdmin" onClick={goToAddGame}>Criar Evento</button>
                         <img src={addEvent} alt="" className="expertImg1"/>

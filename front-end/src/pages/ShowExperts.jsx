@@ -89,13 +89,13 @@ export default function ShowExperts(props){
 
 
     return(
-        <div>
+        <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile 
                 username={username}
                 dark={dark}
             />
-            <div className='ftwhiteShadow'>
-                <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
+            <div className={`ftwhiteShadow${dark}`}>
+                <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                 <h1 className = "ftAddSp">Consultar Especialista</h1>
                 <div className="tableSpace">
                     <table width="700">
