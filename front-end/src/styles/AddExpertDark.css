@@ -1,6 +1,7 @@
 
-.ftaddSpecialist{
-    background: white;
+.ftaddSpecialistDark{
+    background: black;
+    height: 100vh;
 }
 
 .ftbackgroundModal{
@@ -68,7 +69,8 @@
     border-radius: 20px;
     border: 1px solid grey;
     background-color: #635d5f;
-    
+    color: white;
+    font-size: medium;
 }
 
 .ftemailSpDark{
@@ -81,7 +83,8 @@
     border-radius: 20px;
     border: 1px solid grey;
     background-color: #635d5f;
-
+    color: white;
+    font-size: medium;
 }
 
 
@@ -95,7 +98,8 @@
     border-radius: 20px;
     border: 1px solid grey;
     background-color: #635d5f;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftUsernameSpDark::placeholder{
@@ -199,7 +203,7 @@
     left : 33%
 }
 
-.ftgoBackImg{
+.ftgoBackImgDark{
     position: absolute;
     left: 22vw;
     top: 16vh;
@@ -207,7 +211,7 @@
     scale: 0.8;
 }
 
-.ftgoBackImg:hover{
+.ftgoBackImgDark:hover{
     cursor: pointer;
 }
 

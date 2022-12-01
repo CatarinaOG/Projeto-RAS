@@ -46,6 +46,8 @@
     top:33%;
     text-align: center;
     background-color: #ABB0B8;
+    color: white;
+    font-size: medium;
 }
 
 
@@ -279,7 +281,8 @@
     top:31%;
     text-align: center;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 
@@ -293,7 +296,8 @@
     top:46%;
     text-align: center;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftAddrChangeDark{
@@ -306,7 +310,8 @@
     top:61%;
     text-align: center;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .fthPhoneNumDark{

@@ -68,7 +68,7 @@ export default function AddSpecialist(props){
     
 
     return(
-        <div className='ftaddSpecialist'>
+        <div className={`ftaddSpecialist${dark}`}>
             <div>
                 <NavBarProfile 
                     username={username}
