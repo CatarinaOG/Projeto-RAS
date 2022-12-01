@@ -13,7 +13,11 @@ import './styles/ChangeGameExpert.css'
 import './styles/LoginDark.css'
 import './styles/ProfileDark.css'
 import './styles/HomeDark.css'
+import './styles/AddExpertDark.css'
+import './styles/AddGameDark.css'
 import './styles/RecoverDark.css'
+
+
 
 
 import {useState} from 'react'

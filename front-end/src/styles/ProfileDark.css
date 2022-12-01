@@ -423,6 +423,29 @@
     left: 40%;
 }
 
+.ftConfirmEmailSelectedDark{
+    position: absolute;
+
+    height: 12%;
+    width: 18%;
+
+    color:#F07444 ;
+
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+
+    background-color:#635d5f;
+
+
+    top: 80%;
+    left: 40%;
+}
+
 
 /*------------------------------ POPUP CODE Confirm ----------------------------*/
 

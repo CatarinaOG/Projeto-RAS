@@ -32,39 +32,6 @@ export default function BetHistory(props){
       setSimpleState('inactive');
     }
 
-  const betHistory = [ 
-      {
-          bet : [
-              {
-                  type : "team", 
-                  name : "Sporting vs Varzim",
-                  winner : "Sporting"
-              }
-          ]
-          ,
-          ammount : 18123,
-          winnings : 1233
-      }
-      ,
-      {
-        bet : [
-            {
-                type : "team", 
-                name : "Sporting vs Varzim",
-                winner : "Sporting"
-            },
-            {
-              type : "team", 
-              name : "Benfica vs Porto",
-              winner : "Benfica"
-            }
-        ]
-        ,
-        ammount : 18123,
-        winnings : 1233
-    }
-  ]
-
   useEffect(() => {
     
     fetch('http://127.0.0.1:8080/api/users/transaction_history',{
@@ -117,26 +84,6 @@ const fullbetHist = () => (
   </ul>)
 
 
-
-
-
-    const data = [
-      { date: "18/11/22", description: "Levantamento", operation: "+13,45" , balance : 20},
-      { date: "18/11/22", description: "Depósito", operation: "+13,45" , balance : 32},
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Ganho de aposta", operation: "+13,45", balance : 50 },
-      { date: "18/11/22", description: "Aposta feita", operation: "+13,45", balance : 50 }
-    ]
-      
 
     function changeToTransact(){
       setMultipleState('inactive')

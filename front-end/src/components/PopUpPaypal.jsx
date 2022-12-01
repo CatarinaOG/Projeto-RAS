@@ -10,7 +10,7 @@ export default function PopUpPaypal(props){
     const [message,setMessage] = useState("");
 
     function close(){
-        setMethod('');
+        setShowPopUp('')
     }
 
     const [formData, setFormData] = useState(

@@ -14,6 +14,8 @@ export default function PopUpEmail(props){
         {email: ""}
     )
     
+    const [waiting,setWaiting] = useState(0)
+    
     const [errorMsg, setErrorMsg] = useState(0)
 
     function handleChange(event) {
@@ -36,7 +38,7 @@ export default function PopUpEmail(props){
 
     function handleSubmit(event){
         event.preventDefault();
-
+        setWaiting(1)
         if (formData.email != ""){
             fetch('http://127.0.0.1:8080/api/users/get_code', {
                 method: 'POST',
@@ -50,6 +52,7 @@ export default function PopUpEmail(props){
             .then(data => {
                 setSafeCode(data.code);
                 setShowPopUp('confirm');
+                setWaiting(0)
             })
 
         }
@@ -70,6 +73,8 @@ export default function PopUpEmail(props){
                 console.log(data);
                 setSafeCode(data.code);
                 setShowPopUp('confirm');
+                setWaiting(0)
+
             })
             
 
@@ -89,7 +94,7 @@ export default function PopUpEmail(props){
                         <input onChange={handleChange} type = "email" name = "email" className={`ftemailCode${dark}`} placeholder='Escreva o email' value={formData.email}></input>
                         <h3 className={`fth3PopEmail${dark}`}>Usar email da conta</h3>
                         <input onChange={handleChangeCheck} type = "checkbox" className={`ftcheckBoxEmail${dark}`}></input>
-                        <button  className={`ftConfirmEmail${dark}`} > Confirm</button>
+                        <button  className={ waiting === 0 ? `ftConfirmEmail${dark}` : `ftConfirmEmailSelected${dark}`} > Confirm</button>
                     </form>
                     <img src={close} className="close" onClick={cancel}/>
 			        {errorMsg===1 && <p className='ftErrorMsgEmail'>Selecione uma opção</p>}

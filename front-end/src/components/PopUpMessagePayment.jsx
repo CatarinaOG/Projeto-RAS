@@ -7,12 +7,7 @@ export default function PopUpMessage(props){
     const {setStateOp,message,setMethod,setShowPopUp,dark} = props;
 
     function close(){
-        if(message==="Operação bem sucedida!"){
-            setMethod('');
-        }
-        else{
-            setStateOp("");
-        }
+        setShowPopUp('')
     }
     return(
         <div>

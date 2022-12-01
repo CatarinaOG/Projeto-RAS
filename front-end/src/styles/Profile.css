@@ -858,6 +858,29 @@
     left: 40%;
 }
 
+.ftConfirmEmailSelected{
+    position: absolute;
+
+    height: 12%;
+    width: 18%;
+
+    color: white;
+
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+
+    background-color:#F07444;
+
+
+    top: 80%;
+    left: 40%;
+}
+
 .ftConfirmCode{
     position: absolute;
 

@@ -26,7 +26,7 @@ export default function PopUpMaestro(props){
 
     // fecha o popUp de método de pagamento
     function close(){
-        setMethod('');
+        setShowPopUp('');
     }
 
     //Comportamento após submissão do form. Começa por verificar o tamanho do input do CCV e do CardNum
