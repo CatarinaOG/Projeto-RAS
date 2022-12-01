@@ -63,7 +63,7 @@ public class RestService {
             if(!jogo_existe){
                 String participants = (String) j.get("homeTeam") + ";" + (String) j.get("awayTeam");
 
-                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get());
+                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), participants.replace(";", " vs "));
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 JSONArray marketsList = (JSONArray) bookmaker.get("markets");
@@ -90,10 +90,7 @@ public class RestService {
                 oddRepo.save(oddBb);
                 oddRepo.save(oddT);
             }
-            
         }
-        
-
     }
 
 
@@ -127,7 +124,7 @@ public class RestService {
             if(!jogo_existe){
                 String participants = (String) g.get("HomeTeamName") + ";" + (String) g.get("AwayTeamName");
 
-                Game j = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get());
+                Game j = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), participants.replace(";", " vs "));
                 JSONArray bookmakersList = (JSONArray) g.get("PregameOdds");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 Odd oddAa;

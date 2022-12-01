@@ -31,6 +31,9 @@ public class Bet implements Serializable{
 
     @Column(name = "state")
     private String state;
+
+    @Column(name = "final_balance")
+    private float final_balance;
     
 
     //many to one com user -> User_id é o nome da FK e referenced... id é a PK da tabela do user
@@ -51,12 +54,13 @@ public class Bet implements Serializable{
         
     }
 
-    public Bet(float amount, float winnings, Timestamp date, User user, String state){
+    public Bet(float amount, float winnings, Timestamp date, User user, String state, float final_balance){
         this.amount = amount;
         this.winnings = winnings;
         this.date = date;
         this.user = user;
         this.state = state;
+        this.final_balance = final_balance;
     }
 
 
@@ -86,6 +90,10 @@ public class Bet implements Serializable{
         return this.state;
     }
 
+    public float getFinal_balance() {
+        return final_balance;
+    }
+
     public List<GamesInOneBet> getGames(){
         return this.games;
     }
@@ -93,6 +101,7 @@ public class Bet implements Serializable{
     public User getUser() {
         return user;
     }
+    
 
 
 
@@ -121,6 +130,10 @@ public class Bet implements Serializable{
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public void setFinal_balance(float final_balance) {
+        this.final_balance = final_balance;
     }
 
     @Override

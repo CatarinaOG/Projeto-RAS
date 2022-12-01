@@ -113,7 +113,7 @@ public class AppService {
         User u = userRepo.findUserByEmail(betslipForm.getUser()).get();
         u.setWallet(u.getWallet()-betslipForm.getMultipleAmount());
 
-        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings*betslipForm.getMultipleAmount(), Timestamp.from(Instant.now()), u, "Open");
+        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings*betslipForm.getMultipleAmount(), Timestamp.from(Instant.now()), u, "Open", u.getWallet());
         
         betRepo.save(b);
 

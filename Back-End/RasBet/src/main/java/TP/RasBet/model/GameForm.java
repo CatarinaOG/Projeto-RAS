@@ -1,4 +1,4 @@
-package TP.RasBet.model;
+    package TP.RasBet.model;
 import java.sql.Timestamp;
 
 public class GameForm{
@@ -9,6 +9,7 @@ public class GameForm{
     private float oddA;
     private float oddB;
     private float oddTie;
+    private String name;
     private Timestamp date;
     private String expert_email;
 
@@ -31,6 +32,9 @@ public class GameForm{
     }
     public float getOddTie() {
         return oddTie;
+    }
+    public String getName() {
+        return name;
     }
     public Timestamp getDate() {
         return date;
@@ -57,6 +61,9 @@ public class GameForm{
     }
     public void setOddTie(float oddTie) {
         this.oddTie = oddTie;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
 }
