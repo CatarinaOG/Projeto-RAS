@@ -1,4 +1,5 @@
 package TP.RasBet.controllers;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,8 @@ public class ExpertController {
     private ExpertService expertService;
 
     @PostMapping(value="/newGame")
-    public String newGame(@RequestBody GameForm gameForm){
+    public String newGame(@RequestBody String string){
+        JSONObject gameForm = new JSONObject(string);
         return expertService.createGame(gameForm);
     }
 

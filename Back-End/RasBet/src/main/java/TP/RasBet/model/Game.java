@@ -36,6 +36,9 @@ public class Game implements Serializable{
     @Column(name = "participants")
     private String participants;
 
+    @Column(name = "name")
+    private String name;
+
 
     //one to many de game para odd
     @JsonIgnore
@@ -58,12 +61,13 @@ public class Game implements Serializable{
         
     }
 
-    public Game(String sport, String participants, Timestamp date, Expert expert){
+    public Game(String sport, String participants, Timestamp date, Expert expert, String name){
         this.sport = sport;
         this.participants = participants;
         this.date = date;
         this.state = "TBD";
         this.expert = expert;
+        this.name = name;
     }
 
 
@@ -85,6 +89,9 @@ public class Game implements Serializable{
     public String getState(){
         return this.state;
     }
+    public String getName() {
+        return name;
+    }
     public String getParticipants() {
         return this.participants;
     }
@@ -99,6 +106,9 @@ public class Game implements Serializable{
     }
     public void setState(String state){
         this.state = state;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
     public void setExpert(Expert expert) {
         this.expert = expert;

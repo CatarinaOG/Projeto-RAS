@@ -5,8 +5,6 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
-import org.springframework.jdbc.core.metadata.GenericTableMetaDataProvider;
-
 
 @Entity
 @Table(name = "user")
@@ -18,39 +16,30 @@ public class User implements Serializable{
     private int id;
 
     @Column(name = "email")
-    //@Convert(converter = Encrypt.class)
     private String email;
 
     @Column(name = "password")
-    //@Convert(converter = Encrypt.class)
     private String password;
 
     @Column(name = "phone")
-    //@Convert(converter = Encrypt.class)
     private String phone;
 
     @Column(name = "name")
-    //@Convert(converter = Encrypt.class)
     private String name;
 
     @Column(name = "address")
-    //@Convert(converter = Encrypt.class)
     private String address;
 
     @Column(name = "nif")
-    //@Convert(converter = Encrypt.class)
     private String nif;
 
     @Column(name = "cc")
-    //@Convert(converter = Encrypt.class)
     private String cc;
     
     @Column(name = "wallet")
-    //@Convert(converter = Encrypt.class)
     private float wallet;
     
     @Column(name="data_de_nascimento")
-    //@Convert(converter = Encrypt.class)
     private Timestamp data_de_nascimento;
      
 

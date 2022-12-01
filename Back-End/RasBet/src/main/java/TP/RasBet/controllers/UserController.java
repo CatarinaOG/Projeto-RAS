@@ -9,18 +9,49 @@ import org.springframework.web.bind.annotation.RestController;
 import TP.RasBet.model.*;
 import TP.RasBet.services.AppService;
 import TP.RasBet.services.UserService;
+
+import java.security.Key;
+
+import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.json.*;
 
 
 @RestController
 @RequestMapping(path = "api/users")
 public class UserController {
-    
+    private String secret = "AndreBrunoJoao";
+    private SecretKey secretKey = new SecretKeySpec(secret.getBytes(), "AES");
+
+
     @Autowired
     private UserService userService;
 
     @Autowired 
     private AppService appService;
+
+    @Autowired
+    private Encrypt encrypt;
+
+    @PostMapping(value="/teste")
+    public void teste(@RequestBody String body){
+       /*  JSONObject b = new JSONObject(body);
+        try{
+            String e = encrypt.encrypt((String) b.get("password"), secretKey);
+            System.out.println("Encrypted: " + e);
+            String d = encrypt.decrypt(e, secretKey);
+            System.out.println("Decrypted: " + d);
+        }catch(Exception e){
+            System.out.println("Deu erro no Encrypt");
+            System.out.println(e.getMessage());
+        }
+        */
+    }
+
+
+
+
 
 
     @PostMapping(value="/login")
@@ -81,4 +112,5 @@ public class UserController {
         JSONObject j = new JSONObject(email_user);
         return userService.recoverPassword((String) j.get("email_user"));
     }
+
 }

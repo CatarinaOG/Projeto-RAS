@@ -25,44 +25,80 @@ public class ExpertService{
     @Autowired
     private OddRepo oddRepo;
 
-    public String createGame(GameForm gameForm){
+    public String createGame(JSONObject event){
 
         List<Game> games = gameRepo.findAll();
 
-        String pA = gameForm.getParticipantA();
-        String pB = gameForm.getParticipantB();
-        Timestamp d = gameForm.getDate(); // DEPOIS ALTERAR
+        if(event.get("sport").equals("motoGP")){
 
-        String cmp = pA + ";" + pB;
+            String participants = "";
 
-        for(Game g : games){
-            if(g.getParticipants().equals(cmp) && d.equals(g.getDate())){
-                return "{\"state\" : \"bad\"}";
-            } 
+            for(int i = 1; i <= 24; i++){
+                if(i == 24) participants += (String) event.get("pilot" + i) ;
+                else participants += (String) event.get("pilot" + i) + ";" ;
+            }
+            Timestamp d = Timestamp.valueOf((String) event.get("date")); // DEPOIS ALTERAR
+            String name = (String) event.get("name");
+
+            for(Game g : games){
+                if(g.getParticipants().equals(participants) && d.equals(g.getDate())){
+                    return "{\"state\" : \"bad\"}";
+                }
+            }
+            
+            Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
+
+            Game game = new Game((String) event.get("sport"), participants, d, expert, name);
+            gameRepo.save(game);
+
+            for(int i = 1; i <= 24; i++){
+                Odd odd = new Odd((String) event.get("pilot"+i), Float.parseFloat(event.get("odd"+i).toString()));
+                odd.setGame(game);
+                oddRepo.save(odd);
+            }
+
+            return "{\"state\" : \"good\"}";
+            
         }
+        else{
+            String pA = (String) event.get("participantA");
+            String pB = (String) event.get("participantB");
+            Timestamp d = Timestamp.valueOf((String) event.get("date")); // DEPOIS ALTERAR
+            
+            String name = (String) event.get("name");
 
-        Odd oddA = new Odd(pA, gameForm.getOddA());
-        Odd oddB = new Odd(pB, gameForm.getOddB());
-        Odd oddTie = new Odd("Empate", gameForm.getOddTie());
-        
+            String cmp = pA + ";" + pB;
 
+            for(Game g : games){
+                if(g.getParticipants().equals(cmp) && d.equals(g.getDate())){
+                    return "{\"state\" : \"bad\"}";
+                }
+            }
 
-        Expert expert = expertRepo.findExpertByEmail(gameForm.getExpert_email()).get();
+            Odd oddA = new Odd(pA, Float.parseFloat(event.get("oddA").toString()));
+            Odd oddB = new Odd(pB, Float.parseFloat(event.get("oddB").toString()));
+            Odd oddTie  = new Odd();
+            if (event.get("sport").equals("futebol")){
+                oddTie = new Odd("Empate", Float.parseFloat(event.get("oddTie").toString()));
+            }
+            
 
-        Game game = new Game(gameForm.getSport(), cmp, d, expert);
-        gameRepo.save(game);
-        oddA.setGame(game);
-        oddB.setGame(game);
-        oddTie.setGame(game);
+            Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
 
-        oddRepo.save(oddA);
-        oddRepo.save(oddB);
-        oddRepo.save(oddTie);
-        
+            Game game = new Game((String) event.get("sport"), cmp, d, expert, name);
+            gameRepo.save(game);
+            oddA.setGame(game);
+            oddB.setGame(game);
+            if (event.get("sport").equals("futebol")) {
+                oddTie.setGame(game);
+                oddRepo.save(oddTie);
+            }
+            oddRepo.save(oddA);
+            oddRepo.save(oddB);
+            
 
-        return "{\"state\" : \"good\"}";
-
-
+            return "{\"state\" : \"good\"}";
+        }
     }
 
     public String getGames(){
@@ -83,7 +119,7 @@ public class ExpertService{
                 else{
                     game.put("id", g.getId());
                     game.put("sport", g.getSport());
-                    game.put("name", g.getParticipants()); // O que eles querem aqui é o nome do evento que ainda nao esta a ser guardado. 
+                    game.put("name", g.getName());
                     JSONArray participants = new JSONArray();
                     String[] pts = g.getParticipants().split(";");
                     for(String s : pts){
