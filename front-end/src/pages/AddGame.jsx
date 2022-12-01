@@ -152,8 +152,8 @@ export default function AddGame(props){
 
 
     return(
-        <div>
-            <div>
+        <div className={`ftaddGame${dark}`}>
+            <div >
                 <NavBarProfile 
                     username={username}
                     dark={dark}

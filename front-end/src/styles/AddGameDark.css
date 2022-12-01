@@ -3,6 +3,13 @@ body{
     background-color: white;
 }
 
+
+.ftaddGameDark{
+    background: black;
+    height: 100vh;
+}
+
+
 /*------ Popup -----*/
 .ftbackgroundModal{
     background:#18340C;
@@ -66,6 +73,8 @@ body{
     border-radius: 10px;
     background-color: #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftselectSportOptionDark{
@@ -96,7 +105,8 @@ body{
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftselectPartADark::placeholder{
@@ -116,7 +126,8 @@ body{
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftselectPartBDark::placeholder{
@@ -136,7 +147,8 @@ body{
     height: 7%;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftoddADark::placeholder{
@@ -156,7 +168,8 @@ body{
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftoddBDark::placeholder{
@@ -176,6 +189,8 @@ body{
     border-radius: 10px;
     background:  #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftoddTieDark::placeholder{
@@ -194,6 +209,8 @@ body{
     border-radius: 10px;
     background:  #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftselectTimeDark::placeholder{
@@ -212,6 +229,8 @@ body{
     border-radius: 10px;
     background:  #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftselectDateDark::placeholder{
@@ -334,13 +353,13 @@ body{
     border-radius: 20px;
 }
 
-.goBackImg{
+.goBackImgDark{
     position: absolute;
     left: 15px;
     top: 15px;
 }
 
-.goBackImg:hover{
+.goBackImgDark:hover{
     cursor: pointer;
 }
 
