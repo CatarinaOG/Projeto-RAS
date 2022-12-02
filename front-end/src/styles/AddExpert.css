@@ -180,6 +180,15 @@
 }
 
 
+.ftgoBackImg{
+    position: absolute;
+    left: 22vw;
+    top: 16vh;
+    z-index: 2;
+    scale: 0.8;
+}
+
+
 .ftgoBackImg:hover{
     cursor: pointer;
 }

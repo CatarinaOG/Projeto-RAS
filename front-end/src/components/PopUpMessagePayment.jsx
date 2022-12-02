@@ -11,7 +11,7 @@ export default function PopUpMessage(props){
     }
     return(
         <div>
-            <h1 className='fth1Pop'>{message}</h1>     
+            <h1 className={`fth1Pop${dark}`}>{message}</h1>     
             <img src = {closeImg} className='close' onClick={close}/>
 
         </div>

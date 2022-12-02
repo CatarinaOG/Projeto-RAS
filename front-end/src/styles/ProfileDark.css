@@ -83,19 +83,20 @@
 }
 
 
-.ftLogoutDark:active{
-    color: #635d5f;
-    background-color:#F07444;
+.ftLogoutDark:active
+{
+    border-color: white;
+
 }
 
 .fttakeOutDark:active {
-    color: white;
-    background-color:#F07444;
+    border-color: white;
+
 }
 
 .ftdepositDark:active {
-    color: white;
-    background-color:#F07444;
+    border-color: white;
+
 }
 
 
@@ -107,10 +108,10 @@
     height: 15%;
     width: 18%;
     top: 0%;
-
-    color: #F07444;
+    background: #292929;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
@@ -129,10 +130,11 @@
     height: 15%;
     width: 18%;
     top: 0%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black;
 
     font-family: 'Spinnaker';
     font-weight: 400;
@@ -150,11 +152,12 @@
     height: 15%;
     width: 18%;
     top: 0%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
     font-size: 13px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
@@ -193,10 +196,11 @@
 
     height: 15%;
     width: 30%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
@@ -209,15 +213,14 @@
 }
 
 .ftConfirmDark:active{
-    background-color: #F07444;
-    color: white;
+    border-color: white;
+
 }
 
 
 
 .ftChangeSecDark:active{
-    color: white;
-    background-color:#F07444;
+    border-color: white;
 }
 
 .ftChangeSecDark{
@@ -226,10 +229,11 @@
 
     height: 15%;
     width: 30%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
@@ -623,7 +627,7 @@
     left: 40%;
 }
 
-.ftOperationButton:active{
+.ftOperationButtonDark:active{
     background-color: #F07444;
     color: #FEFFFE;
 }
@@ -647,33 +651,35 @@
 
 .ftsimpleBetDark{
     position: absolute;
-    color: #F07444;
+    color: white;
     border-radius: 10px;
     font-size: 13px;
+    background: #292929;
 
     height: 15%;
     width: 25%;
     top: -5%;
     left:8%;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
-    background-color: #635d5f;
 }
 
 .ftmultipleBetDark{
-    color: #F07444;
+    color: white;
     border-radius: 10px;
     font-size: 13px;
 
     height: 15%;
     width: 25%;
     top: 0%;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
+    background: #292929;
+
 
 
     font-family: 'Spinnaker';
@@ -681,7 +687,6 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
-    background-color: #635d5f;
 
     position: absolute;
     top: -5%;
