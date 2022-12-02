@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 
 @Service
-public class AppService {
+public class AppService implements IAppService {
 
     @Autowired 
     private AdminRepo adminRepo;

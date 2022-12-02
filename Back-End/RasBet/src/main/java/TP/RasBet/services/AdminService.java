@@ -10,7 +10,7 @@ import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
 
 @Service
-public class AdminService{
+public class AdminService implements IAdminService{
 
 
     @Autowired
