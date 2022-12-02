@@ -14,7 +14,7 @@ import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
 
 @Service
-public class ExpertService{
+public class ExpertService implements IExpertService{
 
     @Autowired
     private GameRepo gameRepo;

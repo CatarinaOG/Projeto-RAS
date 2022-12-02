@@ -19,7 +19,7 @@ import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
 
 @Service
-public class RestService {
+public class RestService implements IRestService {
     
     private final RestTemplate restTemplate;
 
