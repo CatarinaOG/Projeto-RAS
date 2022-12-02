@@ -134,24 +134,24 @@ public class AppService implements IAppService {
     }
 
 
-    public String changeOdd(OddForm oddForm){
+    public String changeOdd(JSONObject oddForm){//OddForm oddForm){
         
-        if (!oddRepo.findById(oddForm.getId()).isPresent()){
+        if (!oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).isPresent()){
             return "{\"confirmed\" : \"false\"}";
         }
 
-        Odd o = oddRepo.findById(oddForm.getId()).get();
-        o.setValue(oddForm.getOdd());
+        Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
+        o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
         oddRepo.save(o);
 
         return "{\"confirmed\" : \"true\"}";
     }
 
-    public String insertOdd(OddForm oddForm){
+    public String insertOdd(JSONObject oddForm){//OddForm oddForm){
         
-        if (!oddRepo.findById(oddForm.getId()).isPresent()){
-            Odd o = oddRepo.findById(oddForm.getId()).get();
-            o.setValue(oddForm.getOdd());
+        if (!oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).isPresent()){
+            Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
+            o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
             oddRepo.save(o);
             return "{\"confirmed\" : \"true\"}";
         }

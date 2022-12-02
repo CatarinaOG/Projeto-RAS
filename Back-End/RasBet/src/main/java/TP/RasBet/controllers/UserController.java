@@ -52,28 +52,19 @@ public class UserController {
     }
 
 
-
-
-
-
     @PostMapping(value="/login")
-    public String login(@RequestBody LoginForm loginform){
-
-        String email = loginform.getEmail();
-        String pass = loginform.getPass();
-
-
-        String r = userService.login(email, pass);
-
-
-        return r;
-
+    public String login(@RequestBody String req){
+        JSONObject loginForm = new JSONObject(req);
+        String email = (String) loginForm.get("email");
+        String pass = (String) loginForm.get("pass");
+        return userService.login(email, pass);
     }
 
  
 
     @PostMapping(value="/register")
-    public String register(@RequestBody RegisterForm registerForm){
+    public String register(@RequestBody String req){//@RequestBody RegisterForm registerForm){
+        JSONObject registerForm = new JSONObject(req);
         return userService.register(registerForm);
     }
 
@@ -84,8 +75,9 @@ public class UserController {
     }
 
     @PostMapping(value = "/change_profile")
-    public String changeProfile(@RequestBody ChangeProfileForm cpf){
-        if(cpf.getPhone_num() == null && cpf.getPassword() == null && cpf.getNew_add() == null){
+    public String changeProfile(@RequestBody String req){//@RequestBody ChangeProfileForm cpf){
+        JSONObject cpf = new JSONObject(req);
+        if(cpf.get("phone_num") == null && cpf.get("password") == null && cpf.get("new_add") == null){
             return userService.changeProfile(cpf);
         }
         else return userService.changeSensitive(cpf);

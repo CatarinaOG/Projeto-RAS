@@ -26,7 +26,8 @@ public class AdminController {
 
 
     @PostMapping(value = "/newExpert")
-    public String newExpert(@RequestBody RegisterForm registerForm){
+    public String newExpert(@RequestBody String req){
+        JSONObject registerForm = new JSONObject(req);
         return adminService.createExpert(registerForm);
     }
 

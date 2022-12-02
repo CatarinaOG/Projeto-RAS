@@ -3,6 +3,7 @@ package TP.RasBet.services;
 import java.sql.Timestamp;
 import java.time.Instant;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,24 +21,26 @@ public class TransactionService{
     private TransactionRepo transactionRepo;
 
 
-    public String transaction(TransactionForm transactionForm){
+    public String transaction(JSONObject transactionForm){//TransactionForm transactionForm){
 
-        User u = userRepo.findUserByEmail(transactionForm.getEmail_user()).get();
+        User u = userRepo.findUserByEmail((String) transactionForm.get("email_user")).get();
 
 
 
-        if(transactionForm.getOperation().equals("deposit")){
-            if(transactionForm.getCardNum() == 0){
-                Transaction t = new Transaction("PayPal", transactionForm.getOperationValue(), Timestamp.from(Instant.now()));
-                t.setFinalBalance(u.getWallet() + transactionForm.getOperationValue());
-                u.setWallet(u.getWallet() + transactionForm.getOperationValue());
+        if(((String) transactionForm.get("operation")).equals("deposit")){
+            if((int) transactionForm.get("cardNum") == 0){
+                float op_value = Float.parseFloat(transactionForm.get("operationValue").toString());
+                Transaction t = new Transaction("PayPal", op_value, Timestamp.from(Instant.now()));
+                t.setFinalBalance(u.getWallet() + op_value);
+                u.setWallet(u.getWallet() + op_value);
                 userRepo.save(u);
                 t.setUser(u);
                 transactionRepo.save(t);
             }else{
-                Transaction t = new Transaction("Credit Card", transactionForm.getOperationValue(), Timestamp.from(Instant.now()));
-                t.setFinalBalance(u.getWallet() + transactionForm.getOperationValue());
-                u.setWallet(u.getWallet() + transactionForm.getOperationValue());
+                float op_value = Float.parseFloat(transactionForm.get("operationValue").toString());
+                Transaction t = new Transaction("Credit Card", op_value, Timestamp.from(Instant.now()));
+                t.setFinalBalance(u.getWallet() + op_value);
+                u.setWallet(u.getWallet() + op_value);
                 userRepo.save(u);
                 t.setUser(u);
                 transactionRepo.save(t);
@@ -46,13 +49,14 @@ public class TransactionService{
             
         }
         else{
-            Transaction t = new Transaction("Withdraw", transactionForm.getOperationValue(), Timestamp.from(Instant.now()));
-            t.setFinalBalance(u.getWallet() - transactionForm.getOperationValue());
+            float op_value = Float.parseFloat(transactionForm.get("operationValue").toString());
+            Transaction t = new Transaction("Withdraw", op_value, Timestamp.from(Instant.now()));
+            t.setFinalBalance(u.getWallet() - op_value);
 
-            if(u.getWallet() - transactionForm.getOperationValue() < 0.0f){
+            if(u.getWallet() - op_value < 0.0f){
                 return "{\"confirmed\" : \"false\"" + "}";
             }
-            u.setWallet(u.getWallet() - transactionForm.getOperationValue());
+            u.setWallet(u.getWallet() - op_value);
             userRepo.save(u);
             t.setUser(u);
             transactionRepo.save(t);

@@ -19,11 +19,11 @@ public class AdminService implements IAdminService{
     @Autowired
     private AdminRepo adminRepo;
 
-    public String createExpert(RegisterForm registerForm){
+    public String createExpert(JSONObject registerForm){
         Admin admin = adminRepo.findAll().get(0);
-        Expert expert = new Expert(registerForm.getEmail(), registerForm.getPassword(), registerForm.getNome(), admin);
+        Expert expert = new Expert((String) registerForm.get("email"), (String) registerForm.get("password"), (String) registerForm.get("nome"), admin);
 
-        if(!expertRepo.findExpertByEmail(registerForm.getEmail()).isPresent()){
+        if(!expertRepo.findExpertByEmail((String)registerForm.get("email")).isPresent()){
             expertRepo.save(expert);
             return "{\"state\" : \"good\"}";
         }

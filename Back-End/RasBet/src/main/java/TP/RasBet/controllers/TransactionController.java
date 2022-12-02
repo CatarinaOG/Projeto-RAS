@@ -1,5 +1,6 @@
 package TP.RasBet.controllers;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,8 @@ public class TransactionController{
     private TransactionService transactionService;
     
     @PostMapping(value = "/")
-    public String transaction(@RequestBody TransactionForm transactionForm){
+    public String transaction(@RequestBody String req){//@RequestBody TransactionForm transactionForm){
+        JSONObject transactionForm = new JSONObject(req);
         return transactionService.transaction(transactionForm);
     }
 

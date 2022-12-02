@@ -1,11 +1,15 @@
 package TP.RasBet.services;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,33 +68,49 @@ public class UserService {
     }
 
 
-    public String register(RegisterForm rf){
+    public String register(JSONObject rf){//RegisterForm rf){
         List<User> users = userRepo.findAll();
-        String email = rf.getEmail();
-        String cc  = rf.getCc();
-        String nif = rf.getNif();
+        String email = (String) rf.get("email");
+        String cc  = (String) rf.get("cc");
+        String nif = (String) rf.get("nif");
         for(User u : users){
             if(email.equals(u.getEmail()) || cc.equals(u.getCC()) || nif.equals(u.getNIF())){
                 return "{ \"state\" : \"bad\"" + "}";
             }
         }
 
-        User user = new User(rf.getEmail(), rf.getPassword(), rf.getTelefone(), rf.getNome(), rf.getMorada(), rf.getNif(), rf.getCc(),rf.getDataDeNascimento());
-        
+        Timestamp dn = Timestamp.valueOf((String) rf.get("data_de_nascimento"));
 
-        LocalDate ld = rf.getDataDeNascimento().toLocalDateTime().toLocalDate();
-        ld = ld.plusYears(18);
-        LocalDate now = LocalDate.now();
+        String password = (String) rf.get("password");
 
-        System.out.println("Data de nascimento + 18 anos: " + ld);
-        System.out.println("Data de hoje: " + now);
+        try{
+            SecretKey key = Encrypt.generateKey(128);
+            IvParameterSpec ivParameterSpec = Encrypt.generateIv();
+            String algorithm = "AES/CBC/PKCS5Padding";
+            User user = new User(email, Encrypt.encrypt(algorithm, password, key, ivParameterSpec), (String) rf.get("telefone"), (String) rf.get("nome"), 
+                             (String) rf.get("morada"), (String) rf.get("nif"), (String) rf.get("cc"), dn);
 
-        if (ld.isAfter(now)){
-            return "{ \"state\" : \"bad\"" + "}";
+            LocalDate ld = dn.toLocalDateTime().toLocalDate();
+            ld = ld.plusYears(18);
+            LocalDate now = LocalDate.now();
+    
+            System.out.println("Data de nascimento + 18 anos: " + ld);
+            System.out.println("Data de hoje: " + now);
+    
+            if (ld.isAfter(now)){
+                return "{ \"state\" : \"bad\"" + "}";
+            }
+    
+            userRepo.save(user);
+            return "{ \"state\" : \"good\"" + "}";
+
+
         }
-
-        userRepo.save(user);
-        return "{ \"state\" : \"good\"" + "}";
+        catch(Exception e){
+            System.out.println("Erro na encriptação");
+        }
+        
+        return "";
 
     }
 
@@ -145,27 +165,27 @@ public class UserService {
         return response.toString();
     }
 
-    public String changeProfile(ChangeProfileForm cpf){
-        String email = cpf.getEmail_user();
+    public String changeProfile(JSONObject cpf){//ChangeProfileForm cpf){
+        String email = (String) cpf.get("email_user");
         User u = userRepo.findUserByEmail(email).get();
-        u.setName(cpf.getName());
+        u.setName((String) cpf.get("name"));
         userRepo.save(u);
 
         return "{\"state\" : \"good\"}";
     }
 
-    public String changeSensitive(ChangeProfileForm cpf){
-        String email = cpf.getEmail_user();
+    public String changeSensitive(JSONObject cpf){//ChangeProfileForm cpf){
+        String email = (String) cpf.get("email_user");
         User u = userRepo.findUserByEmail(email).get();
 
         if(u.getAddress() != null){
-            u.setAddress(cpf.getNew_add());
+            u.setAddress((String) cpf.get("new_add"));
         }
         if(u.getPassword() != null){
-            u.setPassword(cpf.getPassword());
+            u.setPassword((String) cpf.get("password"));
         }
         if(u.getPassword() != null){
-            u.setPhone(cpf.getPhone_num());
+            u.setPhone((String) cpf.get("phone_num"));
         }
         
         
