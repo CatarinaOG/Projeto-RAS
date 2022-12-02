@@ -25,7 +25,8 @@ export default function Profile(props){
     const [safeCode,setSafeCode] = useState("")
 
     const [betHist,setBetHist] = useState([])
-
+    const [amount,setAmount] = useState(0)
+    const [winnings,setWinnings] =useState(0)
     
     useEffect(() => {
         
@@ -41,10 +42,13 @@ export default function Profile(props){
         .then(data => {
             if(data.betHistory){
                 setBetHist(data.betHistory)
+                setAmount(data.amount)
+                setWinnings(data.winnings)
             }
         })
         .catch((error) => {
         })
+        console.log(betHist)
   },[])  
       
     
@@ -78,6 +82,8 @@ export default function Profile(props){
                             betHist = {betHist}
                             email = {email}
                             dark={dark}
+                            amount={amount}
+                            winnings={winnings}
                         />
                     }
                 </div>

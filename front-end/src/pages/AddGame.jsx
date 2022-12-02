@@ -38,23 +38,25 @@ export default function AddGame(props){
     )
 
     const motoBody = JSON.stringify({
-        date: formData.date + "T"+formData.time+":00",
+        date: formData.date + " "+formData.time+":00",
         expert_email:email,
-        pilot1:formData.pilot1,odd1:formData.odd1,pilot2:formData.pilot1,odd2:formData.odd1,
-        pilot3:formData.pilot1,odd3:formData.odd1,pilot4:formData.pilot1,odd4:formData.odd1,
-        pilot5:formData.pilot1,odd5:formData.odd1,pilot6:formData.pilot1,odd6:formData.odd1,
+        pilot1:formData.pilot1,odd1:formData.odd1,pilot2:formData.pilot2,odd2:formData.odd2,
+        pilot3:formData.pilot3,odd3:formData.odd3,pilot4:formData.pilot4,odd4:formData.odd4,
+        pilot5:formData.pilot5,odd5:formData.odd5,pilot6:formData.pilot6,odd6:formData.odd6,
 
-        pilot7:formData.pilot1,odd7:formData.odd1,pilot8:formData.pilot1,odd8:formData.odd1,
-        pilot9:formData.pilot1,odd9:formData.odd1,pilot10:formData.pilot1,odd10:formData.odd1,
-        pilot11:formData.pilot1,odd11:formData.odd1,pilot12:formData.pilot1,odd12:formData.odd1,
+        pilot7:formData.pilot7,odd7:formData.odd7,pilot8:formData.pilot8,odd8:formData.odd8,
+        pilot9:formData.pilot9,odd9:formData.odd9,pilot10:formData.pilot10,odd10:formData.odd10,
+        pilot11:formData.pilot11,odd11:formData.odd11,pilot12:formData.pilot12,odd12:formData.odd12,
 
-        pilot13:formData.pilot1,odd13:formData.odd1,pilot14:formData.pilot1,odd14:formData.odd1,
-        pilot15:formData.pilot1,odd15:formData.odd1,pilot16:formData.pilot1,odd16:formData.odd1,
-        pilot17:formData.pilot1,odd17:formData.odd1,pilot18:formData.pilot1,odd18:formData.odd1,
+        pilot13:formData.pilot13,odd13:formData.odd13,pilot14:formData.pilot14,odd14:formData.odd14,
+        pilot15:formData.pilot15,odd15:formData.odd15,pilot16:formData.pilot16,odd16:formData.odd16,
+        pilot17:formData.pilot17,odd17:formData.odd17,pilot18:formData.pilot18,odd18:formData.odd18,
 
-        pilot19:formData.pilot1,odd19:formData.odd1,pilot20:formData.pilot1,odd20:formData.odd1,
-        pilot21:formData.pilot1,odd21:formData.odd1,pilot22:formData.pilot1,odd22:formData.odd1,
-        raceName: formData.raceName
+        pilot19:formData.pilot19,odd19:formData.odd19,pilot20:formData.pilot20,odd20:formData.odd20,
+        pilot21:formData.pilot21,odd21:formData.odd21,pilot22:formData.pilot22,odd22:formData.odd22,
+        pilot23:formData.pilot23,odd21:formData.odd23,pilot24:formData.pilot24,odd24:formData.odd24,
+        name: formData.raceName,
+        sport:"motoGP"
     })
 
 	const [errorReg,setErrorReg]=useState(0)
@@ -92,8 +94,8 @@ export default function AddGame(props){
 	function handleSubmit(event){
 		event.preventDefault()
         if(formData.sport!="motoGP" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
-            const timeVal = formData.date + "T"+formData.time+":00"
-
+            const timeVal = formData.date + " "+formData.time+":00"
+            console.log("odd empate : ",formData.oddTie)
             fetch('http://127.0.0.1:8080/api/expert/newGame', {
                 method: 'POST',
                 headers: {
@@ -107,7 +109,8 @@ export default function AddGame(props){
                     oddB:formData.oddB,
                     oddTie:formData.oddTie,
                     date:timeVal,
-                    expert_email:email
+                    expert_email:email,
+                    name: formData.participantA +"vs"+formData.participantB
                 })
             })
             .then(response => response.json())
@@ -120,8 +123,9 @@ export default function AddGame(props){
         }
         else if(formData.sport==="motoGP"){
             checkFormPilot();
+            console.log(formData)
             if(pilotError===0){
-                fetch('http://127.0.0.1:8080/api/expert/race', {
+                fetch('http://127.0.0.1:8080/api/expert/newGame', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json ',

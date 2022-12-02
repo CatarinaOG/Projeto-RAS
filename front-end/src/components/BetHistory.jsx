@@ -6,7 +6,7 @@ import TableTransact from "./TableTransact";
 
 export default function BetHistory(props){
 
-    const {setDivChoice, betHist,email,dark} = props
+    const {setDivChoice, betHist,email,dark,amount,winnings} = props
 
     const [typeData, setTypeData] = useState('Bet');
 
@@ -68,14 +68,14 @@ const fullbetHist = () => (
       if(multipleState==="active" && item.bet.length>1){
 
         return (
-          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
+          <BetHistoryBox bet={item.bet} ammount={item.amount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
          
         );
       }
       else if (simpleState === "active" && item.bet.length==1){
         
         return (
-          <BetHistoryBox bet={item.bet} ammount={item.ammount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
+          <BetHistoryBox bet={item.bet} ammount={item.amount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
       
         );
       }
@@ -101,7 +101,7 @@ const fullbetHist = () => (
             <button className={ simpleState ==='inactive' ? `ftsimpleBet${dark}` : "ftsimpleBetSelected"} onClick={changeSimpleState}>Simples</button>
             <button className={ multipleState ==='inactive' ? `ftmultipleBet${dark}` : "ftmultipleBetSelected"} onClick={changeMultState}>Múltiplas</button>
             <img onClick={goToData} src = {goBack} className={`ftgoBack${dark}`}/>
-            <h4 className={`ftTotalGains${dark}`}>Gastos Totais/ Ganhos totais:</h4>
+            <h4 className={`ftTotalGains${dark}`}>Gastos Totais/Ganhos totais:   {amount} / {winnings}</h4>
             <button  className='ftChangeToTransact' onClick={changeToTransact} > {'>'} </button>
           </div>
           {simpleState === 'active'  &&
