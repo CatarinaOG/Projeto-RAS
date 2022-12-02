@@ -52,6 +52,7 @@ export default function HomeExpert(props){
                         setModalWarningActive={setModalWarningActive}
                         setModalChangeOdd={setModalChangeOdd}
                         setOddToChange={setOddToChange}
+                        dark={dark}
                     />
                 )
             }else{
@@ -64,6 +65,7 @@ export default function HomeExpert(props){
                         setModalWarningActive={setModalWarningActive}
                         setModalChangeOdd={setModalChangeOdd}
                         setOddToChange={setOddToChange}
+                        dark={dark}
                     />
                 )
             }
@@ -76,6 +78,7 @@ export default function HomeExpert(props){
                 <ModalWarningActive 
                     setModalWarningActive={setModalWarningActive}
                     setModalChangeOdd={setModalChangeOdd}
+                    dark={dark}
                 />
             }
             {modalChangeOdd && 
@@ -85,11 +88,13 @@ export default function HomeExpert(props){
                     setModalChangeOdd={setModalChangeOdd}
                     setModalChangeOddConfimation={setModalChangeOddConfimation}
                     setGames={setGames}
+                    dark={dark}
                 />
             }
             {modalChangeOddConfimation && 
                 <ModalChangeOddConfirmation
                     setModalChangeOddConfimation={setModalChangeOddConfimation} 
+                    dark={dark}
                 />
             }
 
@@ -101,7 +106,7 @@ export default function HomeExpert(props){
                 dark={dark}
             />
 
-            <div className="content">
+            <div className={`content${dark}`}>
                 <div>
                     <SearchBar 
                         dark={dark}
@@ -112,6 +117,7 @@ export default function HomeExpert(props){
                 </div>
                 <Progress
                     games={games}
+                    dark={dark}
                 />
             </div>
 

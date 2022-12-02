@@ -13,6 +13,7 @@ import TP.RasBet.services.UserService;
 import java.security.Key;
 
 import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.json.*;
@@ -21,8 +22,6 @@ import org.json.*;
 @RestController
 @RequestMapping(path = "api/users")
 public class UserController {
-    private String secret = "AndreBrunoJoao";
-    private SecretKey secretKey = new SecretKeySpec(secret.getBytes(), "AES");
 
 
     @Autowired
@@ -31,22 +30,25 @@ public class UserController {
     @Autowired 
     private AppService appService;
 
-    @Autowired
-    private Encrypt encrypt;
-
     @PostMapping(value="/teste")
     public void teste(@RequestBody String body){
-       /*  JSONObject b = new JSONObject(body);
+        JSONObject b = new JSONObject(body);
+        String input_string = (String) b.get("password");
+        
         try{
-            String e = encrypt.encrypt((String) b.get("password"), secretKey);
+            SecretKey key = Encrypt.generateKey(128);
+            IvParameterSpec ivParameterSpec = Encrypt.generateIv();
+            String algorithm = "AES/CBC/PKCS5Padding";
+
+            String e = Encrypt.encrypt(algorithm, input_string, key, ivParameterSpec);
             System.out.println("Encrypted: " + e);
-            String d = encrypt.decrypt(e, secretKey);
+            String d = Encrypt.decrypt(algorithm, e, key, ivParameterSpec);
             System.out.println("Decrypted: " + d);
         }catch(Exception e){
             System.out.println("Deu erro no Encrypt");
             System.out.println(e.getMessage());
         }
-        */
+        
     }
 
 

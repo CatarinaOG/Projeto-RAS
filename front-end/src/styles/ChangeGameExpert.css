@@ -41,6 +41,7 @@
     min-width: 100px;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 
 .centerButton{
@@ -58,6 +59,11 @@
     width: 12vw;
     height: 6vh;
     border: 1px solid black;
+}
+
+.buttonConfirmExpertGame:active{
+    background-color: white;
+    color: #F07444;
 }
 
 .backgroundModalExpert{

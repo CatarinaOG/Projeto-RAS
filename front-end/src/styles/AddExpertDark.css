@@ -1,6 +1,7 @@
 
-.ftaddSpecialist{
-    background: white;
+.ftaddSpecialistDark{
+    background: black;
+    height: 100vh;
 }
 
 .ftbackgroundModal{
@@ -67,8 +68,9 @@
     height: 8%;
     border-radius: 20px;
     border: 1px solid grey;
-    background-color: #635d5f;
-    
+    background-color: #A9A9A9;
+    color: white;
+    font-size: medium;
 }
 
 .ftemailSpDark{
@@ -80,8 +82,9 @@
     height: 8%;
     border-radius: 20px;
     border: 1px solid grey;
-    background-color: #635d5f;
-
+    background-color: #A9A9A9;
+    color: white;
+    font-size: medium;
 }
 
 
@@ -94,8 +97,9 @@
     height: 8%;
     border-radius: 20px;
     border: 1px solid grey;
-    background-color: #635d5f;
-
+    background-color: #A9A9A9;
+    color: white;
+    font-size: medium;
 }
 
 .ftUsernameSpDark::placeholder{
@@ -127,40 +131,24 @@
     height: 8%;
     width: 55%;
 
-    color: #F07444;
+    color: white;
     border-radius: 20px;
     font-size: 13px;
     background-color:#635d5f;
+    border: 1px solid black ;
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 25px;
     line-height: 38px;
-    border : 1px solid #F07444;
+    background: #292929;
 }
 
-.ftaddConcludeSp:active{
+.ftaddConcludeSpDark:active{
 
-    color: #FEFFFE;
-    background-color: #F07444;
+    border-color: white;
+
 
 }
-
-.ftwhiteShadow{
-
-    position: relative;
-
-    width: 60vw;
-    height: 80vh;
-    top: 2vh;
-    bottom: 2vh;
-    
-    left : 20vw;
-
-    background: #FEFFFE;
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-}
-
 
 
 .fth2PopAdminDark{
@@ -199,15 +187,9 @@
     left : 33%
 }
 
-.ftgoBackImg{
-    position: absolute;
-    left: 22vw;
-    top: 16vh;
-    z-index: 2;
-    scale: 0.8;
-}
 
-.ftgoBackImg:hover{
+
+.ftgoBackImgDark:hover{
     cursor: pointer;
 }
 
@@ -255,4 +237,14 @@
 
 .goBackImg3:hover{
     cursor: pointer;
+}
+
+
+.ftgoBackImgDark{
+    position: absolute;
+    left: 22vw;
+    top: 16vh;
+    z-index: 2;
+    scale: 0.8;
+    filter: invert(100%);
 }

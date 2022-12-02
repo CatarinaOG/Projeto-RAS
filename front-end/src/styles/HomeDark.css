@@ -386,7 +386,7 @@
 
 
 .topDark{
-    background-color: darkgrey;
+    background-color: #BFBBBB;
     margin: 0px 10px 0px 10px;
     height: 20px;
     top: 10px;
@@ -397,7 +397,7 @@
 
 
 .bottomDark{
-    background-color: darkgrey;
+    background-color: #BFBBBB;
     margin: 0px 10px 0px 10px;
     height: 40px;
     top: 15px;
@@ -461,4 +461,52 @@
 
 .hideDark{
     color: #A9A9A9;
+}
+
+
+/*------------------------------ PROGRESS ---------------------------*/
+
+.progressDark{
+    background: #635d5f;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 42vw;
+    height: 87vh;
+    z-index: 2;
+}
+
+
+.progressSectionDark{
+
+    background-color: #ABB0B8;
+    height: 18vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+
+}
+
+/*------------------------------ MODAL CHANGE ODD -------------------------*/
+
+.backgroundModal2Dark{
+    background:black;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+    margin-top: 11.5vh;
+    z-index: 2;
+}
+
+.boxConfirmDark > input{
+
+    width: 80px ;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
 }

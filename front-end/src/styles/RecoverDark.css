@@ -38,6 +38,7 @@
     border-radius: 10px; 
     background-color: #635d5f;
     color: white;
+    font-size: medium;
 }
 
 .ftEmailRecoverDark::placeholder{

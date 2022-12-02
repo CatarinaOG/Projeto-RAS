@@ -28,12 +28,12 @@ export default function HomeAdmin(props){
     }
 
     return(
-        <div>
+        <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile
                 username={username}
                 dark={dark}
             />
-            <div className='whiteShadow'>
+            <div className={`whiteShadow${dark}`}>
                 <div className="contentAdmin">
                     <button className="ButtonsAdmin" onClick={goToShowExperts}>Consultar Especialistas</button>
                     <img src={consultExpert} alt="" className="adminImg1"/>

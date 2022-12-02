@@ -9,6 +9,7 @@ import './styles/SignIn.css'
 import './styles/ProfileExpert.css'
 import './styles/ShowGamesExpert.css'
 import './styles/ChangeGameExpert.css'
+import './styles/ProfileExpertDark.css'
 
 import './styles/LoginDark.css'
 import './styles/ProfileDark.css'
@@ -16,6 +17,8 @@ import './styles/HomeDark.css'
 import './styles/AddExpertDark.css'
 import './styles/AddGameDark.css'
 import './styles/RecoverDark.css'
+import './styles/ChangeGameExpertDark.css'
+
 
 
 
@@ -41,11 +44,11 @@ import ChangeGameExpert from './pages/ChangeGameExpert'
 
 function App() {
 
-  const [username,setUsername] = useState('expert')
+  const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
   const [balance,setBalance] = useState(0)
 
-	const [dark,setDark] = useState('Dark')
+	const [dark,setDark] = useState('')
 
   const [games,setGames] = useState([])
   const [expertGame,setExpertGame] = useState('')

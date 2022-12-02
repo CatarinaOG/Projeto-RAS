@@ -3,6 +3,13 @@ body{
     background-color: white;
 }
 
+
+.ftaddGameDark{
+    background: black;
+    height: 100vh;
+}
+
+
 /*------ Popup -----*/
 .ftbackgroundModal{
     background:#18340C;
@@ -66,6 +73,8 @@ body{
     border-radius: 10px;
     background-color: #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftselectSportOptionDark{
@@ -96,7 +105,8 @@ body{
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftselectPartADark::placeholder{
@@ -116,7 +126,8 @@ body{
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftselectPartBDark::placeholder{
@@ -136,7 +147,8 @@ body{
     height: 7%;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftoddADark::placeholder{
@@ -156,7 +168,8 @@ body{
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftoddBDark::placeholder{
@@ -176,6 +189,8 @@ body{
     border-radius: 10px;
     background:  #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftoddTieDark::placeholder{
@@ -194,6 +209,8 @@ body{
     border-radius: 10px;
     background:  #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftselectTimeDark::placeholder{
@@ -212,6 +229,8 @@ body{
     border-radius: 10px;
     background:  #A9A9A9;
     border: 1px solid black;
+    color: white;
+    font-size: medium;
 }
 
 .ftselectDateDark::placeholder{
@@ -311,15 +330,15 @@ body{
     font-size: 25px;
     line-height: 38px;
 
-    border: 1px solid #F07444;
-    background-color: #635d5f;
+    border: 1px solid black;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
 }
 
-.ftadd:active{
-    background-color: white;
-    color: #F07444;
+.ftaddDark:active{
+    border-color: white;
+
 }
 
 .whiteShadowDark{
@@ -329,18 +348,18 @@ body{
     top: 2vh;
     bottom: 2vh;
     left : 20vw;
-    background: #292929;
+    background: #635d5f;
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
 
-.goBackImg{
+.goBackImgDark{
     position: absolute;
     left: 15px;
     top: 15px;
 }
 
-.goBackImg:hover{
+.goBackImgDark:hover{
     cursor: pointer;
 }
 
@@ -366,7 +385,10 @@ body{
     left: 15px;
     top: 15px;
     filter: invert(100%);
+}
 
+.goBackImgDark:hover{
+    cursor: pointer;
 }
 
 /*----- PopUp addGame -----*/
@@ -453,7 +475,13 @@ body{
     border: 1px solid black;
     margin-top: 1.5vh;
     background:  #A9A9A9;
+    color: white;
+    font-size: medium;
+}
 
+.ftChoosePilotDark::placeholder{
+    color: white;
+    font-size: medium;
 }
 
 .ftDateRaceDark{
@@ -466,10 +494,14 @@ body{
     border: 1px solid black;
     margin-top: 1.5vh;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
-
+.ftDateRaceDark::placeholder{
+    color: white;
+    font-size: medium;
+}
 
 .ftoddPilotDark{
     position: relative;
@@ -477,12 +509,18 @@ body{
     left: 30%;
     top: 9%;
     height: 5vh;
-
+    color: white;
+    font-size: medium;
     text-align: center;
     border-radius: 10px;
     border: 1px solid black;
     background:  #A9A9A9;
 
+}
+
+.ftoddPilotDark::placeholder{
+    color: white;
+    font-size: medium;
 }
 
 .ftTimeRaceDark{

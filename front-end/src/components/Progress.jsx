@@ -2,7 +2,7 @@ import ProgressSection from './ProgressSection'
 
 export default function Progress(props){
 
-    const {games} = props
+    const {games,dark} = props
 
     var football = {
         total: 0,
@@ -87,7 +87,7 @@ export default function Progress(props){
 
 
     return(
-        <div className="progress">
+        <div className={`progress${dark}`}>
             <h1 className="title">Progresso</h1>
             <div className="displaySections">
                 <ProgressSection  
@@ -96,6 +96,7 @@ export default function Progress(props){
                     green ={football.greens}
                     yellow ={football.yellows}
                     red ={football.reds}
+                    dark={dark}
                 />
                 <ProgressSection  
                     type='Basquetebol'
@@ -103,6 +104,7 @@ export default function Progress(props){
                     green ={basketball.greens}
                     yellow ={basketball.yellows}
                     red ={basketball.reds}
+                    dark={dark}
                 />
                 <ProgressSection  
                     type='Tenis'
@@ -110,6 +112,7 @@ export default function Progress(props){
                     green ={tennis.greens}
                     yellow ={tennis.yellows}
                     red ={tennis.reds}
+                    dark={dark}
                 />
                 <ProgressSection  
                     type='MotoGP'
@@ -117,6 +120,7 @@ export default function Progress(props){
                     green ={motoGP.greens}
                     yellow ={motoGP.yellows}
                     red ={motoGP.reds}
+                    dark={dark}
                 />
             </div>
         </div>

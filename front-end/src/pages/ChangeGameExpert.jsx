@@ -112,11 +112,12 @@ export default function ShowExperts(props){
     }
 
     return(
-        <div>
+        <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
 
             {confirmed && 
                 <ModalConfirmatedChange 
                     setConfirmed={setConfirmed}
+                    dark={dark}
                 />
             }
             
@@ -124,8 +125,8 @@ export default function ShowExperts(props){
                 username={username}
                 dark={dark}
             />
-            <div className='ftwhiteShadow'>
-                <img src = {goBackImg} className='goBackImg' onClick={goBack}/>
+            <div className={`ftwhiteShadow${dark}`}>
+                <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                 <div className="expertGameCenter">
                     <div>
                         <h1 className = "expertGameTitle">Finalizar Jogo</h1>

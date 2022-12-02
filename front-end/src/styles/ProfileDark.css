@@ -12,7 +12,7 @@
     top: 2vh;
     bottom: 2vh;
     left : 20vw;
-    background: #292929;
+    background: #635d5f;
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
@@ -46,6 +46,8 @@
     top:33%;
     text-align: center;
     background-color: #ABB0B8;
+    color: white;
+    font-size: medium;
 }
 
 
@@ -81,19 +83,20 @@
 }
 
 
-.ftLogoutDark:active{
-    color: #635d5f;
-    background-color:#F07444;
+.ftLogoutDark:active
+{
+    border-color: white;
+
 }
 
 .fttakeOutDark:active {
-    color: white;
-    background-color:#F07444;
+    border-color: white;
+
 }
 
 .ftdepositDark:active {
-    color: white;
-    background-color:#F07444;
+    border-color: white;
+
 }
 
 
@@ -105,17 +108,16 @@
     height: 15%;
     width: 18%;
     top: 0%;
-
-    color: #F07444;
+    background: #292929;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
 
-    background-color: #635d5f;
 
     top: -10%;
     left: 10%;
@@ -128,17 +130,17 @@
     height: 15%;
     width: 18%;
     top: 0%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black;
 
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
 
-    background-color: #635d5f;
     left: 32%;
     top: -10%;
 }
@@ -150,18 +152,18 @@
     height: 15%;
     width: 18%;
     top: 0%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
     font-size: 13px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
 
-    background-color: #635d5f;
     right: 28%;
     top: -10%;
 }
@@ -194,32 +196,31 @@
 
     height: 15%;
     width: 30%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 14px;
     line-height: 30px;
 
-    background-color: #635d5f;
 
     top: 80%;
     left: 45%;
 }
 
 .ftConfirmDark:active{
-    background-color: #F07444;
-    color: white;
+    border-color: white;
+
 }
 
 
 
 .ftChangeSecDark:active{
-    color: white;
-    background-color:#F07444;
+    border-color: white;
 }
 
 .ftChangeSecDark{
@@ -228,17 +229,16 @@
 
     height: 15%;
     width: 30%;
+    background: #292929;
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 14px;
     line-height: 15px;
-
-    background-color: #635d5f;
 
     top: 80%;
     left: 10%;
@@ -279,7 +279,8 @@
     top:31%;
     text-align: center;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 
@@ -293,7 +294,8 @@
     top:46%;
     text-align: center;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .ftAddrChangeDark{
@@ -306,7 +308,8 @@
     top:61%;
     text-align: center;
     background:  #A9A9A9;
-
+    color: white;
+    font-size: medium;
 }
 
 .fthPhoneNumDark{
@@ -624,7 +627,7 @@
     left: 40%;
 }
 
-.ftOperationButton:active{
+.ftOperationButtonDark:active{
     background-color: #F07444;
     color: #FEFFFE;
 }
@@ -648,33 +651,35 @@
 
 .ftsimpleBetDark{
     position: absolute;
-    color: #F07444;
+    color: white;
     border-radius: 10px;
     font-size: 13px;
+    background: #292929;
 
     height: 15%;
     width: 25%;
     top: -5%;
     left:8%;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
-    background-color: #635d5f;
 }
 
 .ftmultipleBetDark{
-    color: #F07444;
+    color: white;
     border-radius: 10px;
     font-size: 13px;
 
     height: 15%;
     width: 25%;
     top: 0%;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
+    background: #292929;
+
 
 
     font-family: 'Spinnaker';
@@ -682,7 +687,6 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
-    background-color: #635d5f;
 
     position: absolute;
     top: -5%;

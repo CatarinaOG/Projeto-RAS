@@ -2,12 +2,12 @@
 
 export default function ProgressSection(props){
 
-    const {type,total,green,yellow,red} = props
+    const {type,total,green,yellow,red,dark} = props
 
 
 
     return(
-        <div className="progressSection">
+        <div className={`progressSection${dark}`}>
             <div className="progressTitle">
                 <h1>{type}</h1>   
                 <h3>Total: {total}</h3> 
