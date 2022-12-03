@@ -55,7 +55,7 @@ public class ExpertService implements IExpertService{
             Game game = new Game((String) event.get("sport"), participants, d, expert, name);
             gameRepo.save(game);
 
-            for(int i = 1; i <= 24; i++){
+            for(int i = 1; i <= 22; i++){
                 Odd odd = new Odd((String) event.get("pilot"+i), Float.parseFloat(event.get("odd"+i).toString()));
                 odd.setGame(game);
                 oddRepo.save(odd);
