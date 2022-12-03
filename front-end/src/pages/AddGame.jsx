@@ -42,7 +42,6 @@ export default function AddGame(props){
 
         pilot19:"",odd19:0,pilot20:"",odd20:0,
         pilot21:"",odd21:0,pilot22:"",odd22:0,
-        pilot23:"",odd23:0,pilot24:"",odd24:0,
         
 
 
@@ -67,7 +66,6 @@ export default function AddGame(props){
 
         pilot19:formData.pilot19,odd19:formData.odd19,pilot20:formData.pilot20,odd20:formData.odd20,
         pilot21:formData.pilot21,odd21:formData.odd21,pilot22:formData.pilot22,odd22:formData.odd22,
-        pilot23:formData.pilot23,odd23:formData.odd23,pilot24:formData.pilot24,odd24:formData.odd24,
         name: formData.raceName,
         sport:"motoGP"
     })
