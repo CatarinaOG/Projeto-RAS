@@ -47,7 +47,8 @@ export default function PopUpPaypal(props){
                 operation: formData.operation,
                 email:formData.email,
                 email_user: email,
-                operationValue:formData.operationValue
+                operationValue:formData.operationValue,
+                cardNum:0
             })
         })
         .then(response => response.json())

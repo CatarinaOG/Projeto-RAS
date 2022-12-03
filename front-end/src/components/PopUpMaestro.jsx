@@ -44,7 +44,13 @@ export default function PopUpMaestro(props){
         
 
             if(lengthcardCCV === 3 && lengthcardNum === 9 && formData.operationValue != 0){
-                
+                console.log(JSON.stringify({ 
+                    operation: formData.operation,
+                    cardNum : parseInt(formData.cardNum),
+                    cardCCV : parseInt(formData.cardCCV),
+                    email_user: email,
+                    operationValue:parseInt(formData.operationValue)
+                }))
                 fetch('http://127.0.0.1:8080/api/transactions/', {
                     method: 'POST',
                     headers: {
@@ -52,10 +58,10 @@ export default function PopUpMaestro(props){
                     },
                     body: JSON.stringify({ 
                         operation: formData.operation,
-                        cardNum : formData.cardNum,
-                        cardCCV : formData.cardCCV,
+                        cardNum : parseInt(formData.cardNum),
+                        cardCCV : parseInt(formData.cardCCV),
                         email_user: email,
-                        operationValue:formData.operationValue
+                        operationValue:parseInt(formData.operationValue)
                     })
                 })
                 .then(response => response.json())
@@ -78,7 +84,7 @@ export default function PopUpMaestro(props){
                     }
                 });
             }
-            else if(lengthcardCCV < 3 && lengthcardNum <8){
+            else if(lengthcardCCV < 3 && lengthcardNum <9){
                 setStateOp("error")
                 setMessage("Dados incorretos, volte a tentar")
             }
