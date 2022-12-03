@@ -9,6 +9,7 @@ import BetExpertMotoGP from '../components/BetExpertMotoGP'
 
 import "../styles/home.css"
 import {useState} from 'react'
+import { useEffect } from "react"
 
 
 export default function HomeExpert(props){
@@ -32,6 +33,26 @@ export default function HomeExpert(props){
         }
     }
 
+    useEffect(() => {
+
+        fetch('http://127.0.0.1:8080/api/games/', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.games){
+              setGames(data.games)
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    
+    },[])
+
     //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => {
 
@@ -52,6 +73,7 @@ export default function HomeExpert(props){
                         setModalWarningActive={setModalWarningActive}
                         setModalChangeOdd={setModalChangeOdd}
                         setOddToChange={setOddToChange}
+                        setGames={setGames}
                         dark={dark}
                     />
                 )
@@ -65,6 +87,7 @@ export default function HomeExpert(props){
                         setModalWarningActive={setModalWarningActive}
                         setModalChangeOdd={setModalChangeOdd}
                         setOddToChange={setOddToChange}
+                        setGames={setGames}
                         dark={dark}
                     />
                 )
