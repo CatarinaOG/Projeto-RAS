@@ -101,46 +101,85 @@ public class AppService implements IAppService {
         JSONArray bets = (JSONArray) betslipForm.get("bets");
         List<Game> games = new ArrayList<>();
         float winnings = 1.0f;
+        List<Bet> betList = new ArrayList<>();
+        List<Odd> oddList = new ArrayList<>();
 
-        for(int i = 0; i < bets.length(); i++){
-            Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
-            games.add(odd.getGame());
-            winnings *= odd.getValue();
+        if(((String) betslipForm.get("type")).equals("multiple")){
+
+            for(int i = 0; i < bets.length(); i++){
+                Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
+                games.add(odd.getGame());
+                winnings *= odd.getValue();
+            }
+    
+            int aux = (int) (winnings*100);
+            winnings = aux/100f; 
+    
+            if(games.size() != games.stream().distinct().count()){
+                return "{\"confirmed\" : \"Aposta contém várias odds do mesmo jogo\"}";
+            }
+    
+            if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < Float.parseFloat(betslipForm.get("multipleAmount").toString())){
+                return "{\"confirmed\" : \"Saldo insuficiente\"}";
+            }
+    
+            User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
+            u.setWallet(u.getWallet() - Float.parseFloat(betslipForm.get("multipleAmount").toString()));
+    
+            Bet b = new Bet( Float.parseFloat(betslipForm.get("multipleAmount").toString()), winnings * Float.parseFloat(betslipForm.get("multipleAmount").toString()), 
+                            Timestamp.from(Instant.now()), u, "Open", u.getWallet());
+            
+            betRepo.save(b);
+    
+            //criar GamesInOneBet 
+            
+            for(int i = 0; i < bets.length(); i++){
+                Odd o = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
+                GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
+                giob.setBet(b);
+                giob.setGame(o.getGame());
+                gamesInOneBetRepo.save(giob);
+            }
+            userRepo.save(u);
+            
+            return "{\"confirmed\" : \"true\"}";
         }
+        else{
 
-        int aux = (int) (winnings*100);
-        winnings = aux/100f; 
+            float totalAmount = 0.0f;
+            User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
+            
+            for(int i = 0; i < bets.length(); i++){
+                Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
+                games.add(odd.getGame());
+                totalAmount += Float.parseFloat(bets.getJSONObject(i).get("amount").toString());
+                Bet b = new Bet(Float.parseFloat(bets.getJSONObject(i).get("amount").toString()), 
+                            odd.getValue()*Float.parseFloat(bets.getJSONObject(i).get("amount").toString()), 
+                            Timestamp.from(Instant.now()), u, "Open", u.getWallet());
+                betList.add(b);
+                oddList.add(odd);
+            }
+    
+            if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < totalAmount){
+                return "{\"confirmed\" : \"Saldo insuficiente\"}";
+            }
 
-        if(games.size() != games.stream().distinct().count()){
-            return "{\"confirmed\" : \"false\"}";
+            u.setWallet(u.getWallet() - totalAmount);
+
+            for(int i = 0; i < betList.size(); i++){
+                Bet b = betList.get(i);
+                Odd o = oddList.get(i);
+
+                betRepo.save(b);
+                GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
+                giob.setBet(b);
+                giob.setGame(o.getGame());
+                gamesInOneBetRepo.save(giob);
+            }
+            userRepo.save(u);
+            
+            return "{\"confirmed\" : \"true\"}";
         }
-
-        if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < Float.parseFloat(betslipForm.get("multipleAmount").toString())){
-            return "{\"confirmed\" : \"false\"}";
-        }
-
-        User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
-        u.setWallet(u.getWallet() -  Float.parseFloat(betslipForm.get("multipleAmount").toString()));
-
-        Bet b = new Bet( Float.parseFloat(betslipForm.get("multipleAmount").toString()), winnings * Float.parseFloat(betslipForm.get("multipleAmount").toString()), 
-                        Timestamp.from(Instant.now()), u, "Open", u.getWallet());
-        
-        betRepo.save(b);
-
-        //criar GamesInOneBet 
-        
-        for(int i = 0; i < bets.length(); i++){
-            Odd o = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
-            GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
-            giob.setBet(b);
-            giob.setGame(o.getGame());
-            gamesInOneBetRepo.save(giob);
-        }
-        
-        //  Adicionar o jogo 
-        //  Adicionar a Bet correspondente
-
-        return "{\"confirmed\" : \"true\"}";
     }
 
 
