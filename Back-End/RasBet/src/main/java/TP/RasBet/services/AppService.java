@@ -117,20 +117,22 @@ public class AppService implements IAppService {
     
             int aux = (int) (winnings*100);
             winnings = aux/100f; 
-    
+
+            float amount = Float.parseFloat(betslipForm.get("multipleAmount").toString());
+
             if(games.size() != games.stream().distinct().count()){
                 return "{\"confirmed\" : \"1\"}";
             }
     
-            if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < Float.parseFloat(betslipForm.get("multipleAmount").toString())){
+            if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < amount){
                 return "{\"confirmed\" : \"2\"}";
             }
     
+
             User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
-            u.setWallet(u.getWallet() - Float.parseFloat(betslipForm.get("multipleAmount").toString()));
+            u.setWallet(u.getWallet() - amount);
     
-            Bet b = new Bet( Float.parseFloat(betslipForm.get("multipleAmount").toString()), winnings * Float.parseFloat(betslipForm.get("multipleAmount").toString()), 
-                            Timestamp.from(Instant.now()), u, "Open", u.getWallet());
+            Bet b = new Bet(amount, winnings * amount, Timestamp.from(Instant.now()), u, "Open", u.getWallet());
             
             betRepo.save(b);
     
@@ -153,12 +155,11 @@ public class AppService implements IAppService {
             User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
             
             for(int i = 0; i < bets.length(); i++){
+                float amount = Float.parseFloat(bets.getJSONObject(i).get("amount").toString());
                 Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
                 games.add(odd.getGame());
-                totalAmount += Float.parseFloat(bets.getJSONObject(i).get("amount").toString());
-                Bet b = new Bet(Float.parseFloat(bets.getJSONObject(i).get("amount").toString()), 
-                            odd.getValue()*Float.parseFloat(bets.getJSONObject(i).get("amount").toString()), 
-                            Timestamp.from(Instant.now()), u, "Open", u.getWallet());
+                totalAmount += amount;
+                Bet b = new Bet(amount, odd.getValue()*amount, Timestamp.from(Instant.now()), u, "Open", u.getWallet() - amount);
                 betList.add(b);
                 oddList.add(odd);
             }
