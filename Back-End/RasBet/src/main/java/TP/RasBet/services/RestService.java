@@ -129,17 +129,19 @@ public class RestService implements IRestService {
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 Odd oddAa;
                 Odd oddBb;
-                if(bookmaker.getFloat("AwayPointSpread") < 0){
-                    oddAa = new Odd((String) g.get("HomeTeamName"), -bookmaker.getFloat("AwayPointSpread"));
+                Float awayPointSpread = Float.parseFloat(bookmaker.get("AwayPointSpread").toString());
+                Float homePointSpread = Float.parseFloat(bookmaker.get("HomePointSpread").toString());
+                if(awayPointSpread < 0){
+                    oddAa = new Odd((String) g.get("HomeTeamName"), -awayPointSpread);
                 }
                 else {
-                    oddAa = new Odd((String) g.get("HomeTeamName"), bookmaker.getFloat("AwayPointSpread"));
+                    oddAa = new Odd((String) g.get("HomeTeamName"), awayPointSpread);
                 }
-                if(bookmaker.getFloat("HomePointSpread") < 0){
-                    oddBb = new Odd((String) g.get("AwayTeamName"), -bookmaker.getFloat("HomePointSpread"));
+                if(homePointSpread < 0){
+                    oddBb = new Odd((String) g.get("AwayTeamName"), -homePointSpread);
                 }
                 else{
-                    oddBb = new Odd((String) g.get("AwayTeamName"), bookmaker.getFloat("HomePointSpread"));
+                    oddBb = new Odd((String) g.get("AwayTeamName"), homePointSpread);
                 }
 
                 gameRepo.save(j);
