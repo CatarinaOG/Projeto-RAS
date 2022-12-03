@@ -95,6 +95,9 @@ public class Game implements Serializable{
     public String getParticipants() {
         return this.participants;
     }
+    public List<GamesInOneBet> getGames() {
+        return games;
+    }
     
 
     /* Setters */
@@ -115,6 +118,9 @@ public class Game implements Serializable{
     }
     public void setParticipants(String participants) {
         this.participants = participants;
+    }
+    public void setScore(String score) {
+        this.score = score;
     }
 
 

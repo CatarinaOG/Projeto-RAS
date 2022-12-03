@@ -8,7 +8,7 @@ import TP.RasBet.model.*;
 
 public interface IAppService {
     public JSONObject getGames();
-    public String placeBet(BetslipForm betslipForm);
+    public String placeBet(JSONObject betslipForm);
     public String changeOdd(JSONObject oddForm);
     public String insertOdd(JSONObject oddForm);
     public String getGamesFiltered(String participant);

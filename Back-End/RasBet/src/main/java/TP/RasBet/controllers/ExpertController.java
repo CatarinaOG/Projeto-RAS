@@ -32,4 +32,17 @@ public class ExpertController {
     public String getGames(){
         return expertService.getGames();
     }
+
+    @PostMapping(value="/endGame")
+    public void endGame(@RequestBody String body){
+        JSONObject game = new JSONObject(body);
+        expertService.endGame(game);
+    }
+
+    @PostMapping(value="/changeBetState")
+    public String changeBetState(@RequestBody String req){
+        JSONObject state = new JSONObject(req);
+        return expertService.changeBetState(state);
+    } 
+
 }

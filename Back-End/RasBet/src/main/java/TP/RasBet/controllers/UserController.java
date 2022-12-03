@@ -35,8 +35,6 @@ public class UserController {
         JSONObject b = new JSONObject(body);
         String input_string = (String) b.get("password");
         
-        
-        
     }
 
 
@@ -65,7 +63,7 @@ public class UserController {
     @PostMapping(value = "/change_profile")
     public String changeProfile(@RequestBody String req){//@RequestBody ChangeProfileForm cpf){
         JSONObject cpf = new JSONObject(req);
-        if(cpf.get("phone_num") == null && cpf.get("password") == null && cpf.get("new_add") == null){
+        if(cpf.get("phone_num").equals("") && cpf.get("password").equals("") && cpf.get("new_add").equals("")){
             return userService.changeProfile(cpf);
         }
         else return userService.changeSensitive(cpf);

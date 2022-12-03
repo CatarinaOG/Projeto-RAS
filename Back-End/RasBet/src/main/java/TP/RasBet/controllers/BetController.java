@@ -22,8 +22,8 @@ public class BetController{
     private AppService appService;
     
     @PostMapping(value = "/placeBet")
-    public String placeBet(@RequestBody BetslipForm betslipForm){
-        //JSONObject betslipForm = new JSONObject(req);
+    public String placeBet(@RequestBody String req){
+        JSONObject betslipForm = new JSONObject(req);
         return appService.placeBet(betslipForm);
     }
 

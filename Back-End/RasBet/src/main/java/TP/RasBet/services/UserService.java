@@ -165,13 +165,13 @@ public class UserService implements IUserService {
         String email = (String) cpf.get("email_user");
         User u = userRepo.findUserByEmail(email).get();
 
-        if(u.getAddress() != null){
+        if(!u.getAddress().equals("")){
             u.setAddress((String) cpf.get("new_add"));
         }
-        if(u.getPassword() != null){
+        if(!u.getPassword().equals("")){
             u.setPassword((String) cpf.get("password"));
         }
-        if(u.getPassword() != null){
+        if(!u.getPassword().equals("")){
             u.setPhone((String) cpf.get("phone_num"));
         }
 

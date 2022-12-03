@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,6 +25,9 @@ public class ExpertService implements IExpertService{
 
     @Autowired
     private OddRepo oddRepo;
+
+    @Autowired
+    private BetRepo betRepo;
 
     public String createGame(JSONObject event){
 
@@ -103,39 +107,69 @@ public class ExpertService implements IExpertService{
 
     public String getGames(){
 
-        List<Expert> experts = expertRepo.findAll();
+        List<Expert> experts = expertRepo.findAll().stream().filter(e -> !e.getEmail().equals("jogosAPI")).collect(Collectors.toList());
 
         JSONArray games = new JSONArray();
 
         for(Expert e : experts){
             for(Game g : e.getGames()){
-                JSONObject game = new JSONObject();
-                if(!g.getSport().equals("motoGP")){
-                    game.put("id", g.getId());
-                    game.put("sport", g.getSport());
-                    game.put("away", g.getParticipants().split(";")[0]);
-                    game.put("home", g.getParticipants().split(";")[1]);
-                }
-                else{
-                    game.put("id", g.getId());
-                    game.put("sport", g.getSport());
-                    game.put("name", g.getName());
-                    JSONArray participants = new JSONArray();
-                    String[] pts = g.getParticipants().split(";");
-                    for(String s : pts){
-                        JSONObject jo = new JSONObject();
-                        jo.put("name", s);
-                        participants.put(jo);
+                if(g.getState().equals("TBD")){
+                    JSONObject game = new JSONObject();
+                    if(!g.getSport().equals("motoGP")){
+                        game.put("id", g.getId());
+                        game.put("sport", g.getSport());
+                        game.put("away", g.getParticipants().split(";")[0]);
+                        game.put("home", g.getParticipants().split(";")[1]);
                     }
-                    game.put("participants", participants);
-                }
-                games.put(game);
+                    else{
+                        game.put("id", g.getId());
+                        game.put("sport", g.getSport());
+                        game.put("name", g.getName());
+                        JSONArray participants = new JSONArray();
+                        String[] pts = g.getParticipants().split(";");
+                        for(String s : pts){
+                            JSONObject jo = new JSONObject();
+                            jo.put("name", s);
+                            participants.put(jo);
+                        }
+                        game.put("participants", participants);
+                    }
+                    games.put(game);
+                }       
             }
         }
-
-
         return games.toString();
     }
 
 
+    public void endGame(JSONObject games){
+
+        int id = (int) games.get("idGame");
+        Game g = gameRepo.findById(id).get();
+        if(!games.has("nameParticipant")){
+            int home = (int) games.get("home");
+            int away = (int) games.get("away");
+            g.setScore(home + "-" + away);
+        }
+        else{
+            String nameParticipant = (String) games.get("nameParticipant");
+            g.setScore(nameParticipant);
+        }
+        g.setState("Over");
+        gameRepo.save(g);
+        
+    }
+
+    public String changeBetState(JSONObject state){
+        int id = (int) state.get("gameId");
+        List<GamesInOneBet> giobs = gameRepo.findById(id).get().getGames();
+        for(GamesInOneBet g : giobs){
+            Bet b = g.getBet();
+            if(b.getState().equals("Open")) b.setState("Suspended");
+            else if(b.getState().equals("Suspended")) b.setState("Open");
+            betRepo.save(b);
+        }
+
+        return "{\"confirmed\" : \"true\"}";
+    }
 }

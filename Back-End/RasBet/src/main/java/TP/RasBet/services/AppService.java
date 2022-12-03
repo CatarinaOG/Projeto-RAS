@@ -67,16 +67,23 @@ public class AppService implements IAppService {
                 odds.put(odd);
             }
 
+            j.put("sport", g.getSport());
+            if (g.getSport().equals("motoGP")){
+                j.put("name",g.getName());
+            }
+            else{
+                j.put("home", g.getParticipants().split(";")[0]);
+                j.put("away", g.getParticipants().split(";")[1]);
+            }
+
             j.put("id", g.getId());
-            j.put("home", g.getParticipants().split(";")[0]);
-            j.put("away", g.getParticipants().split(";")[1]);
             j.put("date", g.getDate());
             j.put("results", odds);
             if(g.getState().equals("TBD")){
                 j.put("active", "false");
             }
             else j.put("active", "true");
-            j.put("sport", g.getSport());
+            
 
             jogos.put(j);
         }
@@ -87,14 +94,16 @@ public class AppService implements IAppService {
         return tmp;
     }
 
-    public String placeBet(BetslipForm betslipForm){
+    public String placeBet(JSONObject betslipForm){//BetslipForm betslipForm){
         
         // obter todos os jogos relacionados com as Odds das bets
-        List<BetForm> bets = betslipForm.getBets();
+        //List<BetForm> bets = betslipForm.getBets();
+        JSONArray bets = (JSONArray) betslipForm.get("bets");
         List<Game> games = new ArrayList<>();
         float winnings = 1.0f;
-        for(BetForm bf : bets){
-            Odd odd = oddRepo.findById(bf.getId()).get();
+
+        for(int i = 0; i < bets.length(); i++){
+            Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
             games.add(odd.getGame());
             winnings *= odd.getValue();
         }
@@ -106,21 +115,22 @@ public class AppService implements IAppService {
             return "{\"confirmed\" : \"false\"}";
         }
 
-        if(userRepo.findUserByEmail(betslipForm.getUser()).get().getWallet() < betslipForm.getMultipleAmount()){
+        if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < Float.parseFloat(betslipForm.get("multipleAmount").toString())){
             return "{\"confirmed\" : \"false\"}";
         }
 
-        User u = userRepo.findUserByEmail(betslipForm.getUser()).get();
-        u.setWallet(u.getWallet()-betslipForm.getMultipleAmount());
+        User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
+        u.setWallet(u.getWallet() -  Float.parseFloat(betslipForm.get("multipleAmount").toString()));
 
-        Bet b = new Bet(betslipForm.getMultipleAmount(), winnings*betslipForm.getMultipleAmount(), Timestamp.from(Instant.now()), u, "Open", u.getWallet());
+        Bet b = new Bet( Float.parseFloat(betslipForm.get("multipleAmount").toString()), winnings * Float.parseFloat(betslipForm.get("multipleAmount").toString()), 
+                        Timestamp.from(Instant.now()), u, "Open", u.getWallet());
         
         betRepo.save(b);
 
         //criar GamesInOneBet 
         
-        for (BetForm bf : bets){
-            Odd o = oddRepo.findById(bf.getId()).get();
+        for(int i = 0; i < bets.length(); i++){
+            Odd o = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
             GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
             giob.setBet(b);
             giob.setGame(o.getGame());
@@ -169,9 +179,11 @@ public class AppService implements IAppService {
             JSONObject response = new JSONObject();
             JSONArray gamesResponse = new JSONArray();
             List<Game> games = gameRepo.findGameByParticipant(p);
-            System.out.println(games);
+            // System.out.println(games);
 
             for(Game g : games){
+                gamesResponse.put(g.getId());
+                /*
                 JSONObject j = new JSONObject();
                 j.put("id", g.getId());
                 j.put("home", g.getParticipants().split(";")[0]);
@@ -189,8 +201,8 @@ public class AppService implements IAppService {
                 }
                 j.put("results", results);
                 gamesResponse.put(j);
+                */
             }
-            
             response.put("games", gamesResponse);
             return response.toString();
         }
