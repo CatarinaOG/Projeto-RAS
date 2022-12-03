@@ -35,19 +35,7 @@ public class UserController {
         JSONObject b = new JSONObject(body);
         String input_string = (String) b.get("password");
         
-        try{
-            SecretKey key = Encrypt.generateKey(128);
-            IvParameterSpec ivParameterSpec = Encrypt.generateIv();
-            String algorithm = "AES/CBC/PKCS5Padding";
-
-            String e = Encrypt.encrypt(algorithm, input_string, key, ivParameterSpec);
-            System.out.println("Encrypted: " + e);
-            String d = Encrypt.decrypt(algorithm, e, key, ivParameterSpec);
-            System.out.println("Decrypted: " + d);
-        }catch(Exception e){
-            System.out.println("Deu erro no Encrypt");
-            System.out.println(e.getMessage());
-        }
+        
         
     }
 
