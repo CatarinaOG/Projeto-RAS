@@ -9,7 +9,7 @@ import ModalConfirmatedChange from "../components/ModalConfirmedChange";
 
 export default function ShowExperts(props){
 
-    const {username,expertGame,setExpertGame,dark} = props
+    const {username,expertGame,setExpertGame,setGames,dark} = props
 
     const [confirmed,setConfirmed] = useState(false)
 
@@ -32,6 +32,42 @@ export default function ShowExperts(props){
         navigate('/ShowGamesExpert', { replace: true })
     }
 
+    function updateGames(){
+
+        fetch('http://127.0.0.1:8080/api/games/', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.games){
+                setGames(data.games)
+            }
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }
+
+    function sendRequest(send){
+
+        fetch('http://127.0.0.1:8080/api/expert/endGame', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body:  JSON.stringify(send)
+        })
+        .then(response => {
+            updateGames()
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
     
     function confirm(){
 
@@ -41,19 +77,19 @@ export default function ShowExperts(props){
 
             send = {
                 idGame: expertGame.id,
-                idParticipant: selectedMotoGP
+                nameParticipant: selectedMotoGP
             }
 
-            console.log("enviar pedido")
+            sendRequest(send)
         }
         else{
             send = {
                 idGame: expertGame.id,
-                home: values.home,
-                away: values.away
+                home: Number(values.home),
+                away: Number(values.away)
             }
 
-            console.log("enviar pedido")
+            sendRequest(send)
 
         }
         setConfirmed(true)
@@ -76,13 +112,14 @@ export default function ShowExperts(props){
                         <p className="pExpert">Escolha o vencedor da corrida</p>
                         <div className="gridExpertMotoGP">
                             {
-                                expertGame.participants.map( ({id,name}) => {
+                                expertGame.participants.map( name => {
                                     
                                     function newSelectedMotoGP(){
-                                        setSelectedMotoGP(id)
-                                    }                    
+                                        setSelectedMotoGP(name)
+                                    }          
+
                                     return(
-                                        <button className={id === selectedMotoGP ? "participantSelected" : "participant"} onClick={newSelectedMotoGP}>{name}</button>
+                                        <button className={name === selectedMotoGP ? "participantSelected" : "participant"} onClick={newSelectedMotoGP}>{name}</button>
                                     )
                                 } )
                             }

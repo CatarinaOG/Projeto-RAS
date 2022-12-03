@@ -6,7 +6,7 @@ import play from '../images/play.png'
 
 export default function BetExpertMotoGP(props){
 
-    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd} = props
+    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd,setGames} = props
     const {name,sport,date,results} = game
 
     // Criação das caixas de resultado
@@ -24,10 +24,40 @@ export default function BetExpertMotoGP(props){
         />
     )
 
+    function getNewGames(){
+        fetch('http://127.0.0.1:8080/api/games/', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.games){
+                setGames(data.games)
+            }
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }
+
+
     function changeState(){
 
-        console.log("trocar estado")
-
+        fetch('http://127.0.0.1:8080/api/expert/changeBetState', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({gameId: Number(gameId)})
+        })
+        .then(response => {
+            getNewGames()
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     }
 
 

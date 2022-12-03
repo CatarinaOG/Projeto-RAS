@@ -127,11 +127,12 @@ export default function AddGame(props){
     }
 
 	function handleSubmit(event){
-		event.preventDefault()
+
+        event.preventDefault()
         
         if(formData.sport!="motoGP" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
             const timeVal = formData.date + " "+formData.time+":00"
-            console.log(formData.sport)
+
             fetch('http://127.0.0.1:8080/api/expert/newGame', {
                 method: 'POST',
                 headers: {
@@ -160,9 +161,9 @@ export default function AddGame(props){
         }
         else if(formData.sport==="motoGP"){
             checkFormPilot();
-            console.log(motoBody)
+
             if(pilotError===0){
-                console.log(formData)
+
                 fetch('http://127.0.0.1:8080/api/expert/newGame', {
                     method: 'POST',
                     headers: {

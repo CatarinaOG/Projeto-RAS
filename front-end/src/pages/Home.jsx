@@ -6,11 +6,12 @@ import BetMotoGP from '../components/BetMotoGP'
 
 
 import {useState} from 'react'
+import { useEffect } from "react"
 
 
 export default function Home(props){
 
-    const {username,email,games,setBalance,dark} = props
+    const {username,email,games,setBalance,setGames,dark} = props
 
 
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
@@ -24,6 +25,27 @@ export default function Home(props){
             case "tenis": return 'tenis'
         }
     }
+
+
+    useEffect(() => {
+
+        fetch('http://127.0.0.1:8080/api/games/', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.games){
+              setGames(data.games)
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    
+    },[])
 
 
     //Mostra todas as bets do lado esquerdo

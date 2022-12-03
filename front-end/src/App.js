@@ -73,7 +73,6 @@ function App() {
     .catch((error) => {
       console.error('Error:', error);
     });
-    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
 
     if (window.matchMedia('(prefers-color-scheme: dark)').matches){
       setDark('Dark')
@@ -122,6 +121,7 @@ function App() {
             email={email}
             games={games}
             setBalance={setBalance}
+            setGames={setGames}
             dark={dark}
           />
         } />
@@ -189,6 +189,7 @@ function App() {
             username={username}
             expertGame={expertGame}
             setExpertGame={setExpertGame}
+            setGames={setGames}
             dark={dark}
           />
         }/>
