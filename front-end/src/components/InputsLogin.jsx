@@ -71,6 +71,9 @@ export default function InputsLogin(props) {
 
 				}
 			})
+		}
+		else{
+			setErrorReg(1)
 		}		
 	}
 

@@ -10,9 +10,12 @@ export default function RegAccount(props){
 
 	const {dark} = props
 
+	// Formulário onde serão armazenados os dados dos vários inputs do componente
 	const [formData, setFormData] = useState(
         {email: "",password:"",phone:"",name:"",nif:"",date:"",cc:"",address:""}
     )
+
+	// Variável que ajuda a determinar o conditional rendering das mensagens de erro
 	const [errorReg,setErrorReg]=useState(0);
 
 	function handleChange(event) {
@@ -31,6 +34,11 @@ export default function RegAccount(props){
         navigate('/', { replace: true })
     }
 
+	/**
+	 * Função começa por verificar se o conteudo dos inputs é vazio. Caso não seja, envia um pedido HTTP POST cujo body é o conteudo do form
+	 * Consoante a resposta desse pedido, irá mudar a página para a pagina origem ou definir errorReg como 2.
+	 * @param {*} event 
+	 */
 	function handleSubmit(event){
 		event.preventDefault();
 		if(formData.email !="" && formData.password !="" && formData.phone !="" && formData.name !="" && formData.nif !="" && formData.date !="" && formData.cc !="" && formData.address !=""){
