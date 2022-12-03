@@ -18,7 +18,7 @@ import TP.RasBet.repositories.*;
 import TP.RasBet.model.*;
 
 @Service
-public class UserService {
+public class UserService implements IUserService {
     @Autowired
     private UserRepo userRepo;
 
@@ -40,7 +40,6 @@ public class UserService {
         Optional<User> findUserByEmail = userRepo.findUserByEmail(email);
         if(findUserByEmail.isPresent()){
             User user = findUserByEmail.get();
-
             if (user.getPassword().equals(pass)){
                 return "{ \"username\" : "+ "\"" + user.getName()+ "\"" + ", \"type\" : \"apostador\", \"balance\" : " + user.getWallet() + "}";
             }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null"  + "}";
@@ -83,34 +82,22 @@ public class UserService {
 
         String password = (String) rf.get("password");
 
-        try{
-            SecretKey key = Encrypt.generateKey(128);
-            IvParameterSpec ivParameterSpec = Encrypt.generateIv();
-            String algorithm = "AES/CBC/PKCS5Padding";
-            User user = new User(email, Encrypt.encrypt(algorithm, password, key, ivParameterSpec), (String) rf.get("telefone"), (String) rf.get("nome"), 
-                             (String) rf.get("morada"), (String) rf.get("nif"), (String) rf.get("cc"), dn);
+        User user = new User(email, password, (String) rf.get("telefone"), (String) rf.get("nome"), 
+                            (String) rf.get("morada"), (String) rf.get("nif"), (String) rf.get("cc"), dn);
 
-            LocalDate ld = dn.toLocalDateTime().toLocalDate();
-            ld = ld.plusYears(18);
-            LocalDate now = LocalDate.now();
-    
-            System.out.println("Data de nascimento + 18 anos: " + ld);
-            System.out.println("Data de hoje: " + now);
-    
-            if (ld.isAfter(now)){
-                return "{ \"state\" : \"bad\"" + "}";
-            }
-    
-            userRepo.save(user);
-            return "{ \"state\" : \"good\"" + "}";
+        LocalDate ld = dn.toLocalDateTime().toLocalDate();
+        ld = ld.plusYears(18);
+        LocalDate now = LocalDate.now();
 
+        //System.out.println("Data de nascimento + 18 anos: " + ld);
+        //System.out.println("Data de hoje: " + now);
 
+        if (ld.isAfter(now)){
+            return "{ \"state\" : \"bad\"" + "}";
         }
-        catch(Exception e){
-            System.out.println("Erro na encriptação");
-        }
-        
-        return "";
+
+        userRepo.save(user);
+        return "{ \"state\" : \"good\"" + "}";
 
     }
 
@@ -187,9 +174,6 @@ public class UserService {
         if(u.getPassword() != null){
             u.setPhone((String) cpf.get("phone_num"));
         }
-        
-        
-        
 
         userRepo.save(u);
 

@@ -5,8 +5,13 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
+import TP.RasBet.config.AesEncryptor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
+@Data
 @Table(name = "user")
 public class User implements Serializable{
 
@@ -18,6 +23,7 @@ public class User implements Serializable{
     @Column(name = "email")
     private String email;
 
+    @Convert(converter = AesEncryptor.class)
     @Column(name = "password")
     private String password;
 
