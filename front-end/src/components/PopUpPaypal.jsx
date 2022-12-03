@@ -5,14 +5,18 @@ import PopUpMessagePayment from "./PopUpMessagePayment";
 
 export default function PopUpPaypal(props){
 
-    const {setMethod,showPopUp,email,setBalance,setShowPopUp,dark} = props;
+    const {showPopUp,email,setBalance,setShowPopUp,dark} = props;
+
+    //variaveis responsaveis por definir o popUp de confirmação ou erro
     const [stateOp,setStateOp] = useState("");
     const [message,setMessage] = useState("");
 
+    //função que define showPopUp como '' de forma a fechar o popUp
     function close(){
         setShowPopUp('')
     }
 
+    //form com informação a submeter no pedido HTTP POST
     const [formData, setFormData] = useState(
         {operation: showPopUp, email: "" ,operationValue:""}
     )
@@ -26,6 +30,10 @@ export default function PopUpPaypal(props){
         })
     }
 
+    /**
+     * É feita uma verificação do conteudo do form antes de efetuar o pedido HTTP POST, consoante a resposta, o valor de balance é alterado na front-end
+     * @param {} event 
+     */
     function handleSubmit(event){
         event.preventDefault();
 
@@ -84,9 +92,9 @@ export default function PopUpPaypal(props){
                 </div>
             }
             {stateOp === "success" && 
-                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
+                <PopUpMessagePayment  message={message} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
             {stateOp === "error" && 
-                <PopUpMessagePayment setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
+                <PopUpMessagePayment  message={message} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessagePayment>}
 
         </div>
     )

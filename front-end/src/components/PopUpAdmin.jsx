@@ -5,15 +5,14 @@ import { useNavigate } from 'react-router-dom';
 //PopUp que surge quando é adicionado um especialista, com os dados do mesmo
 export default function PopUpAdmin(props){
 
-    const {email,password,username,setConfirmed,dark} = props;
+    const {email,password,username,dark} = props;
 
 	let navigate = useNavigate();
 
 
     // altera a variável responsável pela renderização deste popup de forma a que este desapareça
     function close(){
-        setConfirmed(false);
-        navigate('/ProfileExpert', { replace: true })
+        navigate('/HomeAdmin', { replace: true })
     }
 
     return(

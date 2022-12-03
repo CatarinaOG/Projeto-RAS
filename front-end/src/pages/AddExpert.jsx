@@ -100,7 +100,6 @@ export default function AddSpecialist(props){
                         email = {formData.email}
                         password = {formData.password}
                         username={formData.expert_username}
-                        setConfirmed ={setConfirmed}
                         dark={dark}
                     />
                 </div>
