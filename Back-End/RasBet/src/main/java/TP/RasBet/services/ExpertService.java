@@ -162,14 +162,10 @@ public class ExpertService implements IExpertService{
 
     public String changeBetState(JSONObject state){
         int id = (int) state.get("gameId");
-        List<GamesInOneBet> giobs = gameRepo.findById(id).get().getGames();
-        for(GamesInOneBet g : giobs){
-            Bet b = g.getBet();
-            if(b.getState().equals("Open")) b.setState("Suspended");
-            else if(b.getState().equals("Suspended")) b.setState("Open");
-            betRepo.save(b);
-        }
-
+        Game g = gameRepo.findById(id).get();
+        if(g.getState().equals("TBD")) g.setState("Suspended");
+        else if(g.getState().equals("Suspended")) g.setState("TBD");
+        gameRepo.save(g);
         return "{\"confirmed\" : \"true\"}";
     }
 }
