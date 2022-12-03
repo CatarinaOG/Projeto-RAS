@@ -73,6 +73,10 @@ function App() {
     .catch((error) => {
       console.error('Error:', error);
     });
+    
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+      setDark('Dark')
+    }
 
   },[])
 
