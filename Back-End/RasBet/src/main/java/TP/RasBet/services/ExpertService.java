@@ -37,8 +37,8 @@ public class ExpertService implements IExpertService{
 
             String participants = "";
 
-            for(int i = 1; i <= 24; i++){
-                if(i == 24) participants += (String) event.get("pilot" + i) ;
+            for(int i = 1; i <= 22; i++){
+                if(i == 22) participants += (String) event.get("pilot" + i) ;
                 else participants += (String) event.get("pilot" + i) + ";" ;
             }
             Timestamp d = Timestamp.valueOf((String) event.get("date")); // DEPOIS ALTERAR
