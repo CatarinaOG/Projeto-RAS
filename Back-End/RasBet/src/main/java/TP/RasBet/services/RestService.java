@@ -129,8 +129,14 @@ public class RestService implements IRestService {
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 Odd oddAa;
                 Odd oddBb;
+                
                 Float awayPointSpread = Float.parseFloat(bookmaker.get("AwayPointSpread").toString());
                 Float homePointSpread = Float.parseFloat(bookmaker.get("HomePointSpread").toString());
+                
+                System.out.println(participants.split(";")[0] + "vs" + participants.split(";")[1] + "AWAY POINT SPREAD: " + awayPointSpread);
+                System.out.println(participants.split(";")[0] + "vs" + participants.split(";")[1] + "HOME POINT SPREAD: " + awayPointSpread);
+                
+                
                 if(awayPointSpread < 0){
                     oddAa = new Odd((String) g.get("HomeTeamName"), -awayPointSpread);
                 }
