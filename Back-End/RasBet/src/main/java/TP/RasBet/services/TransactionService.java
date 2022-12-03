@@ -13,7 +13,7 @@ import TP.RasBet.repositories.*;
 import TP.RasBet.model.*;
 
 @Service
-public class TransactionService{
+public class TransactionService implements ITransactionService{
 
     @Autowired
     private UserRepo userRepo;

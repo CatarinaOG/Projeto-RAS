@@ -8,7 +8,7 @@ import logo from '../images/logo.png'
 export default function RetrievePass(props) {
 
 	const {dark} = props
-	//variavel responsavel pelo conditional rendering 
+	//variavel responsavel pelo conditional rendering da mensagem
 	const [message,setMessage]=useState(0)
 
 	const [formData, setFormData] = useState({email: "",password:""})
@@ -30,6 +30,12 @@ export default function RetrievePass(props) {
         navigate('/', { replace: true })
     }
     
+
+	/**
+	 * Handle submit irá verificar se foi fornecido um email e fazer um pedido HTTP POST para o endpoint recover_password
+	 * Consoante o resultado irá fazer setMessage de forma a mostrar a mensagem apropriada, seja esta de erro ou de sucesso de envio de email
+	 * @param {} event 
+	 */
 	function handleSubmit(event){
 		event.preventDefault()
         

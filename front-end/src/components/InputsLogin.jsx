@@ -6,7 +6,7 @@ import logo from '../images/logo.png'
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setBalance,setLoadReg,setEmail,balance,dark} = props
+	const {setUsername,setBalance,setEmail,dark} = props
 
 	//variavel responsavel pelo conditional rendering 
 	const [errorReg,setErrorReg]=useState(0)
@@ -71,6 +71,9 @@ export default function InputsLogin(props) {
 
 				}
 			})
+		}
+		else{
+			setErrorReg(1)
 		}		
 	}
 

@@ -86,7 +86,6 @@ function App() {
             setUsername={setUsername}
             setBalance={setBalance}
             setEmail={setEmail}
-            balance={balance}
             dark={dark}
           />
         } />

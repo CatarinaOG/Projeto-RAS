@@ -7,7 +7,7 @@ import org.springframework.mail.SimpleMailMessage;
 
 
 @Service
-public class EmailSenderService{
+public class EmailSenderService implements IEmailSenderService{
 
     @Autowired
     private JavaMailSender mailSender;

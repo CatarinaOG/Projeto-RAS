@@ -13,6 +13,16 @@ export default function AddGame(props){
     const {username,email,setGames,dark} = props
     const [pilotError,setPilotError] = useState(0);
 
+    // Variável utilizada para controlar o conditional rendering de mensagens de erro
+	const [errorReg,setErrorReg]=useState(0)
+
+    // Variável utilizada para controlar o conditional rendering do popUp de confirmação de criação do evento
+    const [confirmed,setConfirmed] = useState(false)
+
+
+    /**
+     * Formulário onde serão armazenados todos os inputs
+     */
     const [formData, setFormData] = useState(
         {sport: "",
         participantA:"" ,
@@ -32,11 +42,12 @@ export default function AddGame(props){
 
         pilot19:"",odd19:0,pilot20:"",odd20:0,
         pilot21:"",odd21:0,pilot22:"",odd22:0,
-        
+
 
         date:"",time:"",raceName:""}
     )
 
+    // variável usada no body do pedido HTTP da criação de uma corrida
     const motoBody = JSON.stringify({
         date: formData.date + " "+formData.time+":00",
         expert_email:email,
@@ -59,16 +70,18 @@ export default function AddGame(props){
         sport:"motoGP"
     })
 
-	const [errorReg,setErrorReg]=useState(0)
-
-    const [confirmed,setConfirmed] = useState(false)
 
     let navigate = useNavigate()
 
+    // função responsável por retroceder para a página anterior
     function goBack(){
         navigate('/ProfileExpert', { replace: true })
     }
 
+    /**
+     * Função que altera o valor das variaveis do formulario apos cada alteração dos inputs
+     * @param {} event
+     */
 	function handleChange(event) {
         setFormData(prevFormData => {
             return {
@@ -79,6 +92,10 @@ export default function AddGame(props){
         })
     }
 
+    /**
+     * Método que verifica se algum dos nomes dos pilotos no formulário está vazio e atribui o valor adequado a variavel
+     * pilotError recorrendo ao setState correspondente à mesma
+     */
     function checkFormPilot(){
         if(formData.pilot1==="" || formData.pilot2==="" || formData.pilot3==="" || formData.pilot4==="" || formData.pilot5==="" || formData.pilot6==="" ||
         formData.pilot7==="" || formData.pilot8==="" || formData.pilot9==="" || formData.pilot10==="" || formData.pilot11==="" || formData.pilot12==="" ||
@@ -178,7 +195,7 @@ export default function AddGame(props){
     return(
         <div className={`ftaddGame${dark}`}>
             <div >
-                <NavBarProfile 
+                <NavBarProfile
                     username={username}
                     dark={dark}
                 />
