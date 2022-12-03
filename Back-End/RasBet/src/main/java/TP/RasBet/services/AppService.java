@@ -54,38 +54,41 @@ public class AppService implements IAppService {
         List<Game> games = gameRepo.findAll();
         JSONArray jogos = new JSONArray();
         for(Game g : games){
-            JSONArray odds = new JSONArray();
-            JSONObject j = new JSONObject();
-            
-
-            for(Odd d : g.getOdds()){
-                JSONObject odd = new JSONObject();
-                odd.put("id", d.getId());
-                odd.put("result",d.getDescription());
-                odd.put("odd", d.getValue());
-                odd.put("ammount", 0);
-                odds.put(odd);
-            }
-
-            j.put("sport", g.getSport());
-            if (g.getSport().equals("motoGP")){
-                j.put("name",g.getName());
-            }
-            else{
-                j.put("home", g.getParticipants().split(";")[0]);
-                j.put("away", g.getParticipants().split(";")[1]);
-            }
-
-            j.put("id", g.getId());
-            j.put("date", g.getDate());
-            j.put("results", odds);
             if(g.getState().equals("TBD")){
-                j.put("active", "false");
-            }
-            else j.put("active", "true");
-            
+                JSONArray odds = new JSONArray();
+                JSONObject j = new JSONObject();
+                
 
-            jogos.put(j);
+                for(Odd d : g.getOdds()){
+                    JSONObject odd = new JSONObject();
+                    odd.put("id", d.getId());
+                    odd.put("result",d.getDescription());
+                    odd.put("odd", d.getValue());
+                    odd.put("ammount", 0);
+                    odds.put(odd);
+                }
+
+                j.put("sport", g.getSport());
+                if (g.getSport().equals("motoGP")){
+                    j.put("name",g.getName());
+                }
+                else{
+                    j.put("home", g.getParticipants().split(";")[0]);
+                    j.put("away", g.getParticipants().split(";")[1]);
+                }
+
+                j.put("id", g.getId());
+                j.put("date", g.getDate());
+                j.put("results", odds);
+                if(g.getState().equals("TBD")){
+                    j.put("active", "false");
+                }
+                else j.put("active", "true");
+                
+
+                jogos.put(j);
+            }
+            
         }
 
         JSONObject tmp = new JSONObject();
