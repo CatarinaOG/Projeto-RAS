@@ -10,7 +10,7 @@ import PilotsForm from '../components/PilotsForm';
 
 export default function AddGame(props){
 
-    const {username,email,dark} = props
+    const {username,email,setGames,dark} = props
     const [pilotError,setPilotError] = useState(0);
 
     const [formData, setFormData] = useState(
@@ -91,6 +91,24 @@ export default function AddGame(props){
         }
     }
 
+    function getNewGames(){
+        fetch('http://127.0.0.1:8080/api/games/', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.games){
+            setGames(data.games)
+            }
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }
+
 	function handleSubmit(event){
 		event.preventDefault()
         if(formData.sport!="motoGP" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
@@ -118,6 +136,7 @@ export default function AddGame(props){
                 if (data.state === 'good'){
                     setConfirmed(true)
                     setErrorReg(0)
+                    getNewGames()
                 }
             })
         }
@@ -137,6 +156,7 @@ export default function AddGame(props){
                     if (data.status === 'true'){
                         setConfirmed(true)
                         setErrorReg(0)
+                        getNewGames()
                     }
                 })
                 setConfirmed(true)

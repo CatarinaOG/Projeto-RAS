@@ -7,7 +7,7 @@ import play from '../images/play.png'
 export default function BetExpert(props){
 
     const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd,dark} = props
-    const {home,away,date,results} = game
+    const {home,sport,away,date,results} = game
 
     // Criação das caixas de resultado
     const resultsBoxes = results.map( ({id,result,odd}) => 
@@ -50,7 +50,7 @@ export default function BetExpert(props){
 
     // Saber o progresso
     var nulls = 0
-    
+
     results.map( ({id,result,odd}) => {if(odd == 0) nulls++})
 
     return(
@@ -70,6 +70,7 @@ export default function BetExpert(props){
             <div>
                 <ProgressBetBox 
                     nulls={nulls}
+                    sport={sport}
                 />
             </div>
         </div>

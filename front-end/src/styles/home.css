@@ -651,6 +651,21 @@ button:hover {
     color: #df0b0b;
 }
 
+.resultBoxExpertMotoGP > button{
+
+    margin-top: 6px;
+    font-family: Spinnaker;
+    color: #F07444;
+    background-color: white;
+    border: 0px;
+    text-decoration: underline;
+    
+}
+
+.resultBoxExpertMotoGP > button:hover {
+    color: #df0b0b;
+}
+
 .resultBoxOdd{
     display: flex;
     justify-content: center;

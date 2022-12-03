@@ -24,17 +24,16 @@
 /*----- IdSaldo.js-----*/
 
 .ftsquareDiv{
-    position: relative;
-    height: 20%;
+    position: absolute;
+    height: 10vh;
     width: 100%;
     box-shadow: 0px 1px rgba(0, 0, 0, 0.25), 0px 1px rgba(0, 0, 0, 0.25);
-
 }
 
 .ftuserDiv{
     position: absolute;
     width: 100%;
-    top : 20%;
+    top : 0%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,12 +42,11 @@
 .ftvalDiv{
     position: absolute;
     width: 100%;
-    top: 60%;
+    top: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 .ftusername{
     color: #18340C;
@@ -73,7 +71,7 @@
 .changeDataOutDiv{
     position: relative;
     width: 85%;
-    height : 60%;
+    height : 63%;
     left : 15%;
     top : 10%
 }
@@ -345,7 +343,7 @@
 .ftDivBetHist{
     position: relative;
     width: 100%;
-    height : 87%;
+    height : 80%;
     left : 0%;
     top : 0%
 }
@@ -1004,7 +1002,7 @@
 .allowOverflowTransact{
     overflow: scroll;
     width: 56vw;
-    height: 46vh;
+    height: 44vh;
     overflow-x: hidden;
     text-align: center;
 }

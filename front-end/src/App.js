@@ -150,6 +150,7 @@ function App() {
           <AddGame
             username={username}
             email={email}
+            setGames={setGames}
             dark={dark}
           />
         } />
