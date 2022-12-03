@@ -119,11 +119,11 @@ public class AppService implements IAppService {
             winnings = aux/100f; 
     
             if(games.size() != games.stream().distinct().count()){
-                return "{\"confirmed\" : \"Aposta contém várias odds do mesmo jogo\"}";
+                return "{\"confirmed\" : \"1\"}";
             }
     
             if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < Float.parseFloat(betslipForm.get("multipleAmount").toString())){
-                return "{\"confirmed\" : \"Saldo insuficiente\"}";
+                return "{\"confirmed\" : \"2\"}";
             }
     
             User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
@@ -164,7 +164,7 @@ public class AppService implements IAppService {
             }
     
             if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < totalAmount){
-                return "{\"confirmed\" : \"Saldo insuficiente\"}";
+                return "{\"confirmed\" : \"2\"}";
             }
 
             u.setWallet(u.getWallet() - totalAmount);
