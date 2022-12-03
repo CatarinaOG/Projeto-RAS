@@ -80,7 +80,7 @@ public class AppService implements IAppService {
                 j.put("id", g.getId());
                 j.put("date", g.getDate());
                 j.put("results", odds);
-                if(g.getState().equals("TBD")){
+                if(g.getState().equals("Suspended")){
                     j.put("active", "false");
                 }
                 else j.put("active", "true");
