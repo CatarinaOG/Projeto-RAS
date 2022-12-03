@@ -54,7 +54,7 @@ public class AppService implements IAppService {
         List<Game> games = gameRepo.findAll();
         JSONArray jogos = new JSONArray();
         for(Game g : games){
-            if(g.getState().equals("TBD")){
+            if(!g.getState().equals("Over")){
                 JSONArray odds = new JSONArray();
                 JSONObject j = new JSONObject();
                 
