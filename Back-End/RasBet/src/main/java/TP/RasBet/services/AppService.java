@@ -154,13 +154,12 @@ public class AppService implements IAppService {
 
             float totalAmount = 0.0f;
             User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
-            
             for(int i = 0; i < bets.length(); i++){
                 float amount = Float.parseFloat(bets.getJSONObject(i).get("amount").toString());
                 Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
                 games.add(odd.getGame());
                 totalAmount += amount;
-                Bet b = new Bet(amount, odd.getValue()*amount, Timestamp.from(Instant.now()), u, "Open", u.getWallet() - amount);
+                Bet b = new Bet(amount, odd.getValue()*amount, Timestamp.from(Instant.now()), u, "Open", u.getWallet() - totalAmount);
                 betList.add(b);
                 oddList.add(odd);
             }
