@@ -128,9 +128,10 @@ export default function AddGame(props){
 
 	function handleSubmit(event){
 		event.preventDefault()
+        
         if(formData.sport!="motoGP" && formData.participantA!="" && formData.participantB!="" && formData.date!="" && formData.time!=""){
             const timeVal = formData.date + " "+formData.time+":00"
-            console.log("odd empate : ",formData.oddTie)
+            console.log(formData.sport)
             fetch('http://127.0.0.1:8080/api/expert/newGame', {
                 method: 'POST',
                 headers: {
@@ -207,9 +208,9 @@ export default function AddGame(props){
                         <h3 className={`ftpromptSport${dark}`}>Insira o Desporto</h3>
                         <select className={`ftselectSport${dark}`} value={formData.sport} onChange={handleChange} name ="sport">
                             <option className={`ftselectSportOption${dark}`} value="">---Escolha---</option>
-                            <option className={`ftselectSportOption${dark}`} value="Futebol" name="Futebol" >Futebol</option>
-                            <option className={`ftselectSportOption${dark}`} value="Tenis" name="Tenis" >Ténis</option>
-                            <option className={`ftselectSportOption${dark}`} value="Basquetebol" name="Basquetebol" >Basquetebol</option>
+                            <option className={`ftselectSportOption${dark}`} value="futebol" name="futebol" >Futebol</option>
+                            <option className={`ftselectSportOption${dark}`} value="tenis" name="tenis" >Ténis</option>
+                            <option className={`ftselectSportOption${dark}`} value="basquetebol" name="basquetebol" >Basquetebol</option>
                             <option className={`ftselectSportOption${dark}`} value="motoGP" name="motoGP" >MotoGP</option>
 
 
@@ -224,7 +225,7 @@ export default function AddGame(props){
 
                         <h3 className={`ftpromptOdds${dark}`}>Odds:</h3>
 					    <input className={`ftoddA${dark}`} type="number" onChange={handleChange} placeholder = "Odd A" name="oddA" value = {formData.oddA}/>
-					    {formData.sport === "Futebol" && <input className={`ftoddTie${dark}`} type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/> }
+					    {formData.sport === "futebol" && <input className={`ftoddTie${dark}`} type="number" onChange={handleChange} placeholder = "Odd Tie" name="oddTie" value = {formData.oddTie}/> }
 					    <input className={`ftoddB${dark}`} type="number" onChange={handleChange} placeholder = "Odd B" name="oddB" value = {formData.oddB}/>
 
                         <h3 className={`ftpromptDate${dark}`}>Data/Hora: </h3>
