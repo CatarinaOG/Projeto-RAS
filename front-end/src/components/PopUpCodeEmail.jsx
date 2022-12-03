@@ -6,16 +6,20 @@ import {useState} from 'react'
 
 export default function PopUpEmail(props){
 
-    const {setShowPopUp,email,setSafeCode,safeCode,dark} = props;
+    const {setShowPopUp,email,setSafeCode,dark} = props;
 
+    //variavel que controla o estado da checkbox
     const [checked, setChecked] = useState(false)
 
     const [formData, setFormData] = useState(
         {email: ""}
     )
     
+    //variavel que controla o conditional rendering do botão de confirmação
     const [waiting,setWaiting] = useState(0)
-    
+
+
+    //variavel que controla o conditional rendering da mensagem de erro
     const [errorMsg, setErrorMsg] = useState(0)
 
     function handleChange(event) {
@@ -36,6 +40,13 @@ export default function PopUpEmail(props){
         setShowPopUp('');
     }
 
+    /**
+     * Define a variável waiting de forma a mostrar ao user que o pedido está a ser processado
+     * caso o input do email esteja preenchido é enviado o pedido, sendo que a resposta é armazenada recorrendo ao método setSafeCode
+     * caso o a checkbox esteja ativa é enviado um pedido semelhante mas em que o corpo é o email passado como prop, sendo o comportamento em
+     * relação à resposta igual
+     * @param {*} event 
+     */
     function handleSubmit(event){
         event.preventDefault();
         setWaiting(1)

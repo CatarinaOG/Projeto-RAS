@@ -34,6 +34,8 @@ export default function RegAccount(props){
         navigate('/', { replace: true })
     }
 
+	const birth = formData.date + " 00:00:00"
+
 	/**
 	 * Função começa por verificar se o conteudo dos inputs é vazio. Caso não seja, envia um pedido HTTP POST cujo body é o conteudo do form
 	 * Consoante a resposta desse pedido, irá mudar a página para a pagina origem ou definir errorReg como 2.
@@ -54,7 +56,7 @@ export default function RegAccount(props){
 					telefone:formData.phone,
 					nome:formData.name,
 					nif:formData.nif,
-					data_de_nascimento:formData.date,
+					data_de_nascimento:birth,
 					cc:formData.cc,
 					morada:formData.address})
         	})

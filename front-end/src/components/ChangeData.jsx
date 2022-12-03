@@ -36,10 +36,12 @@ export default function ChangeData(props){
         })
     }
 
+    
+
     function handleSubmit(event){
         event.preventDefault();
                 
-		if(formData.firstName!=""){
+		if(formData.firstName!="" || formData.phone_num!="" || formData.newAdd!="" || formData.password!="" ){
 			fetch('http://127.0.0.1:8080/api/users/change_profile', {
 				method: 'POST',
 				headers: {
@@ -49,7 +51,7 @@ export default function ChangeData(props){
                     email_user: email ,
                     name : formData.name,
                     phone_num: formData.phone_num,
-                    newAdd: formData.add,
+                    new_add: formData.add,
                     password: formData.password})
 			})
 			.then(response => response.json())
