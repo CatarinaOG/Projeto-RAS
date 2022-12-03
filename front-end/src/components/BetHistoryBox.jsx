@@ -5,7 +5,7 @@ export default function BetHistoryBox(props){
     const {bet,ammount,winnings,dark} = props
 
     
-    
+    // variavel cujo valor é obtido ao percorrer a variavel bet, criando instancias do componente SingleBetHist para cada uma das apostas
     const betResults = bet.map(result => 
         <SingleBetHist
             name = {result.name}

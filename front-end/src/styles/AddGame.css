@@ -19,44 +19,6 @@ body{
 }
 
 
-/*----- IdSaldo.js-----*/
-
-.ftsquareDiv{
-    position: relative;
-    height: 25%;
-    width: 100%;
-    box-shadow: 0px 1px rgba(0, 0, 0, 0.25), 0px 1px rgba(0, 0, 0, 0.25);
-
-}
-
-.ftuserDiv{
-    position: absolute;
-    width: 100%;
-    top : 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ftvalDiv{
-    position: absolute;
-    width: 100%;
-    top: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.ftusername{
-    color: #18340C;
-}
-
-.ftval{
-    color: #18340C;
-
-}
-
 
 
 /*----- Inputs -----*/

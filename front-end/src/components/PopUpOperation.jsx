@@ -17,8 +17,8 @@ export default function PopUpOperation(props){
     return(
         <div className={`ftboxConfirmOps${dark}`}>
             {method==='' && <PopUpMethod showPopUp={showPopUp} setShowPopUp={setShowPopUp} setMethod={setMethod} dark={dark}/>}
-            {method==='Maestro' && <PopUpMaestro setMethod={setMethod} showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp} dark={dark}/>}
-            {method==='Paypal' && <PopUpPaypal setMethod={setMethod} showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp} dark={dark}/>}
+            {method==='Maestro' && <PopUpMaestro showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp} dark={dark}/>}
+            {method==='Paypal' && <PopUpPaypal showPopUp={showPopUp} email={email} setBalance={setBalance} setShowPopUp={setShowPopUp} dark={dark}/>}
         </div>
     )
 }

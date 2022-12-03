@@ -32,7 +32,9 @@ export default function AddSpecialist(props){
 	function handleSubmit(event){
 		event.preventDefault()
 
-        // Mandar pedido e esperar por verificação
+        // Verificar o se o formulario está nas condições corretas. caso esteja, enviar o pedido http adequado com a informação num json
+        // caso não esteja, mostrar a mensagem de erro 1. 
+        // caso a resposta ao pedido seja algo diferente de true, mostrar a mensagem de erro 2.
 
         if(formData.expert_username!= "" && formData.email!= "" && formData.password!=""){
             fetch('http://127.0.0.1:8080/api/admin/newExpert', {
@@ -98,7 +100,6 @@ export default function AddSpecialist(props){
                         email = {formData.email}
                         password = {formData.password}
                         username={formData.expert_username}
-                        setConfirmed ={setConfirmed}
                         dark={dark}
                     />
                 </div>

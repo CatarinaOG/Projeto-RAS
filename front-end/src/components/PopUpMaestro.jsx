@@ -12,7 +12,7 @@ export default function PopUpMaestro(props){
     
 
     const [formData, setFormData] = useState(
-        {operation: showPopUp, cardNum: 0,cardCCV:0 ,operationValue:""}
+        {operation: showPopUp, cardNum: 0,cardCCV:0 ,operationValue:0}
     )
     
     function handleChange(event) {
@@ -43,7 +43,7 @@ export default function PopUpMaestro(props){
         
         
 
-            if(lengthcardCCV === 3 && lengthcardNum === 9){
+            if(lengthcardCCV === 3 && lengthcardNum === 9 && formData.operationValue != 0){
                 
                 fetch('http://127.0.0.1:8080/api/transactions/', {
                     method: 'POST',
@@ -100,8 +100,8 @@ export default function PopUpMaestro(props){
                     <img src = {closeImg} className='close' onClick={close}/>
                 
                 </div>}
-            {stateOp === "success" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessage>}
-            {stateOp === "error" && <PopUpMessage setStateOp={setStateOp} message={message} setMethod={setMethod} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessage>}
+            {stateOp === "success" && <PopUpMessage  message={message} setShowPopUp={setShowPopUp} dark={dark}></PopUpMessage>}
+            {stateOp === "error" && <PopUpMessage  message={message}  setShowPopUp={setShowPopUp} dark={dark}></PopUpMessage>}
 
         </div>
     )

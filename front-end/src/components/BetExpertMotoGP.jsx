@@ -7,7 +7,7 @@ import play from '../images/play.png'
 export default function BetExpertMotoGP(props){
 
     const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd} = props
-    const {name,date,results} = game
+    const {name,sport,date,results} = game
 
     // Criação das caixas de resultado
     const resultsBoxes = results.map( ({id,result,odd}) => 
@@ -70,6 +70,7 @@ export default function BetExpertMotoGP(props){
             <div>
                 <ProgressBetBox 
                     nulls={nulls}
+                    sport={sport}
                 />
             </div>
         </div>

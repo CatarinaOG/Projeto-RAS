@@ -73,8 +73,22 @@ function App() {
     .catch((error) => {
       console.error('Error:', error);
     });
+    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+      setDark('Dark')
+    }
 
   },[])
+
+  function switchDark(){
+		if(dark === 'Dark'){
+			setDark('')
+		}
+		else{
+			setDark('Dark')
+		}
+  }
 
   //-----------------------------------------
 
@@ -86,8 +100,8 @@ function App() {
             setUsername={setUsername}
             setBalance={setBalance}
             setEmail={setEmail}
-            balance={balance}
             dark={dark}
+            switchDark={switchDark}
           />
         } />
 
@@ -150,6 +164,7 @@ function App() {
           <AddGame
             username={username}
             email={email}
+            setGames={setGames}
             dark={dark}
           />
         } />

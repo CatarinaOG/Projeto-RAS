@@ -9,7 +9,9 @@ export default function TableTransact(props){
 
       
 
-
+  /**
+   * data irá ser pecorrido de forma a construir cada linha da tabela
+   */
 
     return(
 

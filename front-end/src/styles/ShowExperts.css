@@ -20,3 +20,7 @@ tr > img {
     height: 15px;
     margin-top: 20px;
 }
+
+tr > img:hover {
+    cursor: pointer;
+}
