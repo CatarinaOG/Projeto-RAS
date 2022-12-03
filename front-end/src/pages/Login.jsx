@@ -8,7 +8,7 @@ import celebrating from '../images/celebrating.png'
 
 function Login(props){
 
-	const {setUsername,setBalance,setRender,setEmail,dark} = props;
+	const {setUsername,setBalance,setRender,setEmail,dark,switchDark} = props;
 
 	
     return(
@@ -20,6 +20,7 @@ function Login(props){
 						setRender = {setRender} 
 						setEmail={setEmail}
 						dark={dark}
+						switchDark={switchDark}
 					/> 
 				<div className='logImage'>
 					<img src={celebrating} className='imageRight'/>

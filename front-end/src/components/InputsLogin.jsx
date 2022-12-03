@@ -2,11 +2,14 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
 import logo from '../images/logo.png'
+import darkMode from '../images/moon.png'
+import lightMode from '../images/moon (1).png'
+
 
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setBalance,setEmail,dark} = props
+	const {setUsername,setBalance,setEmail,dark,switchDark} = props
 
 	//variavel responsavel pelo conditional rendering 
 	const [errorReg,setErrorReg]=useState(0)
@@ -77,9 +80,12 @@ export default function InputsLogin(props) {
 		}		
 	}
 
+	
     return (
         <div className='inputs'>
 			<img className = "ftrasbetLogo" src = {logo}/>
+			<img className = {`ftDarkLogo${dark}`} src = {darkMode} onClick={switchDark}/>
+
 			<h1 className = {`ftwelcomeTitle${dark}`}> Bem-vindo</h1>
 			<form onSubmit={handleSubmit}>
 				<input onChange={handleChange} className = {`ftuserNameLog${dark}`} type="text" placeholder = "Email"  name = "email" value = {formData.email}/>

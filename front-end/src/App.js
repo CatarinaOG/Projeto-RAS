@@ -73,12 +73,22 @@ function App() {
     .catch((error) => {
       console.error('Error:', error);
     });
-    
+    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
+
     if (window.matchMedia('(prefers-color-scheme: dark)').matches){
       setDark('Dark')
     }
 
   },[])
+
+  function switchDark(){
+		if(dark === 'Dark'){
+			setDark('')
+		}
+		else{
+			setDark('Dark')
+		}
+  }
 
   //-----------------------------------------
 
@@ -91,6 +101,7 @@ function App() {
             setBalance={setBalance}
             setEmail={setEmail}
             dark={dark}
+            switchDark={switchDark}
           />
         } />
 
