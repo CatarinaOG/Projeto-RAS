@@ -42,6 +42,8 @@ export default function AddGame(props){
 
         pilot19:"",odd19:0,pilot20:"",odd20:0,
         pilot21:"",odd21:0,pilot22:"",odd22:0,
+        pilot23:"",odd23:0,pilot24:"",odd24:0,
+        
 
 
         date:"",time:"",raceName:""}
@@ -65,7 +67,7 @@ export default function AddGame(props){
 
         pilot19:formData.pilot19,odd19:formData.odd19,pilot20:formData.pilot20,odd20:formData.odd20,
         pilot21:formData.pilot21,odd21:formData.odd21,pilot22:formData.pilot22,odd22:formData.odd22,
-        pilot23:formData.pilot23,odd21:formData.odd23,pilot24:formData.pilot24,odd24:formData.odd24,
+        pilot23:formData.pilot23,odd23:formData.odd23,pilot24:formData.pilot24,odd24:formData.odd24,
         name: formData.raceName,
         sport:"motoGP"
     })
@@ -97,14 +99,14 @@ export default function AddGame(props){
      * pilotError recorrendo ao setState correspondente à mesma
      */
     function checkFormPilot(){
-        if(formData.pilot1==="" || formData.pilot2==="" || formData.pilot3==="" || formData.pilot4==="" || formData.pilot5==="" || formData.pilot6==="" ||
-        formData.pilot7==="" || formData.pilot8==="" || formData.pilot9==="" || formData.pilot10==="" || formData.pilot11==="" || formData.pilot12==="" ||
-        formData.pilot13==="" || formData.pilot14==="" || formData.pilot15==="" || formData.pilot16==="" || formData.pilot17==="" || formData.pilot8==="" ||
-        formData.pilot19==="" || formData.pilot20==="" || formData.pilot21==="" || formData.pilot22==="" ){
-            setPilotError(1);
+        if(formData.pilot1!="" && formData.pilot2!="" && formData.pilot3!="" && formData.pilot4!="" && formData.pilot5!="" && formData.pilot6!="" &&
+        formData.pilot7!="" && formData.pilot8!="" && formData.pilot9!="" && formData.pilot10!="" && formData.pilot11!="" && formData.pilot12!="" &&
+        formData.pilot13!="" && formData.pilot14!="" && formData.pilot15!="" && formData.pilot16!="" && formData.pilot17!="" && formData.pilot8!="" &&
+        formData.pilot19!="" && formData.pilot20!="" && formData.pilot21!="" && formData.pilot22!="" && formData.date!="" && formData.time != "" ){
+            setPilotError(0);
         }
         else{
-            setPilotError(0)
+            setPilotError(1)
         }
     }
 
@@ -159,8 +161,9 @@ export default function AddGame(props){
         }
         else if(formData.sport==="motoGP"){
             checkFormPilot();
-            console.log(formData)
+            console.log(motoBody)
             if(pilotError===0){
+                console.log(formData)
                 fetch('http://127.0.0.1:8080/api/expert/newGame', {
                     method: 'POST',
                     headers: {
