@@ -58,7 +58,7 @@ public class RestService implements IRestService {
                 || ts.equals(g.getDate())){
                     jogo_existe = true;
                     if(j.get("scores") != g.getScore()){
-                        g.getScore(j.get("scores")); //atualizar o resultado do jogo
+                        g.setScore(j.get("scores")); //atualizar o resultado do jogo
                         g.setState("Over"); //fechar o jogo;
                         gameRepo.save(g);
                     }
@@ -123,8 +123,11 @@ public class RestService implements IRestService {
                 || j.get("away_team").equals(g.getParticipants().split(";")[1]) 
                 || ts.equals(g.getDate()))
                     jogo_existe = true;
-                    if(j.get("scores") != g.getScore())
-                        jogo_existe = false;
+                    if(j.get("scores") != g.getScore()){
+                        g.setScore(j.get("scores")); //atualizar o resultado do jogo
+                        g.setState("Over"); //fechar o jogo;
+                        gameRepo.save(g);
+                    }
                 
             }
             
