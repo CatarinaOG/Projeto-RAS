@@ -255,7 +255,7 @@ public class AppService implements IAppService {
     }
 
 
-    //@Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 10000)
     public void updateStatus() {
 
         List<Game> games = gameRepo.findAll();
