@@ -81,12 +81,6 @@ public class UserController {
         return userService.getTransactionHistory((String) j.get("email"));
     }
 
-    @PostMapping(value = "/winnings")
-    public String getWinnings(@RequestBody String email){
-        JSONObject j = new JSONObject(email);
-        return userService.getWinnings((String) j.get("email"));
-    }
-
     @PostMapping(value = "/recover_password")
     public String recoverPassword(@RequestBody String email_user){
         JSONObject j = new JSONObject(email_user);

@@ -61,13 +61,14 @@ public class Game implements Serializable{
         
     }
 
-    public Game(String sport, String participants, Timestamp date, Expert expert, String name){
+    public Game(String sport, String participants, Timestamp date, Expert expert, String name, String score){
         this.sport = sport;
         this.participants = participants;
         this.date = date;
         this.state = "TBD";
         this.expert = expert;
         this.name = name;
+        this.score = score;
     }
 
 
