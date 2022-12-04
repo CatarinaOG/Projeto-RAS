@@ -252,16 +252,16 @@
     width: 30%;
 
 
-    color: #F07444;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #F07444 ;
+    border: 1px solid black ;
 
     font-family: 'Spinnaker';
     font-weight: 400;
     font-size: 14px;
     line-height: 30px;
 
-    background-color: #635d5f;
+    background-color: #292929;
 
 
     top: 80%;

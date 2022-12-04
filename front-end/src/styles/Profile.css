@@ -337,6 +337,15 @@
     left: 20%;
 }
 
+.ftSuccess{
+    position: absolute;
+    top:73%;
+    left:35%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
 
 /*----- BetHistory ----- */
 

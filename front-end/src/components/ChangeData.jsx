@@ -9,6 +9,7 @@ export default function ChangeData(props){
 
     const {setUsername,setShowPopUp,setDivChoice,sec,email,setSec,dark} = props
 
+    const [success,setSuccess] = useState(0)
     let navigate = useNavigate();
 
     const [formData, setFormData] = useState(
@@ -40,7 +41,7 @@ export default function ChangeData(props){
 
     function handleSubmit(event){
         event.preventDefault();
-                
+        setSuccess(0)
 		if(formData.firstName!="" || formData.phone_num!="" || formData.newAdd!="" || formData.password!="" ){
 			fetch('http://127.0.0.1:8080/api/users/change_profile', {
 				method: 'POST',
@@ -56,7 +57,10 @@ export default function ChangeData(props){
 			})
 			.then(response => response.json())
 			.then(data => {
-                setUsername(formData.name);
+                if(formData.name != ""){
+                    setUsername(formData.name);
+                }
+                setSuccess(1)
 
             })
         }
@@ -128,7 +132,7 @@ export default function ChangeData(props){
             </form>
             {sec === 0 && <button className={`ftChangeSec${dark}`} onClick={loadPopEmail}> Mudar Dados Seguros</button>} 
             {sec === 1 && <button className={`ftChangeCancel${dark}`} onClick={cancelBut}> Cancel</button>        }
-            
+            {success === 1 && <p className='ftSuccess'>Dados Alterados</p>}
         </div>
 
     )
