@@ -55,15 +55,18 @@ public class RestService implements IRestService {
                 
                 if(j.get("homeTeam").equals(g.getParticipants().split(";")[0]) 
                 || j.get("awayTeam").equals(g.getParticipants().split(";")[1]) 
-                || ts.equals(g.getDate()))
+                || ts.equals(g.getDate())){
                     jogo_existe = true;
-                
+                    if(j.get("scores") != g.getScore())
+                        jogo_existe = false;
+                }
             }
             
             if(!jogo_existe){
                 String participants = (String) j.get("homeTeam") + ";" + (String) j.get("awayTeam");
 
-                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), participants.replace(";", " vs "));
+                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
+                                  participants.replace(";", " vs "), (String) j.get("scores"));
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 JSONArray marketsList = (JSONArray) bookmaker.get("markets");
@@ -116,13 +119,16 @@ public class RestService implements IRestService {
                 || j.get("away_team").equals(g.getParticipants().split(";")[1]) 
                 || ts.equals(g.getDate()))
                     jogo_existe = true;
+                    if(j.get("scores") != g.getScore())
+                        jogo_existe = false;
                 
             }
             
             if(!jogo_existe){
                 String participants = (String) j.get("home_team") + ";" + (String) j.get("away_team");
 
-                Game g = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), participants.replace(";", " vs "));
+                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
+                                  participants.replace(";", " vs "), (String) j.get("scores"));
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 JSONArray marketsList = (JSONArray) bookmaker.get("markets");

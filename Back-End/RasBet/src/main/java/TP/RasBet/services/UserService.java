@@ -116,10 +116,17 @@ public class UserService implements IUserService {
 
         JSONArray betHistory = new JSONArray(); //JSONArray que contém as bets todas
 
+        float win = 0.0f, loss = 0.0f;
+
         for(Bet b : betList){
 
             LocalDate dataAposta = b.getDate().toLocalDateTime().toLocalDate();
             LocalDate threeMonthsBack = LocalDate.now().minusMonths(3);
+
+            if(b.getState().equals("Terminada") && b.getResult()){
+                win += b.getWinnings();
+            }
+            loss -= b.getAmount();
 
             if(dataAposta.isAfter(threeMonthsBack)){ // se a aposta foi feita há menos de 3 meses
 
@@ -148,6 +155,8 @@ public class UserService implements IUserService {
         }
 
         response.put("betHistory", betHistory);
+        response.put("total_win", win);
+        response.put("total_bet", loss);
 
         return response.toString();
     }
@@ -248,34 +257,6 @@ public class UserService implements IUserService {
 
         response.put("transactions", ts);
     
-        return response.toString();
-    }
-
-
-    public String getWinnings(String email){
-        User u = userRepo.findUserByEmail(email).get();
-
-        List<Bet> betList = u.getBets();
-
-        float total = 0;
-        float gasto = 0;
-        float ganho = 0;
-        for(Bet b : betList){
-            if(b.getState().equals("Terminada")){
-                
-                gasto -= b.getAmount();
-                if(b.getResult()) ganho += b.getWinnings();
-
-            }
-        }
-        total = gasto + ganho;
-
-        JSONObject response = new JSONObject();
-
-        response.put("gasto", gasto);
-        response.put("ganho", ganho);
-        response.put("total", total);
-
         return response.toString();
     }
 
