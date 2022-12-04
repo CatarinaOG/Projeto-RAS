@@ -261,9 +261,12 @@ public class AppService implements IAppService {
         List<Game> games = gameRepo.findAll();
 
         for(Game g : games){
-            if(!g.getState().equals("Over"))
-                if(g.getDate().toLocalDateTime().isBefore(LocalDateTime.now()))
-                    g.setState("Over");
+            if(g.getState().equals("TBD"))
+                if(g.getDate().toLocalDateTime().isBefore(LocalDateTime.now())){
+                    g.setState("Suspended");
+                    gameRepo.save(g);
+                }
+
         }
 
         List<Bet> bets = betRepo.findAll();
@@ -271,7 +274,7 @@ public class AppService implements IAppService {
             List<GamesInOneBet> gamesInBet = b.getGames();
             boolean flag = true;
             for(GamesInOneBet giob : gamesInBet){
-                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore().equals("null"))
+                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore() == null)
                     flag = false;
                     break;
             }
