@@ -14,7 +14,7 @@ export default function ModalConfirmation(props){
     function goToConfirmated(){
 
         if(selected.length === 0)
-            setError(2)
+            setError(3)
 
         else if(type === 'simple'){
 
@@ -41,9 +41,11 @@ export default function ModalConfirmation(props){
                     setModalConfirmated(true)
                     setSelected([])
                 }
-                else {
+                else if(data.confirmed == '1'){
                     setError(1)
-                    //Adicionar outros erros
+                }
+                else{
+                    setError(2)
                 }
             })
             .catch((error) => {
@@ -82,7 +84,6 @@ export default function ModalConfirmation(props){
                 else{
                     setError(2)
                 }
-
             })
             .catch((error) => {
                 console.error('Error:', error)

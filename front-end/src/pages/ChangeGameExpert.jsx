@@ -7,8 +7,10 @@ import NavBarProfile from "../components/NavBarProfile"
 import goBackImg from '../images/goBack.png'
 import ModalConfirmatedChange from "../components/ModalConfirmedChange";
 
-export default function ShowExperts(props){
+export default function ChangeGameExpert(props){
 
+    console.log(props)
+    
     const {username,expertGame,setExpertGame,setGames,dark} = props
 
     const [confirmed,setConfirmed] = useState(false)
@@ -104,6 +106,7 @@ export default function ShowExperts(props){
         })
     }
 
+
     function results(){
         if(getInEnglish(expertGame.sport) === 'motoGP'){
             return(
@@ -112,12 +115,11 @@ export default function ShowExperts(props){
                         <p className="pExpert">Escolha o vencedor da corrida</p>
                         <div className="gridExpertMotoGP">
                             {
-                                expertGame.participants.map( name => {
+                                expertGame.participants.map( ({name}) => {
                                     
                                     function newSelectedMotoGP(){
                                         setSelectedMotoGP(name)
                                     }          
-
                                     return(
                                         <button className={name === selectedMotoGP ? "participantSelected" : "participant"} onClick={newSelectedMotoGP}>{name}</button>
                                     )

@@ -24,6 +24,9 @@ export default function HomeExpert(props){
 
     const [oddToChange,setOddToChange] = useState()   // {id,gameId}
 
+    const [search,setSearch] = useState([])
+    const [text,setText] = useState('')
+
     function getInEnglish(type){
         switch (type) {
             case "futebol": return 'football'
@@ -56,43 +59,78 @@ export default function HomeExpert(props){
     //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => {
 
-        var show = false
-
-        if (getInEnglish(game.sport) === filter)
-            show = true
-
-
-        if( show || filter === 'all')
-            if(game.sport === 'motoGP'){
-                return(
-                    <BetExpertMotoGP 
-                        key={game.id}
-                        games={games}
-                        gameId={game.id}
-                        game={game} 
-                        setModalWarningActive={setModalWarningActive}
-                        setModalChangeOdd={setModalChangeOdd}
-                        setOddToChange={setOddToChange}
-                        setGames={setGames}
-                        dark={dark}
-                    />
-                )
-            }else{
-                return(
-                    <BetExpert 
-                        key={game.id}
-                        games={games}
-                        gameId={game.id}
-                        game={game} 
-                        setModalWarningActive={setModalWarningActive}
-                        setModalChangeOdd={setModalChangeOdd}
-                        setOddToChange={setOddToChange}
-                        setGames={setGames}
-                        dark={dark}
-                    />
-                )
+        if(text === ''){
+            if( getInEnglish(game.sport) === filter || filter === 'all')
+                if(game.sport === 'motoGP'){
+                    return(
+                        <BetExpertMotoGP 
+                            key={game.id}
+                            games={games}
+                            gameId={game.id}
+                            game={game} 
+                            setModalWarningActive={setModalWarningActive}
+                            setModalChangeOdd={setModalChangeOdd}
+                            setOddToChange={setOddToChange}
+                            setGames={setGames}
+                            dark={dark}
+                        />
+                    )
+                }else{
+                    return(
+                        <BetExpert 
+                            key={game.id}
+                            games={games}
+                            gameId={game.id}
+                            game={game} 
+                            setModalWarningActive={setModalWarningActive}
+                            setModalChangeOdd={setModalChangeOdd}
+                            setOddToChange={setOddToChange}
+                            setGames={setGames}
+                            dark={dark}
+                        />
+                    )
+                }
             }
+        else{
+            if(search.length > 0){
+                if(search.find(elem => elem === game.id)){
+                    if( getInEnglish(game.sport) === filter || filter === 'all'){
+                        if(game.sport === 'motoGP'){
+                            return(
+                                <BetExpertMotoGP 
+                                    key={game.id}
+                                    games={games}
+                                    gameId={game.id}
+                                    game={game} 
+                                    setModalWarningActive={setModalWarningActive}
+                                    setModalChangeOdd={setModalChangeOdd}
+                                    setOddToChange={setOddToChange}
+                                    setGames={setGames}
+                                    dark={dark}
+                                />
+                            )
+                        }else{
+                            return(
+                                <BetExpert 
+                                    key={game.id}
+                                    games={games}
+                                    gameId={game.id}
+                                    game={game} 
+                                    setModalWarningActive={setModalWarningActive}
+                                    setModalChangeOdd={setModalChangeOdd}
+                                    setOddToChange={setOddToChange}
+                                    setGames={setGames}
+                                    dark={dark}
+                                />
+                            )
+                        }
+                    }
+                }
+            }
+
+        }
     }) 
+
 
     return(
         <div>
@@ -133,6 +171,8 @@ export default function HomeExpert(props){
                 <div>
                     <SearchBar 
                         dark={dark}
+                        setSearch={setSearch}
+                        setText={setText}
                     />
                     <div className="allBetsExpert">
                         {allBets}

@@ -62,8 +62,6 @@ export default function BetExpert(props){
 
     function icons(){
 
-        console.log("game:"+game.home+" :"+game.active)
-
         if(game.active === "true"){
             return(
             <div>

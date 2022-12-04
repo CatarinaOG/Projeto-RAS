@@ -7,6 +7,7 @@ import BetMotoGP from '../components/BetMotoGP'
 
 import {useState} from 'react'
 import { useEffect } from "react"
+import { useDebugValue } from "react"
 
 
 export default function Home(props){
@@ -16,6 +17,8 @@ export default function Home(props){
 
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
+    const [search,setSearch] = useState([])
+    const [text,setText] = useState('')
 
     function getInEnglish(type){
         switch (type) {
@@ -52,38 +55,66 @@ export default function Home(props){
     const allBets = games.map( (game) => {
 
         var notNull = true
-        var show = false
         var sportENG = getInEnglish(game.sport)
 
         game.results.map( game => {
             if (game.odd === 0) notNull = false
         })
 
-        if (sportENG === filter)
-            show = true
-
-        if(notNull && ( show || filter === 'all'))
-            if(game.sport === 'motoGP'){
-                return(
-                    <BetMotoGP 
-                        key={game.id}
-                        game={game} 
-                        setSelected={setSelected} 
-                        selected={selected}
-                        dark={dark}
-                    /> 
-                )
-            }else{
-                return(
-                    <Bet 
-                        key={game.id}
-                        game={game} 
-                        setSelected={setSelected} 
-                        selected={selected}
-                        dark={dark}
-                    /> 
-                )
+        if(text === ''){
+            if(notNull && ( sportENG === filter || filter === 'all')){
+                if(game.sport === 'motoGP'){
+                    return(
+                        <BetMotoGP 
+                            key={game.id}
+                            game={game} 
+                            setSelected={setSelected} 
+                            selected={selected}
+                            dark={dark}
+                        /> 
+                    )
+                }else{
+                    return(
+                        <Bet 
+                            key={game.id}
+                            game={game} 
+                            setSelected={setSelected} 
+                            selected={selected}
+                            dark={dark}
+                        /> 
+                    )
+                }
             }
+        }
+        else{
+            if(search.length > 0){
+                if(search.find(elem => elem === game.id)){
+                    if(notNull && ( sportENG === filter || filter === 'all')){
+                        if(game.sport === 'motoGP'){
+                            return(
+                                <BetMotoGP 
+                                    key={game.id}
+                                    game={game} 
+                                    setSelected={setSelected} 
+                                    selected={selected}
+                                    dark={dark}
+                                /> 
+                            )
+                        }else{
+                            return(
+                                <Bet 
+                                    key={game.id}
+                                    game={game} 
+                                    setSelected={setSelected} 
+                                    selected={selected}
+                                    dark={dark}
+                                /> 
+                            )
+                        }
+                    }
+                }
+            }
+        }
     }) 
 
     return(
@@ -97,7 +128,11 @@ export default function Home(props){
             />
             <div className={`content${dark}`}>
                 <div>
-                    <SearchBar dark={dark}/>
+                    <SearchBar 
+                        dark={dark}
+                        setText={setText}
+                        setSearch={setSearch}
+                    />
                     <div className={`allBets${dark}`}>
                         {allBets}
                     </div>
