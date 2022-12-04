@@ -45,7 +45,7 @@ export default function Profile(props){
                 console.log(data.total_win)
 
                 setBetHist(data.betHistory)
-                setAmount(data.total_bet)
+                setAmount(Math.abs(data.total_bet))
                 setWinnings(data.total_win)
             }
         })
