@@ -52,7 +52,7 @@ public class ExpertService implements IExpertService{
             
             Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
 
-            Game game = new Game((String) event.get("sport"), participants, d, expert, name);
+            Game game = new Game((String) event.get("sport"), participants, d, expert, name, null);
             gameRepo.save(game);
 
             for(int i = 1; i <= 22; i++){
@@ -89,7 +89,7 @@ public class ExpertService implements IExpertService{
 
             Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
 
-            Game game = new Game((String) event.get("sport"), cmp, d, expert, name);
+            Game game = new Game((String) event.get("sport"), cmp, d, expert, name, null);
             gameRepo.save(game);
             oddA.setGame(game);
             oddB.setGame(game);

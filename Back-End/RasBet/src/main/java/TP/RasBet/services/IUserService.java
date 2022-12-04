@@ -10,6 +10,5 @@ public interface IUserService {
     public String changeSensitive(JSONObject cpf);
     public String getCode(String email);
     public String getTransactionHistory(String email);
-    public String getWinnings(String email);
     public String recoverPassword(String email);
 }
