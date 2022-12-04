@@ -62,7 +62,7 @@ export default function Home(props){
         })
 
         if(text === ''){
-            if(notNull && ( sportENG === filter || filter === 'all')){
+            if(notNull && ( sportENG === filter || filter === 'all') && game.active === 'true'){
                 if(game.sport === 'motoGP'){
                     return(
                         <BetMotoGP 
@@ -89,7 +89,7 @@ export default function Home(props){
         else{
             if(search.length > 0){
                 if(search.find(elem => elem === game.id)){
-                    if(notNull && ( sportENG === filter || filter === 'all')){
+                    if(notNull && ( sportENG === filter || filter === 'all') && game.active === 'true'){
                         if(game.sport === 'motoGP'){
                             return(
                                 <BetMotoGP 

@@ -85,7 +85,7 @@ export default function AddSpecialist(props){
                         <h3 className={`ftpromptEmailSp${dark}`}>Insira o email:</h3>
                         <input type="text" onChange={handleChange} placeholder='email' name = "email" value = {formData.email} className={`ftemailSp${dark}`}/>
                         <h3 className={`ftpromptPassSp${dark}`}>Insira a password:</h3>
-                        <input type="text" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ={`ftpasswordSp${dark}`}/>
+                        <input type="password" onChange={handleChange} placeholder='password' name = "password" value = {formData.password} className ={`ftpasswordSp${dark}`}/>
                         <button className = {`ftaddConcludeSp${dark}`}>Registar</button>
 					    {errorReg === 1 && <p className='fterrorAddEx'>Dados em falta</p>}
 					    {errorReg === 2 && <p className='fterrorAddEx'>Erro: email em uso</p>}

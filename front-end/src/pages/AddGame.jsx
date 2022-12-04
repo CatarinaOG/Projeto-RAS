@@ -118,7 +118,7 @@ export default function AddGame(props){
         .then(response => response.json())
         .then(data => {
             if(data.games){
-            setGames(data.games)
+                setGames(data.games)
             }
         })
         .catch((error) => {

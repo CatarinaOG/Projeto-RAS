@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
-import ModalConfirmatedChange from "../components/ModalConfirmedChange";
+import ModalConfirmedChange from "../components/ModalConfirmedChange";
 
 export default function ChangeGameExpert(props){
 
@@ -154,7 +154,7 @@ export default function ChangeGameExpert(props){
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
 
             {confirmed && 
-                <ModalConfirmatedChange 
+                <ModalConfirmedChange 
                     setConfirmed={setConfirmed}
                     dark={dark}
                 />
