@@ -141,14 +141,15 @@ public class UserService implements IUserService {
                     gameInfo.put("type", giob.getGame().getSport()); //eles querem "type : team" e não o sport                     -- WARNING! --
                     String name = giob.getGame().getParticipants().replace(";", " vs "); //verificar como é que eles querem        -- WARNING! --
                     gameInfo.put("name", name);
-                    gameInfo.put("winner", giob.getDescription()); //vamos ter de guardar na bet ou no jogo o vencedor         -- WARNING! --
+                    gameInfo.put("winner", giob.getDescription()); //vamos ter de guardar na bet ou no jogo o vencedor             -- WARNING! --
 
                     games.put(gameInfo);
                 }
 
                 bet.put("bet", games);
                 bet.put("amount", b.getAmount());
-                bet.put("winnings", b.getWinnings());
+                if(b.getState.equals("Closed")) bet.put("winnings", b.getWinnings());
+                else bet.put("winnings", -1);
 
                 betHistory.put(bet);
             }
