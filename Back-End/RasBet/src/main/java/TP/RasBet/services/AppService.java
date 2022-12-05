@@ -291,6 +291,7 @@ public class AppService implements IAppService {
                     emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You lost!", "Bet closed");
                     b.setWinnings(0);
                 } 
+                betRepo.save(b);
             }
         }  
     }
