@@ -63,7 +63,7 @@ export default function BetExpertMotoGP(props){
 
     function icons(){
 
-        if(game.active === true){
+        if(game.active === "true"){
             return(
             <div>
                 <img src={pause} alt="" className='iconMotoGP' onClick={changeState}/>

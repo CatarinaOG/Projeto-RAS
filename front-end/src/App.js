@@ -58,25 +58,26 @@ function App() {
 
   useEffect(() => {
 
-    fetch('http://127.0.0.1:8080/api/games/', {
+      fetch('http://127.0.0.1:8080/api/games/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.games){
-          setGames(data.games)
-        }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      })
+      .then(response => response.json())
+      .then(data => {
+          if(data.games){
+            setGames(data.games)
+            console.log("new games")
+          }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
 
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches){
-      setDark('Dark')
-    }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+        setDark('Dark')
+      }
 
   },[])
 
