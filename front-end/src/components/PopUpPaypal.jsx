@@ -38,17 +38,17 @@ export default function PopUpPaypal(props){
         event.preventDefault();
 
         if(formData.email != "" && formData.operationValue!= ""){           
-        fetch('http://127.0.0.1:8080/api/transactions/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json ',
-            },
-            body: JSON.stringify({ 
-                operation: formData.operation,
-                email:formData.email,
-                email_user: email,
-                operationValue:formData.operationValue,
-                cardNum:0
+            fetch('http://127.0.0.1:8080/api/transactions/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json ',
+                },
+                body: JSON.stringify({ 
+                    operation: formData.operation,
+                    email:formData.email,
+                    email_user: email,
+                    operationValue:formData.operationValue,
+                    cardNum:0
             })
         })
         .then(response => response.json())
@@ -57,17 +57,15 @@ export default function PopUpPaypal(props){
                 setStateOp("success");
                 setMessage("Operação bem sucedida!");
                 if(formData.operation === 'transfer'){
-                    setBalance(oldBalance => oldBalance - Number(formData.operationValue)); 
+                    setBalance(oldBalance => oldBalance - Number(formData.operationValue))
                 }
                 else{
-                    setBalance(oldBalance => oldBalance + Number(formData.operationValue)); 
-
+                    setBalance(oldBalance => oldBalance + Number(formData.operationValue))
                 }
             }
             else{
                 setStateOp("error");
                 setMessage("Erro! Verifique valor da conta");
-                
             }
         });
         
