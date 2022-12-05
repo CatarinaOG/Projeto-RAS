@@ -200,7 +200,7 @@ public class RestService implements IRestService {
             if(!jogo_existe){
                 String participants = (String) g.get("HomeTeamName") + ";" + (String) g.get("AwayTeamName");
 
-                Game j = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), participants.replace(";", " vs "), (String) j.get("scores"));
+                Game j = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), participants.replace(";", " vs "), (String) g.get("scores"));
                 JSONArray bookmakersList = (JSONArray) g.get("PregameOdds");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 Odd oddAa;

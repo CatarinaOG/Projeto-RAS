@@ -43,7 +43,7 @@ public class AppService implements IAppService {
 
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @Autowired EmailSenderService emailSenderService;
 

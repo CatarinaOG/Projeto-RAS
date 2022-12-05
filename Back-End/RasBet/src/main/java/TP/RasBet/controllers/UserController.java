@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import TP.RasBet.model.*;
 import TP.RasBet.services.AppService;
+import TP.RasBet.services.IAppService;
+import TP.RasBet.services.IUserService;
 import TP.RasBet.services.UserService;
 
 import java.security.Key;
@@ -25,10 +27,10 @@ public class UserController {
 
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @Autowired 
-    private AppService appService;
+    private IAppService appService;
 
     @PostMapping(value="/teste")
     public void teste(@RequestBody String body){

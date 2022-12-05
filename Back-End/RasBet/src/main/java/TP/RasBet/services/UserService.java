@@ -148,7 +148,7 @@ public class UserService implements IUserService {
 
                 bet.put("bet", games);
                 bet.put("amount", b.getAmount());
-                if(b.getState.equals("Closed")) bet.put("winnings", b.getWinnings());
+                if(b.getState().equals("Closed")) bet.put("winnings", b.getWinnings());
                 else bet.put("winnings", -1);
 
                 betHistory.put(bet);
