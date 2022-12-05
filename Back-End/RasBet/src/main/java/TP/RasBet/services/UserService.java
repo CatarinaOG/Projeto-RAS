@@ -158,6 +158,7 @@ public class UserService implements IUserService {
         response.put("betHistory", betHistory);
         response.put("total_win", win);
         response.put("total_bet", loss);
+        response.put("balance", u.getWallet());
 
         return response.toString();
     }

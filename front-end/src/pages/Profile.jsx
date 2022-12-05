@@ -44,6 +44,7 @@ export default function Profile(props){
                 setBetHist(data.betHistory)
                 setAmount(Math.abs(data.total_bet))
                 setWinnings(data.total_win)
+                setBalance(data.balance)
             }
         })
         .catch((error) => {

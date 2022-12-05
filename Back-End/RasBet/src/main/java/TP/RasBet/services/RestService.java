@@ -38,7 +38,7 @@ public class RestService implements IRestService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    //@Scheduled(fixedRate = 10000 )
+    @Scheduled(fixedRate = 10000 )
     public void getGames() {
         String url = "http://ucras.di.uminho.pt/v1/Games";
         JSONArray jogos = new JSONArray(this.restTemplate.getForObject(url, String.class));
@@ -69,11 +69,11 @@ public class RestService implements IRestService {
             if(!jogo_existe){
                 String participants = (String) j.get("homeTeam") + ";" + (String) j.get("awayTeam");
                 Game g = null;
-                if(j.get("scores") == null){
+                if(j.get("scores").toString().equals("null")){
                     g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
                                     participants.replace(";", " vs "),null);
                 }else{
-                    g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
+                    g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(),
                     participants.replace(";", " vs "), (String) j.get("scores"));
                 }
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
@@ -106,7 +106,7 @@ public class RestService implements IRestService {
     }
 
 
-    //@Scheduled(fixedRate = 10000 )
+    @Scheduled(fixedRate = 10000 )
     public void getGamesNBA() {
         String api_key = "8408dcb136dde2d43436b699d2a107df";
         String sport_id = "basketball_nba";

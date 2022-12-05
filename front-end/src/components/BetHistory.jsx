@@ -66,10 +66,8 @@ const fullbetHist = () => (
       
 
       if(multipleState==="active" && item.bet.length>1){
-
         return (
           <BetHistoryBox bet={item.bet} ammount={item.amount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
-         
         );
       }
       else if (simpleState === "active" && item.bet.length==1){
@@ -88,7 +86,6 @@ const fullbetHist = () => (
     function changeToTransact(){
       setMultipleState('inactive')
       setSimpleState('inactive')
-
       setTypeData("Transact")
     }
 
