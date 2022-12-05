@@ -9,8 +9,6 @@ import ModalConfirmedChange from "../components/ModalConfirmedChange";
 
 export default function ChangeGameExpert(props){
 
-    console.log(props)
-    
     const {username,expertGame,setExpertGame,setGames,dark} = props
 
     const [confirmed,setConfirmed] = useState(false)
