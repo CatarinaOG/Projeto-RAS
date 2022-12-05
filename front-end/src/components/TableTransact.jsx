@@ -35,7 +35,6 @@ export default function TableTransact(props){
                         <div className="allowOverflowTransact">
                             <table width="700" >
                             {data.map((val, key) => {
-                                console.log("Valor na linha" , key, "é" ,val.balance)
                                 return (
                                   <tr key={key}>
                                     <td className={`fttd${dark}`} width="400">{val.date}</td>

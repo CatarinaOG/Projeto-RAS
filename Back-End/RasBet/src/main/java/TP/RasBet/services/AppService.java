@@ -274,21 +274,22 @@ public class AppService implements IAppService {
             List<GamesInOneBet> gamesInBet = b.getGames();
             boolean flag = true;
             for(GamesInOneBet giob : gamesInBet){
-                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore() == null)
+                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore() == null) {
                     flag = false;
                     break;
+                }
             }
             if(flag){
                 b.setState("Closed");
                 //verificar se as apostas ganharam todas
                 if(check_results(gamesInBet)){
-                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won" + b.getWinnings(), "Bet closed");
+                    //emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won" + b.getWinnings(), "Bet closed");
                     User u = b.getUser();
                     u.setWallet(u.getWallet() + b.getWinnings());
                     userRepo.save(u);
                 }
                 else{
-                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You lost!", "Bet closed");
+                    //emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You lost!", "Bet closed");
                     b.setWinnings(0);
                 } 
                 betRepo.save(b);

@@ -37,7 +37,7 @@ public class Bet implements Serializable{
     
 
     //many to one com user -> User_id é o nome da FK e referenced... id é a PK da tabela do user
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 

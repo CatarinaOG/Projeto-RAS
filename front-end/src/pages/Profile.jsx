@@ -41,9 +41,6 @@ export default function Profile(props){
         .then(response => response.json())
         .then(data => {
             if(data.betHistory){
-                console.log(data.total_bet)
-                console.log(data.total_win)
-
                 setBetHist(data.betHistory)
                 setAmount(Math.abs(data.total_bet))
                 setWinnings(data.total_win)
@@ -51,7 +48,6 @@ export default function Profile(props){
         })
         .catch((error) => {
         })
-        console.log(betHist)
   },[])  
       
     
