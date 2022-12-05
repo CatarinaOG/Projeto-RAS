@@ -34,6 +34,9 @@ public class Bet implements Serializable{
 
     @Column(name = "final_balance")
     private float final_balance;
+
+    @Column(name = "winning_final_balance")
+    private float winning_final_balance;
     
 
     //many to one com user -> User_id é o nome da FK e referenced... id é a PK da tabela do user
@@ -102,7 +105,9 @@ public class Bet implements Serializable{
         return user;
     }
     
-
+    public float getWinning_final_balance() {
+        return winning_final_balance;
+    }
 
 
 
@@ -136,6 +141,9 @@ public class Bet implements Serializable{
         this.final_balance = final_balance;
     }
 
+    public void setWinning_final_balance(float winning_final_balance) {
+        this.winning_final_balance = winning_final_balance;
+    }
 
     @Override
     public String toString() {
