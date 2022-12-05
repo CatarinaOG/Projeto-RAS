@@ -249,7 +249,7 @@ public class UserService implements IUserService {
                 winObj.put("date", b.getDate());
                 winObj.put("description", "ganho de aposta");
                 winObj.put("operation", "+" + b.getWinnings());
-                winObj.put("balance", b.getFinal_balance() + b.getWinnings());
+                winObj.put("balance", b.getWinning_final_balance() );
 
                 ts.put(winObj);
             }
