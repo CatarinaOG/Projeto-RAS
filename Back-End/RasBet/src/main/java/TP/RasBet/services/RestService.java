@@ -69,8 +69,13 @@ public class RestService implements IRestService {
             if(!jogo_existe){
                 String participants = (String) j.get("homeTeam") + ";" + (String) j.get("awayTeam");
 
-                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
-                                  participants.replace(";", " vs "), (String) j.get("scores"));
+                if(j.get("scores") == null){
+                    Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
+                                    participants.replace(";", " vs "),null);
+                }else{
+                    Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
+                    participants.replace(";", " vs "), (String) j.get("scores"));
+                }
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 JSONArray marketsList = (JSONArray) bookmaker.get("markets");
@@ -134,8 +139,15 @@ public class RestService implements IRestService {
             if(!jogo_existe){
                 String participants = (String) j.get("home_team") + ";" + (String) j.get("away_team");
 
-                Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
-                                  participants.replace(";", " vs "), (String) j.get("scores"));
+                if(j.get("scores") == null){
+                    Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
+                                  participants.replace(";", " vs "), null);
+                }
+                else{
+                    Game g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
+                    participants.replace(";", " vs "), (String) j.get("scores"));
+                }
+
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
                 JSONArray marketsList = (JSONArray) bookmaker.get("markets");
