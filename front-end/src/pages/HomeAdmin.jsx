@@ -4,7 +4,6 @@ import NavBarProfile from "../components/NavBarProfile"
 
 import consultExpert from "../images/consultExpert.png"
 import addExpert from "../images/addExpert.png"
-import deleteExpert from "../images/deleteExpert.png"
 import logoutImg from "../images/logout.png"
 
 

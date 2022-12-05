@@ -57,8 +57,8 @@ function App() {
   //--------------- Get Games -----------------
 
   useEffect(() => {
-
-      fetch('http://127.0.0.1:8080/api/games/', {
+      const interval = setInterval(() => {
+        fetch('http://127.0.0.1:8080/api/games/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +78,10 @@ function App() {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches){
         setDark('Dark')
       }
-
+    }, 1000);
+    
+    return () => clearInterval(interval);
+      
   },[])
 
   function switchDark(){

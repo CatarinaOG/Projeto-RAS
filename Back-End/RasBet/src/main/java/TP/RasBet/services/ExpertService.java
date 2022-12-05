@@ -113,7 +113,7 @@ public class ExpertService implements IExpertService{
 
         for(Expert e : experts){
             for(Game g : e.getGames()){
-                if(g.getState().equals("TBD")){
+                if(!g.getState().equals("Over")){
                     JSONObject game = new JSONObject();
                     if(!g.getSport().equals("motoGP")){
                         game.put("id", g.getId());
