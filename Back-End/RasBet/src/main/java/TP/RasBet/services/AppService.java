@@ -279,7 +279,7 @@ public class AppService implements IAppService {
                     break;
                 }
             }
-            if(flag){
+            if(flag && !b.getState().equals("Closed")){
                 b.setState("Closed");
                 //verificar se as apostas ganharam todas
                 if(check_results(gamesInBet)){
