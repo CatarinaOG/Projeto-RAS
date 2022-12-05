@@ -123,7 +123,7 @@ public class UserService implements IUserService {
             LocalDate dataAposta = b.getDate().toLocalDateTime().toLocalDate();
             LocalDate threeMonthsBack = LocalDate.now().minusMonths(3);
 
-            if(b.getState().equals("Terminada") && b.getResult()){
+            if(b.getState().equals("Closed") && b.getResult()){
                 win += b.getWinnings();
             }
             loss -= b.getAmount();
