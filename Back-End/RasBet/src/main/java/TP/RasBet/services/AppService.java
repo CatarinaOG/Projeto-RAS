@@ -281,6 +281,7 @@ public class AppService implements IAppService {
             }
             if(flag && !b.getState().equals("Closed")){
                 b.setState("Closed");
+                b.setResult(true);
                 //verificar se as apostas ganharam todas
                 if(check_results(gamesInBet)){
                     //emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won" + b.getWinnings(), "Bet closed");

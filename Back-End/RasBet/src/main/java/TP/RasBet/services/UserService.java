@@ -243,7 +243,7 @@ public class UserService implements IUserService {
 
             //depois, se a aposta já acabou e tiver sido ganha, então vamos colocar os winnings também 
 
-            if(b.getState().equals("Terminada") && b.getResult() == true){
+            if(b.getState().equals("Closed") && b.getResult() == true){
                 JSONObject winObj = new JSONObject();
 
                 winObj.put("date", b.getDate());
