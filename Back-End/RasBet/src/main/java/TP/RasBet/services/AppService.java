@@ -274,9 +274,10 @@ public class AppService implements IAppService {
             List<GamesInOneBet> gamesInBet = b.getGames();
             boolean flag = true;
             for(GamesInOneBet giob : gamesInBet){
-                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore() == null)
+                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore() == null){
                     flag = false;
                     break;
+                }
             }
             if(flag){
                 b.setState("Closed");

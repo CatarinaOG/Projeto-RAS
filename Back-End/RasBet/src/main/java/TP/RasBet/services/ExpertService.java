@@ -118,8 +118,8 @@ public class ExpertService implements IExpertService{
                     if(!g.getSport().equals("motoGP")){
                         game.put("id", g.getId());
                         game.put("sport", g.getSport());
-                        game.put("away", g.getParticipants().split(";")[0]);
-                        game.put("home", g.getParticipants().split(";")[1]);
+                        game.put("home", g.getParticipants().split(";")[0]);
+                        game.put("away", g.getParticipants().split(";")[1]);
                     }
                     else{
                         game.put("id", g.getId());
