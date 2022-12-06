@@ -38,7 +38,7 @@ public class RestService implements IRestService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    @Scheduled(fixedRate = 10000 )
+    @Scheduled(fixedRate = 60000 )
     public void getGames() {
         String url = "http://ucras.di.uminho.pt/v1/Games";
         JSONArray jogos = new JSONArray(this.restTemplate.getForObject(url, String.class));
@@ -106,12 +106,12 @@ public class RestService implements IRestService {
     }
 
 
-    @Scheduled(fixedRate = 10000 )
+    @Scheduled(fixedRate = 60000 )
     public void getGamesNBA() {
         String api_key = "8408dcb136dde2d43436b699d2a107df";
         String sport_id = "basketball_nba";
         String format = "decimal";
-        String url = "https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=decimal&apiKey=8408dcb136dde2d43436b699d2a107df";
+        String url = "https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=decimal&apiKey=30fadc3bd45ac919a2b7a0e9b1f429c3";
         JSONArray jogos = new JSONArray(this.restTemplate.getForObject(url, String.class));
         boolean jogo_existe = false;
         List<Game> gamesDB = gameRepo.findAll();
@@ -128,25 +128,25 @@ public class RestService implements IRestService {
                 || j.get("away_team").equals(g.getParticipants().split(";")[1]) 
                 || ts.equals(g.getDate()))
                     jogo_existe = true;
-                    if(j.get("scores") != g.getScore()){
+                    /*if(j.get("scores") != g.getScore()) {
                         g.setScore((String) j.get("scores")); //atualizar o resultado do jogo
                         g.setState("Over"); //fechar o jogo;
                         gameRepo.save(g);
-                    }
-                
+                    }*/
             }
             
             if(!jogo_existe){
                 String participants = (String) j.get("home_team") + ";" + (String) j.get("away_team");
-                Game g = null; 
-                if(j.get("scores") == null){
-                    g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
-                                  participants.replace(";", " vs "), null);
+                Game g = null;
+                g = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(),
+                        participants.replace(";", " vs "), null);
+                /*if(j.get("scores") == null){
+
                 }
                 else{
-                    g = new Game("futebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), 
-                    participants.replace(";", " vs "), (String) j.get("scores"));
-                }
+                    g = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(),
+                    participants.replace(";", " vs "), null);
+                }*/
 
                 JSONArray bookmakersList = (JSONArray) j.get("bookmakers");
                 JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
@@ -171,81 +171,6 @@ public class RestService implements IRestService {
                 oddRepo.save(oddBb);
             }
         }
-    }
-
-
-
-
-
-
-
-
-
-
-    //@Scheduled(fixedRate = 5000)
-    public void getGamesNBA2(){
-        LocalDate date = LocalDate.now();
-        String api_key = "0e22c5619d734bd09b1bd5e0ae0ba858";
-        String url = "https://api.sportsdata.io/v3/nba/odds/json/GameOddsByDate/"+ date + "?key=" + api_key;
-
-        JSONArray games = new JSONArray(this.restTemplate.getForObject(url, String.class));
-
-        boolean jogo_existe = false;
-        List<Game> gamesDB = gameRepo.findAll();
-
-        for (Object o : games){
-
-            JSONObject g = (JSONObject) o;
-            //
-            
-            Timestamp ts = Timestamp.from(Instant.parse((String) g.get("DateTime")+"Z"));
-            LocalDateTime d = ts.toLocalDateTime().plusHours(4);
-            ts = Timestamp.valueOf(d);
-            for (Game j : gamesDB ){
-
-                if(g.get("homeTeam").equals(j.getParticipants().split(";")[0]) 
-                && g.get("awayTeam").equals(j.getParticipants().split(";")[1]) 
-                && ts.equals(j.getDate()))
-                    jogo_existe = true;
-
-            }
-            if(!jogo_existe){
-                String participants = (String) g.get("HomeTeamName") + ";" + (String) g.get("AwayTeamName");
-
-                Game j = new Game("basquetebol", participants, ts, expertRepo.findExpertByEmail("jogosAPI").get(), participants.replace(";", " vs "), (String) g.get("scores"));
-                JSONArray bookmakersList = (JSONArray) g.get("PregameOdds");
-                JSONObject bookmaker = (JSONObject) bookmakersList.get(0);
-                Odd oddAa;
-                Odd oddBb;
-                
-                Float awayPointSpread = Float.parseFloat(bookmaker.get("AwayPointSpread").toString());
-                Float homePointSpread = Float.parseFloat(bookmaker.get("HomePointSpread").toString());
-                
-                
-                if(awayPointSpread < 0){
-                    oddAa = new Odd((String) g.get("HomeTeamName"), -awayPointSpread);
-                }
-                else {
-                    oddAa = new Odd((String) g.get("HomeTeamName"), awayPointSpread);
-                }
-                if(homePointSpread < 0){
-                    oddBb = new Odd((String) g.get("AwayTeamName"), -homePointSpread);
-                }
-                else{
-                    oddBb = new Odd((String) g.get("AwayTeamName"), homePointSpread);
-                }
-
-                gameRepo.save(j);
-
-                oddAa.setGame(j);
-                oddBb.setGame(j);
-
-                oddRepo.save(oddAa);
-                oddRepo.save(oddBb);
-
-            }
-        }
-
     }
 
 }

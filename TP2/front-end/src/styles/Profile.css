@@ -1,0 +1,1070 @@
+.ftbackgroundModal{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 2%;
+    width: 100vw;
+    height: 98%;
+}
+
+
+.ftwhiteShadow{
+    position: relative;
+    width: 60vw;
+    height: 80vh;
+    top: 2vh;
+    bottom: 2vh;
+    left : 20vw;
+    background: #FEFFFE;
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+/*----- IdSaldo.js-----*/
+
+.ftsquareDiv{
+    position: absolute;
+    height: 10vh;
+    width: 100%;
+    box-shadow: 0px 1px rgba(0, 0, 0, 0.25), 0px 1px rgba(0, 0, 0, 0.25);
+}
+
+.ftuserDiv{
+    position: absolute;
+    width: 100%;
+    top : 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ftvalDiv{
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ftusername{
+    color: #18340C;
+    font-family: 'Spinnaker';
+    font-style: normal;
+}
+
+.ftval{
+    color: #18340C;
+    font-family: 'Spinnaker';
+    font-style: normal;
+
+}
+
+
+
+
+/*----- ChangeData -----*/
+
+
+
+.changeDataOutDiv{
+    position: relative;
+    width: 85%;
+    height : 63%;
+    left : 15%;
+    top : 10%
+}
+
+/*----- ChangeData inputs-----*/
+
+.ftinputName{
+    position: absolute;
+    height: 10%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 10px;
+    top:33%;
+    text-align: center;
+}
+
+.ftinputSurname{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top : 52%;
+}
+
+.ftinputPass{
+    position: absolute;
+    height: 12%;
+    width: 35%;
+    right: 15%;
+    border: 1px solid #18340C;
+    border-radius: 40px;
+    top:72%;
+}
+
+/*----- ChangeData titles----*/
+
+.clickHistory{
+    position: absolute;
+    top:15%;
+    left: 0%;
+    color: #18340C;
+    font-size: 19px;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hName{
+    position: absolute;
+    top:35%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hSurname{
+    position: absolute;
+    top:55%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.hPassword{
+    position: absolute;
+    top:75%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+
+
+
+/*----- ChangeData buttons -----*/
+
+.ftLogout:active{
+    color: white;
+    background-color:#F07444;
+}
+
+.fttakeOut:active {
+    color: white;
+    background-color:#F07444;
+}
+
+.ftdeposit:active {
+    color: white;
+    background-color:#F07444;
+
+
+}
+
+
+
+.ftLogout{
+
+    position: absolute;
+
+    height: 15%;
+    width: 18%;
+    top: 0%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+
+    top: -10%;
+    left: 10%;
+}
+
+
+.fttakeOut{
+    position: absolute;
+
+    height: 15%;
+    width: 18%;
+    top: 0%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+    left: 32%;
+    top: -10%;
+}
+
+
+.ftdeposit{
+    position: absolute;
+
+    height: 15%;
+    width: 18%;
+    top: 0%;
+
+    color: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+    right: 28%;
+    top: -10%;
+}
+
+
+
+.ftChangeToHist{
+    position: relative;
+
+    height: 9%;
+    width: 5%;
+
+    background: white;
+    border-radius: 20px;
+    font-size: 13px;
+    border: 1px solid #18340C ;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    top:14%;
+    left:47%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
+.ftConfirm{
+    position: absolute;
+
+    height: 15%;
+    width: 30%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+
+    background-color: white;
+
+    top: 80%;
+    left: 45%;
+}
+
+.ftConfirm:active{
+    background-color: #F07444;
+    color: white;
+}
+
+
+.ftChangeSec:active{
+    color: white;
+    background-color:#F07444;
+}
+
+.ftChangeSec{
+
+    position: absolute;
+
+    height: 15%;
+    width: 30%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+
+    background-color: white;
+
+    top: 80%;
+    left: 10%;
+}
+
+.ftChangeCancel{
+
+    position: absolute;
+
+    height: 15%;
+    width: 18%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    background-color: white;
+
+    top: 80%;
+    left: 20%;
+}
+
+.ftSuccess{
+    position: absolute;
+    top:73%;
+    left:35%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+
+/*----- BetHistory ----- */
+
+.ftDivBetHist{
+    position: relative;
+    width: 100%;
+    height : 80%;
+    left : 0%;
+    top : 0%
+}
+
+
+.betHistoryDiv{
+    position: absolute;
+    width: 85%;
+    height : 60%;
+    left : 9%;
+    top : 27%;
+    overflow-y: scroll;
+}
+
+.betHistoryDiv::-webkit-scrollbar{
+    width: 1em;
+}
+
+.betHistoryDiv::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.betHistoryDiv::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.buttonHistoryDiv{
+    position: absolute;
+    width: 85%;
+    height : 60%;
+    left : 15%;
+    top : 10%;
+}
+
+/*----- BetHistory Buttons----- */
+
+
+.ftsimpleBet:active {
+    color: white;
+    background-color:#F07444;
+}
+
+.ftmultipleBet:active {
+    color: white;
+    background-color:#F07444;
+}
+
+.ftsimpleBet{
+    position: absolute;
+    color: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+
+    height: 15%;
+    width: 25%;
+    top: -5%;
+    left:8%;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+}
+
+.ftsimpleBetSelected{
+    position: absolute;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+
+    height: 15%;
+    width: 25%;
+    top: -5%;
+    left:8%;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: #F07444;
+}
+
+.ftmultipleBet{
+    color: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+
+    height: 15%;
+    width: 25%;
+    top: 0%;
+    border: 1px solid #F07444 ;
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: white;
+    position: absolute;
+    top: -5%;
+    left: 50%;
+}
+
+.ftmultipleBetSelected{
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+
+    height: 15%;
+    width: 25%;
+    top: 0%;
+    border: 1px solid #F07444 ;
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+    background-color: #F07444;
+    position: absolute;
+    top: -5%;
+    left: 50%;
+}
+
+.ftChangeToTransact{
+    position: relative;
+
+    height: 10%;
+    width: 5%;
+
+    background: white;
+    border-radius: 30px;
+    font-size: 13px;
+    border: 1px solid #18340C ;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    top:-2%;
+    left:83%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
+
+.ftTotalGains{
+    top:15.5%;
+    left: 20%;
+    position: absolute;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+
+.ftBetList{
+    position: relative;
+    top:0%;
+    left:0%;
+
+}
+
+.ftgoBack{
+    position: absolute;
+    top: -9%;
+    left: -15%;
+    scale: 0.8;
+}
+
+.ftgoBack:hover{
+    cursor: pointer;
+}
+
+
+/*------ Bet History*/
+
+.ftbetHistBox{
+    width: 40.5vw;
+    border: 2px solid #18340C;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: flex;
+    font-family: 'Spinnaker';
+    padding-bottom: 3%;
+    justify-content: space-around;
+
+}
+
+.ftResultsInfo{
+    position: flex;
+    font-size: 13px;
+    left: 60% ;
+    text-align: center;
+    padding-bottom: 2% ;
+    margin-top: 6%;
+    width: 35%;
+}
+
+.ftSingleBetDiv{
+    position: relative;
+    padding-top: 2%;
+
+    padding-bottom: 2%;
+
+}
+
+.ftbetHistInfo{
+    font-family: 'Spinnaker';
+    margin: 14px 0px 0px 20px;
+    width: 50%;
+    position: relative;
+    border-right: 2px dashed #18340C;
+
+}
+
+
+
+
+
+/*---- PopUp ---- */
+
+.ftboxConfirm{
+    background:  white;
+    opacity: 100;
+    height: 50vh;
+    width: 45vw;
+    position: absolute;
+    left: 25vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+
+
+}
+
+.ftinputNum{
+    position: absolute;
+    left : 32%;
+    height: 8%;
+    width: 35%;
+    top: 25%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+
+.selecioneForma{
+    position: absolute;
+    left : 35%;
+    top: 40%;
+}
+
+.submitButton{
+    scale: 0.7;
+}
+
+.ftclosePop{
+    position: absolute;
+    right:2%;
+    top:2%;
+    scale : 0.5;
+    height: 10%;
+
+    font-weight: 400;
+    font-size: 25px;
+}
+
+
+
+/*----- PopUp ------*/
+
+
+.ftboxConfirmOp{
+    background:  white;
+    opacity: 100;
+    height: 50vh;
+    width: 45vw;
+    position: absolute;
+    left: 27.5vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+
+
+}
+
+.ftinputNum{
+    position: absolute;
+    left : 32%;
+    height: 8%;
+    width: 35%;
+    top: 25%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.ftbuttonPaypal {
+    width: 20%;
+    height: 33%;
+    border-radius: 5%;
+    position:absolute;
+    left: 25%;
+    top: 40%;
+    scale : 1;
+    border: 1px solid grey ;
+
+}
+
+.ftImgMaestro{
+    top: 40%;
+    left: 55%;
+
+    width: 21%;
+    height: 33%;
+    border-radius: 5%;
+    position:absolute;
+    border: 1px solid grey ;
+}
+
+.submitButton{
+    scale: 0.7;
+}
+
+
+
+
+/*------ PopUp Text ------*/
+
+.fth1Pop{
+    margin-top: 15px;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.fth2Pop{
+    margin-top: 15px;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.fth3Pop{
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+.ftselectWay{
+    position: absolute;
+    left : 25%;
+    top: 20%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+
+
+/*----- PopUpMaestro -----*/
+.ftMaestroPopNum{
+    position: absolute;
+    border-radius: 10px;
+    width:35%;
+    top:30%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid #18340C;
+    left: 20%;
+
+}
+.ftMaestroPopCCV{
+    position: absolute;
+    border-radius: 10px;
+    width:15%;
+    top:30%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid #18340C;
+    left: 60%;
+
+}
+
+
+.ftOperationValue{
+    position: absolute;
+    border-radius: 10px;
+    width:15%;
+    top:50%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid #18340C;
+    left: 54%;
+
+}
+
+.ftOperationValuePrompt{
+    top:52.5%;
+    position: absolute;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+    left:29%;
+}
+
+.ftOperationButton{
+    color: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+
+    height: 12%;
+    width: 20%;
+    top: 0%;
+    border: 1px solid #F07444 ;
+
+
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+
+    background-color: white;
+    position: absolute;
+    top: 75%;
+    left: 40%;
+}
+
+.ftOperationButton:active{
+    background-color: #F07444;
+    color: #FEFFFE;
+}
+
+
+.ftPaypalEmail{
+    position: absolute;
+    border-radius: 10px;
+    width:40%;
+    top:30%;
+    height: 9%;
+    text-align: center;
+    border: 1px solid #18340C;
+    left: 29%;
+
+}
+
+.ftboxConfirmOps{
+    opacity: 100;
+    height: 50vh;
+    width: 45vw;
+    position: absolute;
+    left: 25vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+    background-color:  #FEFFFE;
+}
+
+/* ------- PopUpEmail------*/
+
+.ftemailCode{
+    position: absolute;
+    left : 32%;
+    height: 10%;
+    width: 35%;
+    top: 25%;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #18340C;
+}
+
+
+.fth3PopEmail{
+    position: absolute;
+    left : 25%;
+    top: 50%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: #18340C;
+}
+
+
+.ftcheckBoxEmail{
+    position: absolute;
+    left :43%;
+    height: 7%;
+    width: 35%;
+    top: 50%;
+    border-radius: 10px;
+}
+
+.ftConfirmEmail{
+    position: absolute;
+
+    height: 12%;
+    width: 18%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+
+    background-color: white;
+
+    top: 80%;
+    left: 40%;
+}
+
+.ftConfirmEmailSelected{
+    position: absolute;
+
+    height: 12%;
+    width: 18%;
+
+    color: white;
+
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+
+    background-color:#F07444;
+
+
+    top: 80%;
+    left: 40%;
+}
+
+.ftConfirmCode{
+    position: absolute;
+
+    height: 12%;
+    width: 18%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+
+    background-color: white;
+
+    top: 80%;
+    left: 60%;
+}
+
+.ftErrorMsgEmail{
+    position: absolute;
+    top:66%;
+    left:35%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+.ftErrorMsgCode{
+    position: absolute;
+    top:66%;
+    left:40%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+/* ----- PopUpConfirm ----- */
+
+.ftResend{
+    position: absolute;
+
+    height: 12%;
+    width: 25%;
+
+    color: #F07444;
+    border-radius: 10px;
+    border: 1px solid #F07444 ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+
+    background-color: white;
+
+    top: 80%;
+    left: 25%;
+}
+
+
+.ftCode{
+    position: absolute;
+    left : 32%;
+    height: 10%;
+    width: 35%;
+    top: 35%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+.ftboxCode{
+    background:  white;
+    opacity: 100;
+    height: 45vh;
+    width: 45vw;
+    position: absolute;
+    left: 27.5vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+/*---- TransactionHistory -------*/
+
+.ftTable {
+    width: 100%;
+    color: #18340C;
+    font-family: 'Spinnaker';
+    font-style: normal;
+  }
+
+  th {
+    border-bottom: 1px solid black;
+  }
+
+  .fttablehead{
+    width: 100%;
+  }
+
+  td {
+    text-align: center;
+    padding-top: 2%;
+
+  }
+
+  .tableDiv{
+    position: absolute;
+    width: 85%;
+    height : 40%;
+    left : 4%;
+    top : 5%;
+    font-family: 'Spinnaker';
+
+}
+
+.allowOverflowTransact{
+    overflow: scroll;
+    width: 56vw;
+    height: 44vh;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.allowOverflowTransact::-webkit-scrollbar{
+    width: 1em;
+}
+
+.allowOverflowTransact::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.allowOverflowTransact::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+
+.tableSpaceTransact{
+    position: absolute;
+    top: 30px;
+    left: 2.5vw;
+    width: 55vw;
+    height: 40vh;
+    font-family: 'Spinnaker';
+}
+
+
+
+.ftadminImg{
+    position: absolute;
+    height: 25px;
+    left: 35.2vw;
+    top: 37vh;
+}
+
+.ftaddGameImg{
+    position: absolute;
+    height: 25px;
+    left: 7.2vw;
+    top: 37vh;
+}

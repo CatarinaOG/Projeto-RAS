@@ -1,0 +1,240 @@
+
+.ftaddSpecialist{
+    background: white;
+}
+
+.ftbackgroundModal{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 2%;
+    width: 100vw;
+    height: 98%;
+}
+
+/*------ Prompts ----- */
+.ftAddSp{
+    position: absolute;
+    width: 100%;
+    top : 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Spinnaker';
+}
+
+
+.ftpromptUsernameSp{
+    position: absolute;
+    width: 100%;
+    top : 33%;
+    left:23%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
+.ftpromptEmailSp{
+    position: absolute;
+    width: 100%;
+    top : 46%;
+    left:23%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
+.ftpromptPassSp{
+    position: absolute;
+    width: 100%;
+    top : 59%;
+    left:23%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+
+/*----- Inputs -----*/
+
+.ftpasswordSp{
+    position: absolute;
+    text-align: center;
+    top: 56%;
+    left: 48%;
+    width: 30%;
+    height: 8%;
+    border-radius: 20px;
+    border: 1px solid grey;
+}
+
+
+.ftemailSp{
+    position: absolute;
+    text-align: center;
+    top: 43%;
+    left: 48%;
+    width: 30%;
+    height: 8%;
+    border-radius: 20px;
+    border: 1px solid grey;
+
+}
+
+
+
+
+.ftUsernameSp{
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 48%;
+    width: 30%;
+    height: 8%;
+    border-radius: 20px;
+    border: 1px solid grey;
+
+}
+
+
+
+
+.ftaddConcludeSp{
+    position: absolute;
+
+    top: 75%;
+    left: 23.5%;
+    height: 8%;
+    width: 55%;
+
+    color: #F07444;
+    border-radius: 20px;
+    font-size: 13px;
+    background-color:white;
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 38px;
+    border : 1px solid #F07444;
+}
+
+.ftaddConcludeSp:active{
+
+    color: #FEFFFE;
+    background-color: #F07444;
+
+}
+
+.ftwhiteShadow{
+
+    position: relative;
+
+    width: 60vw;
+    height: 80vh;
+    top: 2vh;
+    bottom: 2vh;
+    
+    left : 20vw;
+
+    background: #FEFFFE;
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+
+
+.fth2PopAdmin{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:25%;
+    left : 33%
+}
+
+.fth3PopAdminUsername{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:41%;
+    left : 33%
+}
+
+.fth3PopAdminEmail{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:53%;
+    left : 33%
+}
+
+.fth3PopAdminPass{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:65%;
+    left : 33%
+}
+
+
+.ftgoBackImg{
+    position: absolute;
+    left: 22vw;
+    top: 16vh;
+    z-index: 2;
+    scale: 0.8;
+}
+
+
+.ftgoBackImg:hover{
+    cursor: pointer;
+}
+
+
+.ftboxConfirmAdmin{
+    background:  white;
+    opacity: 100;
+    height: 50vh;
+    width: 45vw;
+    position: absolute;
+    left: 27.5vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.fterrorAddEx{
+    position: absolute;
+    top:68%;
+    left:43%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+
+.goBackImg2{
+    position: absolute;
+    z-index: 2;
+    left: 21vw;
+    top: 12vh;
+}
+
+.goBackImg2:hover{
+    cursor: pointer;
+}
+
+.goBackImg3{
+    position: absolute;
+    z-index: 2;
+    left: 21vw;
+    top: 15vh;
+}
+
+.goBackImg3:hover{
+    cursor: pointer;
+}

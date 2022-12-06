@@ -1,0 +1,403 @@
+
+body{
+    background-color: white;
+}
+
+.ftaddGameDark{
+    background: white;
+}
+
+/*------ Popup -----*/
+.ftbackgroundModal{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 2%;
+    width: 100vw;
+    height: 98%;
+}
+
+
+
+
+/*----- Inputs -----*/
+.ftselectSport{
+    position: absolute;
+    text-align: center;
+    top:23%;
+    left: 51%;
+    width: 30.5%;
+    height: 7%;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.ftselectPartA{
+    position: absolute;
+    text-align: center;
+    top:33%;
+    left: 51%;
+    width: 30%;
+    height: 7%;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+
+.ftselectPartB{
+    position: absolute;
+    text-align: center;
+    top:43%;
+    left: 51%;
+    width: 30%;
+    height: 7%;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+
+.ftoddA{
+    position: absolute;
+    text-align: center;
+    top:  53%;
+    left: 51%;
+    width: 8%;
+    border-radius: 10px;
+    height: 7%;
+    border: 1px solid black;
+}
+
+.ftoddB{
+    position: absolute;
+    text-align: center;
+    top: 53%;
+    left: 73%;
+    width: 8%;
+    height: 7%;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+
+.ftoddTie{
+    position: absolute;
+    text-align: center;
+    top: 53%;
+    left: 62.5%;
+    width: 8%;
+    height: 7%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+
+.ftselectTime{
+    position: absolute;
+    text-align: center;
+    top: 63%;
+    left: 67%;
+    width: 14%;
+    height: 7%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.ftselectDate{
+    position: absolute;
+    text-align: center;
+    top: 63%;
+    left: 51%;
+    width: 14%;
+    height: 7%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+
+
+/*----- Texts -----*/
+
+
+.ftInsertDataGame{
+    position: absolute;
+    top : 9%;
+    left: 38%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+.ftpromptSport{
+    position: absolute;
+    width: 100%;
+    top :25%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+.ftpromptParticipantA{
+    position: absolute;
+    width: 100%;
+    top : 35%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
+.ftpromptDate{
+    position: absolute;
+    width: 100%;
+    top : 65%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
+.ftpromptTime{
+    position: absolute;
+    width: 100%;
+    top : 65%;
+    left: 52%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+
+}
+
+.ftpromptParticipantB{
+    position: absolute;
+    width: 100%;
+    top : 45%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+
+
+
+.ftpromptOdds{
+    position: absolute;
+    width: 100%;
+    top : 55%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}
+
+
+
+.ftadd{
+    position: absolute;
+
+    left: 33%;
+    bottom: 6vh;
+    height: 8%;
+    width: 33%;
+
+    background: #F07444;
+    border-radius: 10px;
+    font-size: 13px;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 38px;
+
+    border: 1px solid #F07444;
+
+    color: white;
+}
+
+.ftadd:active{
+    background-color: white;
+    color: #F07444;
+}
+
+.whiteShadow{
+    position: relative;
+    width: 60vw;
+    height: 80vh;
+    top: 2vh;
+    bottom: 2vh;
+    left : 20vw;
+    background: #FEFFFE;
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.goBackImg{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.goBackImg:hover{
+    cursor: pointer;
+}
+
+.fth1Pop{
+    margin-top: 20vh;
+}
+
+
+.fterrorAddGame{
+    position: absolute;
+    top:18%;
+    left:41%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+/*----- PopUp addGame -----*/
+
+.ftboxConfirmAddGame{
+    background:  white;
+    opacity: 100;
+    height: 50vh;
+    width: 45vw;
+    position: absolute;
+    left: 27.5vw;
+    top: 25vh;
+    border-radius: 10px;
+    text-align: center;
+
+
+}
+
+.fth3PopSport{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:25%;
+    left : 30%
+}
+
+.fth3PopGamePartA{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:35%;
+    left : 30%
+}
+
+.fth3PopGamePartB{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:45%;
+    left : 30%
+}
+
+.fth3PopGameOdds{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:55%;
+    left : 30%
+}
+
+.fth3PopGameDate{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:65%;
+    left : 30%
+}
+
+.fth3PopGameTime{
+    font-family: 'Spinnaker';
+    color: #18340C;
+    position: absolute;
+    text-align: center;
+    top:75%;
+    left : 30%
+}
+
+
+
+.divPilots{
+    position: absolute;
+    width: 85%;
+    height : 35%;
+    left : 8%;
+    top : 47%;
+    overflow-y: scroll;
+}
+
+.pilotOdd{
+    width: 40.5vw;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    font-family: 'Spinnaker';
+    padding-bottom: 6%;
+    justify-content: space-around;
+    margin-left: 10%;
+    height:10%;
+}
+
+.ftChoosePilot{
+    position: relative;
+    width: 40%;
+    text-align: center;
+    left: 10%;
+    height:5vh;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 1.5vh;
+}
+
+.ftDateRace{
+    position: relative;
+    width: 41%;
+    text-align: center;
+    left: 10%;
+    height:5.5vh;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 1.5vh;
+}
+
+
+
+.ftoddPilot{
+    position: relative;
+    width: 15%;
+    left: 30%;
+    top: 9%;
+    height: 5vh;
+
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.ftTimeRace{
+    position: relative;
+    width: 16%;
+    left: 29.5%;
+    top: 9%;
+    height: 5.5vh;
+
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.ftpromptEvent{
+    position: absolute;
+    width: 100%;
+    top :43%;
+    left: 18%;
+    font-family: 'Spinnaker';
+    color: #18340C;
+}

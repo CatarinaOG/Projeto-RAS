@@ -1,0 +1,512 @@
+
+
+/*---------------------------------- LINK --------------------------*/
+
+.searchItemDark{
+    margin-top: 10px;
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.searchItemDark:hover{
+    cursor: pointer;
+}
+
+.searchItemHighlightedDark{
+    margin: 30px;
+    color: #292929;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.searchItemHighlightedDark:hover{
+    cursor: pointer;
+}
+
+
+/*--------------------------------- NAVBAR -----------------------*/
+
+*{
+    margin: 0;
+}
+
+.NavBarDark{
+    background-color: #292929;
+    height: 80px;
+    font-family: Spinnaker;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.logoDark{
+    filter: grayscale(100%);
+}
+
+
+/*----------------------------------- HOME ----------------------------*/
+
+
+.contentDark{
+    display: flex;
+    background-color: black;
+    height: 88.4vh;
+}
+
+
+/*------------------------------ SEARCH BAR --------------------------*/
+
+.searchBarDark{
+    margin: 20px 10px;
+    width: 50vw;
+    height: 36px;
+    border: 1px solid black;
+    border-radius: 20px;
+
+    background: url(../images/lupa.png) no-repeat left;
+    filter: invert(100%);
+    background-position: 7px 7px ;
+    padding-left: 35px;
+}
+
+
+/*--------------------------------BETS ----------------------------------*/
+
+.allBetsDark{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 75vh;
+    width: 56vw;
+}
+
+
+.allBetsDark::-webkit-scrollbar{
+    width: 1em;
+}
+
+.allBetsDark::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.allBetsDark::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+
+/*-------------------------------- BET ----------------------------------*/
+
+
+.betDark{
+    width: 52.5vw;
+    height: 110px;
+    border: 2px dashed white;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: flex;
+    font-family: 'Spinnaker';
+    position: relative;
+}
+
+.betMotoGPDark{
+    width: 52.5vw;
+    height: 68vh;
+    border: 2px dashed white;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    position: relative;
+
+}
+
+.infoDark{
+    font-family: 'Spinnaker';
+    margin-left: 20px;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.infoMotoGPDark{
+    font-family: 'Spinnaker';
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+    color: white;
+
+}
+
+
+.resultBoxSelectedDark{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid #F07444;
+}
+
+.resultBoxNotSelectedDark{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: darkgray;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+
+.resultBoxSelectedMotoGPDark{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid #F07444;
+}
+
+.resultBoxNotSelectedMotoGPDark{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: darkgray;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+.resultBoxNotSelectedDark > p, .resultBoxSelectedDark > p{
+
+    margin-top: 9px;
+
+}
+
+.resultBoxNotSelectedMotoGPDark > p, .resultBoxSelectedMotoGPDark > p{
+
+    margin-top: 9px;
+
+}
+
+
+/*--------------------------- REPORT ------------------------*/
+
+
+
+.mainDark{
+    background: #635d5f;
+    border: 1px solid #ABB0B8;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 41.5vw;
+    height: 87vh;
+    position: relative;
+    z-index: 2;
+}
+
+.title{
+
+    text-align: center;
+    font-family: 'Spinnaker';
+    margin-top: 5px;
+
+}
+
+.buttons{
+
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+
+.typeNotSelected{
+
+    width: 150px;
+    height: 30px;
+    font-family: 'Spinnaker';
+    background-color: #FAFAFA;
+    border-width: thin;
+
+
+}
+
+.typeSelected{
+
+    width: 150px;
+    height: 30px;
+    background-color: #323332;
+    color: #FAFAFA;
+    border-width: thin;
+    font-family: 'Spinnaker';
+
+}
+
+.reportBetsSingle{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 63%;
+
+}
+
+
+.reportBetsMultiple{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 55%;
+
+}
+
+.reportBetsSingle::-webkit-scrollbar{
+    width: 1em;
+}
+
+.reportBetsSingle::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.reportBetsSingle::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+
+
+.reportBetsMultiple::-webkit-scrollbar{
+    width: 1em;
+}
+
+.reportBetsMultiple::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.reportBetsMultiple::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+/*---------------------------- PLACEBET ---------------------*/
+
+
+.placeBetDark{
+    background-color: #323332;
+    position: absolute;
+    bottom: 15px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 80px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.quote2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 110px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+}
+
+.amount2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+    text-align: center;
+}
+
+.betButton{
+
+    font-family: Spinnaker;
+    font-size: 20px;
+    background-color: #F07444;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    width: 150px;
+    border: thin solid #F07444;
+    color: white;
+
+
+}
+
+
+/*-------------------------- SIMPLEINPUT -----------------------*/
+
+.simpleInputDark{
+    background-color: #323332;
+    position: absolute;
+    bottom: 100px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 50px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.leftSideDark > h3{
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.leftSideDark > p {
+    font-size: 20px;
+    margin-top: 6px;
+    color: #F07444;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+/*---------------------------- REPORT BET -------------------------*/
+
+
+.topDark{
+    background-color: #BFBBBB;
+    margin: 0px 10px 0px 10px;
+    height: 20px;
+    top: 10px;
+    padding: 5px 0px 10px 10px;
+    width: 93%;
+    position: relative;
+}
+
+
+.bottomDark{
+    background-color: #BFBBBB;
+    margin: 0px 10px 0px 10px;
+    height: 40px;
+    top: 15px;
+    padding: 0px 0px 0px 10px;
+    width: 93%;
+    position: relative;
+}
+
+.fullReportBetDark{
+    margin-bottom: 20px;
+}
+
+/*------------------------------ MODAL CONFIRMATION ----------------------------*/
+
+
+.backgroundModalDark{
+    background: #000000;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+}
+
+.boxConfirmDark{
+    background:  #A9A9A9;
+    opacity: 4;
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    left: 3vw;
+    top: 30vh;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 3;
+
+}
+
+
+.paragraphModalConfirmation2Dark{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-family: Spinnaker;
+}
+
+
+.valueConfirmationDark{
+    font-family: Spinnaker;
+    text-align: center;
+    width: 60px;
+    padding: 5px;
+    margin: 7vh;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+
+
+.hideDark{
+    color: #A9A9A9;
+}
+
+
+/*------------------------------ PROGRESS ---------------------------*/
+
+.progressDark{
+    background: #635d5f;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 42vw;
+    height: 87vh;
+    z-index: 2;
+}
+
+
+.progressSectionDark{
+
+    background-color: #ABB0B8;
+    height: 18vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+
+}
+
+/*------------------------------ MODAL CHANGE ODD -------------------------*/
+
+.backgroundModal2Dark{
+    background:black;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+    margin-top: 11.5vh;
+    z-index: 2;
+}
+
+.boxConfirmDark > input{
+
+    width: 80px ;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+}

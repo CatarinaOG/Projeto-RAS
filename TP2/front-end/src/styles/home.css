@@ -1,0 +1,859 @@
+
+/**-----------------Home--------------**/
+
+.content{
+    display: flex;
+
+}
+
+.allBets{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 75vh;
+    width: 56vw;
+}
+
+.allBets::-webkit-scrollbar{
+    width: 1em;
+}
+
+.allBets::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.allBets::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/**-----------------Bet--------------**/
+
+
+.bet{
+    width: 52.5vw;
+    height: 110px;
+    border: 2px dashed #18340C;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: flex;
+    font-family: 'Spinnaker';
+    position: relative;
+}
+
+.betMotoGP{
+    width: 52.5vw;
+    height: 68vh;
+    border: 2px dashed #18340C;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    position: relative;
+
+}
+
+.info{
+    font-family: 'Spinnaker';
+    margin-left: 20px;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+}
+
+.infoMotoGP{
+    font-family: 'Spinnaker';
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+.results{
+    display: flex;
+    width: 60vw;
+    justify-content: space-around;
+    font-size: 13px;
+}
+
+.resultsMotoGP{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1.4vw;
+    row-gap: 1em; 
+    width: 51vw;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.icon{
+    position: absolute;
+    bottom: 1vh;
+    height: 20px;
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.iconMotoGP{
+    position: absolute;
+    height: 20px;
+    left: 1.5vw;
+    top: 4vh;
+}
+
+.iconMotoGP:hover{
+    cursor: pointer;
+}
+
+
+.resultBoxSelected{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid #F07444;
+}
+
+.resultBoxNotSelected{
+    margin: 21px 0px 0px 0px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+
+.resultBoxSelectedMotoGP{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F07444;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid #F07444;
+}
+
+.resultBoxNotSelectedMotoGP{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+.resultBoxNotSelected > p, .resultBoxSelected > p{
+
+    margin-top: 9px;
+
+}
+
+.resultBoxNotSelectedMotoGP > p, .resultBoxSelectedMotoGP > p{
+
+    margin-top: 9px;
+
+}
+
+
+/*---------------NavBar-------------*/
+
+*{
+    margin: 0;
+}
+
+.NavBar{
+    background-color: #18340C;
+    height: 80px;
+    font-family: Spinnaker;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.welcomeUser{
+    color: #FFFFFF;
+    margin: 20px;
+}
+
+.welcomeUser:hover{
+    cursor: pointer;
+}
+
+.search{
+    display: flex;
+}
+
+.searchItem{
+    margin-top: 10px;
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.searchItem:hover{
+    cursor: pointer;
+}
+
+.searchItemHighlighted{
+    margin: 30px;
+    color: #18340C;
+    background: #FEFFFE;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.searchItemHighlighted:hover{
+    cursor: pointer;
+}
+
+.button{
+    font-family: Spinnaker;
+}
+
+/*-------------PlaceBet-------------*/
+
+
+.placeBet{
+    background-color: #F5F5F5;
+    position: absolute;
+    bottom: 15px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 80px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.quote2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 110px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+}
+
+.amount2{
+    font-family: Spinnaker;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+    height: 20px;
+    margin: 10px 0px 0px 20px;
+    text-align: center;
+}
+
+.betButton{
+
+    font-family: Spinnaker;
+    font-size: 20px;
+    background-color: #F07444;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    width: 150px;
+    border: thin solid #F07444;
+}
+
+.betButton:active{
+    background-color: white;
+    color: #F07444;
+
+}
+
+.errorPlaceBet{
+    position: absolute;
+    top: -58vh;
+    color: red;
+    font-weight: 600;
+}
+
+
+/*----------------Report-----------*/
+
+
+
+.main{
+    background: #FAFAFA;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 41.5vw;
+    height: 87vh;
+    position: relative;
+    z-index: 2;
+}
+
+.title{
+
+    text-align: center;
+    font-family: 'Spinnaker';
+    margin-top: 5px;
+
+}
+
+.buttons{
+
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+
+.typeNotSelected{
+
+    width: 150px;
+    height: 30px;
+    font-family: 'Spinnaker';
+    background-color: #FAFAFA;
+    border-width: thin;
+
+
+}
+
+.typeSelected{
+
+    width: 150px;
+    height: 30px;
+    background-color: #323332;
+    color: #FAFAFA;
+    border-width: thin;
+    font-family: 'Spinnaker';
+
+}
+
+.reportBetsSingle{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 63vh;
+
+}
+
+
+.reportBetsMultiple{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 55vh;
+
+}
+
+/*---------------ReportBet-----------*/
+
+
+.top{
+    background-color: #E8E4E4;
+    margin: 0px 10px 0px 10px;
+    height: 20px;
+    top: 10px;
+    padding: 5px 0px 10px 10px;
+    width: 93%;
+    position: relative;
+}
+
+.game{
+    font-family: Spinnaker;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.close{
+    position: absolute;
+    top:10px;
+    right: 5px;
+}
+.close:hover{
+    cursor: pointer;
+}
+
+
+.bottom{
+    background-color: #E8E4E4;
+    margin: 0px 10px 0px 10px;
+    height: 40px;
+    top: 15px;
+    padding: 0px 0px 0px 10px;
+    width: 93%;
+    position: relative;
+}
+
+.reportBet{
+    font-family: Spinnaker;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.fullReportBet{
+    margin-bottom: 20px;
+}
+
+.quote{
+    font-family: Spinnaker;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+}
+
+.amount{
+    font-family: Spinnaker;
+    position: absolute;
+    top: 5px;
+    right: 110px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 90px;
+    padding: 4px;
+    height: 20px;
+    text-align: center;
+}
+
+/*----------------SearchBar-----------*/
+
+.searchBar{
+    margin: 20px 10px;
+    width: 50vw;
+    height: 36px;
+    border: 1px solid #18340C;
+    border-radius: 20px;
+
+    background: url(../images/lupa.png) no-repeat left;
+    background-position: 7px 7px ;
+    padding-left: 35px;
+}
+
+
+/*----------------SimpleInput--------*/
+
+
+.simpleInput{
+    background-color: #F5F5F5;
+    position: absolute;
+    bottom: 100px;
+    border: thin solid #000000;
+    width: 95%;
+    height: 50px;
+    margin: 5px 5px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Spinnaker';
+}
+
+.leftSide > h3{
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.leftSide > p {
+    font-size: 20px;
+    margin-top: 6px;
+    color: #F07444;
+    font-weight: 800;
+    text-align: center;
+}
+
+/*----------------Modal Confirmation--------*/
+
+
+.backgroundModal{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+}
+
+.boxConfirm{
+    background:  white;
+    opacity: 4;
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    left: 3vw;
+    top: 30vh;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 3;
+
+}
+
+.titleModal{
+    text-align: center;
+    font-family: Spinnaker;
+    font-size: 25px;
+    margin-top: 3vh;
+
+}
+
+.paragraphModalConfirmated{
+
+    text-align: center;
+    font-family: Spinnaker;
+    margin-top: 15vh;
+
+}
+
+.valueConfirmation{
+    font-family: Spinnaker;
+    text-align: center;
+    width: 60px;
+    padding: 5px;
+    margin: 7vh;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirmButton{
+    font-family: Spinnaker;
+    font-size: 20px;
+    background-color: #F07444;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #000000;
+}
+
+.confirmButton:active{
+    background-color: white;
+    color: #F07444;
+}
+
+/*---------------------Bet Box Expert-------------------*/
+
+.allBetsExpert{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 75vh;
+    width: 65vw;
+}
+
+
+.allBetsExpert::-webkit-scrollbar{
+    width: 1em;
+}
+
+.allBetsExpert::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.allBetsExpert::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+.progressBoxRed{
+    background-color: #E35041;
+    margin-top: 7vh;
+    margin-left: 2.5vw;
+    border-radius: 10px;
+    padding: 10px;
+    width: 60px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 8px;
+    width: 50px;
+}
+
+.progressBoxYellow{
+    background-color: #FDEA60;
+    margin-top: 7vh;
+    margin-left: 2.5vw;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 8px;
+    width: 50px;
+}
+
+.progressBoxGreen{
+    background-color: #16350E;
+    margin-top: 7vh;
+    margin-left: 2.5vw;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 8px;
+    width: 50px;
+    color: white;
+}
+
+.betWithProgress{
+    display: flex;
+}
+
+.resultBoxExpert{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+    margin: 21px 0px 0px 0px;
+}
+
+.resultBoxExpertMotoGP{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+}
+
+.resultBoxExpert > button{
+
+    margin-top: 6px;
+    font-family: Spinnaker;
+    color: #F07444;
+    background-color: white;
+    border: 0px;
+    text-decoration: underline;
+    
+}
+
+.resultBoxExpert > button:hover {
+    color: #df0b0b;
+}
+
+.resultBoxExpertMotoGP > button{
+
+    margin-top: 6px;
+    font-family: Spinnaker;
+    color: #F07444;
+    background-color: white;
+    border: 0px;
+    text-decoration: underline;
+    
+}
+
+.resultBoxExpertMotoGP > button:hover {
+    color: #df0b0b;
+}
+
+.resultBoxOdd{
+    display: flex;
+    justify-content: center;
+}
+
+.resultBoxOdd > p{
+
+    margin-top: 7px;
+
+}
+
+.resultBoxOdd > img{
+
+    height: 18px;
+    margin-top: 5px;
+
+}
+
+.resultBoxOdd > img:hover{
+
+    cursor: pointer;
+
+}
+
+.progress{
+    background: #FAFAFA;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: -15px 20px 0px 10px;
+    width: 42vw;
+    height: 87vh;
+    z-index: 2;
+}
+
+.displaySections{
+    width: 30vw;
+    height: 80vh;
+    border-radius: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 1.2vw;
+
+}
+
+.progressSection{
+
+    background-color: white;
+    height: 18vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+
+}
+
+.progressTitle{
+    font-family: 'Spinnaker';
+    font-size: 10px;
+    margin: 35px 0px 0px 40px;
+    
+}
+
+.progressTitle > h3 {
+    margin-top: 5px;
+}
+
+.progressBoxes{
+    position: absolute;
+    right: 5vw;
+    margin-top: 10px;
+}
+
+.rightProgressBoxGreen{
+    background-color: #16350E;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 15px;
+    width: 60px;
+    color: white;
+    margin-top: 6px;
+    
+}
+
+.rightProgressBoxYellow{
+    background-color: #FDEA60;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 15px;
+    width: 60px;
+    color: black;
+    margin-top: 6px;
+}
+
+.rightProgressBoxRed{
+    background-color: #E35041;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Spinnaker';
+    font-size: 15px;
+    width: 60px;
+    color: black;
+    margin-top: 6px;
+}
+
+/*-----------------------Modal Warning Activate--------------------*/
+
+.backgroundModal2{
+    background:#18340C;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 88.4vh;
+    margin-top: 11.5vh;
+    z-index: 2;
+}
+
+.buttonsModal{
+    margin-top: 7vh;
+
+}
+
+.buttonsModal > button{
+    margin: 20px 50px 0px 50px;
+    font-family: Spinnaker;
+    font-size: 15px;
+    background: #FEFFFE;
+    border: 1px solid #16350E;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+}
+
+.buttonsModal > button:active{
+    background: #18340C;
+    color: white;
+    background-color:#F07444;
+}
+
+
+
+/*---------------------Modal Change Odd-------------------*/
+
+.betChangeOdd{
+
+    margin-bottom: 3vh;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.paragraphModalConfirmation2{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-family: Spinnaker;
+}
+
+.boxConfirm > input{
+
+    width: 80px ;
+    background: #FEFFFE;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+}
+
+.error{
+    color: red;
+    font-family: Spinnaker;
+}
+
+.hide{
+    color: white;
+}
+
+.errorChangeOdd{
+    color: red;
+    font-weight: 600;
+    position: absolute;
+    font-family: Spinnaker;
+    left: 16.5vw;
+    bottom: 19vh;
+}

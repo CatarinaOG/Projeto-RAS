@@ -1,0 +1,470 @@
+
+.pageDark{
+    background-color: #292929;
+    position: absolute;
+    height: 100%;
+    top: 0%;
+    width: 100%;
+}
+
+
+.mainLogDark{
+
+    position: relative;
+
+    width: 90vw;
+    height: 88vh;
+    top: 6vh;
+    bottom: 6vh;
+    
+    left : 5vw;
+    
+    background: #000000 ;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.ftDarkLogoDark{
+    width: 8%;
+    position: absolute;
+    left: 80%;
+    top: 2%;
+    filter: invert(100%);
+
+}
+
+
+/*------ InputsLogIn Texts ------*/
+
+.ftwelcomeTitleDark{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    font-style:normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    color: white;
+    font-family: 'Spinnaker';
+
+}
+
+.ftnoAccountDark{
+    position: absolute;
+    bottom: 18%;
+    font-size: 15px;
+    color: white;
+    left: 37%;
+    font-family: 'Spinnaker';
+}
+
+.ftnoAccountHyperDark{
+    position: absolute;
+    bottom: 14%;
+    font-size: 13px;
+    color: white;
+    left: 40%;
+    font-family: 'Spinnaker';
+    text-decoration: underline;
+    
+}
+
+.ftnoAccountHyperDark:hover{
+    cursor: pointer;
+}
+
+.ftnoPassDark{
+    position: absolute;
+    bottom: 43%;
+    color: white;
+    right: 10% ;
+    font-family: 'Spinnaker';
+    font-size: 10px;
+    text-decoration: underline;
+
+}
+
+.ftnoPassDark:hover{
+    cursor: pointer;
+}
+
+
+/*------ InputLogIn Input -----*/
+
+
+.ftuserNameLogDark{
+    
+    position: absolute;
+    top: 33%;
+    left: 10%;
+    width: 80%;
+    height: 8%;
+    color: white;
+    font-size: medium;
+
+    text-align: center;
+    background-color: #635d5f;
+    border: 1px solid black;
+
+    border-radius: 20px;
+}
+
+.ftuserNameLogDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium;
+    font-family: 'Spinnaker';
+
+}
+
+
+.ftpasswordLogDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium;
+    font-family: 'Spinnaker';
+}
+
+
+.ftpasswordLogDark{
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    left: 10%;
+    height: 8%;
+    width: 80%;
+    text-align: center;
+    color: white;
+    font-size: medium;
+
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #635d5f;
+
+
+}
+
+
+.ftacederLogDark{
+    position: absolute;
+
+    top: 65%;
+    left: 10%;
+    height: 8%;
+    width: 80%;
+
+    background: #292929;
+    border-radius: 20px;
+    color: white;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    border: 1px solid #292929;
+}
+
+.ftacederLogDark:active{
+    border: solid white 1px;
+}
+
+
+.fterrorLogInDark{
+    position: absolute;
+    top:59%;
+    left:29%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: white;
+}
+
+
+
+
+/*-------------------------- Register -------------------------*/
+
+/*----- regAccount -----*/
+
+
+.ftRegisterTitleDark{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    font-style:normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    color: white;
+    font-family: 'Spinnaker';
+    
+}
+
+.fterrorReg{
+    position: absolute;
+    top:87%;
+    left:39%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+.fterrorReg2{
+    position: absolute;
+    top:87%;
+    left:38%;
+    font-family: 'Spinnaker';
+    font-style: normal;
+    color: red;
+}
+
+
+.ftnameRegDark{
+    
+    position: absolute;
+    top: 28%;
+    width: 80%;
+    height: 6%;
+    border-radius: 30px;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+
+}
+
+.ftnameRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
+.ftemailRegDark{
+    
+    position: absolute;
+    top: 38%;
+    width: 80%;
+    height: 6%;
+    border-radius: 30px;
+    left: 10%;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+    font-size: medium;
+
+
+}
+
+.ftemailRegDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
+
+.ftpassswordRegDark{
+    position: absolute;
+    top: 48%;
+    border-radius: 30px;
+
+    width: 80%;
+    height: 6%;
+    left: 10%;
+
+    text-align: center;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+    font-size: medium;
+
+}
+
+.ftpassswordRegDark::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
+.ftNIFRegDark{
+    
+    position: absolute;
+    top: 78%;
+    width: 38%;
+
+    left: 53%;
+    height: 6%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+    font-size: medium;
+
+
+}
+
+.ftNIFRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
+
+
+.ftbirthdateRegDark{
+    
+    position: absolute;
+    top: 68%;
+    width: 38%;
+    left: 53%;
+    height: 6%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+    font-size: medium;
+
+
+}
+
+.ftbirthdateRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
+
+.ftaddressRegDark{
+    
+    position: absolute;
+    top: 58%;
+    width: 80%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+    font-size: medium;
+
+
+}
+
+
+.ftaddressRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
+.ftphoneRegDark{
+    
+    position: absolute;
+    top: 78%;
+    width: 38%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+    font-size: medium;
+
+
+}
+
+.ftphoneRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+
+}
+
+.ftCCRegDark{
+    
+    position: absolute;
+    top: 68%;
+    width: 38%;
+    height: 6%;
+    left: 10%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #635d5f;
+    color: white;
+    font-size: medium;
+
+
+}
+
+
+.ftCCRegDark::placeholder{
+    
+    color: white;
+    opacity: 1;
+    font-size: medium; 
+}
+
+.accederDark{
+    position: absolute;
+
+    left: 11%;
+    height: 8%;
+    width: 80%;
+    top: 92%;
+
+    background: #292929;
+    border-radius: 20px;
+    font-size: 13px;
+    
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+
+    color: white;
+    border: 1px solid black;
+
+}
+
+.accederDark:active{
+    border: 1px solid white ;
+
+}
+
+.regAccount{
+    position: absolute;
+    top : 5%;
+    left: 3%;
+    bottom: 5%;
+    width : 40%;
+    height: 90%;
+    
+}
+
+.ftgoBackRegDark{
+    position: absolute;
+    top: 19%;
+    left: 0%;
+    scale: 0.8;
+    filter: invert(100%);
+}
+
+.ftgoBackRegDark:hover{
+    cursor: pointer;
+}

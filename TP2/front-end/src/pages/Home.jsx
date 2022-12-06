@@ -1,0 +1,153 @@
+import NavBar from "../components/NavBar"
+import SearchBar from "../components/SearchBar"
+import Report from "../components/Report"
+import Bet from '../components/Bet'
+import BetMotoGP from '../components/BetMotoGP'
+
+
+import {useState} from 'react'
+import { useEffect } from "react"
+import { useDebugValue } from "react"
+
+
+export default function Home(props){
+
+    const {username,email,games,setBalance,setGames,dark} = props
+
+
+    const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
+    const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
+    const [search,setSearch] = useState([])
+    const [text,setText] = useState('')
+
+    function getInEnglish(type){
+        switch (type) {
+            case "futebol": return 'football'
+            case "basquetebol": return 'basketball'
+            case "motoGP": return 'motoGP'
+            case "tenis": return 'tenis'
+        }
+    }
+
+
+    useEffect(() => {
+
+        fetch('http://127.0.0.1:8080/api/games/', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.games){
+              setGames(data.games)
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    
+    },[])
+
+
+    //Mostra todas as bets do lado esquerdo
+    const allBets = games.map( (game) => {
+
+        var notNull = true
+        var sportENG = getInEnglish(game.sport)
+
+        game.results.map( game => {
+            if (game.odd === 0) notNull = false
+        })
+
+        if(text === ''){
+            if(notNull && ( sportENG === filter || filter === 'all') && game.active === 'true'){
+                if(game.sport === 'motoGP'){
+                    return(
+                        <BetMotoGP 
+                            key={game.id}
+                            game={game} 
+                            setSelected={setSelected} 
+                            selected={selected}
+                            dark={dark}
+                        /> 
+                    )
+                }else{
+                    return(
+                        <Bet 
+                            key={game.id}
+                            game={game} 
+                            setSelected={setSelected} 
+                            selected={selected}
+                            dark={dark}
+                        /> 
+                    )
+                }
+            }
+        }
+        else{
+            if(search.length > 0){
+                if(search.find(elem => elem === game.id)){
+                    if(notNull && ( sportENG === filter || filter === 'all') && game.active === 'true'){
+                        if(game.sport === 'motoGP'){
+                            return(
+                                <BetMotoGP 
+                                    key={game.id}
+                                    game={game} 
+                                    setSelected={setSelected} 
+                                    selected={selected}
+                                    dark={dark}
+                                /> 
+                            )
+                        }else{
+                            return(
+                                <Bet 
+                                    key={game.id}
+                                    game={game} 
+                                    setSelected={setSelected} 
+                                    selected={selected}
+                                    dark={dark}
+                                /> 
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }) 
+
+    return(
+        <div>
+            <NavBar 
+                user={username} 
+                filter={filter} 
+                setFilter={setFilter}
+                userType="user"
+                dark={dark}
+            />
+            <div className={`content${dark}`}>
+                <div>
+                    <SearchBar 
+                        dark={dark}
+                        setText={setText}
+                        setSearch={setSearch}
+                    />
+                    <div className={`allBets${dark}`}>
+                        {allBets}
+                    </div>
+                </div>
+                <Report
+                    games={games}
+                    selected={selected}
+                    email={email}
+                    setBalance={setBalance}
+                    setSelected={setSelected}
+                    dark={dark}
+                />
+            </div>
+        </div>
+    )
+
+
+}

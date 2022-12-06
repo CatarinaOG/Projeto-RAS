@@ -1,0 +1,26 @@
+
+.tableSpace{
+    position: absolute;
+    top: 90px;
+    left: 2.5vw;
+    width: 55vw;
+    height: 70vh;
+    font-family: 'Spinnaker';
+}
+
+.allowOverflow{
+    overflow: scroll;
+    width: 56vw;
+    height: 58vh;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+tr > img {
+    height: 15px;
+    margin-top: 20px;
+}
+
+tr > img:hover {
+    cursor: pointer;
+}
