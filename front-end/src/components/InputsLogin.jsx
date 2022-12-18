@@ -9,7 +9,7 @@ import lightMode from '../images/moon (1).png'
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setBalance,setEmail,dark,switchDark} = props
+	const {setUsername,setBalance,setEmail,setTypeUser,dark,switchDark} = props
 
 	//variavel responsavel pelo conditional rendering 
 	const [errorReg,setErrorReg]=useState(0)
@@ -61,17 +61,19 @@ export default function InputsLogin(props) {
 				setEmail(formData.email)
 				if (data.type === 'especialista'){
 					navigate("/HomeExpert", { replace: true }); 
+					setTypeUser('expert')
 				}
 				else if(data.type === 'administrador'){
 					navigate("/HomeAdmin", { replace: true }); 
+					setTypeUser('admin')
 				}
 				else if(data.type === 'apostador'){
 					setBalance(data.balance)
 					navigate("/Home", { replace: true }); 
+					setTypeUser('better')
 				}
 				else if(data.type === null){
 					setErrorReg(2)
-
 				}
 			})
 		}

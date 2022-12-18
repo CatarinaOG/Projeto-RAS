@@ -12,13 +12,14 @@ import { useDebugValue } from "react"
 
 export default function Home(props){
 
-    const {username,email,games,setBalance,setGames,dark} = props
+    const {username,email,games,setGames,setBalance,dark} = props
 
 
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
     const [search,setSearch] = useState([])
     const [text,setText] = useState('')
+    //const [games,setGames] = useState()
 
     function getInEnglish(type){
         switch (type) {
@@ -32,11 +33,17 @@ export default function Home(props){
 
     useEffect(() => {
 
-        fetch('http://127.0.0.1:8080/api/games/', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
+        /*const user = {
+            username : username
+        }
+
+        const interval = setInterval(() => {
+          fetch('http://127.0.0.1:8080/api/games/', { // alterar
+                  method: 'GET', // alterar
+                  headers: {
+                      'Content-Type': 'application/json',
+                  }//,
+                  //body: JSON.stringify(user)
         })
         .then(response => response.json())
         .then(data => {
@@ -47,9 +54,12 @@ export default function Home(props){
         .catch((error) => {
           console.error('Error:', error);
         });
-    
+      }, 1000);
+      
+      return () => clearInterval(interval);
+      */
+        
     },[])
-
 
     //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => {

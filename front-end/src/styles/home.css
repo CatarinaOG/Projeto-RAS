@@ -110,6 +110,9 @@ button:hover {
     cursor: pointer;
 }
 
+.makeRelative{
+    position: relative;
+}
 
 .resultBoxSelected{
     margin: 21px 0px 0px 0px;
@@ -120,6 +123,7 @@ button:hover {
     width: 100px;
     padding: 7px 7px 7px 7px;
     border: 1px solid #F07444;
+    position: relative;
 }
 
 .resultBoxNotSelected{
@@ -131,6 +135,8 @@ button:hover {
     width: 100px;
     padding: 7px 7px 7px 7px;
     border: 1px solid black;
+    position: relative;
+
 }
 
 
@@ -143,6 +149,8 @@ button:hover {
     width: 100px;
     padding: 7px 7px 7px 7px;
     border: 1px solid #F07444;
+    position: relative;
+
 }
 
 .resultBoxNotSelectedMotoGP{
@@ -154,6 +162,8 @@ button:hover {
     width: 100px;
     padding: 7px 7px 7px 7px;
     border: 1px solid black;
+    position: relative;
+
 }
 
 .resultBoxNotSelected > p, .resultBoxSelected > p{
@@ -166,6 +176,13 @@ button:hover {
 
     margin-top: 9px;
 
+}
+
+.star {
+    position: absolute;
+    top: 1.5vh;
+    height: 20px;
+    z-index: 4;
 }
 
 

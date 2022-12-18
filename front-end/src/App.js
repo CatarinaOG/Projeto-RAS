@@ -40,6 +40,7 @@ import ShowExperts from './pages/ShowExperts'
 import Recover from './pages/Recover'
 import ShowGamesExpert from './pages/ShowGamesExpert'
 import ChangeGameExpert from './pages/ChangeGameExpert'
+import Error from './pages/Error'
 
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
   const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
   const [balance,setBalance] = useState()
+
+  const [typeUser,setTypeUser] = useState('')
 
 	const [dark,setDark] = useState('')
 
@@ -85,12 +88,7 @@ function App() {
   },[])
 
   function switchDark(){
-		if(dark === 'Dark'){
-			setDark('')
-		}
-		else{
-			setDark('Dark')
-		}
+		dark === 'Dark'? setDark('') : setDark('Dark')
   }
 
   //-----------------------------------------
@@ -103,6 +101,7 @@ function App() {
             setUsername={setUsername}
             setBalance={setBalance}
             setEmail={setEmail}
+            setTypeUser={setTypeUser}
             dark={dark}
             switchDark={switchDark}
           />
@@ -112,98 +111,124 @@ function App() {
           <Register
             dark={dark}
           />
-
         }/>
 
         <Route path="/Recover" element={
           <Recover dark={dark}></Recover>
         }/>
+        
+        { typeUser == 'better' &&
+          <Route path="/Home" element={
+            <Home
+              username={username}
+              email={email}
+              games={games}
+              setBalance={setBalance}
+              setGames={setGames}
+              dark={dark}
+            />
+          } />
+        }
 
-        <Route path="/Home" element={
-          <Home
-            username={username}
-            email={email}
-            games={games}
-            setBalance={setBalance}
-            setGames={setGames}
-            dark={dark}
-          />
-        } />
+        { typeUser == 'better' &&
 
-        <Route path="/Profile" element={
-          <Profile
-            username={username}
-            setUsername={setUsername}
-            setBalance={setBalance}
-            balance={balance}
-            email={email}
-            dark={dark}
-          />
-        } />
+          <Route path="/Profile" element={
+            <Profile
+              username={username}
+              setUsername={setUsername}
+              setBalance={setBalance}
+              balance={balance}
+              email={email}
+              dark={dark}
+            />
+          } />
+        }
 
-        <Route path="/HomeExpert" element={
-          <HomeExpert
-            username={username}
-            games={games}
-            setGames={setGames}
-            dark={dark}
-          />
-        } />
+        { typeUser == 'expert' &&
+          <Route path="/HomeExpert" element={
+            <HomeExpert
+              username={username}
+              games={games}
+              setGames={setGames}
+              dark={dark}
+            />
+          } />
+        }
 
-        <Route path="/AddExpert" element={
-          <AddExpert
-            username={username}
-            dark={dark}
-          />
-        } />
+        { typeUser == 'admin' &&
+          <Route path="/AddExpert" element={
+            <AddExpert
+              username={username}
+              dark={dark}
+            />
+          } />
+        }
 
-        <Route path="/HomeAdmin" element={
-          <HomeAdmin
-            username={username}
-            dark={dark}
-          />
-        } />
+        { typeUser == 'admin' &&
+          <Route path="/HomeAdmin" element={
+            <HomeAdmin
+              username={username}
+              dark={dark}
+            />
+          } />
+        }
 
-        <Route path="/AddGame" element={
-          <AddGame
-            username={username}
-            email={email}
-            setGames={setGames}
-            dark={dark}
-          />
-        } />
+        { typeUser == 'expert' &&
+          <Route path="/AddGame" element={
+            <AddGame
+              username={username}
+              email={email}
+              setGames={setGames}
+              dark={dark}
+            />
+          } />
+        }
 
-        <Route path="/ShowExperts" element={
-          <ShowExperts
-            username={username}
-            dark={dark}
-          />
-        }/>
+        { typeUser == 'admin' &&
+          <Route path="/ShowExperts" element={
+            <ShowExperts
+              username={username}
+              dark={dark}
+            />
+          }/>
+        }
 
-        <Route path="/ShowGamesExpert" element={
-          <ShowGamesExpert
-            username={username}
-            setExpertGame={setExpertGame}
-            dark={dark}
-          />
-        }/>
+        { typeUser == 'expert' &&
+          <Route path="/ShowGamesExpert" element={
+            <ShowGamesExpert
+              username={username}
+              setExpertGame={setExpertGame}
+              dark={dark}
+            />
+          }/>
+        }
 
-        <Route path="/ChangeGameExpert" element={
-          <ChangeGameExpert
-            username={username}
-            expertGame={expertGame}
-            setExpertGame={setExpertGame}
-            setGames={setGames}
-            dark={dark}
-          />
-        }/>
+        { typeUser == 'expert' &&
+          <Route path="/ChangeGameExpert" element={
+            <ChangeGameExpert
+              username={username}
+              expertGame={expertGame}
+              setExpertGame={setExpertGame}
+              setGames={setGames}
+              dark={dark}
+            />
+          }/>
+        }
 
-        <Route path="/ProfileExpert" element={
-          <ProfileExpert
-            username={username}
-            dark={dark}
-          />
-        }/>
+        { typeUser == 'expert' &&
+          <Route path="/ProfileExpert" element={
+            <ProfileExpert
+              username={username}
+              dark={dark}
+            />
+          }/>
+        }
+
+        <Route
+          path="*"
+          element={<Error />}
+        />
+      
 
       </Routes>
   </BrowserRouter>

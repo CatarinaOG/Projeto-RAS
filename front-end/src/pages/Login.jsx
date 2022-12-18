@@ -8,7 +8,7 @@ import celebrating from '../images/celebrating.png'
 
 function Login(props){
 
-	const {setUsername,setBalance,setRender,setEmail,dark,switchDark} = props;
+	const {setUsername,setBalance,setRender,setEmail,setTypeUser,dark,switchDark} = props;
 
 	
     return(
@@ -19,6 +19,7 @@ function Login(props){
 						setBalance={setBalance}
 						setRender = {setRender} 
 						setEmail={setEmail}
+						setTypeUser={setTypeUser}
 						dark={dark}
 						switchDark={switchDark}
 					/> 

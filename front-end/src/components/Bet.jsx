@@ -38,12 +38,17 @@ export default function Bet(props){
         />
     )
 
+
+
+
     var notNull = true
     
     results.map( ({id,result,odd,amount}) =>{
         if(odd === 'null')
             notNull = false
     })
+
+    
 
     if(notNull){
         return(
