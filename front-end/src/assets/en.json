@@ -1,0 +1,30 @@
+
+{
+    "inputLoginWelcome.label":"Welcome",
+    "inputLoginForgotPass.label":"Forgot my Password",
+    "inputLoginAccess.label":"Access",
+    "inputLoginNoAcc.label":"No Account?",
+    "inputLoginRegNow.label":"Register Now!",
+    "inputLoginErr2.label":"Incorret Email or Password",
+    "inputLoginErr1.label":"Incomplete Data",
+
+
+    "retirevePassInsert.label":"Insert Email",
+    "retirevePassSend.label":"Submit",
+
+
+    "retrievePassM1.label":"Email sent",
+    "retrievePassM2.label":"Email doesn't exist",
+    "retrievePassM3.label":"Insert an Email",
+
+    "regAccountHead.label":"Register",
+    "regAccountButton.label":"Submit",
+    "regAccountPlaceName.label":"Name",
+    "regAccountPlacePass.label":"Password",
+    "regAccountPlaceBirth.label":"Birth date",
+    "regAccountPlacePhone.label":"Phone",
+    "regAccountPlaceAddr.label":"Address"
+
+
+
+}

@@ -4,13 +4,15 @@ import celebrating from '../images/celebrating.png'
 
 function Login(props){
 
-	const {setUsername,setBalance,setRender,setEmail,setTypeUser,dark,switchDark} = props;
+	const {t,i18n,setUsername,setBalance,setRender,setEmail,setTypeUser,dark,switchDark} = props;
 
 	
     return(
 		<div className={`page${dark}`}>
 			<div className={`mainLog${dark}`}>
-					<InputsLogin 
+					<InputsLogin
+						t={t}
+						i18n={i18n} 
 						setUsername={setUsername}	
 						setBalance={setBalance}
 						setRender = {setRender} 

@@ -20,7 +20,8 @@ import './styles/RecoverDark.css'
 import './styles/ChangeGameExpertDark.css'
 
 
-
+import "./i18n";
+import { useTranslation } from "react-i18next";
 
 
 import {useState} from 'react'
@@ -46,6 +47,7 @@ import FollowPage from './pages/FollowPage'
 
 
 function App() {
+	const { t, i18n } = useTranslation();
 
   const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
@@ -100,6 +102,8 @@ function App() {
       <Routes>
         <Route path="/" element={
           <Login
+            t={t}
+            i18n={i18n}
             setUsername={setUsername}
             setBalance={setBalance}
             setEmail={setEmail}
@@ -111,12 +115,13 @@ function App() {
 
         <Route path="/Register" element={
           <Register
+            t={t}
             dark={dark}
           />
         }/>
 
         <Route path="/Recover" element={
-          <Recover dark={dark}></Recover>
+          <Recover t={t} dark={dark}></Recover>
         }/>
         
         { typeUser === 'better' &&

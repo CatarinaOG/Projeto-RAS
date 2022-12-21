@@ -182,6 +182,19 @@
     top: 2%;
 }
 
+.ftBritLogo{
+    width: 14.4%;
+    position: absolute;
+    left: 67%;
+    top: -1%;
+}
+
+.ftPortLogo{
+    width: 11%;
+    position: absolute;
+    left: 58%;
+    top: 0.5%;
+}
 
 
 .fterrorLogIn{

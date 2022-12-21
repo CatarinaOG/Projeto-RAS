@@ -7,7 +7,7 @@ import logo from '../images/logo.png'
 
 export default function RetrievePass(props) {
 
-	const {dark} = props
+	const {t,dark} = props
 	//variavel responsavel pelo conditional rendering da mensagem
 	const [message,setMessage]=useState(0)
 
@@ -67,16 +67,16 @@ export default function RetrievePass(props) {
     return (
         <div className='inputs'>
 			<img className = "ftrasbetLogo" src = {logo}/>
-			<h1 className = {`ftwelcomeTitle${dark}`}> Insira o Email</h1>
+			<h1 className = {`ftwelcomeTitle${dark}`}> {t("retirevePassInsert.label")}</h1>
             <img src = {goBackImg} className={`ftgoBackReg${dark}`} onClick={goBack}/>
 
 			<form onSubmit={handleSubmit}>
 				<input onChange={handleChange} className = {`ftEmailRecover${dark}`} type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
-				<button className = {`ftacederLog${dark}`}> Enviar</button>
+				<button className = {`ftacederLog${dark}`}> {t("retirevePassInsert.label")}</button>
 			</form>
-			{message === 2 && <p className='fterrorRecover'>Email não existe</p>}
-			{message === 1 && <p className='fterrorRecover'>Email enviado</p>}
-			{message === 3 && <p className='fterrorRecover'>Insira um email</p>}
+			{message === 1 && <p className='fterrorRecover'>{t("retirevePassM1.label")}</p>}
+			{message === 2 && <p className='fterrorRecover'>{t("retirevePassM2.label")}</p>}
+			{message === 3 && <p className='fterrorRecover'>{t("retirevePassM3.label")}</p>}
 
 
 		</div>

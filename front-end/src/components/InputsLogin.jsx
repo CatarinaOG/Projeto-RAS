@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom"
 
 import logo from '../images/logo.png'
 import darkMode from '../images/moon.png'
+import britFlag from '../images/british.png'
+import portFlag from '../images/portugal.png'
+
 
 
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setBalance,setEmail,setTypeUser,dark,switchDark} = props
+	const {t,i18n,setUsername,setBalance,setEmail,setTypeUser,dark,switchDark} = props
 
 	//variavel responsavel pelo conditional rendering 
 	const [errorReg,setErrorReg]=useState(0)
@@ -81,23 +84,39 @@ export default function InputsLogin(props) {
 		}		
 	}
 
-	
+	const [lang,setLang] = useState("en");
+
+	function changePT(){
+			setLang("pt")
+			i18n.changeLanguage("pt");
+			
+	}
+
+	function changeEN(){
+			setLang("en")
+			i18n.changeLanguage("en");
+	}
+
     return (
         <div className='inputs'>
 			<img className = "ftrasbetLogo" src = {logo} alt=""/>
 			<img className = {`ftDarkLogo${dark}`} src = {darkMode} onClick={switchDark} alt=""/>
+			<img className = {`ftBritLogo${dark}`} src = {britFlag} onClick={changeEN} alt=""/>
+			<img className = {`ftPortLogo${dark}`} src = {portFlag} onClick={changePT} alt=""/>
 
-			<h1 className = {`ftwelcomeTitle${dark}`}> Bem-vindo</h1>
+
+
+			<h1 className = {`ftwelcomeTitle${dark}`}> {t("inputLoginWelcome.label")}</h1>
 			<form onSubmit={handleSubmit}>
 				<input onChange={handleChange} className = {`ftuserNameLog${dark}`} type="text" placeholder = "Email"  name = "email" value = {formData.email}/>
 				<input onChange={handleChange} className = {`ftpasswordLog${dark}`} type="password" placeholder = "Password" name = "password" value = {formData.password} />
-				<button className = {`ftacederLog${dark}`}> Aceder</button>
+				<button className = {`ftacederLog${dark}`}> {t("inputLoginAccess.label")}</button>
 			</form>
-			<a className = {`ftnoPass${dark}`} onClick={changeToRecover}> Esqueci-me da palavra-passe</a>
-			<a className={`ftnoAccount${dark}`}>Não tem conta?</a>
-			<h4 onClick={changeToRegister} className = {`ftnoAccountHyper${dark}`}> Registe-se já! </h4>
-			{errorReg === 2 && <p className={`fterrorLogIn${dark}`}>Email ou password incorretos</p>}
-			{errorReg === 1 && <p className={`fterrorLogIn${dark}`}>Dados incompletos</p>}
+			<a className = {`ftnoPass${dark}`} onClick={changeToRecover}> {t("inputLoginForgotPass.label")}</a>
+			<a className={`ftnoAccount${dark}`}>{t("inputLoginNoAcc.label")}</a>
+			<h4 onClick={changeToRegister} className = {`ftnoAccountHyper${dark}`}> {t("inputLoginRegNow.label")} </h4>
+			{errorReg === 2 && <p className={`fterrorLogIn${dark}`}>{t("inputLoginErr2.label")}</p>}
+			{errorReg === 1 && <p className={`fterrorLogIn${dark}`}>{t("inputLoginErr1.label")}</p>}
 		</div>
     )
 }
