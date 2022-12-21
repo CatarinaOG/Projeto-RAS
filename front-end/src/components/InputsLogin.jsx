@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 
 import logo from '../images/logo.png'
 import darkMode from '../images/moon.png'
-import lightMode from '../images/moon (1).png'
 
 
 
@@ -47,7 +46,7 @@ export default function InputsLogin(props) {
 	function handleSubmit(event){
 		event.preventDefault()
 
-		if(formData.email!="" && formData.password!=""){
+		if(formData.email!=="" && formData.password!==""){
 			fetch('http://127.0.0.1:8080/api/users/login', {
 				method: 'POST',
 				headers: {
@@ -85,8 +84,8 @@ export default function InputsLogin(props) {
 	
     return (
         <div className='inputs'>
-			<img className = "ftrasbetLogo" src = {logo}/>
-			<img className = {`ftDarkLogo${dark}`} src = {darkMode} onClick={switchDark}/>
+			<img className = "ftrasbetLogo" src = {logo} alt=""/>
+			<img className = {`ftDarkLogo${dark}`} src = {darkMode} onClick={switchDark} alt=""/>
 
 			<h1 className = {`ftwelcomeTitle${dark}`}> Bem-vindo</h1>
 			<form onSubmit={handleSubmit}>

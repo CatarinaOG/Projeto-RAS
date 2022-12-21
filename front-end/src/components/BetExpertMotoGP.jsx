@@ -81,7 +81,7 @@ export default function BetExpertMotoGP(props){
     // Saber o progresso
     var nulls = 0
     
-    results.map( ({id,result,odd}) => {if(odd == 0) nulls++})
+    results.map( ({id,result,odd}) => {if(odd === 0) nulls++})
 
     return(
         <div className='betWithProgress'>

@@ -1,9 +1,5 @@
 
-import RegAccount from '../components/RegAccount';
 import InputsLogin from '../components/InputsLogin';
-
-import { useState } from 'react';
-
 import celebrating from '../images/celebrating.png'
 
 function Login(props){
@@ -24,7 +20,7 @@ function Login(props){
 						switchDark={switchDark}
 					/> 
 				<div className='logImage'>
-					<img src={celebrating} className='imageRight'/>
+					<img src={celebrating} className='imageRight' alt=""/>
 				</div>
 			</div>
 		</div>
