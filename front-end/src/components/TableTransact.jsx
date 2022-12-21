@@ -1,7 +1,4 @@
-import { useState } from "react";
-import goBack from "../images/goBack.png"
-import BetHistoryBox from './BetHistoryBox'
-import { useEffect } from 'react'
+
 
 export default function TableTransact(props){
 

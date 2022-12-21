@@ -43,7 +43,16 @@ export default function RegAccount(props){
 	 */
 	function handleSubmit(event){
 		event.preventDefault();
-		if(formData.email !="" && formData.password !="" && formData.phone !="" && formData.name !="" && formData.nif !="" && formData.date !="" && formData.cc !="" && formData.address !=""){
+		console.log(JSON.stringify({ 
+			email: formData.email,
+			password:formData.password,
+			telefone:formData.phone,
+			nome:formData.name,
+			nif:formData.nif,
+			data_de_nascimento:birth,
+			cc:formData.cc,
+			morada:formData.address}))
+		if(formData.email !=="" && formData.password !=="" && formData.phone !=="" && formData.name !=="" && formData.nif !=="" && formData.date !=="" && formData.cc !=="" && formData.address !==""){
 			setErrorReg(0);
 			fetch('http://127.0.0.1:8080/api/users/register', {
 				method: 'POST',
@@ -59,6 +68,7 @@ export default function RegAccount(props){
 					data_de_nascimento:birth,
 					cc:formData.cc,
 					morada:formData.address})
+				
         	})
 			.then(response => response.json())
 			.then(data => {
@@ -80,10 +90,10 @@ export default function RegAccount(props){
     return(
         
 			<div className='regAccount'>
-				<img className = "ftrasbetLogo" src = {logo}/>
+				<img className = "ftrasbetLogo" src = {logo} alt=""/>
 
 				<h1 className = {`ftRegisterTitle${dark}`} > Registo</h1>
-                <img src = {goBackImg} className= {`ftgoBackReg${dark}`} onClick={goBack}/>
+                <img src = {goBackImg} className= {`ftgoBackReg${dark}`} onClick={goBack} alt=""/>
 
 				<form onSubmit={handleSubmit}>
 					<input className = {`ftnameReg${dark}`} type="text" placeholder = "Nome" name = "name" value = {formData.name} onChange={handleChange}/>

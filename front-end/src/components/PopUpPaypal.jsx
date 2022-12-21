@@ -37,7 +37,7 @@ export default function PopUpPaypal(props){
     function handleSubmit(event){
         event.preventDefault();
 
-        if(formData.email != "" && formData.operationValue!= ""){           
+        if(formData.email !== "" && formData.operationValue!== ""){           
             fetch('http://127.0.0.1:8080/api/transactions/', {
                 method: 'POST',
                 headers: {

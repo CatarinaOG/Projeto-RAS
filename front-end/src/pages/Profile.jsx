@@ -88,7 +88,7 @@ export default function Profile(props){
                     }
                 </div>
             </div>
-            {(showPopUp == 'deposit' || showPopUp=='transfer') && 
+            {(showPopUp === 'deposit' || showPopUp==='transfer') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpOperation 
@@ -100,13 +100,13 @@ export default function Profile(props){
                     />
                 </div>
             }
-            {(showPopUp == 'changeSec') && 
+            {(showPopUp === 'changeSec') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email} setSafeCode={setSafeCode} safeCode={safeCode} dark={dark}/>
                 </div>
             }
-            {(showPopUp == 'confirm') && 
+            {(showPopUp === 'confirm') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} safeCode={safeCode} dark={dark}/>
