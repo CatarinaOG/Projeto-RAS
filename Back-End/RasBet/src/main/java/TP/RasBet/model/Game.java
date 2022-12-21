@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 
@@ -60,14 +61,15 @@ public class Game implements Serializable, Subject{
     private List<GamesInOneBet> games;
 
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<User_follows_game> followingUsers;
+    private Set<User_follows_game> followingUsers;
 
 
     @Autowired
+    @Transient
     User_follows_game_Repo ufg_repo;
 
-    @Autowired
-    EmailSenderService emailSenderService;
+    
+    
 
 
     public Game(){
@@ -136,7 +138,7 @@ public class Game implements Serializable, Subject{
     public void setScore(String score) {
         this.score = score;
     }
-    public void setFollowingUsers(List<User_follows_game> followingUsers) {
+    public void setFollowingUsers(Set<User_follows_game> followingUsers) {
         this.followingUsers = followingUsers;
     }
 
@@ -185,6 +187,7 @@ public class Game implements Serializable, Subject{
 
 	@Override
 	public void notifyObservers() {
+        EmailSenderService emailSenderService = new EmailSenderService();
 		for(User_follows_game ufg : this.followingUsers){
             emailSenderService.sendSimpleEmail(ufg.getUser().getEmail(), "Uma odd foi alterada", "Odd Alterada");
         }

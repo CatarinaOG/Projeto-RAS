@@ -19,12 +19,13 @@ public class GamesController {
     private AppService appService; 
     
     @GetMapping("/")
-    public String getGames(){
-        return appService.getGames().toString();
+    public String getGames(@RequestBody String email){
+        JSONObject j = new JSONObject(email);
+        return appService.getGames((String) j.get("email")).toString();
     }
     
     @PostMapping("/filtered")    
-    public String getGames(@RequestBody String filter){
+    public String getGamesFiltered(@RequestBody String filter){
         return appService.getGamesFiltered(filter);
     }
 

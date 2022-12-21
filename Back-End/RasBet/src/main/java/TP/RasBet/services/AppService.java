@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,20 @@ public class AppService implements IAppService {
     @Autowired
     private User_follows_game_Repo user_follows_game_Repo;
 
-    public JSONObject getGames(){
+    private Boolean isGameFollowed(Game game, String email){
+        Set<User_follows_game> follows_games = userRepo.findUserByEmail(email).get().getFollowingGames();
+
+        for(User_follows_game ufg : follows_games){
+            Game g = ufg.getGame();
+            if(g.equals(game)){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    public JSONObject getGames(String email){
         List<Game> games = gameRepo.findAll();
         JSONArray jogos = new JSONArray();
         for(Game g : games){
@@ -89,6 +103,10 @@ public class AppService implements IAppService {
                 }
                 else j.put("active", "true");
 
+                if(isGameFollowed(g, email)){
+                    j.put("following", "true");
+                }
+                else j.put("following", "false");
 
                 jogos.put(j);
             }
@@ -146,7 +164,7 @@ public class AppService implements IAppService {
                 Odd o = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
                 GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
                 Game this_game = o.getGame();
-                
+
                 giob.setBet(b);
                 giob.setGame(this_game);
                 gamesInOneBetRepo.save(giob);

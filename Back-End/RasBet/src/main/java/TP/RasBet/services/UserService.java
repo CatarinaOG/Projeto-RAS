@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.crypto.SecretKey;
@@ -30,6 +31,12 @@ public class UserService implements IUserService {
 
     @Autowired
     private BetRepo betRepo;
+
+    @Autowired
+    private GameRepo gameRepo;
+
+    @Autowired
+    private User_follows_game_Repo user_follows_game_Repo;
 
     @Autowired
     private EmailSenderService mailService;
@@ -285,6 +292,54 @@ public class UserService implements IUserService {
 
         return "{ \"status\" : \"false\" }";
 
+    }
+
+
+    public String followGame(String email, int id_game){
+
+        Game g = gameRepo.findById(id_game).get();
+        User u = userRepo.findUserByEmail(email).get();
+
+        //verificar se o jogo já está a ser seguido
+        Set<User_follows_game> followed_games = u.getFollowingGames();
+        for(User_follows_game user_follows_game : followed_games){
+            if(user_follows_game.getGame().equals(g)){
+                return "{ \"state\" : \"denied\" }";
+            }
+        }
+
+        User_follows_game ufg = new User_follows_game(u, g);
+
+        g.registerObserver(u);
+        u.addFollowingGame(ufg);
+
+        gameRepo.save(g);
+        userRepo.save(u);
+        user_follows_game_Repo.save(ufg);
+
+        return "{ state : confirmed }";
+    }
+    
+    public String unfollowGame(String email, int id_game){
+
+        Game g = gameRepo.findById(id_game).get();
+        User u = userRepo.findUserByEmail(email).get();
+
+
+        //verificar se o jogo já está a ser seguido
+        Set<User_follows_game> followed_games = u.getFollowingGames();
+        for(User_follows_game user_follows_game : followed_games){
+            if(user_follows_game.getGame().equals(g)){
+                g.removeObserver(u);
+                u.deleteFollowingGame(user_follows_game);
+
+                gameRepo.save(g);
+                userRepo.save(u);
+                user_follows_game_Repo.deleteById(user_follows_game.getId());
+            }
+        }
+
+        return "{ state : denied }";
     }
 
 
