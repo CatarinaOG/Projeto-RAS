@@ -1,4 +1,5 @@
 package TP.RasBet.model;
+import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -59,8 +60,8 @@ public class User implements Serializable{
     private List<Bet> bets;
 
     
-
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<User_follows_game> followingGames;
 
 
     public User(){
@@ -77,6 +78,7 @@ public class User implements Serializable{
         this.cc = cc;
         this.wallet = 0.0f;
         this.data_de_nascimento = data_de_nascimento;
+        this.followingGames = new ArrayList<>();
     }
 
     /* Getters */
@@ -145,6 +147,14 @@ public class User implements Serializable{
         this.bets = bets;
     }
 
+    public void setFollowingGames(List<User_follows_game> followingGames){
+        this.followingGames = followingGames;
+    }
+
+    public void addFollowingGame(User_follows_game ufg){
+        this.followingGames.add(ufg);
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -161,5 +171,7 @@ public class User implements Serializable{
                 ", bets=" + bets +
                 '}';
     }
+
+
 }
 

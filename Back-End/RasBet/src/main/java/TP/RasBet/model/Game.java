@@ -7,6 +7,11 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import TP.RasBet.repositories.User_follows_game_Repo;
+import TP.RasBet.services.EmailSenderService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +19,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "game")
-public class Game implements Serializable{
+public class Game implements Serializable, Subject{
 
     @Id
     @GeneratedValue
@@ -54,7 +59,15 @@ public class Game implements Serializable{
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<GamesInOneBet> games;
 
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<User_follows_game> followingUsers;
 
+
+    @Autowired
+    User_follows_game_Repo ufg_repo;
+
+    @Autowired
+    EmailSenderService emailSenderService;
 
 
     public Game(){
@@ -123,6 +136,9 @@ public class Game implements Serializable{
     public void setScore(String score) {
         this.score = score;
     }
+    public void setFollowingUsers(List<User_follows_game> followingUsers) {
+        this.followingUsers = followingUsers;
+    }
 
 
     public List<Odd> getOdds() {
@@ -147,5 +163,38 @@ public class Game implements Serializable{
         return this.sport.equals(g.getSport()) && g.getParticipants().equals(this.participants) 
                                                && g.getDate().equals(this.date);
     }
+
+	@Override
+	public void registerObserver(User user) {
+        User_follows_game ufg = new User_follows_game(user, this);
+        user.addFollowingGame(ufg);
+        this.followingUsers.add(ufg);
+        ufg_repo.save(ufg);
+    }
+
+	@Override
+	public void removeObserver(User user) {
+        for(User_follows_game ufg : this.followingUsers){
+            if(ufg.getUser().equals(user)){
+                this.followingUsers.remove(ufg);
+                ufg_repo.deleteById(ufg.getId());
+                break;
+            }
+        }
+	}
+
+	@Override
+	public void notifyObservers() {
+		for(User_follows_game ufg : this.followingUsers){
+            emailSenderService.sendSimpleEmail(ufg.getUser().getEmail(), "Uma odd foi alterada", "Odd Alterada");
+        }
+	}
+
+
+
+
+
+
+
 
 }

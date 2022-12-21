@@ -50,6 +50,9 @@ public class AppService implements IAppService {
     @Autowired
     private GamesInOneBetRepo gamesInOneBetRepo;
 
+    @Autowired
+    private User_follows_game_Repo user_follows_game_Repo;
+
     public JSONObject getGames(){
         List<Game> games = gameRepo.findAll();
         JSONArray jogos = new JSONArray();
@@ -142,9 +145,14 @@ public class AppService implements IAppService {
             for(int i = 0; i < bets.length(); i++){
                 Odd o = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
                 GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
+                Game this_game = o.getGame();
+                
                 giob.setBet(b);
-                giob.setGame(o.getGame());
+                giob.setGame(this_game);
                 gamesInOneBetRepo.save(giob);
+
+                this_game.registerObserver(u);
+                gameRepo.save(this_game);
             }
             userRepo.save(u);
             
@@ -173,12 +181,15 @@ public class AppService implements IAppService {
             for(int i = 0; i < betList.size(); i++){
                 Bet b = betList.get(i);
                 Odd o = oddList.get(i);
-
+                Game this_game = o.getGame();
                 betRepo.save(b);
                 GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
                 giob.setBet(b);
-                giob.setGame(o.getGame());
+                giob.setGame(this_game);
                 gamesInOneBetRepo.save(giob);
+
+                this_game.registerObserver(u);
+                gameRepo.save(this_game);
             }
             userRepo.save(u);
             
@@ -196,6 +207,7 @@ public class AppService implements IAppService {
         Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
         o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
         oddRepo.save(o);
+        o.getGame().notifyObservers();
 
         return "{\"confirmed\" : \"true\"}";
     }
