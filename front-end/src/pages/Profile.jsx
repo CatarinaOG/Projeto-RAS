@@ -12,9 +12,11 @@ import PopUpCodeConfirm from '../components/PopUpCodeConfirm'
 
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useNavigate } from "react-router-dom"
 
 
 export default function Profile(props){
+	let navigate = useNavigate();
 
     
     const {username,setUsername,setBalance,balance,email,dark} = props
@@ -52,7 +54,9 @@ export default function Profile(props){
   },[])  
       
     
-  
+    function goToFollow(){
+        navigate('/FollowPage', { replace: true })
+    }
 
 
     return(
@@ -112,7 +116,7 @@ export default function Profile(props){
                     <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} safeCode={safeCode} dark={dark}/>
                 </div>
             }
-            
+            <button onClick={goToFollow}> Followsss</button>
 
         </div>    
     )

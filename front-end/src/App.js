@@ -41,6 +41,8 @@ import Recover from './pages/Recover'
 import ShowGamesExpert from './pages/ShowGamesExpert'
 import ChangeGameExpert from './pages/ChangeGameExpert'
 import Error from './pages/Error'
+import FollowPage from './pages/FollowPage'
+
 
 
 function App() {
@@ -139,6 +141,17 @@ function App() {
               setBalance={setBalance}
               balance={balance}
               email={email}
+              dark={dark}
+            />
+          } />
+        }
+
+        { typeUser === 'better' &&
+
+          <Route path="/FollowPage" element={
+            <FollowPage
+              username={username}
+              games= {games}
               dark={dark}
             />
           } />
