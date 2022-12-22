@@ -7,19 +7,18 @@ import BetMotoGP from '../components/BetMotoGP'
 
 import {useState} from 'react'
 import { useEffect } from "react"
-import { useDebugValue } from "react"
 
 
 export default function Home(props){
 
-    const {username,email,games,setGames,setBalance,dark} = props
+    const {username,email,setBalance,dark} = props
 
 
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
     const [search,setSearch] = useState([])
     const [text,setText] = useState('')
-    //const [games,setGames] = useState()
+    const [games,setGames] = useState([])
 
     function getInEnglish(type){
         switch (type) {
@@ -33,33 +32,56 @@ export default function Home(props){
 
     useEffect(() => {
 
-        /*const user = {
-            username : username
-        }
 
         const interval = setInterval(() => {
-          fetch('http://127.0.0.1:8080/api/games/', { // alterar
-                  method: 'GET', // alterar
-                  headers: {
-                      'Content-Type': 'application/json',
-                  }//,
-                  //body: JSON.stringify(user)
+            const user = {
+                email : email
+            }
+    
+            fetch('http://127.0.0.1:8080/api/games/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.games){
+                    setGames(data.games)
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }, 1000);
+      
+        return () => clearInterval(interval);
+    },[])
+
+    function getGames(){
+        
+        const user = {
+            email : email
+        }
+
+        fetch('http://127.0.0.1:8080/api/games/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user)
         })
         .then(response => response.json())
         .then(data => {
             if(data.games){
-              setGames(data.games)
+                setGames(data.games)
             }
         })
         .catch((error) => {
-          console.error('Error:', error);
+            console.error('Error:', error);
         });
-      }, 1000);
-      
-      return () => clearInterval(interval);
-      */
-        
-    },[])
+    }
 
     //Mostra todas as bets do lado esquerdo
     const allBets = games.map( (game) => {
@@ -76,6 +98,8 @@ export default function Home(props){
                 if(game.sport === 'motoGP'){
                     return(
                         <BetMotoGP 
+                            email={email}
+                            getGames={getGames}
                             key={game.id}
                             game={game} 
                             setSelected={setSelected} 
@@ -86,6 +110,8 @@ export default function Home(props){
                 }else{
                     return(
                         <Bet 
+                            email={email}
+                            getGames={getGames}
                             key={game.id}
                             game={game} 
                             setSelected={setSelected} 

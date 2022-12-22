@@ -8,12 +8,12 @@ import yellowstar from '../images/star.png'
 
 export default function Bet(props){
 
-    const {sport,home,away,date,results} = props.game
+    const {id,sport,home,away,date,following,results} = props.game
     const setSelected = props.setSelected
     const selected = props.selected
     const dark = props.dark
+    const email = props.email
 
-    const [selected2,setSelected2] = useState(false)
 
 
     // Adicionar bet a lista de selecionadas
@@ -34,9 +34,31 @@ export default function Bet(props){
 
 
     //ativar com a back-end
-    function changeWatching(){
+    function changeFollowing(){
 
-        setSelected2(oldSelected => !oldSelected)
+        const send = {
+            email: email,
+            id_game: String(id)
+        }
+
+        fetch('http://127.0.0.1:8080/api/users/follow_game/', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(send)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.state == 'confirmed'){
+
+                props.getGames()
+
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
         
     }
 
@@ -81,7 +103,7 @@ export default function Bet(props){
                 <div className="results">
                     {resultsBoxes}
                 </div>
-                <img src={ selected2 ? yellowstar : star} className='star' onClick={changeWatching}/>
+                <img src={ following == "true"? yellowstar : star} className='star' onClick={changeFollowing}/>
             </div>
         )
     }

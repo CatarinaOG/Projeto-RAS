@@ -14,7 +14,7 @@ import { useEffect } from "react"
 
 export default function HomeExpert(props){
 
-    const {username,games,setGames,dark} = props
+    const {username,dark} = props
 
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
 
@@ -26,6 +26,38 @@ export default function HomeExpert(props){
 
     const [search,setSearch] = useState([])
     const [text,setText] = useState('')
+    const [games,setGames] = useState([])
+
+
+    useEffect(() => {
+
+        const user = {
+            email : "user@user"
+        }
+
+        console.log(JSON.stringify(user))
+
+        const interval = setInterval(() => {
+          fetch('http://127.0.0.1:8080/api/games/', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(user)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.games){
+                setGames(data.games)
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      }, 1000);
+      
+      return () => clearInterval(interval);
+    },[])
 
     function getInEnglish(type){
         switch (type) {
