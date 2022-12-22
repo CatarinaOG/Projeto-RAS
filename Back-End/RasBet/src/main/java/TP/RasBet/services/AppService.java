@@ -165,11 +165,14 @@ public class AppService implements IAppService {
                 GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
                 Game this_game = o.getGame();
 
+                User_follows_game ufg = new User_follows_game(u, this_game);
+                
                 giob.setBet(b);
                 giob.setGame(this_game);
                 gamesInOneBetRepo.save(giob);
 
-                this_game.registerObserver(u);
+                this_game.registerObserver(ufg);
+                u.addFollowingGame(ufg);
                 gameRepo.save(this_game);
             }
             userRepo.save(u);
@@ -205,8 +208,10 @@ public class AppService implements IAppService {
                 giob.setBet(b);
                 giob.setGame(this_game);
                 gamesInOneBetRepo.save(giob);
+                User_follows_game ufg = new User_follows_game(u, this_game);
 
-                this_game.registerObserver(u);
+                this_game.registerObserver(ufg);
+                u.addFollowingGame(ufg);
                 gameRepo.save(this_game);
             }
             userRepo.save(u);
@@ -296,7 +301,6 @@ public class AppService implements IAppService {
                     g.setState("Suspended");
                     gameRepo.save(g);
                 }
-
         }
 
         List<Bet> bets = betRepo.findAll();

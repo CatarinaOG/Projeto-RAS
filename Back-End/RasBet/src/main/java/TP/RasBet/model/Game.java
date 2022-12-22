@@ -63,12 +63,6 @@ public class Game implements Serializable, Subject{
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<User_follows_game> followingUsers;
 
-
-    @Autowired
-    @Transient
-    User_follows_game_Repo ufg_repo;
-
-    
     
 
 
@@ -153,7 +147,7 @@ public class Game implements Serializable, Subject{
 
     @Override
     public String toString() {
-        return "" + this.id + " | " + this.sport;
+        return "" + this.id + " | " + this.sport + " | " + this.participants + " | " + this.date;
     }
 
     public boolean equals(Object o){
@@ -167,22 +161,19 @@ public class Game implements Serializable, Subject{
     }
 
 	@Override
-	public void registerObserver(User user) {
-        User_follows_game ufg = new User_follows_game(user, this);
-        user.addFollowingGame(ufg);
+	public void registerObserver(User_follows_game ufg) {
         this.followingUsers.add(ufg);
-        ufg_repo.save(ufg);
     }
 
 	@Override
-	public void removeObserver(User user) {
+	public int removeObserver(User user) {
         for(User_follows_game ufg : this.followingUsers){
             if(ufg.getUser().equals(user)){
                 this.followingUsers.remove(ufg);
-                ufg_repo.deleteById(ufg.getId());
-                break;
+                return ufg.getId();
             }
         }
+        return -1;
 	}
 
 	@Override

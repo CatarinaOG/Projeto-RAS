@@ -95,7 +95,7 @@ public class UserController {
         return userService.followGame((String) j.get("email"), Integer.parseInt((String) j.get("id_game")));
     }
 
-    @PostMapping(value = "/follow_game")
+    @PostMapping(value = "/unfollow_game")
     public String unfollowGame(@RequestBody String req){
         JSONObject j = new JSONObject(req);
         return userService.unfollowGame((String) j.get("email"), Integer.parseInt((String) j.get("id_game")));

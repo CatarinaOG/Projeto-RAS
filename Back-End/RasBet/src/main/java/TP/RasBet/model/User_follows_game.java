@@ -9,7 +9,7 @@ import javax.persistence.*;
 import lombok.Data;
 
 @Entity
-@Data
+//@Data
 @Table(name="user_follows_game")
 public class User_follows_game implements Serializable{
     
@@ -28,6 +28,9 @@ public class User_follows_game implements Serializable{
     @JoinColumn(name = "game_id", referencedColumnName="id")
     private Game game;
 
+    public User_follows_game(){
+
+    }
 
     public User_follows_game(User user, Game game){
         this.user = user;
@@ -54,6 +57,9 @@ public class User_follows_game implements Serializable{
         this.game = game;
     }
 
-
+    @Override
+    public String toString() {
+        return this.user.toString() + "       |       " + this.game.toString();
+    }
 
 }

@@ -3,6 +3,7 @@ package TP.RasBet.services;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import TP.RasBet.repositories.*;
 import TP.RasBet.model.*;
+import TP.RasBet.config.Logs;
 
 @Service
 public class UserService implements IUserService {
@@ -41,35 +43,37 @@ public class UserService implements IUserService {
     @Autowired
     private EmailSenderService mailService;
 
-    public String login(String email, String pass){
 
+    public String login(String email, String pass){
 
         Optional<User> findUserByEmail = userRepo.findUserByEmail(email);
         if(findUserByEmail.isPresent()){
             User user = findUserByEmail.get();
-            if (user.getPassword().equals(pass)){
-                return "{ \"username\" : "+ "\"" + user.getName()+ "\"" + ", \"type\" : \"apostador\", \"balance\" : " + user.getWallet() + "}";
-            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null"  + "}";
+            if (user.getPassword().equals(pass))
+                return Logs.buildJSON("username", user.getName(), "type", "apostador", "balance", user.getWallet());
+            else
+                return Logs.buildJSON("username", "null", "type", "null", "balance", "null");
         }
 
         Optional<Expert> findExpertByEmail = expertRepo.findExpertByEmail(email);
         if(findExpertByEmail.isPresent()){
             Expert expert = findExpertByEmail.get();
-            if (expert.getPassword().equals(pass)){
-                return "{ \"username\" : " + "\"" + expert.getName() +  "\"" + ", \"type\" : \"especialista\"}";
-            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null}";
+            if (expert.getPassword().equals(pass))
+                return Logs.buildJSON("username", expert.getName(), "type", "especialista");
+            else 
+                return Logs.buildJSON("username", "null", "type", "null", "balance", "null");
         }
-
 
         Optional<Admin> findAdminByEmail = adminRepo.findAdminByEmail(email);
         if(findAdminByEmail.isPresent()){
             Admin admin = findAdminByEmail.get();
-            if (admin.getPassword().equals(pass)){
-                return "{ \"username\" : " + "\""+ admin.getName() + "\""+ ", \"type\" : \"administrador\"}";
-            }  else return "{ \"username\" : null, \"type\" : null, \"balance\" : null}";
+            if (admin.getPassword().equals(pass))
+                return Logs.buildJSON("username", admin.getName(), "type", "administrador");
+            else 
+                return Logs.buildJSON("username", "null", "type", "null", "balance", "null");
         }
 
-        return "{ \"username\" : null, \"type\" : null }";
+        return Logs.buildJSON("username", "null", "type", "null");
 
     }
 
@@ -145,10 +149,10 @@ public class UserService implements IUserService {
 
                 for(GamesInOneBet giob : g){
                     JSONObject gameInfo = new JSONObject(); // JSONObject que contém informação sobre o jogo
-                    gameInfo.put("type", giob.getGame().getSport()); //eles querem "type : team" e não o sport                     -- WARNING! --
-                    String name = giob.getGame().getParticipants().replace(";", " vs "); //verificar como é que eles querem        -- WARNING! --
+                    gameInfo.put("type", giob.getGame().getSport());
+                    String name = giob.getGame().getParticipants().replace(";", " vs ");
                     gameInfo.put("name", name);
-                    gameInfo.put("winner", giob.getDescription()); //vamos ter de guardar na bet ou no jogo o vencedor             -- WARNING! --
+                    gameInfo.put("winner", giob.getDescription());
 
                     games.put(gameInfo);
                 }
@@ -303,6 +307,8 @@ public class UserService implements IUserService {
         //verificar se o jogo já está a ser seguido
         Set<User_follows_game> followed_games = u.getFollowingGames();
         for(User_follows_game user_follows_game : followed_games){
+            System.out.println(g.toString());
+            System.out.println(user_follows_game.getGame().toString());
             if(user_follows_game.getGame().equals(g)){
                 return "{ \"state\" : \"denied\" }";
             }
@@ -310,14 +316,10 @@ public class UserService implements IUserService {
 
         User_follows_game ufg = new User_follows_game(u, g);
 
-        g.registerObserver(u);
-        u.addFollowingGame(ufg);
-
+        g.registerObserver(ufg);
         gameRepo.save(g);
-        userRepo.save(u);
-        user_follows_game_Repo.save(ufg);
 
-        return "{ state : confirmed }";
+        return "{ \"state\" : \"confirmed\" }";
     }
     
     public String unfollowGame(String email, int id_game){
@@ -328,7 +330,9 @@ public class UserService implements IUserService {
 
         //verificar se o jogo já está a ser seguido
         Set<User_follows_game> followed_games = u.getFollowingGames();
-        for(User_follows_game user_follows_game : followed_games){
+        List<User_follows_game> list_followed_games = new ArrayList<>(followed_games);
+
+        for(User_follows_game user_follows_game : list_followed_games){
             if(user_follows_game.getGame().equals(g)){
                 g.removeObserver(u);
                 u.deleteFollowingGame(user_follows_game);
@@ -336,10 +340,11 @@ public class UserService implements IUserService {
                 gameRepo.save(g);
                 userRepo.save(u);
                 user_follows_game_Repo.deleteById(user_follows_game.getId());
+                return "{ \"state\" : \"confirmed\" }";
             }
         }
 
-        return "{ state : denied }";
+        return "{ \"state\" : \"denied\" }";
     }
 
 
