@@ -11,4 +11,6 @@ public interface IUserService {
     public String getCode(String email);
     public String getTransactionHistory(String email);
     public String recoverPassword(String email);
+    public String followGame(String email, int id_game);
+    public String unfollowGame(String email, int id_game);
 }

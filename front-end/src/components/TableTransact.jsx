@@ -1,7 +1,4 @@
-import { useState } from "react";
-import goBack from "../images/goBack.png"
-import BetHistoryBox from './BetHistoryBox'
-import { useEffect } from 'react'
+
 
 export default function TableTransact(props){
 
@@ -53,24 +50,3 @@ export default function TableTransact(props){
         </div> 
     )
 }
-/*
-<table class="ftTable">
-              <tr className="fttablehead">
-                <th>Data</th>
-                <th>Descrição</th>
-                <th>Operação</th>
-                <th>Saldo Após Transação</th>
-              </tr>
-            
-            {data.map((val, key) => {
-              return (
-                <tr key={key}>
-                  <td>{val.date}</td>
-                  <td>{val.description}</td>
-                  <td>{val.operation}</td>
-                  <td>{val.balance}</td>
-                </tr>
-              )
-            })}
-          </table>
-*/

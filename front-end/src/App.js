@@ -20,7 +20,8 @@ import './styles/RecoverDark.css'
 import './styles/ChangeGameExpertDark.css'
 
 
-
+import "./i18n";
+import { useTranslation } from "react-i18next";
 
 
 import {useState} from 'react'
@@ -41,9 +42,12 @@ import Recover from './pages/Recover'
 import ShowGamesExpert from './pages/ShowGamesExpert'
 import ChangeGameExpert from './pages/ChangeGameExpert'
 import Error from './pages/Error'
+import FollowPage from './pages/FollowPage'
+
 
 
 function App() {
+	const { t, i18n } = useTranslation();
 
   const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
@@ -98,6 +102,8 @@ function App() {
       <Routes>
         <Route path="/" element={
           <Login
+            t={t}
+            i18n={i18n}
             setUsername={setUsername}
             setBalance={setBalance}
             setEmail={setEmail}
@@ -109,15 +115,16 @@ function App() {
 
         <Route path="/Register" element={
           <Register
+            t={t}
             dark={dark}
           />
         }/>
 
         <Route path="/Recover" element={
-          <Recover dark={dark}></Recover>
+          <Recover t={t} dark={dark}></Recover>
         }/>
         
-        { typeUser == 'better' &&
+        { typeUser === 'better' &&
           <Route path="/Home" element={
             <Home
               username={username}
@@ -130,7 +137,7 @@ function App() {
           } />
         }
 
-        { typeUser == 'better' &&
+        { typeUser === 'better' &&
 
           <Route path="/Profile" element={
             <Profile
@@ -144,7 +151,18 @@ function App() {
           } />
         }
 
-        { typeUser == 'expert' &&
+        { typeUser === 'better' &&
+
+          <Route path="/FollowPage" element={
+            <FollowPage
+              username={username}
+              games= {games}
+              dark={dark}
+            />
+          } />
+        }
+
+        { typeUser === 'expert' &&
           <Route path="/HomeExpert" element={
             <HomeExpert
               username={username}
@@ -155,7 +173,7 @@ function App() {
           } />
         }
 
-        { typeUser == 'admin' &&
+        { typeUser === 'admin' &&
           <Route path="/AddExpert" element={
             <AddExpert
               username={username}
@@ -164,7 +182,7 @@ function App() {
           } />
         }
 
-        { typeUser == 'admin' &&
+        { typeUser === 'admin' &&
           <Route path="/HomeAdmin" element={
             <HomeAdmin
               username={username}
@@ -173,7 +191,7 @@ function App() {
           } />
         }
 
-        { typeUser == 'expert' &&
+        { typeUser === 'expert' &&
           <Route path="/AddGame" element={
             <AddGame
               username={username}
@@ -184,7 +202,7 @@ function App() {
           } />
         }
 
-        { typeUser == 'admin' &&
+        { typeUser === 'admin' &&
           <Route path="/ShowExperts" element={
             <ShowExperts
               username={username}
@@ -193,7 +211,7 @@ function App() {
           }/>
         }
 
-        { typeUser == 'expert' &&
+        { typeUser === 'expert' &&
           <Route path="/ShowGamesExpert" element={
             <ShowGamesExpert
               username={username}
@@ -203,7 +221,7 @@ function App() {
           }/>
         }
 
-        { typeUser == 'expert' &&
+        { typeUser === 'expert' &&
           <Route path="/ChangeGameExpert" element={
             <ChangeGameExpert
               username={username}
@@ -215,7 +233,7 @@ function App() {
           }/>
         }
 
-        { typeUser == 'expert' &&
+        { typeUser === 'expert' &&
           <Route path="/ProfileExpert" element={
             <ProfileExpert
               username={username}

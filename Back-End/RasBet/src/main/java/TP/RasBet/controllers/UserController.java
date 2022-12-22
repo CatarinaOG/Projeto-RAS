@@ -89,4 +89,17 @@ public class UserController {
         return userService.recoverPassword((String) j.get("email_user"));
     }
 
+    @PostMapping(value = "/follow_game")
+    public String followGame(@RequestBody String req){
+        JSONObject j = new JSONObject(req);
+        return userService.followGame((String) j.get("email"), Integer.parseInt((String) j.get("id_game")));
+    }
+
+    @PostMapping(value = "/unfollow_game")
+    public String unfollowGame(@RequestBody String req){
+        JSONObject j = new JSONObject(req);
+        return userService.unfollowGame((String) j.get("email"), Integer.parseInt((String) j.get("id_game")));
+    }
+    
+
 }

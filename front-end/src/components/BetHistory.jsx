@@ -69,7 +69,7 @@ const fullbetHist = () => (
           <BetHistoryBox bet={item.bet} ammount={item.amount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
         );
       }
-      else if (simpleState === "active" && item.bet.length==1){
+      else if (simpleState === "active" && item.bet.length===1){
         
         return (
           <BetHistoryBox bet={item.bet} ammount={item.amount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
@@ -95,7 +95,7 @@ const fullbetHist = () => (
           <div className="buttonHistoryDiv">
             <button className={ simpleState ==='inactive' ? `ftsimpleBet${dark}` : "ftsimpleBetSelected"} onClick={changeSimpleState}>Simples</button>
             <button className={ multipleState ==='inactive' ? `ftmultipleBet${dark}` : "ftmultipleBetSelected"} onClick={changeMultState}>Múltiplas</button>
-            <img onClick={goToData} src = {goBack} className={`ftgoBack${dark}`}/>
+            <img onClick={goToData} src = {goBack} className={`ftgoBack${dark}`} alt =""/>
             <h4 className={`ftTotalGains${dark}`}>Gastos Totais/Ganhos totais:   {amount} / {winnings}</h4>
             <button  className='ftChangeToTransact' onClick={changeToTransact} > {'>'} </button>
           </div>
@@ -115,7 +115,7 @@ const fullbetHist = () => (
        {typeData === 'Transact' &&
        <div>
         <div className="buttonHistoryDiv">
-          <img onClick={goToDataToBet} src = {goBack} className={`ftgoBack${dark}`}/>
+          <img onClick={goToDataToBet} src = {goBack} className={`ftgoBack${dark}`} alt=""/>
         </div>
         <TableTransact data={transactHist} dark={dark}></TableTransact>
        </div>

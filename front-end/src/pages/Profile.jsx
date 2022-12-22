@@ -12,9 +12,11 @@ import PopUpCodeConfirm from '../components/PopUpCodeConfirm'
 
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useNavigate } from "react-router-dom"
 
 
 export default function Profile(props){
+	let navigate = useNavigate();
 
     
     const {username,setUsername,setBalance,balance,email,dark} = props
@@ -52,7 +54,9 @@ export default function Profile(props){
   },[])  
       
     
-  
+    function goToFollow(){
+        navigate('/FollowPage', { replace: true })
+    }
 
 
     return(
@@ -88,7 +92,7 @@ export default function Profile(props){
                     }
                 </div>
             </div>
-            {(showPopUp == 'deposit' || showPopUp=='transfer') && 
+            {(showPopUp === 'deposit' || showPopUp==='transfer') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpOperation 
@@ -100,19 +104,19 @@ export default function Profile(props){
                     />
                 </div>
             }
-            {(showPopUp == 'changeSec') && 
+            {(showPopUp === 'changeSec') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email} setSafeCode={setSafeCode} safeCode={safeCode} dark={dark}/>
                 </div>
             }
-            {(showPopUp == 'confirm') && 
+            {(showPopUp === 'confirm') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
                     <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} safeCode={safeCode} dark={dark}/>
                 </div>
             }
-            
+            <button onClick={goToFollow}> Followsss</button>
 
         </div>    
     )

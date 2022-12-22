@@ -1,0 +1,26 @@
+
+{
+    "inputLoginWelcome.label":"Bem-Vindo",
+    "inputLoginForgotPass.label":"Esqueci-me da palavra-passe",
+    "inputLoginAccess.label":"Aceder",
+    "inputLoginNoAcc.label":"Não tem conta?",
+    "inputLoginRegNow.label":"Registe-se já!",
+    "inputLoginErr2.label":"Email ou password incorretos",
+    "inputLoginErr1.label":"Dados incompletos",
+
+    "retirevePassInsert.label":"Inserir Email",
+    "retirevePassSend.label":"Enviar",
+
+    "retrievePassM1.label":"Email enviado",
+    "retrievePassM2.label":"Email não existe",
+    "retrievePassM3.label":"Inserir um Email",
+
+    "regAccountHead.label":"Registo",
+    "regAccountButton.label":"Concluir",
+    "regAccountPlaceName.label":"Nome",
+    "regAccountPlacePass.label":"Palavra-pass",
+    "regAccountPlaceBirth.label":"Birth date",
+    "regAccountPlacePhone.label":"Telefone",
+    "regAccountPlaceAddr.label":"Morada"
+
+}

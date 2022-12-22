@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,23 @@ public class AppService implements IAppService {
     @Autowired
     private GamesInOneBetRepo gamesInOneBetRepo;
 
-    public JSONObject getGames(){
+    @Autowired
+    private User_follows_game_Repo user_follows_game_Repo;
+
+    private Boolean isGameFollowed(Game game, String email){
+        Set<User_follows_game> follows_games = userRepo.findUserByEmail(email).get().getFollowingGames();
+
+        for(User_follows_game ufg : follows_games){
+            Game g = ufg.getGame();
+            if(g.equals(game)){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    public JSONObject getGames(String email){
         List<Game> games = gameRepo.findAll();
         JSONArray jogos = new JSONArray();
         for(Game g : games){
@@ -86,6 +103,10 @@ public class AppService implements IAppService {
                 }
                 else j.put("active", "true");
 
+                if(isGameFollowed(g, email)){
+                    j.put("following", "true");
+                }
+                else j.put("following", "false");
 
                 jogos.put(j);
             }
@@ -98,7 +119,7 @@ public class AppService implements IAppService {
         return tmp;
     }
 
-    public String placeBet(JSONObject betslipForm){//BetslipForm betslipForm){
+    public String placeBet(JSONObject betslipForm){
         
         // obter todos os jogos relacionados com as Odds das bets
         //List<BetForm> bets = betslipForm.getBets();
@@ -142,9 +163,17 @@ public class AppService implements IAppService {
             for(int i = 0; i < bets.length(); i++){
                 Odd o = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
                 GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
+                Game this_game = o.getGame();
+
+                User_follows_game ufg = new User_follows_game(u, this_game);
+                
                 giob.setBet(b);
-                giob.setGame(o.getGame());
+                giob.setGame(this_game);
                 gamesInOneBetRepo.save(giob);
+
+                this_game.registerObserver(ufg);
+                u.addFollowingGame(ufg);
+                gameRepo.save(this_game);
             }
             userRepo.save(u);
             
@@ -173,12 +202,17 @@ public class AppService implements IAppService {
             for(int i = 0; i < betList.size(); i++){
                 Bet b = betList.get(i);
                 Odd o = oddList.get(i);
-
+                Game this_game = o.getGame();
                 betRepo.save(b);
                 GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
                 giob.setBet(b);
-                giob.setGame(o.getGame());
+                giob.setGame(this_game);
                 gamesInOneBetRepo.save(giob);
+                User_follows_game ufg = new User_follows_game(u, this_game);
+
+                this_game.registerObserver(ufg);
+                u.addFollowingGame(ufg);
+                gameRepo.save(this_game);
             }
             userRepo.save(u);
             
@@ -196,6 +230,7 @@ public class AppService implements IAppService {
         Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
         o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
         oddRepo.save(o);
+        o.getGame().notifyObservers();
 
         return "{\"confirmed\" : \"true\"}";
     }
@@ -266,7 +301,6 @@ public class AppService implements IAppService {
                     g.setState("Suspended");
                     gameRepo.save(g);
                 }
-
         }
 
         List<Bet> bets = betRepo.findAll();
@@ -283,7 +317,7 @@ public class AppService implements IAppService {
                 b.setState("Closed");
                 //verificar se as apostas ganharam todas
                 if(check_results(gamesInBet)){
-                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won" + b.getWinnings(), "Bet closed");
+                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won " + b.getWinnings() + "€!", "Bet closed");
                     User u = b.getUser();
                     u.setWallet(u.getWallet() + b.getWinnings());
                     userRepo.save(u);

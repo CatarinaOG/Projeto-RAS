@@ -4,12 +4,13 @@ import celebrating from '../images/celebrating.png'
 
 export function RegisterPage(props){
 
-	const {dark} = props
+	const {t,dark} = props
 
     return(
 		<div className={`page${dark}`}>
 			<div className={`mainLog${dark}`}>
-					<RegAccount 
+					<RegAccount
+						t = {t}
 						dark={dark}	 
 					/>
 				<div className='logImage'>

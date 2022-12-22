@@ -32,6 +32,22 @@
 
 }
 
+.ftBritLogoDark{
+    width: 14.4%;
+    position: absolute;
+    left: 67%;
+    top: -1%;
+    filter: invert(100%);
+}
+
+.ftPortLogoDark{
+    width: 11%;
+    position: absolute;
+    left: 58%;
+    top: 0.5%;
+    filter: invert(100%);
+
+}
 
 /*------ InputsLogIn Texts ------*/
 
