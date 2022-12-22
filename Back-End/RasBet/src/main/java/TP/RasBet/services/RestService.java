@@ -58,11 +58,10 @@ public class RestService implements IRestService {
                 || ts.equals(g.getDate())){
                     jogo_existe = true;
                     if(!j.get("scores").toString().equals("null") &&  g.getScore() == null){
-                        g.setScore((String)j.get("scores")); //atualizar o resultado do jogo
+                        g.setScore((String)j.get("scores")); //atuf(!g.getState().equalizar o resultado do jogo
                         g.setState("Over"); //fechar o jogo;
                         gameRepo.save(g);
                     }
-
                 }
             }
             

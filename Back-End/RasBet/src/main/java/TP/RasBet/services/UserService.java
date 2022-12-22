@@ -120,13 +120,9 @@ public class UserService implements IUserService {
         }
 
         User u = userRepo.findUserByEmail(email).get();
-        
         List<Bet> betList = u.getBets();
-
         JSONObject response = new JSONObject(); // json de fora
-
-        JSONArray betHistory = new JSONArray(); //JSONArray que contém as bets todas
-
+        JSONArray betHistory = new JSONArray(); //JSONArray que contém as bets toda
         float win = 0.0f, loss = 0.0f;
 
         for(Bet b : betList){

@@ -119,7 +119,7 @@ public class AppService implements IAppService {
         return tmp;
     }
 
-    public String placeBet(JSONObject betslipForm){//BetslipForm betslipForm){
+    public String placeBet(JSONObject betslipForm){
         
         // obter todos os jogos relacionados com as Odds das bets
         //List<BetForm> bets = betslipForm.getBets();
@@ -317,7 +317,7 @@ public class AppService implements IAppService {
                 b.setState("Closed");
                 //verificar se as apostas ganharam todas
                 if(check_results(gamesInBet)){
-                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won" + b.getWinnings(), "Bet closed");
+                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won " + b.getWinnings() + "€!", "Bet closed");
                     User u = b.getUser();
                     u.setWallet(u.getWallet() + b.getWinnings());
                     userRepo.save(u);
