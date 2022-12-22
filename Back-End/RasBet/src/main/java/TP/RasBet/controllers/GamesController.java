@@ -18,7 +18,7 @@ public class GamesController {
     @Autowired
     private AppService appService; 
     
-    @GetMapping("/")
+    @PostMapping("/")
     public String getGames(@RequestBody String email){
         JSONObject j = new JSONObject(email);
         return appService.getGames((String) j.get("email")).toString();
