@@ -1,5 +1,9 @@
+import { useState } from 'react'
+
 import BetBoxMotoGP from './BetBoxMotoGP'
 
+import star from '../images/favorite.png'
+import yellowstar from '../images/star.png'
 
 export default function BetMotoGP(props){
 
@@ -7,6 +11,8 @@ export default function BetMotoGP(props){
     const setSelected = props.setSelected
     const selected = props.selected
     const dark = props.dark
+
+    const [selected2,setSelected2] = useState(false)
 
     // Adicionar bet a lista de selecionadas
     function changeSelected(sport,id,gameId){
@@ -22,6 +28,13 @@ export default function BetMotoGP(props){
     function getIfSelected(id){ 
 
         return (selected.find(bet => bet.id === id)) ? true : false
+    }
+
+    //ativar com a back-end
+    function changeWatching(){
+
+        setSelected2(oldSelected => !oldSelected)
+        
     }
 
     // Criação das caixas de resultado
@@ -58,6 +71,7 @@ export default function BetMotoGP(props){
                 <div className="resultsMotoGP">
                     {resultsBoxes}
                 </div>
+                <img src={ selected2 ? yellowstar : star} className='star' onClick={changeWatching}/>
             </div>
         )
     }

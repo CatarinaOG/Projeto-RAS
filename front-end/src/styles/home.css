@@ -180,9 +180,9 @@ button:hover {
 
 .star {
     position: absolute;
-    top: 1.5vh;
+    top: 0.5vh;
+    left: 0.3vw;
     height: 20px;
-    z-index: 4;
 }
 
 
