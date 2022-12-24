@@ -1,8 +1,8 @@
 .fttrash{
     width: 3%;
-    position: relative;
-    display: inline-flex;
-
+    position: absolute;
+    left: 50vw;
+    top: 5vh;
 }
 
 .betFollow{
