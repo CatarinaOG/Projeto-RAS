@@ -19,6 +19,10 @@ import './styles/AddGameDark.css'
 import './styles/RecoverDark.css'
 import './styles/ChangeGameExpertDark.css'
 
+import './styles/FollowPage.css'
+import './styles/FollowPageDark.css'
+
+
 
 import "./i18n";
 import { useTranslation } from "react-i18next";
@@ -62,15 +66,19 @@ function App() {
 
 
   //--------------- Get Games -----------------
+  const user = {
+    email : "bbb@gmail.com"
+  }
 
   useEffect(() => {
       const interval = setInterval(() => {
         fetch('http://127.0.0.1:8080/api/games/', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-      })
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user)
+        })
       .then(response => response.json())
       .then(data => {
           if(data.games){
@@ -150,7 +158,7 @@ function App() {
             />
           } />
         }
-
+        
         { typeUser === 'better' &&
 
           <Route path="/FollowPage" element={
@@ -161,7 +169,7 @@ function App() {
             />
           } />
         }
-
+  
         { typeUser === 'expert' &&
           <Route path="/HomeExpert" element={
             <HomeExpert

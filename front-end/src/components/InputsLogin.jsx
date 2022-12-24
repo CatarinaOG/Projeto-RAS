@@ -48,7 +48,7 @@ export default function InputsLogin(props) {
 	
 	function handleSubmit(event){
 		event.preventDefault()
-
+		console.log(formData)
 		if(formData.email!=="" && formData.password!==""){
 			fetch('http://127.0.0.1:8080/api/users/login', {
 				method: 'POST',

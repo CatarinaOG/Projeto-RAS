@@ -1,0 +1,56 @@
+.fttrash{
+    width: 3%;
+    position: relative;
+    display: inline-flex;
+
+}
+
+.betFollow{
+    width: 48vw;
+    height: 110px;
+    border: 2px solid #18340C;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    display: inline-flex;
+    font-family: 'Spinnaker';
+    position: relative;
+}
+
+.betFollowTrash{
+    position: relative;
+    
+}
+
+.betFollowMotoGP{
+    width: 48vw;
+    height: 55vh;
+    border: 2px solid #18340C;
+    border-radius: 10px;
+    margin: 10px 0px 0px 12px;
+    position: relative;
+
+}
+
+.resultBoxFollowMotoGP{
+    font-family: 'Spinnaker';
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    padding: 7px 7px 7px 7px;
+    border: 1px solid black;
+    position: relative;
+
+}
+
+.resultsFollowMotoGP{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 0vw;
+    row-gap: 1em; 
+    width: 51vw;
+    font-size: 13px;
+    margin-left: 10px;
+}

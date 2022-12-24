@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
-import BetFollowBox from "../components/BetFollowBox";
+import BetFollowDiv from "../components/BetFollowDiv";
 
 import '../styles/FollowBack.css'
-
 
 export default function FollowPage(props){
 
@@ -17,31 +16,18 @@ export default function FollowPage(props){
     const allGames = games.map( game => {
 
         //if(game.following==='true'){
-            
-            return(<BetFollowBox game={game} dark={dark}></BetFollowBox>)
-        //}
-        /*
-        if(getInEnglish(game.sport) === 'motoGP'){
-          return(
-            <div className="gameExpert">
-              <div>
-                <img src={podio} className='podioImg' onClick={handleEnd}/>
-                <p>{game.name}</p>
-              </div>
-            </div>
-          )
+        if(game.sport==="futebol"){
+          return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
         }
-        else{
-          return(
-            <div className="gameExpert">
-              <div>
-                <img src={podio} className='podioImg' onClick={handleEnd}/>
-                <p>{game.home} vs {game.away}</p>
-              </div>
-            </div>
-          )
+        if(game.sport==="tenis"){
+          return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+        }      
+        if(game.sport==="motoGP"){
+          console.log("AAAAA")
+          return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+
         }
-        */
+        
         }
       )
 
