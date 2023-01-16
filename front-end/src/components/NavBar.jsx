@@ -2,12 +2,14 @@
 import logo from '../images/logo.png'
 import Link from '../components/Link'
 
+import { myContext } from '../context';
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
 
 export default function NavBar(props){
 
-    const {user,filter,userType,setFilter,dark} = props
-
+    const {filter,userType,setFilter,dark} = props
+    const { username } = useContext(myContext)
 
 
     let navigate = useNavigate();
@@ -54,7 +56,7 @@ export default function NavBar(props){
                         dark={dark}
                         />
                 </div>
-            <h3 className='welcomeUser' onClick={goToProfile}> Welcome, {user} </h3>
+            <h3 className='welcomeUser' onClick={goToProfile}> Welcome, {username} </h3>
         </div>
 
 

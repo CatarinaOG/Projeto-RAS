@@ -9,47 +9,11 @@ import podio from '../images/podio.png'
 
 export default function ShowExperts(props){
 
-    const {username,setExpertGame,dark} = props
+    const {setExpertGame,dark} = props
 
     let navigate = useNavigate()
     
-    const [expertGames,setExpertGames] = useState([/*
-      {
-        id: 2,
-        sport: "futebol",
-        home: "espanha",
-        away: "portugal",
-      },
-      {
-        id: 3,
-        sport: "motoGP",
-        name: "Finals2",
-        participants: [
-          'Bernardo1',
-          'Bernardo2',
-          'Bernardo3',
-          'Bernardo4',
-          'Bernardo5',
-          'Bernardo6',
-          'Bernardo7',
-          'Bernardo8',
-          'Bernardo9',
-          'Bernardo10',
-          'Bernardo11',
-          'Bernardo12',
-          'Bernardo13',
-          'Bernardo14',
-          'Bernardo15',
-          'Bernardo16',
-          'Bernardo17',
-          'Bernardo18',
-          'Bernardo19',
-          'Bernardo20',
-          'Bernardo21',
-          'Bernardo22'
-        ]
-      }
-    */])
+    const [expertGames,setExpertGames] = useState([])
 
     useEffect( () => {
 
@@ -118,7 +82,6 @@ export default function ShowExperts(props){
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile 
-                username={username}
                 dark={dark}
             />
             <div className={`ftwhiteShadow${dark}`}>

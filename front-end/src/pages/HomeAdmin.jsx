@@ -6,12 +6,15 @@ import NavBarProfile from "../components/NavBarProfile"
 import consultExpert from "../images/consultExpert.png"
 import addExpert from "../images/addExpert.png"
 import logoutImg from "../images/logout.png"
+import { useContext } from "react"
+import { myContext } from "../context"
 
 
 
 export default function HomeAdmin(props){
 
-    const {username,dark} = props
+    const {dark} = props
+    const {username} = useContext(myContext)
 
     let navigate = useNavigate()
 
@@ -34,7 +37,6 @@ export default function HomeAdmin(props){
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile
-                username={username}
                 dark={dark}
             />
             <div className={`whiteShadow${dark}`}>

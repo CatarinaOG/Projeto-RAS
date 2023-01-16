@@ -1,9 +1,12 @@
 
+import { useContext } from 'react'
+import { myContext } from '../context'
 import logo from '../images/logo.png'
 
 export default function NavBarProfile(props){
     
-    const {username,dark} = props
+    const {dark} = props
+    const {username} = useContext(myContext)
 
     return (
         <div className={`NavBar${dark}`}>

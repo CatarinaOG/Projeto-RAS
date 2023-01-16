@@ -24,12 +24,12 @@ import './styles/FollowPageDark.css'
 
 
 
-import {useState,useEffect, createContext} from 'react'
+import {useState,useEffect} from 'react'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import {CookiesProvider} from 'react-cookie'
 import {Cookies} from 'react-cookie'
 
-
+import { myContext } from './context'
 
 import Home from './pages/Home'
 import Profile from './pages/Profile'
@@ -54,7 +54,6 @@ function App() {
   const cookies = new Cookies()
 
   const [balance,setBalance] = useState()
-
   const [username,setUsername] = useState(cookies.get("username"))
   const [email,setEmail] = useState(cookies.get("email"))
   const [typeUser,setTypeUser] = useState(cookies.get("typeuser"))
@@ -80,167 +79,150 @@ function App() {
   }
 
 
-  const balanceContext = createContext(balance);
-
-
   //-----------------------------------------
 
   return(
-    <CookiesProvider>
-      
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={
-              <Login
-                setUsername={setUsername}
-                setEmail={setEmail}
-                setTypeUser={setTypeUser}
-                setBalance={setBalance}
-                dark={dark}
-                switchDark={switchDark}
-              />
-            } />
-
-            <Route path="/Register" element={
-              <Register
-                dark={dark}
-              />
-            }/>
-
-            <Route path="/Recover" element={
-              <Recover 
-                dark={dark}>
-              </Recover>
-            }/>
-            
-            { typeUser === 'better' &&
-              <Route path="/Home" element={
-                <Home
-                  username={username}
-                  email={email}
-                  setBalance={setBalance}
-                  setGames={setGames}
-                  dark={dark}
-                />
-              } />
-            }
-
-            { typeUser === 'better' &&
-
-              <Route path="/Profile" element={
-                <Profile
-                  username={username}
+    <myContext.Provider value={ {username} }>
+      <CookiesProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={
+                <Login
                   setUsername={setUsername}
+                  setEmail={setEmail}
+                  setTypeUser={setTypeUser}
                   setBalance={setBalance}
-                  balance={balance}
-                  email={email}
                   dark={dark}
+                  switchDark={switchDark}
                 />
               } />
-            }
-            
-            { typeUser === 'better' &&
 
-              <Route path="/FollowPage" element={
-                <FollowPage
-                  username={username}
-                  games= {games}
-                  dark={dark}
-                />
-              } />
-            }
-      
-            { typeUser === 'expert' &&
-              <Route path="/HomeExpert" element={
-                <HomeExpert
-                  username={username}
-                  games={games}
-                  setGames={setGames}
-                  dark={dark}
-                />
-              } />
-            }
-
-            { typeUser === 'admin' &&
-              <Route path="/AddExpert" element={
-                <AddExpert
-                  username={username}
-                  dark={dark}
-                />
-              } />
-            }
-
-            { typeUser === 'admin' &&
-              <Route path="/HomeAdmin" element={
-                <HomeAdmin
-                  username={username}
-                  dark={dark}
-                />
-              } />
-            }
-
-            { typeUser === 'expert' &&
-              <Route path="/AddGame" element={
-                <AddGame
-                  username={username}
-                  email={email}
-                  setGames={setGames}
-                  dark={dark}
-                />
-              } />
-            }
-
-            { typeUser === 'admin' &&
-              <Route path="/ShowExperts" element={
-                <ShowExperts
-                  username={username}
+              <Route path="/Register" element={
+                <Register
                   dark={dark}
                 />
               }/>
-            }
 
-            { typeUser === 'expert' &&
-              <Route path="/ShowGamesExpert" element={
-                <ShowGamesExpert
-                  username={username}
-                  setExpertGame={setExpertGame}
-                  dark={dark}
-                />
+              <Route path="/Recover" element={
+                <Recover 
+                  dark={dark}>
+                </Recover>
               }/>
-            }
+              
+              { typeUser === 'better' &&
+                <Route path="/Home" element={
+                  <Home
+                    email={email}
+                    setBalance={setBalance}
+                    setGames={setGames}
+                    dark={dark}
+                  />
+                } />
+              }
 
-            { typeUser === 'expert' &&
-              <Route path="/ChangeGameExpert" element={
-                <ChangeGameExpert
-                  username={username}
-                  expertGame={expertGame}
-                  setExpertGame={setExpertGame}
-                  setGames={setGames}
-                  dark={dark}
-                />
-              }/>
-            }
+              { typeUser === 'better' &&
 
-            { typeUser === 'expert' &&
-              <Route path="/ProfileExpert" element={
-                <ProfileExpert
-                  username={username}
-                  dark={dark}
-                />
-              }/>
-            }
+                <Route path="/Profile" element={
+                  <Profile
+                    setUsername={setUsername}
+                    setBalance={setBalance}
+                    balance={balance}
+                    email={email}
+                    dark={dark}
+                  />
+                } />
+              }
+              
+              { typeUser === 'better' &&
 
-            <Route
-              path="*"
-              element={<Error />}
-            />
-          
+                <Route path="/FollowPage" element={
+                  <FollowPage
+                    games= {games}
+                    dark={dark}
+                  />
+                } />
+              }
+        
+              { typeUser === 'expert' &&
+                <Route path="/HomeExpert" element={
+                  <HomeExpert
+                    games={games}
+                    setGames={setGames}
+                    dark={dark}
+                  />
+                } />
+              }
 
-          </Routes>
-      </BrowserRouter>
-    
+              { typeUser === 'admin' &&
+                <Route path="/AddExpert" element={
+                  <AddExpert
+                    dark={dark}
+                  />
+                } />
+              }
 
-  </CookiesProvider>
+              { typeUser === 'admin' &&
+                <Route path="/HomeAdmin" element={
+                  <HomeAdmin
+                    dark={dark}
+                  />
+                } />
+              }
+
+              { typeUser === 'expert' &&
+                <Route path="/AddGame" element={
+                  <AddGame
+                    email={email}
+                    setGames={setGames}
+                    dark={dark}
+                  />
+                } />
+              }
+
+              { typeUser === 'admin' &&
+                <Route path="/ShowExperts" element={
+                  <ShowExperts
+                    dark={dark}
+                  />
+                }/>
+              }
+
+              { typeUser === 'expert' &&
+                <Route path="/ShowGamesExpert" element={
+                  <ShowGamesExpert
+                    setExpertGame={setExpertGame}
+                    dark={dark}
+                  />
+                }/>
+              }
+
+              { typeUser === 'expert' &&
+                <Route path="/ChangeGameExpert" element={
+                  <ChangeGameExpert
+                    expertGame={expertGame}
+                    setExpertGame={setExpertGame}
+                    setGames={setGames}
+                    dark={dark}
+                  />
+                }/>
+              }
+
+              { typeUser === 'expert' &&
+                <Route path="/ProfileExpert" element={
+                  <ProfileExpert
+                    dark={dark}
+                  />
+                }/>
+              }
+
+              <Route
+                path="*"
+                element={<Error />}
+              />
+            </Routes>
+        </BrowserRouter>
+    </CookiesProvider>
+  </myContext.Provider>
 
   )
 }
