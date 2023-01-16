@@ -1,6 +1,7 @@
 
-import {useState} from 'react'
+import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { Cookies } from 'react-cookie'
 
 import goBackImg from "../images/goBack.png"
 
@@ -42,6 +43,7 @@ export default function ChangeData(props){
     function handleSubmit(event){
         event.preventDefault();
         setSuccess(0)
+
 		if(formData.firstName!="" || formData.phone_num!="" || formData.newAdd!="" || formData.password!="" ){
 			fetch('http://127.0.0.1:8080/api/users/change_profile', {
 				method: 'POST',
@@ -77,18 +79,20 @@ export default function ChangeData(props){
     }
 
     function logOut(){
+        const cookies = new Cookies()
+        cookies.remove('email')
+		cookies.remove('username')
+        cookies.remove('typeuser')
         navigate('/', { replace: true })
     }
 
     //carrega o PopUp que pede o email ao utilizador para enviar o código de confirmaçao
     function loadPopEmail(){
         setShowPopUp('changeSec');
-
     }
- 
+
     function cancelBut(){
         setSec(0);
-
     }
 
     function goToFollow(){
@@ -112,28 +116,21 @@ export default function ChangeData(props){
             {sec === 0 && 
             <div>
                     <h4 className={`hName${dark}`}> Nome : </h4>
-                
                     <input className= {`ftinputName${dark}`} onChange={handleChange} type = "text" placeholder={props.userN} name="name" value = {formData.name}></input>
-                        
                     <button  className={`ftConfirm${dark}`}> Confirm</button>
             </div>
             }
             {sec === 1 && 
             <div>
-                    <h4 className={`fthPhoneNum${dark}`}> Número de telemovel : </h4>
-                
-                    <input className= {`ftPhoneChange${dark}`} onChange={handleChange} type = "number" placeholder="Phone" name="phone_num" value = {formData.phone_num}></input>
+                <h4 className={`fthPhoneNum${dark}`}> Número de telemovel : </h4>
+                <input className= {`ftPhoneChange${dark}`} onChange={handleChange} type = "number" placeholder="Phone" name="phone_num" value = {formData.phone_num}></input>
+                <h4 className={`fthPass${dark}`}> Password : </h4>
+            
+                <input className= {`ftPasswordChange${dark}`} onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
+                <h4 className={`fthAddress${dark}`}> Alterar Morada : </h4>
+                <input className= {`ftAddrChange${dark}`} onChange={handleChange} type = "text" placeholder="Morada" name="add" value = {formData.add}></input>
 
-                    <h4 className={`fthPass${dark}`}> Password : </h4>
-                
-                    <input className= {`ftPasswordChange${dark}`} onChange={handleChange} type = "password" placeholder="Password" name="password" value = {formData.password}></input>
-                        
-                    <h4 className={`fthAddress${dark}`}> Alterar Morada : </h4>
-                
-                    <input className= {`ftAddrChange${dark}`} onChange={handleChange} type = "text" placeholder="Morada" name="add" value = {formData.add}></input>
-
-                    
-                    <button  className={`ftConfirm${dark}`}> Confirm</button>
+                <button  className={`ftConfirm${dark}`}> Confirm</button>
             </div>}
             </form>
             {sec === 0 && <button className={`ftChangeSec${dark}`} onClick={loadPopEmail}> Mudar Dados Seguros</button>} 

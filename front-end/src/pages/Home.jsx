@@ -37,7 +37,7 @@ export default function Home(props){
             const user = {
                 email : email
             }
-    
+            
             fetch('http://127.0.0.1:8080/api/games/', {
                 method: 'POST',
                 headers: {

@@ -4,9 +4,9 @@ export default function TableTransact(props){
 
     const {data,dark} = props
 
-      
 
-  /**
+
+/**
    * data irá ser pecorrido de forma a construir cada linha da tabela
    */
 
@@ -33,14 +33,14 @@ export default function TableTransact(props){
                             <table width="700" >
                             {data.map((val, key) => {
                                 return (
-                                  <tr key={key}>
-                                    <td className={`fttd${dark}`} width="400">{val.date}</td>
-                                    <td className={`fttd${dark}`} width="400">{val.description}</td>
-                                    <td className={`fttd${dark}`} width="200">{val.operation}</td>
-                                    <td className={`fttd${dark}`} width="200">{val.balance}</td>
-                                  </tr>
+                                    <tr key={key}>
+                                        <td className={`fttd${dark}`} width="400">{val.date}</td>
+                                        <td className={`fttd${dark}`} width="400">{val.description}</td>
+                                        <td className={`fttd${dark}`} width="200">{val.operation}</td>
+                                        <td className={`fttd${dark}`} width="200">{val.balance}</td>
+                                    </tr>
                                 )
-                              })}
+                            })}
                             </table>
                         </div>
                     </td>

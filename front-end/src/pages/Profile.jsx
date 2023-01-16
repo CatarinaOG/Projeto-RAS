@@ -12,14 +12,11 @@ import PopUpCodeConfirm from '../components/PopUpCodeConfirm'
 
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useNavigate } from "react-router-dom"
 
 
 export default function Profile(props){
-	let navigate = useNavigate();
-
     
-    const {username,setUsername,setBalance,balance,email,dark} = props
+    const {setUsername,username,setBalance,balance,email,dark} = props
 
     const [divChoice,setDivChoice] = useState("Data")
     const [showPopUp,setShowPopUp] = useState("")
@@ -33,13 +30,13 @@ export default function Profile(props){
     useEffect(() => {
         
         fetch('http://127.0.0.1:8080/api/users/bet_history',{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ 
-					email: email
-        	})})
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email
+        })})
         .then(response => response.json())
         .then(data => {
             if(data.betHistory){
