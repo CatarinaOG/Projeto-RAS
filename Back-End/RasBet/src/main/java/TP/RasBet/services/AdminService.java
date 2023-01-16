@@ -8,6 +8,7 @@ import java.util.List;
 import org.json.*;
 import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
+import TP.RasBet.config.Logs;
 
 @Service
 public class AdminService implements IAdminService{
@@ -25,9 +26,9 @@ public class AdminService implements IAdminService{
 
         if(!expertRepo.findExpertByEmail((String)registerForm.get("email")).isPresent()){
             expertRepo.save(expert);
-            return "{\"state\" : \"good\"}";
+            return Logs.returnLogTrue();
         }
-        return "{\"state\" : \"bad\"}";
+        return Logs.returnLogFalse();
     }
 
 
@@ -36,10 +37,10 @@ public class AdminService implements IAdminService{
             Expert e = expertRepo.findById(id).get();
             expertRepo.deleteById(id);
 
-            return "{\"state\" : \"good\"}";
+            return Logs.returnLogTrue();
         }
         else{
-            return "{\"state\" : \"bad\"}";
+            return Logs.returnLogFalse();
         }   
     }
 

@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import javax.persistence.*;
 
 import TP.RasBet.config.AesEncryptor;
+import TP.RasBet.services.EmailSenderService;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Table(name = "user")
-public class User implements Serializable{
+public class User implements Serializable, Observer{
 
     @Id
     @GeneratedValue
@@ -165,6 +166,15 @@ public class User implements Serializable{
     public void deleteFollowingGame(User_follows_game ufg){
         this.followingGames.remove(ufg);
     }
+
+
+    public void update(){
+        EmailSenderService emailSenderService = new EmailSenderService();
+        emailSenderService.updateOdd(email);
+    }
+
+
+
 
     @Override
     public String toString() {

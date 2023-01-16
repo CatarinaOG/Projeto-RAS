@@ -178,9 +178,8 @@ public class Game implements Serializable, Subject{
 
 	@Override
 	public void notifyObservers() {
-        EmailSenderService emailSenderService = new EmailSenderService();
 		for(User_follows_game ufg : this.followingUsers){
-            emailSenderService.sendSimpleEmail(ufg.getUser().getEmail(), "Uma odd foi alterada", "Odd Alterada");
+            ufg.getUser().update();
         }
 	}
 

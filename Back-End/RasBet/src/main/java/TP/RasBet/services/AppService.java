@@ -19,6 +19,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import TP.RasBet.config.Logs;
 
 
 @Service
@@ -119,19 +120,11 @@ public class AppService implements IAppService {
         return tmp;
     }
 
-    public String placeBet(JSONObject betslipForm){
-        
-        // obter todos os jogos relacionados com as Odds das bets
-        //List<BetForm> bets = betslipForm.getBets();
-        JSONArray bets = (JSONArray) betslipForm.get("bets");
-        List<Game> games = new ArrayList<>();
+
+    private String placeBetMultiple(JSONArray bets, List<Game> games, JSONObject betslipForm){
+
         float winnings = 1.0f;
-        List<Bet> betList = new ArrayList<>();
-        List<Odd> oddList = new ArrayList<>();
-
-        if(((String) betslipForm.get("type")).equals("multiple")){
-
-            for(int i = 0; i < bets.length(); i++){
+        for(int i = 0; i < bets.length(); i++){
                 Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
                 games.add(odd.getGame());
                 winnings *= odd.getValue();
@@ -143,11 +136,11 @@ public class AppService implements IAppService {
             float amount = Float.parseFloat(betslipForm.get("multipleAmount").toString());
 
             if(games.size() != games.stream().distinct().count()){
-                return "{\"confirmed\" : \"1\"}";
+                return Logs.returnLogFalse(1) ; //"{"confirmed" : "1"}";
             }
     
             if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < amount){
-                return "{\"confirmed\" : \"2\"}";
+                return Logs.returnLogFalse(2); //"{"confirmed" : "2"}";
             }
     
 
@@ -177,46 +170,65 @@ public class AppService implements IAppService {
             }
             userRepo.save(u);
             
-            return "{\"confirmed\" : \"true\"}";
+            return Logs.returnLogTrue();
+    }
+
+
+    private String placeBetSimple(JSONObject betslipForm, JSONArray bets, List<Game> games, List<Bet> betList, List<Odd> oddList){
+        float totalAmount = 0.0f;
+        User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
+        for(int i = 0; i < bets.length(); i++){
+            float amount = Float.parseFloat(bets.getJSONObject(i).get("amount").toString());
+            Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
+            games.add(odd.getGame());
+            totalAmount += amount;
+            Bet b = new Bet(amount, odd.getValue()*amount, Timestamp.from(Instant.now()), u, "Open", u.getWallet() - totalAmount);
+            betList.add(b);
+            oddList.add(odd);
+        }
+
+        if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < totalAmount){
+            return Logs.returnLogFalse(2);
+        }
+
+        u.setWallet(u.getWallet() - totalAmount);
+
+        for(int i = 0; i < betList.size(); i++){
+            Bet b = betList.get(i);
+            Odd o = oddList.get(i);
+            Game this_game = o.getGame();
+            betRepo.save(b);
+            GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
+            giob.setBet(b);
+            giob.setGame(this_game);
+            gamesInOneBetRepo.save(giob);
+            User_follows_game ufg = new User_follows_game(u, this_game);
+
+            this_game.registerObserver(ufg);
+            u.addFollowingGame(ufg);
+            gameRepo.save(this_game);
+        }
+        userRepo.save(u);
+        
+        return Logs.returnLogTrue();
+    }
+
+
+
+    public String placeBet(JSONObject betslipForm){
+        
+        // obter todos os jogos relacionados com as Odds das bets
+        JSONArray bets = (JSONArray) betslipForm.get("bets");
+        List<Game> games = new ArrayList<>();
+        List<Bet> betList = new ArrayList<>();
+        List<Odd> oddList = new ArrayList<>();
+
+        if(((String) betslipForm.get("type")).equals("multiple")){
+
+            return placeBetMultiple(bets, games, betslipForm);
         }
         else{
-
-            float totalAmount = 0.0f;
-            User u = userRepo.findUserByEmail((String) betslipForm.get("user")).get();
-            for(int i = 0; i < bets.length(); i++){
-                float amount = Float.parseFloat(bets.getJSONObject(i).get("amount").toString());
-                Odd odd = oddRepo.findById((int) bets.getJSONObject(i).get("id")).get();
-                games.add(odd.getGame());
-                totalAmount += amount;
-                Bet b = new Bet(amount, odd.getValue()*amount, Timestamp.from(Instant.now()), u, "Open", u.getWallet() - totalAmount);
-                betList.add(b);
-                oddList.add(odd);
-            }
-    
-            if(userRepo.findUserByEmail((String) betslipForm.get("user")).get().getWallet() < totalAmount){
-                return "{\"confirmed\" : \"2\"}";
-            }
-
-            u.setWallet(u.getWallet() - totalAmount);
-
-            for(int i = 0; i < betList.size(); i++){
-                Bet b = betList.get(i);
-                Odd o = oddList.get(i);
-                Game this_game = o.getGame();
-                betRepo.save(b);
-                GamesInOneBet giob = new GamesInOneBet(o.getValue(), o.getDescription());
-                giob.setBet(b);
-                giob.setGame(this_game);
-                gamesInOneBetRepo.save(giob);
-                User_follows_game ufg = new User_follows_game(u, this_game);
-
-                this_game.registerObserver(ufg);
-                u.addFollowingGame(ufg);
-                gameRepo.save(this_game);
-            }
-            userRepo.save(u);
-            
-            return "{\"confirmed\" : \"true\"}";
+            return placeBetSimple(betslipForm, bets, games, betList, oddList);
         }
     }
 
@@ -224,7 +236,7 @@ public class AppService implements IAppService {
     public String changeOdd(JSONObject oddForm){//OddForm oddForm){
         
         if (!oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).isPresent()){
-            return "{\"confirmed\" : \"false\"}";
+            return Logs.returnLogFalse();
         }
 
         Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
@@ -232,7 +244,7 @@ public class AppService implements IAppService {
         oddRepo.save(o);
         o.getGame().notifyObservers();
 
-        return "{\"confirmed\" : \"true\"}";
+        return Logs.returnLogTrue();
     }
 
     public String insertOdd(JSONObject oddForm){//OddForm oddForm){
@@ -241,10 +253,10 @@ public class AppService implements IAppService {
             Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
             o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
             oddRepo.save(o);
-            return "{\"confirmed\" : \"true\"}";
+            return Logs.returnLogTrue();
         }
 
-        return "{\"confirmed\" : \"false\"}";
+        return Logs.returnLogFalse();
     }
 
 
@@ -317,7 +329,7 @@ public class AppService implements IAppService {
                 b.setState("Closed");
                 //verificar se as apostas ganharam todas
                 if(check_results(gamesInBet)){
-                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You won " + b.getWinnings() + "€!", "Bet closed");
+                    emailSenderService.betWonNotification(b.getUser().getEmail(), b.getWinnings());;
                     User u = b.getUser();
                     u.setWallet(u.getWallet() + b.getWinnings());
                     userRepo.save(u);
@@ -325,7 +337,7 @@ public class AppService implements IAppService {
                     b.setWinning_final_balance(u.getWallet());
                 }
                 else{
-                    emailSenderService.sendSimpleEmail(b.getUser().getEmail(), "Your bet has been closed. You lost!", "Bet closed");
+                    emailSenderService.betLostNotification(b.getUser().getEmail());
                     b.setWinnings(0);
                 } 
                 betRepo.save(b);

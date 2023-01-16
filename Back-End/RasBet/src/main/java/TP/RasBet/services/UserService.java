@@ -77,18 +77,30 @@ public class UserService implements IUserService {
 
     }
 
+    public boolean checkAge(Timestamp data_nascimento){
+        boolean response = false;
+        LocalDate ld = data_nascimento.toLocalDateTime().toLocalDate();
+        ld = ld.plusYears(18);
+        LocalDate now = LocalDate.now();
 
-    public String register(JSONObject rf){//RegisterForm rf){
+        if (ld.isAfter(now)){
+            response = true;
+        }
+        
+        return response;
+    }
+
+
+    public String register(JSONObject rf){
         List<User> users = userRepo.findAll();
         String email = (String) rf.get("email");
         String cc  = (String) rf.get("cc");
         String nif = (String) rf.get("nif");
         for(User u : users){
             if(email.equals(u.getEmail()) || cc.equals(u.getCC()) || nif.equals(u.getNIF())){
-                return "{ \"state\" : \"bad\"" + "}";
+                return Logs.returnLogFalse();
             }
         }
-
         Timestamp dn = Timestamp.valueOf((String) rf.get("data_de_nascimento"));
 
         String password = (String) rf.get("password");
@@ -96,21 +108,41 @@ public class UserService implements IUserService {
         User user = new User(email, password, (String) rf.get("telefone"), (String) rf.get("nome"), 
                             (String) rf.get("morada"), (String) rf.get("nif"), (String) rf.get("cc"), dn);
 
-        LocalDate ld = dn.toLocalDateTime().toLocalDate();
-        ld = ld.plusYears(18);
-        LocalDate now = LocalDate.now();
 
-        //System.out.println("Data de nascimento + 18 anos: " + ld);
-        //System.out.println("Data de hoje: " + now);
-
-        if (ld.isAfter(now)){
-            return "{ \"state\" : \"bad\"" + "}";
+        if (checkAge(dn)){
+            userRepo.save(user);
+            return Logs.returnLogTrue();
         }
-
-        userRepo.save(user);
-        return "{ \"state\" : \"good\"" + "}";
+        return Logs.returnLogTrue();
 
     }
+
+
+    private JSONObject buildBet(Bet b){
+        JSONObject bet = new JSONObject(); // JSONObect que contém uma bet
+        JSONArray games = new JSONArray(); // JSONArray que contém todas as bets de uma múltipla ou a bet de uma simples
+
+        //lista de jogos na aposta
+        List<GamesInOneBet> g = b.getGames(); //lista de objetos que relaciona uma bet com os seus jogos
+
+        for(GamesInOneBet giob : g){
+            JSONObject gameInfo = new JSONObject(); // JSONObject que contém informação sobre o jogo
+            gameInfo.put("type", giob.getGame().getSport());
+            String name = giob.getGame().getParticipants().replace(";", " vs ");
+            gameInfo.put("name", name);
+            gameInfo.put("winner", giob.getDescription());
+
+            games.put(gameInfo);
+        }
+
+        bet.put("bet", games);
+        bet.put("amount", b.getAmount());
+        if(b.getState().equals("Closed")) bet.put("winnings", b.getWinnings());
+        else bet.put("winnings", -1);
+        return bet;
+    }
+
+
 
 
     public String getBetHistory(String email){
@@ -122,7 +154,7 @@ public class UserService implements IUserService {
         User u = userRepo.findUserByEmail(email).get();
         List<Bet> betList = u.getBets();
         JSONObject response = new JSONObject(); // json de fora
-        JSONArray betHistory = new JSONArray(); //JSONArray que contém as bets toda
+        JSONArray betHistory = new JSONArray(); //JSONArray que contém as bets todas
         float win = 0.0f, loss = 0.0f;
 
         for(Bet b : betList){
@@ -130,35 +162,13 @@ public class UserService implements IUserService {
             LocalDate dataAposta = b.getDate().toLocalDateTime().toLocalDate();
             LocalDate threeMonthsBack = LocalDate.now().minusMonths(3);
 
-            if(b.getState().equals("Closed") && b.getResult()){
-                win += b.getWinnings();
-            }
+            if (b.getState().equals("Closed") && b.getResult()) win += b.getWinnings();
             loss -= b.getAmount();
 
             if(dataAposta.isAfter(threeMonthsBack)){ // se a aposta foi feita há menos de 3 meses
 
-                JSONObject bet = new JSONObject(); // JSONObect que contém uma bet
-                JSONArray games = new JSONArray(); // JSONArray que contém todas as bets de uma múltipla ou a bet de uma simples
-
-                //lista de jogos na aposta
-                List<GamesInOneBet> g = b.getGames(); //lista de objetos que relaciona uma bet com os seus jogos
-
-                for(GamesInOneBet giob : g){
-                    JSONObject gameInfo = new JSONObject(); // JSONObject que contém informação sobre o jogo
-                    gameInfo.put("type", giob.getGame().getSport());
-                    String name = giob.getGame().getParticipants().replace(";", " vs ");
-                    gameInfo.put("name", name);
-                    gameInfo.put("winner", giob.getDescription());
-
-                    games.put(gameInfo);
-                }
-
-                bet.put("bet", games);
-                bet.put("amount", b.getAmount());
-                if(b.getState().equals("Closed")) bet.put("winnings", b.getWinnings());
-                else bet.put("winnings", -1);
-
-                betHistory.put(bet);
+                betHistory.put(buildBet(b));
+            
             }
         }
 
@@ -176,7 +186,7 @@ public class UserService implements IUserService {
         u.setName((String) cpf.get("name"));
         userRepo.save(u);
 
-        return "{\"state\" : \"good\"}";
+        return Logs.returnLogTrue();
     }
 
     public String changeSensitive(JSONObject cpf){//ChangeProfileForm cpf){
@@ -195,103 +205,107 @@ public class UserService implements IUserService {
 
         userRepo.save(u);
 
-        return "{\"state\" : \"good\"}";
+        return Logs.returnLogTrue();
     }
 
     public String getCode(String email){
         JSONObject response = new JSONObject();
         UUID uuid = UUID.randomUUID();
         response.put("code", uuid);
-
-        mailService.sendSimpleEmail(email, "Insert this code to change your sensitive personal information: " + uuid, "Change Personal Information Code");
-
+        mailService.sensitiveInfoCode(email, uuid);
         return response.toString();
     }
 
 
-    public String getTransactionHistory(String email){
-        User u = userRepo.findUserByEmail(email).get();
-    
+    public JSONArray getUserTransactions(User u, JSONArray transactionsJsonList){
         List<Transaction> transactions = u.getTransactions();
-
         JSONObject response = new JSONObject();
-
-        JSONArray ts = new JSONArray();
+        
         for(Transaction t : transactions){
             JSONObject tr = new JSONObject();
 
-            tr.put("date", t.getDate());
+            tr.put("date",t.getDate());
             if(t.getDescription().equals("Withdraw")){
-                tr.put("description", "Levantamento");  
-                tr.put("operation", "-" + t.getAmount());
+                tr.put("description","Levantamento");
+                tr.put("operation","-"+t.getAmount());
             }
             else{
-                tr.put("description", "Deposito");
-                tr.put("operation", "+" + t.getAmount());
+                tr.put("description","Deposito");
+                tr.put("operation","+"+t.getAmount());
             }
-            tr.put("balance", t.getFinalBalance());
-
-            ts.put(tr);
+            tr.put("balance",t.getFinalBalance());
+            transactionsJsonList.put(tr);
         }
+        return transactionsJsonList;
+    }
 
-        //bets como transações
-
+    public JSONArray getUserBets(User u, JSONArray transactionsListJson){
+        
         List<Bet> bets = u.getBets();
 
         for(Bet b : bets){
             JSONObject betObj = new JSONObject();
-
-            //primeiro colocar a aposta em si
-
-            betObj.put("date", b.getDate());
-            betObj.put("description", "Aposta");
-            betObj.put("operation", "-" + b.getAmount());
-            betObj.put("balance", b.getFinal_balance());
-            ts.put(betObj);
-
-            //depois, se a aposta já acabou e tiver sido ganha, então vamos colocar os winnings também 
-
+            betObj.put("date",b.getDate());
+            betObj.put("description","Aposta");
+            betObj.put("operation","-" + b.getAmount());
+            betObj.put("balance",b.getFinal_balance());
+            transactionsListJson.put(betObj);
+            
             if(b.getState().equals("Closed") && b.getResult() == true){
                 JSONObject winObj = new JSONObject();
-
                 winObj.put("date", b.getDate());
                 winObj.put("description", "ganho de aposta");
                 winObj.put("operation", "+" + b.getWinnings());
                 winObj.put("balance", b.getWinning_final_balance() );
-
-                ts.put(winObj);
+                transactionsListJson.put(winObj);
             }
-
         }
+        return transactionsListJson;
+    }
 
-        response.put("transactions", ts);
+    public String getTransactionHistory(String email){
+        
+        User u = userRepo.findUserByEmail(email).get();
+        JSONObject response = new JSONObject();
+        JSONArray ts = new JSONArray();
+
+        ts = getUserTransactions(u, ts); // add user transactions to the reponse json
+
+        //bets como transações
+
+        ts = getUserBets(u, ts); // add user bets, and winnings to the response json
+
+        response.put("transactions", ts); // create the final response json format 
     
         return response.toString();
     }
 
-    
-    public String recoverPassword(String email){
-        
-        Optional<User> u = userRepo.findUserByEmail(email);
 
+    private String recoverPasswordUser(String email){
+        Optional<User> u = userRepo.findUserByEmail(email);
         if(u.isPresent()){
             String password = u.get().getPassword();
             //enviar email para o email acima com a password do utilizador
-            mailService.sendSimpleEmail(u.get().getEmail(), "This is your password: " + password, "Password recovery");
-            return "{ \"status\" : \"true\" }";
+            mailService.passwordRecovery(email, password);
+            return Logs.returnLogTrue();
         }
+        return Logs.returnLogFalse();
+    }
 
+    private String recoverPasswordExpert(String email){
         Optional<Expert> e = expertRepo.findExpertByEmail(email);
 
         if(e.isPresent()){    
             String password = e.get().getPassword();
             //enviar email para o email acima com a password do utilizador
-            mailService.sendSimpleEmail(e.get().getEmail(), "This is your password: " + password, "Password recovery");
-            return "{ \"status\" : \"true\"}";
+            mailService.passwordRecovery(email, password);
+            return Logs.returnLogTrue();
         }
-
-        return "{ \"status\" : \"false\" }";
-
+        return Logs.returnLogFalse();
+    }
+    
+    public String recoverPassword(String email){
+        return 
     }
 
 
@@ -303,10 +317,8 @@ public class UserService implements IUserService {
         //verificar se o jogo já está a ser seguido
         Set<User_follows_game> followed_games = u.getFollowingGames();
         for(User_follows_game user_follows_game : followed_games){
-            System.out.println(g.toString());
-            System.out.println(user_follows_game.getGame().toString());
             if(user_follows_game.getGame().equals(g)){
-                return "{ \"state\" : \"denied\" }";
+                return Logs.returnLogFalse();
             }
         }
 
@@ -315,7 +327,7 @@ public class UserService implements IUserService {
         g.registerObserver(ufg);
         gameRepo.save(g);
 
-        return "{ \"state\" : \"confirmed\" }";
+        return Logs.returnLogTrue(); //ta mal :)
     }
     
     public String unfollowGame(String email, int id_game){
@@ -336,11 +348,11 @@ public class UserService implements IUserService {
                 gameRepo.save(g);
                 userRepo.save(u);
                 user_follows_game_Repo.deleteById(user_follows_game.getId());
-                return "{ \"state\" : \"confirmed\" }";
+                return Logs.returnLogTrue();
             }
         }
 
-        return "{ \"state\" : \"denied\" }";
+        return Logs.returnLogFalse();
     }
 
 
