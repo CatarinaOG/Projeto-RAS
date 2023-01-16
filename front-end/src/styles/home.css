@@ -91,7 +91,8 @@ button:hover {
 
 .icon{
     position: absolute;
-    bottom: 1vh;
+    left: 0.1vh;
+    top: 0.1vw;
     height: 20px;
 }
 
@@ -689,14 +690,14 @@ button:hover {
 
 .resultBoxOdd > p{
 
-    margin-top: 7px;
+    margin-top: 3px;
 
 }
 
 .resultBoxOdd > img{
 
     height: 18px;
-    margin-top: 5px;
+    margin-top: 3px;
 
 }
 
