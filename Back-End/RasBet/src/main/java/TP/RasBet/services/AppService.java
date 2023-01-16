@@ -302,9 +302,7 @@ public class AppService implements IAppService {
     }
 
 
-    @Scheduled(fixedRate = 10000)
-    public void updateStatus() {
-
+    private void suspendGamescheck(){
         List<Game> games = gameRepo.findAll();
 
         for(Game g : games){
@@ -314,6 +312,33 @@ public class AppService implements IAppService {
                     gameRepo.save(g);
                 }
         }
+    }
+
+
+    private void updateBetState(Bet bet, List<GamesInOneBet> gamesInBet){
+        bet.setState("Closed");
+        //verificar se as apostas ganharam todas
+        if(check_results(gamesInBet)){
+            emailSenderService.betWonNotification(bet.getUser().getEmail(), bet.getWinnings());;
+            User u = bet.getUser();
+            u.setWallet(u.getWallet() + bet.getWinnings());
+            userRepo.save(u);
+            bet.setResult(true);
+            bet.setWinning_final_balance(u.getWallet());
+        }
+        else{
+            emailSenderService.betLostNotification(bet.getUser().getEmail());
+            bet.setWinnings(0);
+        } 
+        betRepo.save(bet);
+    }
+
+
+    @Scheduled(fixedRate = 10000)
+    public void updateStatus() {
+        
+        //Verificar se já passou a hora de inicio dos jogos e mudar o seu estado. 
+        suspendGamescheck();
 
         List<Bet> bets = betRepo.findAll();
         for(Bet b : bets){
@@ -326,21 +351,7 @@ public class AppService implements IAppService {
                 }
             }
             if(flag && !b.getState().equals("Closed")){
-                b.setState("Closed");
-                //verificar se as apostas ganharam todas
-                if(check_results(gamesInBet)){
-                    emailSenderService.betWonNotification(b.getUser().getEmail(), b.getWinnings());;
-                    User u = b.getUser();
-                    u.setWallet(u.getWallet() + b.getWinnings());
-                    userRepo.save(u);
-                    b.setResult(true);
-                    b.setWinning_final_balance(u.getWallet());
-                }
-                else{
-                    emailSenderService.betLostNotification(b.getUser().getEmail());
-                    b.setWinnings(0);
-                } 
-                betRepo.save(b);
+                updateBetState(b, gamesInBet);
             }
         }  
     }

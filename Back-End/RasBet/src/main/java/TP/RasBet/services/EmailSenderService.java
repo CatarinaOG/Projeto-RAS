@@ -47,4 +47,11 @@ public class EmailSenderService implements IEmailSenderService{
         this.sendSimpleEmail(email, body, subject);
     }
 
+    public void updateOdd(String email){
+        String body = "Uma Odd foi alterada!";
+        String subject = "Odd Alterada!";
+        this.sendSimpleEmail(email, body, subject);
+
+    }
+
 }

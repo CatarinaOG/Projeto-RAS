@@ -170,7 +170,7 @@ public class User implements Serializable, Observer{
 
     public void update(){
         EmailSenderService emailSenderService = new EmailSenderService();
-        emailSenderService.updateOdd(email);
+        emailSenderService.updateOdd(this.email);
     }
 
 

@@ -281,31 +281,28 @@ public class UserService implements IUserService {
     }
 
 
-    private String recoverPasswordUser(String email){
-        Optional<User> u = userRepo.findUserByEmail(email);
-        if(u.isPresent()){
-            String password = u.get().getPassword();
-            //enviar email para o email acima com a password do utilizador
-            mailService.passwordRecovery(email, password);
-            return Logs.returnLogTrue();
-        }
-        return Logs.returnLogFalse();
+    private String recoverPasswordUser(User u, String email){
+
+        String password = u.getPassword();
+        mailService.passwordRecovery(email, password);
+        return Logs.returnLogTrue();
     }
 
-    private String recoverPasswordExpert(String email){
-        Optional<Expert> e = expertRepo.findExpertByEmail(email);
+    private String recoverPasswordExpert(Expert e, String email){
 
-        if(e.isPresent()){    
-            String password = e.get().getPassword();
-            //enviar email para o email acima com a password do utilizador
-            mailService.passwordRecovery(email, password);
-            return Logs.returnLogTrue();
-        }
-        return Logs.returnLogFalse();
+        String password = e.getPassword();
+        mailService.passwordRecovery(email, password);
+        return Logs.returnLogTrue();
     }
     
     public String recoverPassword(String email){
-        return 
+        Optional<User> u = userRepo.findUserByEmail(email);
+        Optional<Expert> e = expertRepo.findExpertByEmail(email);
+        
+        if(u.isPresent()) return recoverPasswordUser(u.get(),email);
+        if(e.isPresent()) return recoverPasswordExpert(e.get(),email);
+        
+        return Logs.returnLogFalse(); 
     }
 
 
