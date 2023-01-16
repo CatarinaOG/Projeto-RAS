@@ -8,8 +8,8 @@ import { useContext } from 'react';
 
 export default function NavBar(props){
 
-    const {filter,userType,setFilter,dark} = props
-    const { username } = useContext(myContext)
+    const {filter,userType,setFilter} = props
+    const { dark,username } = useContext(myContext)
 
 
     let navigate = useNavigate();

@@ -54,8 +54,8 @@ function App() {
   const cookies = new Cookies()
 
   const [balance,setBalance] = useState()
-  const [username,setUsername] = useState(cookies.get("username"))
   const [email,setEmail] = useState(cookies.get("email"))
+  const [username,setUsername] = useState(cookies.get("username"))
   const [typeUser,setTypeUser] = useState(cookies.get("typeuser"))
 
 	const [dark,setDark] = useState('')
