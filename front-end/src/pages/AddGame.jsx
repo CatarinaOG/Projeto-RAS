@@ -157,7 +157,7 @@ export default function AddGame(props){
             })
             .then(response => response.json())
             .then(data => {
-                if (data.state === 'good'){
+                if (data.confirmed === 'true'){
                     setConfirmed(true)
                     setErrorReg(0)
                     getNewGames()
@@ -178,7 +178,7 @@ export default function AddGame(props){
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.status === 'true'){
+                    if (data.confirmed === 'true'){
                         setConfirmed(true)
                         setErrorReg(0)
                         getNewGames()
@@ -219,8 +219,6 @@ export default function AddGame(props){
                             <option className={`ftselectSportOption${dark}`} value="basquetebol" name="basquetebol" >Basquetebol</option>
                             <option className={`ftselectSportOption${dark}`} value="motoGP" name="motoGP" >MotoGP</option>
 
-
-
                         </select>
                         {formData.sport != "motoGP" && <div>
                         <h3 className={`ftpromptParticipantA${dark}`}>Participante A :</h3>
@@ -251,7 +249,7 @@ export default function AddGame(props){
                             <PilotsForm formData={formData} handleChange={handleChange} dark={dark}></PilotsForm>
                         </div>}
                         <button className = {`ftadd${dark}`} >Confirmar</button>
-			            {errorReg === 2 && <p className='fterrorAddGame'>Dados em falta</p>}
+	                    {errorReg === 2 && <p className='fterrorAddGame'>Dados em falta</p>}
                     </form>
                 </div>
             </div>
@@ -270,7 +268,7 @@ export default function AddGame(props){
                         time = {formData.time}
                         eventName = {formData.raceName}
                         dark={dark}
-                  />
+                />
                 </div>
             }
 

@@ -51,8 +51,8 @@ export default function Profile(props){
         })
         .catch((error) => {
         })
-  },[])  
-      
+        },[])  
+
     
     function goToFollow(){
         navigate('/FollowPage', { replace: true })

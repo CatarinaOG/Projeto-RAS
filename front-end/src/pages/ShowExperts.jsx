@@ -16,21 +16,19 @@ export default function ShowExperts(props){
     const [experts,setExperts] = useState([])
 
     useEffect(() => {
-      
-      fetch('http://127.0.0.1:8080/api/admin/getExperts', {
-                  method: 'GET',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  }
-      })
-      .then(response => response.json())
-      .then(data => {
+        fetch('http://127.0.0.1:8080/api/admin/getExperts', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
         setExperts(data)
-      })
-      .catch((error) => {
+    })
+    .catch((error) => {
         console.error('Error:', error);
-      });
-          
+    });
     },[])
 
 
@@ -39,35 +37,34 @@ export default function ShowExperts(props){
 
         function handleRemove(){
 
-          fetch('http://127.0.0.1:8080/api/admin/removeExpert', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id : id })
-          })
-          .then(response => response.json())
-          .then(data => {
+            fetch('http://127.0.0.1:8080/api/admin/removeExpert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id : id })
+            })
+            .then(response => response.json())
+            .then(data => {
             if(data.state === 'good')
 
-              fetch('http://127.0.0.1:8080/api/admin/getExperts', {
-                  method: 'GET',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  }
-              })
-              .then(response => response.json())
-              .then(data => {
+            fetch('http://127.0.0.1:8080/api/admin/getExperts', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+            })
+            .then(response => response.json())
+            .then(data => {
                 setExperts(data)
-              })
-              .catch((error) => {
+            })
+            .catch((error) => {
                 console.error('Error:', error);
-              });
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
-
+            });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         }
 
         return(

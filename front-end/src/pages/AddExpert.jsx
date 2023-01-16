@@ -46,7 +46,7 @@ export default function AddSpecialist(props){
         })
         .then(response => response.json())
         .then(data => {
-            if (data.state === 'good'){
+            if (data.confirmed === 'true'){
                 setErrorReg(0)
                 setConfirmed(true)
             }

@@ -17,7 +17,6 @@ function Recover(props){
 				</div>
 			</div>
 		</div>
-       
     )
 }
 
