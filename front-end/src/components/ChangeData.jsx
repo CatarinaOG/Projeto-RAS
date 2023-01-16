@@ -91,12 +91,18 @@ export default function ChangeData(props){
 
     }
 
+    function goToFollow(){
+        navigate('/FollowPage', { replace: true })
+    }
+
     // a variável sec determina se é renderizado o changeData normal ou o dos dados seguros
     return (
         <div className="changeDataOutDiv">
             <button className={`ftLogout${dark}`} onClick={logOut}> Log out </button>
             <button className={`fttakeOut${dark}`} onClick={withdrawPop}> Levantar </button>
             <button className={`ftdeposit${dark}`} onClick={depositPop}> Depositar </button>
+            <button onClick={goToFollow} className={`ftfollowButton${dark}`} > Seguidos</button>
+
             <img src = {goBackImg} className={`ftgoBack${dark}`} onClick={goBack}/>
             
             <h4 className={`clickHistory${dark}`}> Consultar Histórico de Apostas</h4>

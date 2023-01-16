@@ -32,9 +32,10 @@ export default function BetFollowDiv(props){
         if (game.sport === "futebol"){
             return(<BetFollow game={game} dark={dark}></BetFollow>)
         }
-        if (game.sport === "tenis"){
+        if (game.sport === "tenis" || game.sport==="basquetebol"){
             return(<BetFollow game={game} dark={dark}></BetFollow>)
         }
+        
         if (game.sport === "motoGP"){
             return(<BetFollowMotoGP name = {game.name} date = {game.date} results = {game.results} dark = {dark}></BetFollowMotoGP>)
         }

@@ -54,10 +54,7 @@ export default function Profile(props){
         },[])  
 
     
-    function goToFollow(){
-        navigate('/FollowPage', { replace: true })
-    }
-
+    
 
     return(
         <div className={`ftProfile${dark}`}>
@@ -116,7 +113,6 @@ export default function Profile(props){
                     <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} safeCode={safeCode} dark={dark}/>
                 </div>
             }
-            <button onClick={goToFollow}> Followsss</button>
 
         </div>    
     )

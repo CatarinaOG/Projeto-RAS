@@ -15,22 +15,24 @@ export default function FollowPage(props){
         
     const allGames = games.map( game => {
 
-        //if(game.following==='true'){
-        if(game.sport==="futebol"){
-          return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
-        }
-        if(game.sport==="tenis"){
-          return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
-        }      
-        if(game.sport==="motoGP"){
-          return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
-        }
+        if(game.following==='true'){
+          if(game.sport==="futebol"){
+            return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+          }
+          if(game.sport==="tenis" && "basquetebol"){
+            return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+          }      
+          if(game.sport==="motoGP"){
+            return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+          }
         
         }
-      )
+        }  
+    )
+    
 
     function goBack(){
-        navigate('/ProfileExpert', { replace: true })
+        navigate('/Profile', { replace: true })
     }
 
 

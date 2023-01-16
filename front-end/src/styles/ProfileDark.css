@@ -105,8 +105,8 @@
 
     position: absolute;
 
-    height: 15%;
-    width: 18%;
+    height: 14%;
+    width: 15%;
     top: 0%;
     background: #292929;
     color: white;
@@ -120,15 +120,36 @@
 
 
     top: -10%;
-    left: 10%;
+    left: 6%;
 }
 
+.ftfollowButtonDark{
+    position: absolute;
+
+    height: 14%;
+    width: 15%;
+    top: 0%;
+
+    background: #292929;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid black ;
+
+    font-family: 'Spinnaker';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+
+
+    top: -10%;
+    left: 23%;
+}
 
 .fttakeOutDark{
     position: absolute;
 
-    height: 15%;
-    width: 18%;
+    height: 14%;
+    width: 15%;
     top: 0%;
     background: #292929;
 
@@ -141,7 +162,7 @@
     font-size: 20px;
     line-height: 38px;
 
-    left: 32%;
+    left: 40%;
     top: -10%;
 }
 
@@ -149,8 +170,8 @@
 .ftdepositDark{
     position: absolute;
 
-    height: 15%;
-    width: 18%;
+    height: 14%;
+    width: 15%;
     top: 0%;
     background: #292929;
 
