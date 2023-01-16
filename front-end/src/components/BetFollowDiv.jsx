@@ -1,11 +1,13 @@
 import BetFollow from "./BetFollow"
 import BetFollowMotoGP from "./BetFollowMotoGP"
 import trash from '../images/trash.png'
+import { useContext } from "react"
+import { myContext } from "../context"
 
 export default function BetFollowDiv(props){
 
-    const {game,dark} = props
-
+    const {game} = props
+    const {dark} = useContext(myContext)
         
     const notNull = true
 
@@ -30,14 +32,20 @@ export default function BetFollowDiv(props){
     const body = () => {
         
         if (game.sport === "futebol"){
-            return(<BetFollow game={game} dark={dark}></BetFollow>)
+            return(<BetFollow game={game}/>)
         }
         if (game.sport === "tenis" || game.sport==="basquetebol"){
-            return(<BetFollow game={game} dark={dark}></BetFollow>)
+            return(<BetFollow game={game}/>)
         }
         
         if (game.sport === "motoGP"){
-            return(<BetFollowMotoGP name = {game.name} date = {game.date} results = {game.results} dark = {dark}></BetFollowMotoGP>)
+            return(
+                <BetFollowMotoGP 
+                    name = {game.name} 
+                    date = {game.date} 
+                    results = {game.results} 
+                />
+            )
         }
     }
 
@@ -47,7 +55,6 @@ export default function BetFollowDiv(props){
                 <div className={`betFollowTrash${dark}`}>
 				    <img src={trash} className="fttrash" alt=""/>
                 </div>
-
                 {body()}
             </div>
         )

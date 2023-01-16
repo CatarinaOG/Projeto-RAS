@@ -6,12 +6,15 @@ import PlaceBet from './PlaceBet'
 import ModalConfirmation from "./ModalConfirmation"
 import ModalConfirmated from "./ModalConfirmated"
 import ReportBetMotoGP from "./ReportBetMotoGP"
+import { useContext } from "react"
+import { myContext } from "../context"
 
 
 
 export default function Report(props){
 
-    const {games,selected,email,setBalance,setSelected,dark} = props
+    const {games,selected,email,setBalance,setSelected} = props
+    const {dark} = useContext(myContext)
 
     const [type,setType] = useState('simple')                   // Utilizado para saber o tipo de aposta (simples vs multipla)
     const [amountMultiple, setAmountMultiple] = useState(0)     // Utilizado para guardar o amount da aposta múltipla
@@ -103,7 +106,6 @@ export default function Report(props){
                     type={type}
                     selected={selected}
                     setSelected={setSelected}
-                    dark={dark}
                 />
             </div>
             )
@@ -119,7 +121,6 @@ export default function Report(props){
                         type={type}
                         selected={selected}
                         setSelected={setSelected}
-                        dark={dark}
                     />
                 </div>
             )
@@ -139,14 +140,12 @@ export default function Report(props){
                     type={type}
                     amountMultiple={amountMultiple}
                     setBalance={setBalance}
-                    dark={dark}
                 />
             }
 
             {modalConfirmated && error == 0 &&
                 <ModalConfirmated 
                     setModalConfirmated={setModalConfirmated} 
-                    dark={dark}
                 />
             }
 
@@ -163,7 +162,6 @@ export default function Report(props){
                     <SimpleInput 
                         quote={getQuotaMultiple()} 
                         setAmountMultiple={setAmountMultiple}
-                        dark={dark}
                     />
                 }
                 <PlaceBet 
@@ -174,7 +172,6 @@ export default function Report(props){
                     setError={setError}
                     type={type}
                     amountMultiple={amountMultiple}
-                    dark={dark}
                 />
             </div>
 

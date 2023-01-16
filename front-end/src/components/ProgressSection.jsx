@@ -1,8 +1,11 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 
 
 export default function ProgressSection(props){
 
-    const {type,total,green,yellow,red,dark} = props
+    const {type,total,green,yellow,red} = props
+    const {dark} = useContext(myContext)
 
 
 

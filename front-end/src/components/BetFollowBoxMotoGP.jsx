@@ -1,7 +1,10 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 
 export default function BetFollowBoxMotoGP(props){
 
-    const {result,odd,dark} = props
+    const {result,odd} = props
+    const {dark} = useContext(myContext)
 
     return(
 

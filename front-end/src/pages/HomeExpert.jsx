@@ -14,10 +14,9 @@ import { useContext } from "react"
 import { myContext } from "../context"
 
 
-export default function HomeExpert(props){
+export default function HomeExpert(){
 
-    const {dark} = props
-    const {username} = useContext(myContext)
+    const {dark} = useContext(myContext)
 
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
 
@@ -86,7 +85,6 @@ export default function HomeExpert(props){
                             setModalChangeOdd={setModalChangeOdd}
                             setOddToChange={setOddToChange}
                             setGames={setGames}
-                            dark={dark}
                         />
                     )
                 }else{
@@ -100,7 +98,6 @@ export default function HomeExpert(props){
                             setModalChangeOdd={setModalChangeOdd}
                             setOddToChange={setOddToChange}
                             setGames={setGames}
-                            dark={dark}
                         />
                     )
                 }
@@ -120,7 +117,6 @@ export default function HomeExpert(props){
                                     setModalChangeOdd={setModalChangeOdd}
                                     setOddToChange={setOddToChange}
                                     setGames={setGames}
-                                    dark={dark}
                                 />
                             )
                         }else{
@@ -134,7 +130,6 @@ export default function HomeExpert(props){
                                     setModalChangeOdd={setModalChangeOdd}
                                     setOddToChange={setOddToChange}
                                     setGames={setGames}
-                                    dark={dark}
                                 />
                             )
                         }
@@ -153,7 +148,6 @@ export default function HomeExpert(props){
                 <ModalWarningActive 
                     setModalWarningActive={setModalWarningActive}
                     setModalChangeOdd={setModalChangeOdd}
-                    dark={dark}
                 />
             }
             {modalChangeOdd && 
@@ -163,13 +157,11 @@ export default function HomeExpert(props){
                     setModalChangeOdd={setModalChangeOdd}
                     setModalChangeOddConfimation={setModalChangeOddConfimation}
                     setGames={setGames}
-                    dark={dark}
                 />
             }
             {modalChangeOddConfimation && 
                 <ModalChangeOddConfirmation
                     setModalChangeOddConfimation={setModalChangeOddConfimation} 
-                    dark={dark}
                 />
             }
 
@@ -177,13 +169,11 @@ export default function HomeExpert(props){
                 filter={filter} 
                 setFilter={setFilter} 
                 userType='expert'
-                dark={dark}
             />
 
             <div className={`content${dark}`}>
                 <div>
                     <SearchBar
-                        dark={dark}
                         setSearch={setSearch}
                         setText={setText}
                     />
@@ -193,7 +183,6 @@ export default function HomeExpert(props){
                 </div>
                 <Progress
                     games={games}
-                    dark={dark}
                 />
             </div>
 

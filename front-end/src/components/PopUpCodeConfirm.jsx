@@ -2,12 +2,16 @@
 import close from '../images/close.png'
 import '../styles/Profile.css'
 import {useState} from 'react'
+import { useContext } from 'react';
+import { myContext } from '../context';
 
 
 //PopUp que surge pedindo ao utilizador o código que terá recebido por email.
 export default function PopUpConfirm(props){
 
-    const {setShowPopUp,setSec,safeCode,dark} = props;
+    const {setShowPopUp,setSec,safeCode} = props;
+    const {dark} = useContext(myContext)
+
     const [errorMsg, setErrorMsg] = useState(0)
 
     const [formData, setFormData] = useState(

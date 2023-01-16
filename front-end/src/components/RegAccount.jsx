@@ -4,11 +4,13 @@ import {useState} from 'react'
 import goBackImg from "../images/goBack.png"
 
 import { useNavigate } from "react-router-dom"
+import { useContext } from 'react'
+import { myContext } from '../context'
 
 
-export default function RegAccount(props){
+export default function RegAccount(){
 
-	const {dark} = props
+	const {dark} = useContext(myContext)
 
 	// Formulário onde serão armazenados os dados dos vários inputs do componente
 	const [formData, setFormData] = useState(

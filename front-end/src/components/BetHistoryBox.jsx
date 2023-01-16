@@ -1,8 +1,11 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 import SingleBetHist from "./SingleBetHist"
 
 export default function BetHistoryBox(props){
 
-    const {bet,ammount,winnings,dark} = props
+    const {bet,ammount,winnings} = props
+    const {dark} = useContext(myContext)
 
     
     // variavel cujo valor é obtido ao percorrer a variavel bet, criando instancias do componente SingleBetHist para cada uma das apostas
@@ -10,16 +13,13 @@ export default function BetHistoryBox(props){
         <SingleBetHist
             name = {result.name}
             winner = {result.winner}
-            dark = {dark}
         />
     )
     const notNull = true
 
-    const phrase = "pending"
-
     const winnin = () => {
         if(winnings===-1)
-            return phrase
+            return "pending"
         else return winnings
     }
 

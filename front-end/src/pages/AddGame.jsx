@@ -6,11 +6,14 @@ import goBackImg from '../images/goBack.png'
 import NavBarProfile from "../components/NavBarProfile"
 import PopUpAddGame from '../components/PopUpAddGame'
 import PilotsForm from '../components/PilotsForm';
+import { useContext } from 'react';
+import { myContext } from '../context';
 
 
 export default function AddGame(props){
 
-    const {email,setGames,dark} = props
+    const {email,setGames} = props
+    const {dark} = useContext(myContext)
     const [pilotError,setPilotError] = useState(0);
 
     // Variável utilizada para controlar o conditional rendering de mensagens de erro
@@ -203,9 +206,7 @@ export default function AddGame(props){
     return(
         <div className={`ftaddGame${dark}`}>
             <div >
-                <NavBarProfile
-                    dark={dark}
-                />
+                <NavBarProfile />
                 <div className={`whiteShadow${dark}`}>
                     <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                     <h1 className={`ftInsertDataGame${dark}`}>Criar Evento</h1>
@@ -245,7 +246,10 @@ export default function AddGame(props){
                             <input className ={`ftselectPartA${dark}`}  type="text" onChange={handleChange}  placeholder='Event Name' name = "raceName" value = {formData.raceName}/>
 
                             <h3 className={`ftpromptEvent${dark}`}>Insira os Pilotos/odds/data/hora</h3>
-                            <PilotsForm formData={formData} handleChange={handleChange} dark={dark}></PilotsForm>
+                            <PilotsForm 
+                                formData={formData} 
+                                handleChange={handleChange} 
+                            />
                         </div>}
                         <button className = {`ftadd${dark}`} >Confirmar</button>
 	                    {errorReg === 2 && <p className='fterrorAddGame'>Dados em falta</p>}
@@ -266,7 +270,6 @@ export default function AddGame(props){
                         date = {formData.date}
                         time = {formData.time}
                         eventName = {formData.raceName}
-                        dark={dark}
                 />
                 </div>
             }

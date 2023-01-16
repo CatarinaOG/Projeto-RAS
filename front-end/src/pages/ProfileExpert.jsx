@@ -8,13 +8,15 @@ import goBackImg from '../images/goBack.png'
 import logoutImg from "../images/logout.png"
 import addEvent from "../images/achievement.png"
 import editEvent from "../images/edit.png"
+import { useContext } from "react"
+import { myContext } from "../context"
 
 
 
 
-export default function ProfileExpert(props){
+export default function ProfileExpert(){
 
-    const {dark} = props
+    const {dark} = useContext(myContext)
 
     let navigate = useNavigate()
 
@@ -41,9 +43,7 @@ export default function ProfileExpert(props){
     return(
 
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
-            <NavBarProfile 
-                dark={dark}
-            />
+            <NavBarProfile />
             <img src = {goBackImg} className={`goBackImg3${dark}`} onClick={goBack}/>
                 <div className={`whiteShadow${dark}`}>
                     <div className="contentAdmin">

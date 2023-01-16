@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { useState } from "react"
+import { myContext } from "../context";
 
-export default function SearchBar({dark,setSearch,setText}){
+export default function SearchBar({setSearch,setText}){
+
+    const {dark} = useContext(myContext) 
 
     function changeText(event){
 

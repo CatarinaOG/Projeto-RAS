@@ -54,8 +54,8 @@ function App() {
   const cookies = new Cookies()
 
   const [balance,setBalance] = useState()
-  const [username,setUsername] = useState(cookies.get("username"))
   const [email,setEmail] = useState(cookies.get("email"))
+  const [username,setUsername] = useState(cookies.get("username"))
   const [typeUser,setTypeUser] = useState(cookies.get("typeuser"))
 
 	const [dark,setDark] = useState('')
@@ -82,7 +82,7 @@ function App() {
   //-----------------------------------------
 
   return(
-    <myContext.Provider value={ {username} }>
+    <myContext.Provider value={ {username,dark} }>
       <CookiesProvider>
           <BrowserRouter>
             <Routes>
@@ -92,21 +92,16 @@ function App() {
                   setEmail={setEmail}
                   setTypeUser={setTypeUser}
                   setBalance={setBalance}
-                  dark={dark}
                   switchDark={switchDark}
                 />
               } />
 
               <Route path="/Register" element={
-                <Register
-                  dark={dark}
-                />
+                <Register />
               }/>
 
               <Route path="/Recover" element={
-                <Recover 
-                  dark={dark}>
-                </Recover>
+                <Recover />
               }/>
               
               { typeUser === 'better' &&
@@ -115,7 +110,6 @@ function App() {
                     email={email}
                     setBalance={setBalance}
                     setGames={setGames}
-                    dark={dark}
                   />
                 } />
               }
@@ -128,7 +122,6 @@ function App() {
                     setBalance={setBalance}
                     balance={balance}
                     email={email}
-                    dark={dark}
                   />
                 } />
               }
@@ -138,7 +131,6 @@ function App() {
                 <Route path="/FollowPage" element={
                   <FollowPage
                     games= {games}
-                    dark={dark}
                   />
                 } />
               }
@@ -146,26 +138,20 @@ function App() {
               { typeUser === 'expert' &&
                 <Route path="/HomeExpert" element={
                   <HomeExpert
-                    games={games}
                     setGames={setGames}
-                    dark={dark}
                   />
                 } />
               }
 
               { typeUser === 'admin' &&
                 <Route path="/AddExpert" element={
-                  <AddExpert
-                    dark={dark}
-                  />
+                  <AddExpert />
                 } />
               }
 
               { typeUser === 'admin' &&
                 <Route path="/HomeAdmin" element={
-                  <HomeAdmin
-                    dark={dark}
-                  />
+                  <HomeAdmin />
                 } />
               }
 
@@ -174,16 +160,13 @@ function App() {
                   <AddGame
                     email={email}
                     setGames={setGames}
-                    dark={dark}
                   />
                 } />
               }
 
               { typeUser === 'admin' &&
                 <Route path="/ShowExperts" element={
-                  <ShowExperts
-                    dark={dark}
-                  />
+                  <ShowExperts />
                 }/>
               }
 
@@ -191,7 +174,6 @@ function App() {
                 <Route path="/ShowGamesExpert" element={
                   <ShowGamesExpert
                     setExpertGame={setExpertGame}
-                    dark={dark}
                   />
                 }/>
               }
@@ -202,16 +184,13 @@ function App() {
                     expertGame={expertGame}
                     setExpertGame={setExpertGame}
                     setGames={setGames}
-                    dark={dark}
                   />
                 }/>
               }
 
               { typeUser === 'expert' &&
                 <Route path="/ProfileExpert" element={
-                  <ProfileExpert
-                    dark={dark}
-                  />
+                  <ProfileExpert />
                 }/>
               }
 

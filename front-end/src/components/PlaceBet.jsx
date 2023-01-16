@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { useState } from "react";
+import { myContext } from "../context";
 
 export default function PlaceBet(props){
 
-    const {gains,setModalConfirmation,selected,error,setError,type,amountMultiple,dark} = props;
+    const {gains,setModalConfirmation,selected,error,setError,type,amountMultiple} = props;
+    const {dark} = useContext(myContext)
 
     function bet() {
 

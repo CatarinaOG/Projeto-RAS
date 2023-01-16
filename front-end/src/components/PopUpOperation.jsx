@@ -3,13 +3,16 @@ import {useState} from 'react';
 import PopUpMethod from './PopUpMethod';
 import PopUpMaestro from './PopUpMaestro';
 import PopUpPaypal from './PopUpPaypal';
+import { useContext } from 'react';
+import { myContext } from '../context';
 
 
 
 
 export default function PopUpOperation(props){
 
-    const {showPopUp, setShowPopUp,setBalance,email,dark} = props;
+    const {showPopUp, setShowPopUp,setBalance,email} = props;
+    const {dark} = useContext(myContext)
 
     const [method , setMethod] = useState('');
 

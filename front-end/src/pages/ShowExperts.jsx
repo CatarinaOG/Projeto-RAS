@@ -6,10 +6,12 @@ import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
 import remove from '../images/remove.png'
+import { useContext } from "react";
+import { myContext } from "../context";
 
-export default function ShowExperts(props){
+export default function ShowExperts(){
 
-    const {dark} = props
+    const {dark} = useContext(myContext)
 
     let navigate = useNavigate()
     
@@ -87,9 +89,7 @@ export default function ShowExperts(props){
 
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
-            <NavBarProfile 
-                dark={dark}
-            />
+            <NavBarProfile />
             <div className={`ftwhiteShadow${dark}`}>
                 <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                 <h1 className = "ftAddSp">Consultar Especialista</h1>

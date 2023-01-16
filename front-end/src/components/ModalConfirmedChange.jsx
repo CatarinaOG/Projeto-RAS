@@ -1,10 +1,13 @@
 import close from '../images/close.png'
 
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { myContext } from '../context'
 
 export default function ModalConfirmedChange(props){
 
-    const {setConfirmed,dark} = props
+    const {setConfirmed} = props
+    const {dark} = useContext(myContext)
 
     let navigate = useNavigate()
 

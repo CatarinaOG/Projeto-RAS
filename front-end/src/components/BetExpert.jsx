@@ -3,10 +3,13 @@ import ProgressBetBox from './ProgressBetBox'
 
 import pause from '../images/pause.png'
 import play from '../images/play.png'
+import { useContext } from 'react'
+import { myContext } from '../context'
 
 export default function BetExpert(props){
 
-    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd,setGames,dark} = props
+    const {games,gameId,game,setModalWarningActive,setOddToChange,setModalChangeOdd,setGames} = props
+    const {dark} = useContext(myContext)
     const {home,sport,away,date,results} = game
 
     // Criação das caixas de resultado

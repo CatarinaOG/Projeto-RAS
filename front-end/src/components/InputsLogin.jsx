@@ -4,15 +4,15 @@ import {Cookies} from 'react-cookie'
 
 import logo from '../images/logo.png'
 import darkMode from '../images/moon.png'
-import britFlag from '../images/british.png'
-import portFlag from '../images/portugal.png'
-
+import { useContext } from 'react'
+import { myContext } from '../context'
 
 
 
 export default function InputsLogin(props) {
 
-	const {setUsername,setTypeUser,setBalance,setEmail,dark,switchDark} = props
+	const {setUsername,setTypeUser,setBalance,setEmail,switchDark} = props
+	const {dark} = useContext(myContext)
 
 	//variavel responsavel pelo conditional rendering 
 	const [errorReg,setErrorReg]=useState(0)
@@ -52,7 +52,6 @@ export default function InputsLogin(props) {
 
 		const cookies = new Cookies()
 
-
 		if(formData.email!=="" && formData.password!==""){
 			fetch('http://127.0.0.1:8080/api/users/login', {
 				method: 'POST',
@@ -65,11 +64,6 @@ export default function InputsLogin(props) {
 			.then(data => {
 				setUsername(data.username)
 				setEmail(formData.email)
-
-				console.log(formData.email)
-				cookies.set('email',formData.email)
-				cookies.set('username',data.username)
-
 
 				if (data.type === 'especialista'){
 					navigate("/HomeExpert", { replace: true }); 

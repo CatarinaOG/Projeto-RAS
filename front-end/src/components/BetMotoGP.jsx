@@ -4,15 +4,16 @@ import BetBoxMotoGP from './BetBoxMotoGP'
 
 import star from '../images/favorite.png'
 import yellowstar from '../images/star.png'
+import { useContext } from 'react'
+import { myContext } from '../context'
 
 export default function BetMotoGP(props){
 
     const {id,sport,name,date,following,results} = props.game
     const setSelected = props.setSelected
     const selected = props.selected
-    const dark = props.dark
     const email = props.email
-
+    const dark = useContext(myContext)
 
     // Adicionar bet a lista de selecionadas
     function changeSelected(sport,id,gameId){
@@ -70,7 +71,6 @@ export default function BetMotoGP(props){
             odd={odd}
             selected={getIfSelected(id)}
             changeSelected={changeSelected}
-            dark={dark}
         />
     )
 

@@ -1,10 +1,13 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 
 
 
 
 export default function BetBox(props){
 
-    const {id,sport,gameId,result,odd,selected,changeSelected,dark} = props
+    const {id,sport,gameId,result,odd,selected,changeSelected} = props
+    const {dark} = useContext(myContext)
     
     function changeSelectedResults(){
 
