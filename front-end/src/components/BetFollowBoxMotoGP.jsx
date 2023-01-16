@@ -3,8 +3,6 @@ export default function BetFollowBoxMotoGP(props){
 
     const {result,odd,dark} = props
 
-   
-
     return(
 
         <div className={`resultBoxFollowMotoGP${dark}`} >

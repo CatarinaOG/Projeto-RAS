@@ -39,22 +39,22 @@ export default function BetMotoGP(props){
         }
 
         fetch('http://127.0.0.1:8080/api/users/follow_game/', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(send)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(send)
         })
         .then(response => response.json())
         .then(data => {
-            if(data.state == 'confirmed'){
+            if(data.confirmed == 'true'){
 
                 props.getGames()
 
             }
         })
         .catch((error) => {
-          console.error('Error:', error);
+            console.error('Error:', error);
         });
         
     }

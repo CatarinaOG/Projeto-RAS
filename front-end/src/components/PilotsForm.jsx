@@ -119,7 +119,6 @@ export default function PilotsForm(props){
                 <input className ={`ftDateRace${dark}`} type="date" onChange={handleChange}  name = "date" value = {formData.date}/>
                 <input className ={`ftoddPilot${dark}`} type="time" onChange={handleChange} placeholder='time' name = "time" value = {formData.time}/>
             </div>
-           
         </div>
     )
 }

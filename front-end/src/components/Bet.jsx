@@ -50,10 +50,8 @@ export default function Bet(props){
         })
         .then(response => response.json())
         .then(data => {
-            if(data.state == 'confirmed'){
-
+            if(data.confirmed == 'true'){
                 props.getGames()
-
             }
         })
         .catch((error) => {

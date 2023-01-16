@@ -27,10 +27,10 @@ export default function BetExpert(props){
     function getNewGames(){
 
         fetch('http://127.0.0.1:8080/api/games/', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
         })
         .then(response => response.json())
         .then(data => {

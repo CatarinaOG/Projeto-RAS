@@ -50,7 +50,7 @@ export default function RetrievePass(props) {
 			.then(response => response.json())
 			.then(data => {
 				console.log("data response is:", data)
-				if(data.status === "true")
+				if(data.confirmed === "true")
 					setMessage(1)
 				else{
 					setMessage(2)
