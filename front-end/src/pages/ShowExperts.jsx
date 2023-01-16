@@ -9,7 +9,7 @@ import remove from '../images/remove.png'
 
 export default function ShowExperts(props){
 
-    const {username,dark} = props
+    const {dark} = props
 
     let navigate = useNavigate()
     
@@ -88,7 +88,6 @@ export default function ShowExperts(props){
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile 
-                username={username}
                 dark={dark}
             />
             <div className={`ftwhiteShadow${dark}`}>

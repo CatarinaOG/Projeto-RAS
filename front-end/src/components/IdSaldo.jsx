@@ -1,8 +1,11 @@
+import { useContext } from 'react'
+import { myContext } from '../context'
 import '../styles/Profile.css'
 
 export default function IdSaldo(props){
 
-    const {username,balance,dark} = props
+    const {balance,dark} = props
+    const {username} = useContext(myContext)
 
     const saldo = balance
 

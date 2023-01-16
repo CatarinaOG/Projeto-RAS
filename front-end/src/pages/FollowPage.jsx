@@ -6,10 +6,13 @@ import goBackImg from '../images/goBack.png'
 import BetFollowDiv from "../components/BetFollowDiv";
 
 import '../styles/FollowBack.css'
+import { useContext } from "react";
+import { myContext } from "../context";
 
 export default function FollowPage(props){
 
-    const {username,games,dark} = props
+    const {games,dark} = props
+    const {username} = useContext(myContext)
 
     let navigate = useNavigate()
         
@@ -39,7 +42,6 @@ export default function FollowPage(props){
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile 
-                username={username}
                 dark={dark}
             />
             <div className={`ftwhiteShadow${dark}`}>

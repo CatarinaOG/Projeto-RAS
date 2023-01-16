@@ -10,7 +10,7 @@ import PilotsForm from '../components/PilotsForm';
 
 export default function AddGame(props){
 
-    const {username,email,setGames,dark} = props
+    const {email,setGames,dark} = props
     const [pilotError,setPilotError] = useState(0);
 
     // Variável utilizada para controlar o conditional rendering de mensagens de erro
@@ -204,7 +204,6 @@ export default function AddGame(props){
         <div className={`ftaddGame${dark}`}>
             <div >
                 <NavBarProfile
-                    username={username}
                     dark={dark}
                 />
                 <div className={`whiteShadow${dark}`}>

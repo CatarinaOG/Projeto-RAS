@@ -14,7 +14,7 @@ import editEvent from "../images/edit.png"
 
 export default function ProfileExpert(props){
 
-    const {username,dark} = props
+    const {dark} = props
 
     let navigate = useNavigate()
 
@@ -42,7 +42,6 @@ export default function ProfileExpert(props){
 
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
             <NavBarProfile 
-                username={username}
                 dark={dark}
             />
             <img src = {goBackImg} className={`goBackImg3${dark}`} onClick={goBack}/>

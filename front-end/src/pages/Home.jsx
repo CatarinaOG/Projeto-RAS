@@ -11,7 +11,7 @@ import { useEffect } from "react"
 
 export default function Home(props){
 
-    const {username,email,setBalance,dark} = props
+    const {email,setBalance,dark} = props
 
 
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
@@ -156,7 +156,6 @@ export default function Home(props){
     return(
         <div>
             <NavBar 
-                user={username} 
                 filter={filter} 
                 setFilter={setFilter}
                 userType="user"

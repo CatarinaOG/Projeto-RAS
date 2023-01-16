@@ -10,11 +10,14 @@ import BetExpertMotoGP from '../components/BetExpertMotoGP'
 import "../styles/home.css"
 import {useState} from 'react'
 import { useEffect } from "react"
+import { useContext } from "react"
+import { myContext } from "../context"
 
 
 export default function HomeExpert(props){
 
-    const {username,dark} = props
+    const {dark} = props
+    const {username} = useContext(myContext)
 
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
 
@@ -171,7 +174,6 @@ export default function HomeExpert(props){
             }
 
             <NavBar 
-                user={username}
                 filter={filter} 
                 setFilter={setFilter} 
                 userType='expert'

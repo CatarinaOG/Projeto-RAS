@@ -1,6 +1,5 @@
-import { useAsyncError, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
 
 import NavBarProfile from "../components/NavBarProfile"
 
@@ -9,7 +8,7 @@ import ModalConfirmedChange from "../components/ModalConfirmedChange";
 
 export default function ChangeGameExpert(props){
 
-    const {username,expertGame,setExpertGame,setGames,dark} = props
+    const {expertGame,setExpertGame,setGames,dark} = props
 
     const [confirmed,setConfirmed] = useState(false)
 
@@ -159,7 +158,6 @@ export default function ChangeGameExpert(props){
             }
             
             <NavBarProfile
-                username={username}
                 dark={dark}
             />
             <div className={`ftwhiteShadow${dark}`}>
