@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { Cookies } from "react-cookie"
 
 import NavBarProfile from "../components/NavBarProfile"
 
@@ -19,6 +20,10 @@ export default function HomeAdmin(props){
     }
 
     function logout(){
+        const cookies = new Cookies()
+        cookies.remove('email')
+		cookies.remove('username')
+        cookies.remove('typeuser')
         navigate('/', { replace: true })
     }
 

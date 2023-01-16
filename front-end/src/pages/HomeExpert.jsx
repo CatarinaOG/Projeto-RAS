@@ -35,8 +35,6 @@ export default function HomeExpert(props){
             email : "user@user"
         }
 
-        console.log(JSON.stringify(user))
-
         const interval = setInterval(() => {
             fetch('http://127.0.0.1:8080/api/games/', {
                 method: 'POST',
@@ -182,7 +180,7 @@ export default function HomeExpert(props){
 
             <div className={`content${dark}`}>
                 <div>
-                    <SearchBar 
+                    <SearchBar
                         dark={dark}
                         setSearch={setSearch}
                         setText={setText}
