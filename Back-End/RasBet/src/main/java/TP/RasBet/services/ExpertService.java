@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import TP.RasBet.config.Logs;
 import TP.RasBet.model.*;
 import TP.RasBet.repositories.*;
 
@@ -29,79 +30,90 @@ public class ExpertService implements IExpertService{
     @Autowired
     private BetRepo betRepo;
 
+
+    public String createGameMotoGP(JSONObject event, List<Game> games){
+
+        String participants = ""; // String that will contain all the participants in this particular game
+        
+        for(int i = 1; i <= 22 ; i++){ //22 iterations for 22 possible participants ( maybe it should be changed for a varible value for future changes)
+            if( i == 22 ) participants += (String) event.get("pilot"+i); 
+            else participants += (String) event.get("pilot"+i) + ";";
+        }
+
+        Timestamp d = Timestamp.valueOf((String) event.get("date")); // extract the date from the json 
+        String name = (String) event.get("name"); // 
+
+        for(Game g : games){
+            if(g.getParticipants().equals(participants) && d.equals(g.getDate())){
+               return Logs.returnLogFalse();  // return message confirming that the operation failed
+            }
+        }
+
+        Expert expert = expertRepo.findExpertByEmail((String) event.get("exepert_email")).get();
+        Game game = new Game((String) event.get("sport"), participants, d, expert, name, null);
+        gameRepo.save(game);
+
+        for(int i = 1 ; i <= 22; i++){
+            Odd odd = new Odd((String) event.get("pilot"+i), Float.parseFloat(event.get("odd"+i).toString()));
+            odd.setGame(game);
+            oddRepo.save(odd);
+        }
+          
+        return Logs.returnLogTrue(); //return message confirming that the operation was successful
+    }
+
+    public String createTwoParticipantEnvent(JSONObject event, List<Game> games ){
+
+        String pA = (String) event.get("participantA");
+        String pB = (String) event.get("participantB");
+
+        Timestamp d = Timestamp.valueOf((String) event.get("date"));
+        String name = (String) event.get("name");
+        String cmp = pA + ";" + pB;
+
+        for(Game g : games){
+            if(g.getParticipants().equals(cmp) && d.equals(g.getDate())){
+                return Logs.returnLogFalse(); // return message confirming that the operation failed
+            }
+        }
+
+        Odd oddA = new Odd(pA, Float.parseFloat(event.get("oddA").toString()));
+        Odd oddB = new Odd(pB, Float.parseFloat(event.get("oddB").toString()));
+        Odd oddTie = new Odd();
+        if(event.get("sport").equals("futebol")){
+            oddTie = new Odd("Empate", Float.parseFloat(event.get("OddTie").toString()));
+        }
+        Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
+
+        Game game = new Game( (String) event.get("sport"), cmp, d, expert, name, null);
+
+        gameRepo.save(game);
+        oddA.setGame(game);
+        oddB.setGame(game);
+
+        if(event.get("sport").equals("futebol")){
+            oddTie.setGame(game);
+            oddRepo.save(oddTie);
+        }
+        oddRepo.save(oddA);
+        oddRepo.save(oddB);
+        
+        return Logs.returnLogTrue(); //return message confirming that the operation was successful
+    }
+
     public String createGame(JSONObject event){
 
         List<Game> games = gameRepo.findAll();
 
         if(event.get("sport").equals("motoGP")){
-
-            String participants = "";
-
-            for(int i = 1; i <= 22; i++){
-                if(i == 22) participants += (String) event.get("pilot" + i) ;
-                else participants += (String) event.get("pilot" + i) + ";" ;
-            }
-            Timestamp d = Timestamp.valueOf((String) event.get("date")); // DEPOIS ALTERAR
-            String name = (String) event.get("name");
-
-            for(Game g : games){
-                if(g.getParticipants().equals(participants) && d.equals(g.getDate())){
-                    return "{\"state\" : \"bad\"}";
-                }
-            }
             
-            Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
-
-            Game game = new Game((String) event.get("sport"), participants, d, expert, name, null);
-            gameRepo.save(game);
-
-            for(int i = 1; i <= 22; i++){
-                Odd odd = new Odd((String) event.get("pilot"+i), Float.parseFloat(event.get("odd"+i).toString()));
-                odd.setGame(game);
-                oddRepo.save(odd);
-            }
-
-            return "{\"state\" : \"good\"}";
-            
+            return createGameMotoGP(event, games); // method to create a MotoGP event
+        
         }
         else{
-            String pA = (String) event.get("participantA");
-            String pB = (String) event.get("participantB");
-            Timestamp d = Timestamp.valueOf((String) event.get("date")); // DEPOIS ALTERAR
+
+            return createTwoParticipantEnvent(event, games); // method to create a two participant event
             
-            String name = (String) event.get("name");
-
-            String cmp = pA + ";" + pB;
-
-            for(Game g : games){
-                if(g.getParticipants().equals(cmp) && d.equals(g.getDate())){
-                    return "{\"state\" : \"bad\"}";
-                }
-            }
-
-            Odd oddA = new Odd(pA, Float.parseFloat(event.get("oddA").toString()));
-            Odd oddB = new Odd(pB, Float.parseFloat(event.get("oddB").toString()));
-            Odd oddTie  = new Odd();
-            if (event.get("sport").equals("futebol")){
-                oddTie = new Odd("Empate", Float.parseFloat(event.get("oddTie").toString()));
-            }
-            
-
-            Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
-
-            Game game = new Game((String) event.get("sport"), cmp, d, expert, name, null);
-            gameRepo.save(game);
-            oddA.setGame(game);
-            oddB.setGame(game);
-            if (event.get("sport").equals("futebol")) {
-                oddTie.setGame(game);
-                oddRepo.save(oddTie);
-            }
-            oddRepo.save(oddA);
-            oddRepo.save(oddB);
-            
-
-            return "{\"state\" : \"good\"}";
         }
     }
 
@@ -164,6 +176,6 @@ public class ExpertService implements IExpertService{
         if(g.getState().equals("TBD")) g.setState("Suspended");
         else if(g.getState().equals("Suspended")) g.setState("TBD");
         gameRepo.save(g);
-        return "{\"confirmed\" : \"true\"}";
+        return Logs.returnLogTrue();
     }
 }

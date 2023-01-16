@@ -6,12 +6,23 @@ import org.json.JSONObject;
 
 public class Logs{
 
-    public static String getReturnLog(String key, String value){
+    public static String returnLogTrue(){
         JSONObject j = new JSONObject();
-        j.put(key, value);
+        j.put("confirmed", "true");
+        return j.toString();
+    }
+    
+    public static String returnLogFalse(){
+        JSONObject j = new JSONObject();
+        j.put("confirmed", "false");
         return j.toString();
     }
 
+    public static String returnLogFalse(int errorType){
+        JSONObject j = new JSONObject();
+        j.put("confirmed", "\"" + errorType + "\"");
+        return j.toString();
+    }
     
     public static String buildJSON(Object ... args){
         JSONObject j = new JSONObject();
