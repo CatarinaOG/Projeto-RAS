@@ -12,3 +12,14 @@
     left: 21vw;
     top: 22vh;
 }
+
+.goBackImg3{
+    position: absolute;
+    z-index: 2;
+    left: 21vw;
+    top: 15vh;
+}
+
+.goBackImg3:hover{
+    cursor: pointer;
+}

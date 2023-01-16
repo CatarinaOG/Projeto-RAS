@@ -141,6 +141,7 @@
     border-radius: 20px;
 }
 
+/*----------- PopUp Admin ---------- */
 
 
 .fth2PopAdmin{
@@ -216,17 +217,6 @@
     color: red;
 }
 
-
-.goBackImg2{
-    position: absolute;
-    z-index: 2;
-    left: 21vw;
-    top: 12vh;
-}
-
-.goBackImg2:hover{
-    cursor: pointer;
-}
 
 .goBackImg3{
     position: absolute;

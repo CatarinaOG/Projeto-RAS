@@ -189,6 +189,9 @@ body{
 }
 
 
+.fth1Pop{
+    margin-top: 20vh;
+}
 
 .ftadd{
     position: absolute;
@@ -239,9 +242,6 @@ body{
     cursor: pointer;
 }
 
-.fth1Pop{
-    margin-top: 20vh;
-}
 
 
 .fterrorAddGame{
@@ -323,7 +323,7 @@ body{
     left : 30%
 }
 
-
+/*--------- Pilots form -----------*/
 
 .divPilots{
     position: absolute;

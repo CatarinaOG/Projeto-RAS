@@ -216,35 +216,3 @@
     color: red;
 }
 
-
-.goBackImg2{
-    position: absolute;
-    z-index: 2;
-    left: 21vw;
-    top: 12vh;
-}
-
-.goBackImg2:hover{
-    cursor: pointer;
-}
-
-.goBackImg3{
-    position: absolute;
-    z-index: 2;
-    left: 21vw;
-    top: 15vh;
-}
-
-.goBackImg3:hover{
-    cursor: pointer;
-}
-
-
-.ftgoBackImgDark{
-    position: absolute;
-    left: 22vw;
-    top: 16vh;
-    z-index: 2;
-    scale: 0.8;
-    filter: invert(100%);
-}
