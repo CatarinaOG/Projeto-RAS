@@ -81,7 +81,7 @@ public class ExpertService implements IExpertService{
         Odd oddB = new Odd(pB, Float.parseFloat(event.get("oddB").toString()));
         Odd oddTie = new Odd();
         if(event.get("sport").equals("futebol")){
-            oddTie = new Odd("Empate", Float.parseFloat(event.get("OddTie").toString()));
+            oddTie = new Odd("Empate", Float.parseFloat(event.get("oddTie").toString()));
         }
         Expert expert = expertRepo.findExpertByEmail((String) event.get("expert_email")).get();
 

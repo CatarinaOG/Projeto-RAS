@@ -353,7 +353,7 @@ public class AppService implements IAppService {
             if(flag && !b.getState().equals("Closed")){
                 updateBetState(b, gamesInBet);
             }
-        }  
+        }
     }
 
 
