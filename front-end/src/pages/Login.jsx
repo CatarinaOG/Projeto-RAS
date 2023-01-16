@@ -6,7 +6,7 @@ function Login(props){
 
 	const {t,i18n,setUsername,setBalance,setRender,setEmail,setTypeUser,dark,switchDark} = props;
 
-	
+
     return(
 		<div className={`page${dark}`}>
 			<div className={`mainLog${dark}`}>

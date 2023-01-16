@@ -6,6 +6,8 @@ export default function IdSaldo(props){
 
     const saldo = balance
 
+
+
     return(
         <div className="ftsquareDiv">
             <div className='ftuserDiv'>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import PopUpAdmin from '../components/PopUpAdmin'
 import goBackImg from '../images/goBack.png'
 import NavBarProfile from "../components/NavBarProfile"
+import { createContext } from 'react'
 
 
 export default function AddSpecialist(props){
@@ -13,6 +14,8 @@ export default function AddSpecialist(props){
 	const [errorReg,setErrorReg]=useState(0)
     
     const [confirmed,setConfirmed] = useState(false)
+
+
 
     let navigate = useNavigate()
 
@@ -71,6 +74,7 @@ export default function AddSpecialist(props){
     return(
         <div className={`ftaddSpecialist${dark}`}>
             <div>
+                
                 <NavBarProfile 
                     username={username}
                     dark={dark}

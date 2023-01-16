@@ -8,6 +8,8 @@ export default function NavBar(props){
 
     const {user,filter,userType,setFilter,dark} = props
 
+
+
     let navigate = useNavigate();
 
     function goToProfile(){
