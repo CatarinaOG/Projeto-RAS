@@ -11,10 +11,9 @@ import { myContext } from "../context"
 
 
 
-export default function HomeAdmin(props){
+export default function HomeAdmin(){
 
-    const {dark} = props
-    const {username} = useContext(myContext)
+    const {dark} = useContext(myContext)
 
     let navigate = useNavigate()
 
@@ -36,9 +35,7 @@ export default function HomeAdmin(props){
 
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
-            <NavBarProfile
-                dark={dark}
-            />
+            <NavBarProfile />
             <div className={`whiteShadow${dark}`}>
                 <div className="contentAdmin">
                     <button className="ButtonsAdmin" onClick={goToShowExperts}>Consultar Especialistas</button>

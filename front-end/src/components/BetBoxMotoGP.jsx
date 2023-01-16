@@ -1,8 +1,11 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 
 export default function BetBoxMotoGP(props){
 
-    const {sport,name,id,gameId,result,odd,selected,changeSelected,dark} = props
-
+    const {sport,name,id,gameId,result,odd,selected,changeSelected} = props
+    const {dark} = useContext(myContext)
+    
     // Retirar aposta de selecionada se clicar no bloco
     function changeSelectedResults(){
 

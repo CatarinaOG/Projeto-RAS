@@ -1,4 +1,6 @@
 
+import { useContext } from 'react'
+import { myContext } from '../context'
 import star from '../images/favorite.png'
 import yellowstar from '../images/star.png'
 import BetFollowBox from './BetFollowBox'
@@ -6,14 +8,13 @@ import BetFollowBox from './BetFollowBox'
 export default function BetFollow(props){
 
     const {sport,home,away,date,results} = props.game
-    const dark = props.dark
+    const {dark} = useContext(myContext)
 
     // Criação das caixas de resultado
     const resultsBoxes = results.map( ({result,odd}) => 
         <BetFollowBox
             result={result}
             odd={odd}
-            dark={dark}
         />
     )
 

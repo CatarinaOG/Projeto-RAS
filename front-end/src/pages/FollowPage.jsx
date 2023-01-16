@@ -11,8 +11,8 @@ import { myContext } from "../context";
 
 export default function FollowPage(props){
 
-    const {games,dark} = props
-    const {username} = useContext(myContext)
+    const {games} = props
+    const {dark} = useContext(myContext)
 
     let navigate = useNavigate()
         
@@ -20,15 +20,14 @@ export default function FollowPage(props){
 
         if(game.following==='true'){
           if(game.sport==="futebol"){
-            return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+            return(<BetFollowDiv game={game} />)
           }
           if(game.sport==="tenis" && "basquetebol"){
-            return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+            return(<BetFollowDiv game={game}/>)
           }      
           if(game.sport==="motoGP"){
-            return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
+            return(<BetFollowDiv game={game}/>)
           }
-        
         }
         }  
     )
@@ -41,9 +40,7 @@ export default function FollowPage(props){
 
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
-            <NavBarProfile 
-                dark={dark}
-            />
+            <NavBarProfile />
             <div className={`ftwhiteShadow${dark}`}>
                 <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                 <h1 className = "ftAddSp">Eventos</h1>

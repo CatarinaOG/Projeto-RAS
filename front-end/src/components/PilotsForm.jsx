@@ -1,7 +1,10 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 
 export default function PilotsForm(props){
 
-    const {formData,handleChange,dark} = props
+    const {formData,handleChange} = props
+    const {dark} = useContext(myContext)
 
     return(
         <div className='divPilots'>

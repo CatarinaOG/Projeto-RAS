@@ -7,12 +7,14 @@ import BetMotoGP from '../components/BetMotoGP'
 
 import {useState} from 'react'
 import { useEffect } from "react"
+import { useContext } from "react"
+import { myContext } from "../context"
 
 
 export default function Home(props){
 
-    const {email,setBalance,dark} = props
-
+    const {email,setBalance} = props
+    const {dark} = useContext(myContext)
 
     const [selected,setSelected] = useState([])             //lista de apostas selecionadas [{id,gameId,odd}]
     const [filter,setFilter] = useState('all')              //utilizado para saber secção atual
@@ -104,7 +106,6 @@ export default function Home(props){
                             game={game} 
                             setSelected={setSelected} 
                             selected={selected}
-                            dark={dark}
                         /> 
                     )
                 }else{
@@ -116,7 +117,6 @@ export default function Home(props){
                             game={game} 
                             setSelected={setSelected} 
                             selected={selected}
-                            dark={dark}
                         /> 
                     )
                 }
@@ -133,7 +133,6 @@ export default function Home(props){
                                     game={game} 
                                     setSelected={setSelected} 
                                     selected={selected}
-                                    dark={dark}
                                 /> 
                             )
                         }else{
@@ -143,7 +142,6 @@ export default function Home(props){
                                     game={game} 
                                     setSelected={setSelected} 
                                     selected={selected}
-                                    dark={dark}
                                 /> 
                             )
                         }
@@ -159,12 +157,10 @@ export default function Home(props){
                 filter={filter} 
                 setFilter={setFilter}
                 userType="user"
-                dark={dark}
             />
             <div className={`content${dark}`}>
                 <div>
                     <SearchBar 
-                        dark={dark}
                         setText={setText}
                         setSearch={setSearch}
                     />
@@ -178,7 +174,6 @@ export default function Home(props){
                     email={email}
                     setBalance={setBalance}
                     setSelected={setSelected}
-                    dark={dark}
                 />
             </div>
         </div>

@@ -3,18 +3,19 @@ import { useState } from 'react'
 import BetFollowBoxMotoGP from './BetFollowBoxMotoGP'
 import star from '../images/favorite.png'
 import yellowstar from '../images/star.png'
+import { useContext } from 'react'
+import { myContext } from '../context'
 
 export default function BetFollowMotoGP(props){
 
-    const {name,date,results,dark} = props
-
+    const {name,date,results} = props
+    const {dark} = useContext(myContext)
 
     // Criação das caixas de resultado
     const resultsBoxes = results.map( ({id,result,odd}) => 
         <BetFollowBoxMotoGP
             result={result}
             odd={odd}
-            dark={dark}
         />
     )
 

@@ -8,10 +8,9 @@ import { useContext } from 'react'
 import { myContext } from '../context'
 
 
-export default function AddSpecialist(props){
+export default function AddSpecialist(){
 
-    const {dark} = props
-    const {username} = useContext(myContext)
+    const {dark} = useContext(myContext)
 
 	const [errorReg,setErrorReg]=useState(0)
     
@@ -77,9 +76,7 @@ export default function AddSpecialist(props){
         <div className={`ftaddSpecialist${dark}`}>
             <div>
                 
-                <NavBarProfile 
-                    dark={dark}
-                />
+                <NavBarProfile />
                 <img src = {goBackImg} className={`ftgoBackImg${dark}`}onClick ={goBack}/>
                 <div className={`ftwhiteShadow${dark}`}>
                     <h1 className = {`ftAddSp${dark}`}>Adicionar Especialista</h1>
@@ -100,11 +97,10 @@ export default function AddSpecialist(props){
                 <div>
                     <div className={`ftbackgroundModal${dark}`}>
                     </div>
-                    <PopUpAdmin 
+                    <PopUpAdmin
                         email = {formData.email}
                         password = {formData.password}
                         username={formData.expert_username}
-                        dark={dark}
                     />
                 </div>
             }           

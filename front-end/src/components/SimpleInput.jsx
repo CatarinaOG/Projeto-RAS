@@ -1,7 +1,10 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 
 export default function SimpleInput(props){
 
-    const {quote,setAmountMultiple,dark} = props
+    const {quote,setAmountMultiple} = props
+    const {dark} = useContext(myContext)
 
     // Altera o valor apostado na aposta múltipla
     function changeValueMultiple(event){

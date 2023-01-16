@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import { useState } from 'react'
+import { myContext } from '../context'
 import close from '../images/close.png'
 
 export default function ModalConfirmation(props){
 
-    const {amountToBet,setModalConfirmation,setModalConfirmated,setSelected,selected,email,type,amountMultiple,setBalance,dark} = props
+    const {amountToBet,setModalConfirmation,setModalConfirmated,setSelected,selected,email,type,amountMultiple,setBalance} = props
+    const {dark} = useContext(myContext)
 
     const [error,setError] = useState(0)
 

@@ -1,19 +1,19 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import BetBox from './BetBox'
 
 
 import star from '../images/favorite.png'
 import yellowstar from '../images/star.png'
+import { myContext } from '../context'
 
 export default function Bet(props){
 
     const {id,sport,home,away,date,following,results} = props.game
     const setSelected = props.setSelected
     const selected = props.selected
-    const dark = props.dark
     const email = props.email
-
+    const {dark} = useContext(myContext)
 
 
     // Adicionar bet a lista de selecionadas
@@ -73,7 +73,6 @@ export default function Bet(props){
             odd={odd}
             selected={getIfSelected(id)}
             changeSelected={changeSelected}
-            dark={dark}
         />
     )
 

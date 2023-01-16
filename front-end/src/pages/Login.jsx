@@ -1,24 +1,23 @@
 
+import { useContext } from 'react';
 import InputsLogin from '../components/InputsLogin';
+import { myContext } from '../context';
 import celebrating from '../images/celebrating.png'
 
 function Login(props){
 
-	const {t,i18n,setUsername,setBalance,setRender,setEmail,setTypeUser,dark,switchDark} = props;
-
+	const {setUsername,setBalance,setRender,setEmail,setTypeUser,switchDark} = props;
+	const {dark} = useContext(myContext)
 
     return(
 		<div className={`page${dark}`}>
 			<div className={`mainLog${dark}`}>
 					<InputsLogin
-						t={t}
-						i18n={i18n} 
 						setUsername={setUsername}	
 						setBalance={setBalance}
 						setRender = {setRender} 
 						setEmail={setEmail}
 						setTypeUser={setTypeUser}
-						dark={dark}
 						switchDark={switchDark}
 					/> 
 				<div className='logImage'>
@@ -26,7 +25,6 @@ function Login(props){
 				</div>
 			</div>
 		</div>
-       
     )
 }
 

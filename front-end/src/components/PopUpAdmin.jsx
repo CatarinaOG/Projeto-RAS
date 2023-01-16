@@ -1,11 +1,14 @@
 import closeImg from '../images/close.png'
 
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { myContext } from '../context';
 
 //PopUp que surge quando é adicionado um especialista, com os dados do mesmo
 export default function PopUpAdmin(props){
 
-    const {email,password,username,dark} = props;
+    const {email,password,username} = props
+    const {dark} = useContext(myContext)
 
 	let navigate = useNavigate();
 

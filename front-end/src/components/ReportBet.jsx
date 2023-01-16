@@ -1,9 +1,12 @@
+import { useContext } from 'react'
+import { myContext } from '../context'
 import close from '../images/close.png'
 
 export default function ReportBet(props){
 
-    const {id,games,game,bet,type,selected,setSelected,dark} = props
+    const {id,games,game,bet,type,selected,setSelected} = props
     const {home,away,date,results} = game
+    const {dark} = useContext(myContext)
 
     // Remove uma aposta das selecionadas
     function removeBet() {

@@ -12,11 +12,14 @@ import PopUpCodeConfirm from '../components/PopUpCodeConfirm'
 
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useContext } from 'react'
+import { myContext } from '../context'
 
 
 export default function Profile(props){
     
-    const {setUsername,setBalance,balance,email,dark} = props
+    const {setUsername,setBalance,balance,email} = props
+    const {dark} = useContext(myContext)
 
     const [divChoice,setDivChoice] = useState("Data")
     const [showPopUp,setShowPopUp] = useState("")
@@ -56,13 +59,10 @@ export default function Profile(props){
     return(
         <div className={`ftProfile${dark}`}>
             <div>
-                <NavBarProfile 
-                    dark={dark}
-                />
+                <NavBarProfile />
                 <div className= {`ftwhiteShadow${dark}`}>
                     <IdSaldo 
                         balance={balance}
-                        dark={dark}
                     />
                     {divChoice === "Data" && 
                         <ChangeData
@@ -72,7 +72,6 @@ export default function Profile(props){
                             email = {email}
                             sec = {sec}
                             setSec={setSec}
-                            dark={dark}
                         /> 
                     }
                     {divChoice === "BetHistory" && 
@@ -80,7 +79,6 @@ export default function Profile(props){
                             setDivChoice={setDivChoice}
                             betHist = {betHist}
                             email = {email}
-                            dark={dark}
                             amount={amount}
                             winnings={winnings}
                         />
@@ -95,20 +93,28 @@ export default function Profile(props){
                         setShowPopUp={setShowPopUp}
                         setBalance={setBalance}
                         email={email}
-                        dark={dark}
                     />
                 </div>
             }
             {(showPopUp === 'changeSec') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
-                    <PopUpCodeEmail setShowPopUp={setShowPopUp}  email={email} setSafeCode={setSafeCode} safeCode={safeCode} dark={dark}/>
+                    <PopUpCodeEmail 
+                        setShowPopUp={setShowPopUp}  
+                        email={email} 
+                        setSafeCode={setSafeCode} 
+                        safeCode={safeCode} 
+                    />
                 </div>
             }
             {(showPopUp === 'confirm') && 
                 <div>
                     <div  className={`ftbackgroundModal${dark}`}></div>
-                    <PopUpCodeConfirm setShowPopUp={setShowPopUp} setSec={setSec} safeCode={safeCode} dark={dark}/>
+                    <PopUpCodeConfirm 
+                        setShowPopUp={setShowPopUp} 
+                        setSec={setSec} 
+                        safeCode={safeCode} 
+                    />
                 </div>
             }
 

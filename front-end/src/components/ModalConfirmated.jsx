@@ -1,8 +1,11 @@
+import { useContext } from 'react'
+import { myContext } from '../context'
 import close from '../images/close.png'
 
 export default function ModalConfirmated(props){
 
-    const {setModalConfirmated,dark} = props
+    const {setModalConfirmated} = props
+    const {dark} = useContext(myContext)
 
     function cancel(){
 

@@ -2,12 +2,15 @@
 import closeImg from '../images/close.png'
 import '../styles/AddGame.css'
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { myContext } from '../context';
 
 // PopUp que é mostrado com a informação do jogo que se acabou de adicionar
 
 export default function PopUpAddGame(props){
 
-    const {setConfirmed, sportPop,participantAPop,participantBPop,oddAPop,oddBPop,oddTiePop,date,time,eventName,dark} = props;
+    const {setConfirmed, sportPop,participantAPop,participantBPop,oddAPop,oddBPop,oddTiePop,date,time,eventName} = props;
+    const {dark} = useContext(myContext)
 
     const navigate = useNavigate()
 

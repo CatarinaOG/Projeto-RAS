@@ -5,10 +5,13 @@ import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
 import ModalConfirmedChange from "../components/ModalConfirmedChange";
+import { useContext } from "react";
+import { myContext } from "../context";
 
 export default function ChangeGameExpert(props){
 
-    const {expertGame,setExpertGame,setGames,dark} = props
+    const {expertGame,setExpertGame,setGames} = props
+    const {dark} = useContext(myContext)
 
     const [confirmed,setConfirmed] = useState(false)
 
@@ -153,13 +156,10 @@ export default function ChangeGameExpert(props){
             {confirmed && 
                 <ModalConfirmedChange 
                     setConfirmed={setConfirmed}
-                    dark={dark}
                 />
             }
             
-            <NavBarProfile
-                dark={dark}
-            />
+            <NavBarProfile />
             <div className={`ftwhiteShadow${dark}`}>
                 <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                 <div className="expertGameCenter">

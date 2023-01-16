@@ -3,10 +3,13 @@ import goBack from "../images/goBack.png"
 import BetHistoryBox from './BetHistoryBox'
 import { useEffect } from 'react'
 import TableTransact from "./TableTransact";
+import { useContext } from "react";
+import { myContext } from "../context";
 
 export default function BetHistory(props){
 
-    const {setDivChoice, betHist,email,dark,amount,winnings} = props
+    const {setDivChoice, betHist,email,amount,winnings} = props
+    const {dark} = useContext(myContext)
 
     const [typeData, setTypeData] = useState('Bet');
 
@@ -52,10 +55,6 @@ export default function BetHistory(props){
       console.error('Error:', error);
     })
     
-    
-    
-
-    
   },[])  
 
 
@@ -66,13 +65,21 @@ const fullbetHist = () => (
       
       if(multipleState==="active" && item.bet.length>1){
         return (
-          <BetHistoryBox bet={item.bet} ammount={item.amount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
+          <BetHistoryBox 
+            bet={item.bet} 
+            ammount={item.amount} 
+            winnings ={item.winnings} 
+          />
         );
       }
       else if (simpleState === "active" && item.bet.length===1){
         
         return (
-          <BetHistoryBox bet={item.bet} ammount={item.amount} winnings ={item.winnings} dark={dark}></BetHistoryBox>
+          <BetHistoryBox 
+            bet={item.bet} 
+            ammount={item.amount} 
+            winnings ={item.winnings} 
+          />
       
         );
       }
@@ -112,14 +119,14 @@ const fullbetHist = () => (
 
         </div>
       }
-       {typeData === 'Transact' &&
-       <div>
+      {typeData === 'Transact' &&
+      <div>
         <div className="buttonHistoryDiv">
           <img onClick={goToDataToBet} src = {goBack} className={`ftgoBack${dark}`} alt=""/>
         </div>
         <TableTransact data={transactHist} dark={dark}></TableTransact>
-       </div>
-       }   
+      </div>
+      }   
       </div>
     )
 }

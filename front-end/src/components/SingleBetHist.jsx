@@ -1,8 +1,10 @@
+import { useContext } from "react"
+import { myContext } from "../context"
 
 export default function SingleBetHist(props){
 
-    const {name,winner,dark} = props
-
+    const {name,winner} = props
+    const {dark} = useContext(myContext)
     
 
     return(

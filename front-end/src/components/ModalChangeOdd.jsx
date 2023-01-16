@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import { useState } from 'react'
+import { myContext } from '../context'
 import close from '../images/close.png'
 
 export default function ModalChangeOdd(props){
 
-    const {games,oddToChange,setModalChangeOdd,setModalChangeOddConfimation,setGames,dark} = props
+    const {games,oddToChange,setModalChangeOdd,setModalChangeOddConfimation,setGames} = props
+    const {dark} = useContext(myContext)
 
     const [newOdd,setNewOdd] = useState()
     const [error,setError] = useState(0)

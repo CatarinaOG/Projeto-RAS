@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { Cookies } from 'react-cookie'
 
 import goBackImg from "../images/goBack.png"
+import { useContext } from 'react';
+import { myContext } from '../context';
 
 
 export default function ChangeData(props){
 
-    const {setUsername,setShowPopUp,setDivChoice,sec,email,setSec,dark} = props
+    const {setUsername,setShowPopUp,setDivChoice,sec,email,setSec} = props
+    const {dark} = useContext(myContext)
 
     const [success,setSuccess] = useState(0)
     let navigate = useNavigate();

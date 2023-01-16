@@ -1,15 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 
 import NavBarProfile from "../components/NavBarProfile"
 
 import goBackImg from '../images/goBack.png'
 import podio from '../images/podio.png'
+import { myContext } from "../context";
 
 export default function ShowExperts(props){
 
-    const {setExpertGame,dark} = props
+    const {setExpertGame} = props
+    const {dark} = useContext(myContext)
 
     let navigate = useNavigate()
     
@@ -81,9 +83,7 @@ export default function ShowExperts(props){
 
     return(
         <div className={dark === 'Dark' ? "backgroundBlack" : ""}>
-            <NavBarProfile 
-                dark={dark}
-            />
+            <NavBarProfile />
             <div className={`ftwhiteShadow${dark}`}>
                 <img src = {goBackImg} className={`goBackImg${dark}`} onClick={goBack}/>
                 <h1 className = "ftAddSp">Consultar Eventos Criados</h1>

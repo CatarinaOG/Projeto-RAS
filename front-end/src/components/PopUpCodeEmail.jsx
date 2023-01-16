@@ -2,11 +2,14 @@
 import close from '../images/close.png'
 import '../styles/Profile.css'
 import {useState} from 'react'
+import { useContext } from 'react';
+import { myContext } from '../context';
 
 
 export default function PopUpEmail(props){
 
-    const {setShowPopUp,email,setSafeCode,dark} = props;
+    const {setShowPopUp,email,setSafeCode} = props;
+    const {dark} = useContext(myContext)
 
     //variavel que controla o estado da checkbox
     const [checked, setChecked] = useState(false)
