@@ -38,25 +38,25 @@ export default function HomeExpert(props){
         console.log(JSON.stringify(user))
 
         const interval = setInterval(() => {
-          fetch('http://127.0.0.1:8080/api/games/', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(user)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.games){
-                setGames(data.games)
-            }
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-      }, 1000);
-      
-      return () => clearInterval(interval);
+            fetch('http://127.0.0.1:8080/api/games/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.games){
+                    setGames(data.games)
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
     },[])
 
     function getInEnglish(type){

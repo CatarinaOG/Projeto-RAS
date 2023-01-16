@@ -150,7 +150,6 @@ button:hover {
     padding: 7px 7px 7px 7px;
     border: 1px solid #F07444;
     position: relative;
-
 }
 
 .resultBoxNotSelectedMotoGP{
@@ -168,7 +167,7 @@ button:hover {
 
 .resultBoxNotSelected > p, .resultBoxSelected > p{
 
-    margin-top: 9px;
+    margin-top: 4px;
 
 }
 

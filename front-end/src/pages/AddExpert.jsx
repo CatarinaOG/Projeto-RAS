@@ -43,21 +43,20 @@ export default function AddSpecialist(props){
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({ nome : formData.expert_username , email: formData.email , password : formData.password})
-        	})
-			.then(response => response.json())
-			.then(data => {
-				if (data.state === 'good'){
-			        setErrorReg(0)
-                    setConfirmed(true)
-				}
-                else{
-                    setErrorReg(2)
-                }
-			})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.state === 'good'){
+                setErrorReg(0)
+                setConfirmed(true)
+            }
+            else{
+                setErrorReg(2)
+            }
+        })
         }
         else{
 			setErrorReg(1)
-            
         }
 
         

@@ -22,16 +22,16 @@ export default function Home(props){
 
     function getInEnglish(type){
         switch (type) {
-            case "futebol": return 'football'
+            case "futebol": return 'football' 
             case "basquetebol": return 'basketball'
             case "motoGP": return 'motoGP'
             case "tenis": return 'tenis'
+            default: return false
         }
     }
 
 
     useEffect(() => {
-
 
         const interval = setInterval(() => {
             const user = {
@@ -55,9 +55,9 @@ export default function Home(props){
                 console.error('Error:', error);
             });
         }, 1000);
-      
+
         return () => clearInterval(interval);
-    },[])
+    })
 
     function getGames(){
         

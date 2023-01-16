@@ -23,9 +23,7 @@ export default function FollowPage(props){
           return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
         }      
         if(game.sport==="motoGP"){
-          console.log("AAAAA")
           return(<BetFollowDiv game={game} dark={dark}></BetFollowDiv>)
-
         }
         
         }
