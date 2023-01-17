@@ -222,7 +222,7 @@ public class UserService implements IUserService {
     }
 
 
-    public JSONArray getUserTransactions(User u, JSONArray transactionsJsonList){
+    private JSONArray getUserTransactions(User u, JSONArray transactionsJsonList){
         List<Transaction> transactions = u.getTransactions();
         JSONObject response = new JSONObject();
         
@@ -244,7 +244,7 @@ public class UserService implements IUserService {
         return transactionsJsonList;
     }
 
-    public JSONArray getUserBets(User u, JSONArray transactionsListJson){
+    private JSONArray getUserBets(User u, JSONArray transactionsListJson){
         
         List<Bet> bets = u.getBets();
 
