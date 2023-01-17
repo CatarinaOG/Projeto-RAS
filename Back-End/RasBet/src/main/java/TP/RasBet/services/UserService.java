@@ -1,6 +1,7 @@
 package TP.RasBet.services;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -300,8 +301,8 @@ public class UserService implements IUserService {
                 Timestamp valA = null , valB = null;
 
                 try {
-                    valA = Timestamp.valueOf((String) a.get("date"));
-                    valB = Timestamp.valueOf((String) a.get("date"));
+                    valA = (Timestamp) a.get("date");
+                    valB = (Timestamp) a.get("date");
                 } 
                 catch (JSONException e) {
                     //do something
