@@ -55,19 +55,6 @@ public class AppService implements IAppService {
     @Autowired
     private User_follows_game_Repo user_follows_game_Repo;
 
-    private Boolean isGameFollowed(Game game, String email){
-        Set<User_follows_game> follows_games = userRepo.findUserByEmail(email).get().getFollowingGames();
-
-        for(User_follows_game ufg : follows_games){
-            Game g = ufg.getGame();
-            if(g.equals(game)){
-                return true;
-            }
-        }
-        
-        return false;
-    }
-
     public JSONObject getGames(String email){
         List<Game> games = gameRepo.findAll();
         JSONArray jogos = new JSONArray();
@@ -149,7 +136,6 @@ public class AppService implements IAppService {
         Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
         o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
         oddRepo.save(o);
-       // o.getGame().notifyObservers();
         notifyObservers(o);
 
         return Logs.returnLogTrue();
@@ -177,7 +163,6 @@ public class AppService implements IAppService {
             JSONObject response = new JSONObject();
             JSONArray gamesResponse = new JSONArray();
             List<Game> games = gameRepo.findGameByParticipant(p);
-            // System.out.println(games);
 
             for(Game g : games){
                 gamesResponse.put(g.getId());
@@ -189,6 +174,9 @@ public class AppService implements IAppService {
             return "{\"games\" : null }";
         }
     }
+
+
+    
 
 
     @Scheduled(fixedRate = 10000)
@@ -217,7 +205,8 @@ public class AppService implements IAppService {
 
 
 
-    /* Métodos Auxiliares */
+
+    /* Métodos Auxiliares  */
 
 
 
@@ -356,6 +345,21 @@ public class AppService implements IAppService {
     }
 
 
+
+
+    private Boolean isGameFollowed(Game game, String email){
+        Set<User_follows_game> follows_games = userRepo.findUserByEmail(email).get().getFollowingGames();
+
+        for(User_follows_game ufg : follows_games){
+            Game g = ufg.getGame();
+            if(g.equals(game)){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
     private boolean check_results(List<GamesInOneBet> giob){
         
         // se for futebol ou basket, é preciso verificar o resultado, ver qual das equipas ganhou ou se houve empate
@@ -388,6 +392,5 @@ public class AppService implements IAppService {
         }
         return true;
     }
-
 
 }
