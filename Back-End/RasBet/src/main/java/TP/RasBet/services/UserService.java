@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
@@ -270,12 +272,21 @@ public class UserService implements IUserService {
         JSONArray ts = new JSONArray();
 
         ts = getUserTransactions(u, ts); // add user transactions to the reponse json
-
+        
         //bets como transações
-
         ts = getUserBets(u, ts); // add user bets, and winnings to the response json
 
-        response.put("transactions", ts); // create the final response json format 
+        
+        List<Object> listresult = ts.toList().stream().sorted((p1, p2) -> Timestamp.valueOf((String)((JSONObject) p1).get("date"))
+                                                                  .compareTo(Timestamp.valueOf((String) ((JSONObject) p2).get("date"))))
+                                                                  .collect(Collectors.toList()) ;
+        JSONArray ret = new JSONArray();
+        for(Object jsonObject :  listresult){
+            ret.put((JSONObject) jsonObject);
+        }
+        
+        
+        response.put("transactions", ret); // create the final response json format 
     
         return response.toString();
     }
