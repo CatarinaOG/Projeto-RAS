@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
+
 
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -276,22 +279,46 @@ public class UserService implements IUserService {
         //bets como transações
         ts = getUserBets(u, ts); // add user bets, and winnings to the response json
 
+        ts = orderTransactions(ts);
         
-        List<Object> listresult = ts.toList().stream().sorted((p1, p2) -> Timestamp.valueOf((String)((JSONObject) p1).get("date"))
-                                                                  .compareTo(Timestamp.valueOf((String) ((JSONObject) p2).get("date"))))
-                                                                  .collect(Collectors.toList()) ;
-        JSONArray ret = new JSONArray();
-        for(Object jsonObject :  listresult){
-            ret.put((JSONObject) jsonObject);
-        }
-        
-        
-        response.put("transactions", ret); // create the final response json format 
+        response.put("transactions", ts); // create the final response json format 
     
         return response.toString();
     }
 
+    private JSONArray orderTransactions(JSONArray ts){
+        
+        List<JSONObject> jsonList = new ArrayList<JSONObject>();
+        for (int i = 0; i < ts.length(); i++) {
+            jsonList.add(ts.getJSONObject(i));
+        }
 
+        Collections.sort( jsonList, new Comparator<JSONObject>() {
+
+            public int compare(JSONObject a, JSONObject b) {
+
+                Timestamp valA = null , valB = null;
+
+                try {
+                    valA = Timestamp.valueOf((String) a.get("date"));
+                    valB = Timestamp.valueOf((String) a.get("date"));
+                } 
+                catch (JSONException e) {
+                    //do something
+                }
+
+                return valA.compareTo(valB);
+            }
+        });
+
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < jsonList.size(); i++) {
+            jsonArray.put(jsonList.get(i));
+        }
+        
+        return jsonArray;
+    }
+    
     private String recoverPasswordUser(User u, String email){
 
         String password = u.getPassword();
