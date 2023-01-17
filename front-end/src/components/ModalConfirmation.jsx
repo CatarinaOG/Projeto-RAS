@@ -57,40 +57,45 @@ export default function ModalConfirmation(props){
         }
         
         else{
-
             var ids = []
 
             selected.map(({id,gameId,amount}) => {
                 ids = [...ids,{id: id}]
             })
 
-            const bet = { user: email, type: type, multipleAmount: amountMultiple, bets: ids }
+            if(ids.length < 20){
 
-            fetch('http://127.0.0.1:8080/api/bets/placeBet',  {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(bet),
-            })
-            .then(response => response.json(bet))
-            .then(data => {
-                if(data.confirmed == 'true'){
-                    setBalance(prevBalance => prevBalance - amountMultiple)
-                    setModalConfirmation(false)
-                    setModalConfirmated(true)
-                    setSelected([])
-                }
-                else if(data.confirmed == '1'){
-                    setError(1)
-                }
-                else{
-                    setError(2)
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error)
-            })
+                const bet = { user: email, type: type, multipleAmount: amountMultiple, bets: ids }
+
+                fetch('http://127.0.0.1:8080/api/bets/placeBet',  {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bet),
+                })
+                .then(response => response.json(bet))
+                .then(data => {
+                    if(data.confirmed == 'true'){
+                        setBalance(prevBalance => prevBalance - amountMultiple)
+                        setModalConfirmation(false)
+                        setModalConfirmated(true)
+                        setSelected([])
+                    }
+                    else if(data.confirmed == '1'){
+                        setError(1)
+                    }
+                    else{
+                        setError(2)
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error)
+                })
+            }
+            else{
+                setError(4)
+            }
         }
     }
 
@@ -107,6 +112,7 @@ export default function ModalConfirmation(props){
                     {error === 1 && <p className='error'>Aposta Múltipla no mesmo jogo proibida</p>}
                     {error === 2 && <p className='error'>Saldo insuficiente</p>}
                     {error === 3 && <p className='error'>Sem apostas para apostar</p>}
+                    {error === 4 && <p className='error'>Máximo de 20 apostas numa aposta múltipla</p>}
                     {error === 0 && <p className={`hide${dark}`}>Hide</p>}
                 </div>
                 <button className="confirmButton" onClick={goToConfirmated}>Confirmar</button>
