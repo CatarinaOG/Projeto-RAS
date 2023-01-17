@@ -66,7 +66,7 @@ public class UserService implements IUserService {
             Expert expert = findExpertByEmail.get();
             if (expert.getPassword().equals(pass))
                 return Logs.buildJSON("username", expert.getName(), "type", "especialista");
-            else
+            else 
                 return Logs.buildJSON("username", "null", "type", "null", "balance", "null");
         }
 
@@ -75,7 +75,7 @@ public class UserService implements IUserService {
             Admin admin = findAdminByEmail.get();
             if (admin.getPassword().equals(pass))
                 return Logs.buildJSON("username", admin.getName(), "type", "administrador");
-            else
+            else 
                 return Logs.buildJSON("username", "null", "type", "null", "balance", "null");
         }
 
@@ -92,7 +92,7 @@ public class UserService implements IUserService {
         if (ld.isAfter(now)){
             response = false;
         }
-
+        
         return response;
     }
 
@@ -111,7 +111,7 @@ public class UserService implements IUserService {
 
         String password = (String) rf.get("password");
 
-        User user = new User(email, password, (String) rf.get("telefone"), (String) rf.get("nome"),
+        User user = new User(email, password, (String) rf.get("telefone"), (String) rf.get("nome"), 
                             (String) rf.get("morada"), (String) rf.get("nif"), (String) rf.get("cc"), dn);
 
 
@@ -121,6 +121,31 @@ public class UserService implements IUserService {
         }
         return Logs.returnLogTrue();
 
+    }
+
+
+    private JSONObject buildBet(Bet b){
+        JSONObject bet = new JSONObject(); // JSONObect que contém uma bet
+        JSONArray games = new JSONArray(); // JSONArray que contém todas as bets de uma múltipla ou a bet de uma simples
+
+        //lista de jogos na aposta
+        List<GamesInOneBet> g = b.getGames(); //lista de objetos que relaciona uma bet com os seus jogos
+
+        for(GamesInOneBet giob : g){
+            JSONObject gameInfo = new JSONObject(); // JSONObject que contém informação sobre o jogo
+            gameInfo.put("type", giob.getGame().getSport());
+            String name = giob.getGame().getParticipants().replace(";", " vs ");
+            gameInfo.put("name", name);
+            gameInfo.put("winner", giob.getDescription());
+
+            games.put(gameInfo);
+        }
+
+        bet.put("bet", games);
+        bet.put("amount", b.getAmount());
+        if(b.getState().equals("Closed")) bet.put("winnings", b.getWinnings());
+        else bet.put("winnings", -1);
+        return bet;
     }
 
 
@@ -149,7 +174,7 @@ public class UserService implements IUserService {
             if(dataAposta.isAfter(threeMonthsBack)){ // se a aposta foi feita há menos de 3 meses
 
                 betHistory.put(buildBet(b));
-
+            
             }
         }
 
@@ -198,28 +223,72 @@ public class UserService implements IUserService {
     }
 
 
+    private JSONArray getUserTransactions(User u, JSONArray transactionsJsonList){
+        List<Transaction> transactions = u.getTransactions();
+        JSONObject response = new JSONObject();
+        
+        for(Transaction t : transactions){
+            JSONObject tr = new JSONObject();
 
+            tr.put("date",t.getDate());
+            if(t.getDescription().equals("Withdraw")){
+                tr.put("description","Levantamento");
+                tr.put("operation","-"+t.getAmount());
+            }
+            else{
+                tr.put("description","Deposito");
+                tr.put("operation","+"+t.getAmount());
+            }
+            tr.put("balance",t.getFinalBalance());
+            transactionsJsonList.put(tr);
+        }
+        return transactionsJsonList;
+    }
+
+    private JSONArray getUserBets(User u, JSONArray transactionsListJson){
+        
+        List<Bet> bets = u.getBets();
+
+        for(Bet b : bets){
+            JSONObject betObj = new JSONObject();
+            betObj.put("date",b.getDate());
+            betObj.put("description","Aposta");
+            betObj.put("operation","-" + b.getAmount());
+            betObj.put("balance",b.getFinal_balance());
+            transactionsListJson.put(betObj);
+            
+            if(b.getState().equals("Closed") && b.getResult() == true){
+                JSONObject winObj = new JSONObject();
+                winObj.put("date", b.getDate());
+                winObj.put("description", "ganho de aposta");
+                winObj.put("operation", "+" + b.getWinnings());
+                winObj.put("balance", b.getWinning_final_balance() );
+                transactionsListJson.put(winObj);
+            }
+        }
+        return transactionsListJson;
+    }
 
     public String getTransactionHistory(String email){
-
+        
         User u = userRepo.findUserByEmail(email).get();
         JSONObject response = new JSONObject();
         JSONArray ts = new JSONArray();
 
         ts = getUserTransactions(u, ts); // add user transactions to the reponse json
-
+        
         //bets como transações
         ts = getUserBets(u, ts); // add user bets, and winnings to the response json
 
         ts = orderTransactions(ts);
-
-        response.put("transactions", ts); // create the final response json format
-
+        
+        response.put("transactions", ts); // create the final response json format 
+    
         return response.toString();
     }
 
     private JSONArray orderTransactions(JSONArray ts){
-
+        
         List<JSONObject> jsonList = new ArrayList<JSONObject>();
         for (int i = 0; i < ts.length(); i++) {
             jsonList.add(ts.getJSONObject(i));
@@ -234,7 +303,7 @@ public class UserService implements IUserService {
                 try {
                     valA = (Timestamp) a.get("date");
                     valB = (Timestamp) a.get("date");
-                }
+                } 
                 catch (JSONException e) {
                     //do something
                 }
@@ -247,10 +316,10 @@ public class UserService implements IUserService {
         for (int i = 0; i < jsonList.size(); i++) {
             jsonArray.put(jsonList.get(i));
         }
-
+        
         return jsonArray;
     }
-
+    
     private String recoverPasswordUser(User u, String email){
 
         String password = u.getPassword();
@@ -265,15 +334,15 @@ public class UserService implements IUserService {
         return Logs.returnLogTrue();
     }
 
-
+    
     public String recoverPassword(String email){
         Optional<User> u = userRepo.findUserByEmail(email);
         Optional<Expert> e = expertRepo.findExpertByEmail(email);
-
+        
         if(u.isPresent()) return recoverPasswordUser(u.get(),email);
         if(e.isPresent()) return recoverPasswordExpert(e.get(),email);
-
-        return Logs.returnLogFalse();
+        
+        return Logs.returnLogFalse(); 
     }
 
 
@@ -297,7 +366,7 @@ public class UserService implements IUserService {
 
         return Logs.returnLogTrue(); //ta mal :)
     }
-
+    
     public String unfollowGame(String email, int id_game){
 
         Game g = gameRepo.findById(id_game).get();
@@ -321,92 +390,6 @@ public class UserService implements IUserService {
         }
 
         return Logs.returnLogFalse();
-    }
-
-
-
-
-
-
-
-    /* Métodos Auxiliares */
-
-
-
-
-
-
-    private JSONObject buildBet(Bet b){
-        JSONObject bet = new JSONObject(); // JSONObect que contém uma bet
-        JSONArray games = new JSONArray(); // JSONArray que contém todas as bets de uma múltipla ou a bet de uma simples
-
-        //lista de jogos na aposta
-        List<GamesInOneBet> g = b.getGames(); //lista de objetos que relaciona uma bet com os seus jogos
-
-        for(GamesInOneBet giob : g){
-            JSONObject gameInfo = new JSONObject(); // JSONObject que contém informação sobre o jogo
-            gameInfo.put("type", giob.getGame().getSport());
-            String name = giob.getGame().getParticipants().replace(";", " vs ");
-            gameInfo.put("name", name);
-            gameInfo.put("winner", giob.getDescription());
-
-            games.put(gameInfo);
-        }
-
-        bet.put("bet", games);
-        bet.put("amount", b.getAmount());
-        if(b.getState().equals("Closed")) bet.put("winnings", b.getWinnings());
-        else bet.put("winnings", -1);
-        return bet;
-    }
-
-
-
-
-    private JSONArray getUserTransactions(User u, JSONArray transactionsJsonList){
-        List<Transaction> transactions = u.getTransactions();
-        JSONObject response = new JSONObject();
-
-        for(Transaction t : transactions){
-            JSONObject tr = new JSONObject();
-
-            tr.put("date",t.getDate());
-            if(t.getDescription().equals("Withdraw")){
-                tr.put("description","Levantamento");
-                tr.put("operation","-"+t.getAmount());
-            }
-            else{
-                tr.put("description","Deposito");
-                tr.put("operation","+"+t.getAmount());
-            }
-            tr.put("balance",t.getFinalBalance());
-            transactionsJsonList.put(tr);
-        }
-        return transactionsJsonList;
-    }
-
-    private JSONArray getUserBets(User u, JSONArray transactionsListJson){
-
-        List<Bet> bets = u.getBets();
-
-        for(Bet b : bets){
-            JSONObject betObj = new JSONObject();
-            betObj.put("date",b.getDate());
-            betObj.put("description","Aposta");
-            betObj.put("operation","-" + b.getAmount());
-            betObj.put("balance",b.getFinal_balance());
-            transactionsListJson.put(betObj);
-
-            if(b.getState().equals("Closed") && b.getResult() == true){
-                JSONObject winObj = new JSONObject();
-                winObj.put("date", b.getDate());
-                winObj.put("description", "ganho de aposta");
-                winObj.put("operation", "+" + b.getWinnings());
-                winObj.put("balance", b.getWinning_final_balance() );
-                transactionsListJson.put(winObj);
-            }
-        }
-        return transactionsListJson;
     }
 
 
