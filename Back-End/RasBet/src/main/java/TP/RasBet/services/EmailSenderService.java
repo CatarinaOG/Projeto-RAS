@@ -14,6 +14,15 @@ public class EmailSenderService implements IEmailSenderService{
     @Autowired
     private JavaMailSender mailSender;
     
+    private void sendSimpleEmail(String toEmail, String body, String subject){
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("jpdelgado2001@gmail.com");
+        message.setTo(toEmail);
+        message.setText(body);
+        message.setSubject(subject);
+        mailSender.send(message);
+    }
+
     public void betWonNotification(String email, float winnings){
         String body = "Your bet has been closed. You won " + winnings +"€!";
         String subject = "Bet Closed!";
@@ -43,17 +52,6 @@ public class EmailSenderService implements IEmailSenderService{
         String subject = "Odd Alterada!";
         this.sendSimpleEmail(email, body, subject);
 
-    }
-
-    /* METODOS AUXILIAR  */
-    
-    private void sendSimpleEmail(String toEmail, String body, String subject){
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("jpdelgado2001@gmail.com");
-        message.setTo(toEmail);
-        message.setText(body);
-        message.setSubject(subject);
-        mailSender.send(message);
     }
 
 }

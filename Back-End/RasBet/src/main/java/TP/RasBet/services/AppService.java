@@ -121,107 +121,6 @@ public class AppService implements IAppService {
     }
 
 
-
-    public String placeBet(JSONObject betslipForm){
-        
-        // obter todos os jogos relacionados com as Odds das bets
-        JSONArray bets = (JSONArray) betslipForm.get("bets");
-        List<Game> games = new ArrayList<>();
-        List<Bet> betList = new ArrayList<>();
-        List<Odd> oddList = new ArrayList<>();
-
-        if(((String) betslipForm.get("type")).equals("multiple")){
-
-            return placeBetMultiple(bets, games, betslipForm);
-        }
-        else{
-            return placeBetSimple(betslipForm, bets, games, betList, oddList);
-        }
-    }
-
-
-    public String changeOdd(JSONObject oddForm){//OddForm oddForm){
-        
-        if (!oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).isPresent()){
-            return Logs.returnLogFalse();
-        }
-
-        Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
-        o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
-        oddRepo.save(o);
-        o.getGame().notifyObservers();
-
-        return Logs.returnLogTrue();
-    }
-
-    public String insertOdd(JSONObject oddForm){//OddForm oddForm){
-        
-        if (!oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).isPresent()){
-            Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
-            o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
-            oddRepo.save(o);
-            return Logs.returnLogTrue();
-        }
-
-        return Logs.returnLogFalse();
-    }
-
-
-
-    public String getGamesFiltered(String participant){
-        JSONObject participantjson = new JSONObject(participant);
-        String p = (String) participantjson.get("filter");
-        if(!gameRepo.findGameByParticipant(p).isEmpty()){
-            
-            JSONObject response = new JSONObject();
-            JSONArray gamesResponse = new JSONArray();
-            List<Game> games = gameRepo.findGameByParticipant(p);
-            // System.out.println(games);
-
-            for(Game g : games){
-                gamesResponse.put(g.getId());
-            }
-            response.put("games", gamesResponse);
-            return response.toString();
-        }
-        else{
-            return "{\"games\" : null }";
-        }
-    }
-
-
-    @Scheduled(fixedRate = 10000)
-    public void updateStatus() {
-        
-        //Verificar se já passou a hora de inicio dos jogos e mudar o seu estado. 
-        suspendGamescheck();
-
-        List<Bet> bets = betRepo.findAll();
-        for(Bet b : bets){
-            List<GamesInOneBet> gamesInBet = b.getGames();
-            boolean flag = true;
-            for(GamesInOneBet giob : gamesInBet){
-                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore() == null) {
-                    flag = false;
-                    break;
-                }
-            }
-            if(flag && !b.getState().equals("Closed")){
-                updateBetState(b, gamesInBet);
-            }
-        }
-    }
-
-
-
-
-
-    /* Métodos Auxiliares */
-
-
-
-
-
     private String placeBetMultiple(JSONArray bets, List<Game> games, JSONObject betslipForm){
 
         float winnings = 1.0f;
@@ -316,6 +215,93 @@ public class AppService implements IAppService {
 
 
 
+    public String placeBet(JSONObject betslipForm){
+        
+        // obter todos os jogos relacionados com as Odds das bets
+        JSONArray bets = (JSONArray) betslipForm.get("bets");
+        List<Game> games = new ArrayList<>();
+        List<Bet> betList = new ArrayList<>();
+        List<Odd> oddList = new ArrayList<>();
+
+        if(((String) betslipForm.get("type")).equals("multiple")){
+
+            return placeBetMultiple(bets, games, betslipForm);
+        }
+        else{
+            return placeBetSimple(betslipForm, bets, games, betList, oddList);
+        }
+    }
+
+
+    public String changeOdd(JSONObject oddForm){//OddForm oddForm){
+        
+        if (!oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).isPresent()){
+            return Logs.returnLogFalse();
+        }
+
+        Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
+        o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
+        oddRepo.save(o);
+        o.getGame().notifyObservers();
+
+        return Logs.returnLogTrue();
+    }
+
+    public String insertOdd(JSONObject oddForm){//OddForm oddForm){
+        
+        if (!oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).isPresent()){
+            Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
+            o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
+            oddRepo.save(o);
+            return Logs.returnLogTrue();
+        }
+
+        return Logs.returnLogFalse();
+    }
+
+
+
+    public String getGamesFiltered(String participant){
+        JSONObject participantjson = new JSONObject(participant);
+        String p = (String) participantjson.get("filter");
+        if(!gameRepo.findGameByParticipant(p).isEmpty()){
+            
+            JSONObject response = new JSONObject();
+            JSONArray gamesResponse = new JSONArray();
+            List<Game> games = gameRepo.findGameByParticipant(p);
+            // System.out.println(games);
+
+            for(Game g : games){
+                gamesResponse.put(g.getId());
+                /*
+                JSONObject j = new JSONObject();
+                j.put("id", g.getId());
+                j.put("home", g.getParticipants().split(";")[0]);
+                j.put("away", g.getParticipants().split(";")[1]);
+                j.put("date", g.getDate());
+                JSONArray results = new JSONArray();
+
+                for(Odd o : g.getOdds()){
+                    JSONObject odd = new JSONObject();
+                    odd.put("id", o.getId());
+                    odd.put("result", o.getDescription());
+                    odd.put("odd", o.getValue());
+                    odd.put("amount", 0);
+                    results.put(odd);
+                }
+                j.put("results", results);
+                gamesResponse.put(j);
+                */
+            }
+            response.put("games", gamesResponse);
+            return response.toString();
+        }
+        else{
+            return "{\"games\" : null }";
+        }
+    }
+
+
     private void suspendGamescheck(){
         List<Game> games = gameRepo.findAll();
 
@@ -345,6 +331,29 @@ public class AppService implements IAppService {
             bet.setWinnings(0);
         } 
         betRepo.save(bet);
+    }
+
+
+    @Scheduled(fixedRate = 10000)
+    public void updateStatus() {
+        
+        //Verificar se já passou a hora de inicio dos jogos e mudar o seu estado. 
+        suspendGamescheck();
+
+        List<Bet> bets = betRepo.findAll();
+        for(Bet b : bets){
+            List<GamesInOneBet> gamesInBet = b.getGames();
+            boolean flag = true;
+            for(GamesInOneBet giob : gamesInBet){
+                if(giob.getGame().getState().equals("TBD") || giob.getGame().getScore() == null) {
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag && !b.getState().equals("Closed")){
+                updateBetState(b, gamesInBet);
+            }
+        }
     }
 
 
@@ -380,6 +389,5 @@ public class AppService implements IAppService {
         }
         return true;
     }
-
 
 }
