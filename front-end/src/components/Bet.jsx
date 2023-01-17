@@ -41,22 +41,45 @@ export default function Bet(props){
             id_game: String(id)
         }
 
-        fetch('http://127.0.0.1:8080/api/users/follow_game/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(send)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.confirmed == 'true'){
-                props.getGames()
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        if(following == "false"){
+
+            fetch('http://127.0.0.1:8080/api/users/follow_game/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(send)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.confirmed == 'true'){
+                    props.getGames()
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+        else{
+
+            fetch('http://127.0.0.1:8080/api/users/unfollow_game/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(send)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.confirmed == 'true'){
+                    props.getGames()
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+        }
         
     }
 

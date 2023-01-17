@@ -64,6 +64,8 @@ export default function InputsLogin(props) {
 			.then(data => {
 				setUsername(data.username)
 				setEmail(formData.email)
+				cookies.set('username',data.username)
+				cookies.set('email',formData.email)
 
 				if (data.type === 'especialista'){
 					navigate("/HomeExpert", { replace: true }); 
