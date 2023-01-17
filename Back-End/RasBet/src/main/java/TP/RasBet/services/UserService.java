@@ -123,31 +123,6 @@ public class UserService implements IUserService {
     }
 
 
-    private JSONObject buildBet(Bet b){
-        JSONObject bet = new JSONObject(); // JSONObect que contém uma bet
-        JSONArray games = new JSONArray(); // JSONArray que contém todas as bets de uma múltipla ou a bet de uma simples
-
-        //lista de jogos na aposta
-        List<GamesInOneBet> g = b.getGames(); //lista de objetos que relaciona uma bet com os seus jogos
-
-        for(GamesInOneBet giob : g){
-            JSONObject gameInfo = new JSONObject(); // JSONObject que contém informação sobre o jogo
-            gameInfo.put("type", giob.getGame().getSport());
-            String name = giob.getGame().getParticipants().replace(";", " vs ");
-            gameInfo.put("name", name);
-            gameInfo.put("winner", giob.getDescription());
-
-            games.put(gameInfo);
-        }
-
-        bet.put("bet", games);
-        bet.put("amount", b.getAmount());
-        if(b.getState().equals("Closed")) bet.put("winnings", b.getWinnings());
-        else bet.put("winnings", -1);
-        return bet;
-    }
-
-
 
 
     public String getBetHistory(String email){
@@ -222,51 +197,7 @@ public class UserService implements IUserService {
     }
 
 
-    private JSONArray getUserTransactions(User u, JSONArray transactionsJsonList){
-        List<Transaction> transactions = u.getTransactions();
-        JSONObject response = new JSONObject();
-        
-        for(Transaction t : transactions){
-            JSONObject tr = new JSONObject();
-
-            tr.put("date",t.getDate());
-            if(t.getDescription().equals("Withdraw")){
-                tr.put("description","Levantamento");
-                tr.put("operation","-"+t.getAmount());
-            }
-            else{
-                tr.put("description","Deposito");
-                tr.put("operation","+"+t.getAmount());
-            }
-            tr.put("balance",t.getFinalBalance());
-            transactionsJsonList.put(tr);
-        }
-        return transactionsJsonList;
-    }
-
-    private JSONArray getUserBets(User u, JSONArray transactionsListJson){
-        
-        List<Bet> bets = u.getBets();
-
-        for(Bet b : bets){
-            JSONObject betObj = new JSONObject();
-            betObj.put("date",b.getDate());
-            betObj.put("description","Aposta");
-            betObj.put("operation","-" + b.getAmount());
-            betObj.put("balance",b.getFinal_balance());
-            transactionsListJson.put(betObj);
-            
-            if(b.getState().equals("Closed") && b.getResult() == true){
-                JSONObject winObj = new JSONObject();
-                winObj.put("date", b.getDate());
-                winObj.put("description", "ganho de aposta");
-                winObj.put("operation", "+" + b.getWinnings());
-                winObj.put("balance", b.getWinning_final_balance() );
-                transactionsListJson.put(winObj);
-            }
-        }
-        return transactionsListJson;
-    }
+    
 
     public String getTransactionHistory(String email){
         
@@ -284,53 +215,6 @@ public class UserService implements IUserService {
         response.put("transactions", ts); // create the final response json format 
     
         return response.toString();
-    }
-
-    private JSONArray orderTransactions(JSONArray ts){
-        
-        List<JSONObject> jsonList = new ArrayList<JSONObject>();
-        for (int i = 0; i < ts.length(); i++) {
-            jsonList.add(ts.getJSONObject(i));
-        }
-
-        Collections.sort( jsonList, new Comparator<JSONObject>() {
-
-            public int compare(JSONObject a, JSONObject b) {
-
-                Timestamp valA = null , valB = null;
-
-                try {
-                    valA = Timestamp.valueOf((String) a.get("date"));
-                    valB = Timestamp.valueOf((String) a.get("date"));
-                } 
-                catch (JSONException e) {
-                    //do something
-                }
-
-                return valA.compareTo(valB);
-            }
-        });
-
-        JSONArray jsonArray = new JSONArray();
-        for (int i = 0; i < jsonList.size(); i++) {
-            jsonArray.put(jsonList.get(i));
-        }
-        
-        return jsonArray;
-    }
-    
-    private String recoverPasswordUser(User u, String email){
-
-        String password = u.getPassword();
-        mailService.passwordRecovery(email, password);
-        return Logs.returnLogTrue();
-    }
-
-    private String recoverPasswordExpert(Expert e, String email){
-
-        String password = e.getPassword();
-        mailService.passwordRecovery(email, password);
-        return Logs.returnLogTrue();
     }
 
     
@@ -390,6 +274,144 @@ public class UserService implements IUserService {
 
         return Logs.returnLogFalse();
     }
+
+
+
+
+
+
+
+    /* Métodos Auxiliares */
+
+
+
+
+
+
+    private JSONObject buildBet(Bet b){
+        JSONObject bet = new JSONObject(); // JSONObect que contém uma bet
+        JSONArray games = new JSONArray(); // JSONArray que contém todas as bets de uma múltipla ou a bet de uma simples
+
+        //lista de jogos na aposta
+        List<GamesInOneBet> g = b.getGames(); //lista de objetos que relaciona uma bet com os seus jogos
+
+        for(GamesInOneBet giob : g){
+            JSONObject gameInfo = new JSONObject(); // JSONObject que contém informação sobre o jogo
+            gameInfo.put("type", giob.getGame().getSport());
+            String name = giob.getGame().getParticipants().replace(";", " vs ");
+            gameInfo.put("name", name);
+            gameInfo.put("winner", giob.getDescription());
+
+            games.put(gameInfo);
+        }
+
+        bet.put("bet", games);
+        bet.put("amount", b.getAmount());
+        if(b.getState().equals("Closed")) bet.put("winnings", b.getWinnings());
+        else bet.put("winnings", -1);
+        return bet;
+    }
+
+
+
+
+    private JSONArray getUserTransactions(User u, JSONArray transactionsJsonList){
+        List<Transaction> transactions = u.getTransactions();
+        JSONObject response = new JSONObject();
+        
+        for(Transaction t : transactions){
+            JSONObject tr = new JSONObject();
+
+            tr.put("date",t.getDate());
+            if(t.getDescription().equals("Withdraw")){
+                tr.put("description","Levantamento");
+                tr.put("operation","-"+t.getAmount());
+            }
+            else{
+                tr.put("description","Deposito");
+                tr.put("operation","+"+t.getAmount());
+            }
+            tr.put("balance",t.getFinalBalance());
+            transactionsJsonList.put(tr);
+        }
+        return transactionsJsonList;
+    }
+
+    private JSONArray getUserBets(User u, JSONArray transactionsListJson){
+        
+        List<Bet> bets = u.getBets();
+
+        for(Bet b : bets){
+            JSONObject betObj = new JSONObject();
+            betObj.put("date",b.getDate());
+            betObj.put("description","Aposta");
+            betObj.put("operation","-" + b.getAmount());
+            betObj.put("balance",b.getFinal_balance());
+            transactionsListJson.put(betObj);
+            
+            if(b.getState().equals("Closed") && b.getResult() == true){
+                JSONObject winObj = new JSONObject();
+                winObj.put("date", b.getDate());
+                winObj.put("description", "ganho de aposta");
+                winObj.put("operation", "+" + b.getWinnings());
+                winObj.put("balance", b.getWinning_final_balance() );
+                transactionsListJson.put(winObj);
+            }
+        }
+        return transactionsListJson;
+    }
+
+
+
+
+
+    private JSONArray orderTransactions(JSONArray ts){
+        
+        List<JSONObject> jsonList = new ArrayList<JSONObject>();
+        for (int i = 0; i < ts.length(); i++) {
+            jsonList.add(ts.getJSONObject(i));
+        }
+
+        Collections.sort( jsonList, new Comparator<JSONObject>() {
+
+            public int compare(JSONObject a, JSONObject b) {
+
+                Timestamp valA = null , valB = null;
+
+                try {
+                    valA = Timestamp.valueOf((String) a.get("date"));
+                    valB = Timestamp.valueOf((String) a.get("date"));
+                } 
+                catch (JSONException e) {
+                    //do something
+                }
+
+                return valA.compareTo(valB);
+            }
+        });
+
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < jsonList.size(); i++) {
+            jsonArray.put(jsonList.get(i));
+        }
+        
+        return jsonArray;
+    }
+    
+    private String recoverPasswordUser(User u, String email){
+
+        String password = u.getPassword();
+        mailService.passwordRecovery(email, password);
+        return Logs.returnLogTrue();
+    }
+
+    private String recoverPasswordExpert(Expert e, String email){
+
+        String password = e.getPassword();
+        mailService.passwordRecovery(email, password);
+        return Logs.returnLogTrue();
+    }
+
 
 
 }

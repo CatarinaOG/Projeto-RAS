@@ -22,6 +22,28 @@ public class TransactionService implements ITransactionService{
 
 
 
+
+    public String transaction(JSONObject transactionForm){//TransactionForm transactionForm){
+
+        User u = userRepo.findUserByEmail((String) transactionForm.get("email_user")).get();
+
+        if(((String) transactionForm.get("operation")).equals("deposit")){
+            return deposit(transactionForm, u);
+        }
+        else{
+            return withdraw(transactionForm, u);
+        }
+    }
+
+
+
+
+    /* Métodos auxiliares */
+
+
+
+
+
     private String deposit(JSONObject transactionForm, User u){
         if((int) transactionForm.get("cardNum") == 0){
             float op_value = Float.parseFloat(transactionForm.get("operationValue").toString());
@@ -60,17 +82,5 @@ public class TransactionService implements ITransactionService{
     }
 
 
-
-    public String transaction(JSONObject transactionForm){//TransactionForm transactionForm){
-
-        User u = userRepo.findUserByEmail((String) transactionForm.get("email_user")).get();
-
-        if(((String) transactionForm.get("operation")).equals("deposit")){
-            return deposit(transactionForm, u);
-        }
-        else{
-            return withdraw(transactionForm, u);
-        }
-    }
     
 }
