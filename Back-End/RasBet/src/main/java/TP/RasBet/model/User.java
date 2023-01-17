@@ -9,6 +9,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import TP.RasBet.config.AesEncryptor;
 import TP.RasBet.services.EmailSenderService;
 import lombok.Data;
@@ -67,6 +69,8 @@ public class User implements Serializable, Observer{
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<User_follows_game> followingGames;
 
+    @Transient
+    private EmailSenderService mailsender;
 
     public User(){
         
@@ -169,8 +173,6 @@ public class User implements Serializable, Observer{
 
 
     public void update(){
-        EmailSenderService emailSenderService = new EmailSenderService();
-        emailSenderService.updateOdd(this.email);
     }
 
 

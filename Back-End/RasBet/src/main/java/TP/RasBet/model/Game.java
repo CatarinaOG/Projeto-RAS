@@ -144,6 +144,14 @@ public class Game implements Serializable, Subject{
         return r;
     }
 
+    public List<User> getObservers(){
+        List<User> list = new ArrayList<>();
+        for(User_follows_game ufg : this.followingUsers){
+            list.add(ufg.getUser());
+        }
+        return list;
+    } 
+
 
     @Override
     public String toString() {
@@ -182,6 +190,8 @@ public class Game implements Serializable, Subject{
             ufg.getUser().update();
         }
 	}
+
+    
 
 
 

@@ -104,7 +104,7 @@ public class AppService implements IAppService {
                 }
                 else j.put("active", "true");
 
-                if(isGameFollowed(g, email)){
+                if( userRepo.findUserByEmail(email).isPresent() &&  isGameFollowed(g, email)){
                     j.put("following", "true");
                 }
                 else j.put("following", "false");
@@ -149,7 +149,8 @@ public class AppService implements IAppService {
         Odd o = oddRepo.findById(Integer.parseInt(oddForm.get("id").toString())).get();
         o.setValue(Float.parseFloat(oddForm.get("odd").toString()));
         oddRepo.save(o);
-        o.getGame().notifyObservers();
+       // o.getGame().notifyObservers();
+        notifyObservers(o);
 
         return Logs.returnLogTrue();
     }
@@ -218,6 +219,13 @@ public class AppService implements IAppService {
 
     /* Métodos Auxiliares */
 
+
+
+    private void notifyObservers(Odd o){
+        for(User u : o.getGame().getObservers()){
+            emailSenderService.updateOdd(u.getEmail());
+        }
+    }
 
 
 
@@ -366,14 +374,14 @@ public class AppService implements IAppService {
                 String away_res = game.getScore().split("-")[1];
                 
                 if (Integer.parseInt(home_res) > Integer.parseInt(away_res) && 
-                   (bet_res.equals(game.getParticipants().split(";")[1]) || bet_res.equals("Draw")) ){
+                   (bet_res.equals(game.getParticipants().split(";")[1]) || bet_res.equals("Empate")) ){
                     return false;
                 }
                 if (Integer.parseInt(away_res) > Integer.parseInt(home_res) && 
-                   (bet_res.equals(game.getParticipants().split(";")[0]) || bet_res.equals("Draw"))){
+                   (bet_res.equals(game.getParticipants().split(";")[0]) || bet_res.equals("Empate"))){
                     return false;
                 }
-                if (Integer.parseInt(home_res) == Integer.parseInt(away_res) && (!bet_res.equals("Draw"))){
+                if (Integer.parseInt(home_res) == Integer.parseInt(away_res) && (!bet_res.equals("Empate"))){
                     return false;
                 }
             }

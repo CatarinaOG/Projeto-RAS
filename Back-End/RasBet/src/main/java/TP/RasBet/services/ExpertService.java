@@ -91,13 +91,13 @@ public class ExpertService implements IExpertService{
         oddA.setGame(game);
         oddB.setGame(game);
 
+        oddRepo.save(oddA);
+        oddRepo.save(oddB);
+
         if(event.get("sport").equals("futebol")){
             oddTie.setGame(game);
             oddRepo.save(oddTie);
-        }
-        oddRepo.save(oddA);
-        oddRepo.save(oddB);
-        
+        }        
         return Logs.returnLogTrue(); //return message confirming that the operation was successful
     }
 

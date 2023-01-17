@@ -13,7 +13,7 @@ public class EmailSenderService implements IEmailSenderService{
 
     @Autowired
     private JavaMailSender mailSender;
-    
+
     public void betWonNotification(String email, float winnings){
         String body = "Your bet has been closed. You won " + winnings +"€!";
         String subject = "Bet Closed!";
@@ -39,8 +39,8 @@ public class EmailSenderService implements IEmailSenderService{
     }
 
     public void updateOdd(String email){
-        String body = "Uma Odd foi alterada!";
-        String subject = "Odd Alterada!";
+        String body = "An Odd has changed!";
+        String subject = "Odd changed!";
         this.sendSimpleEmail(email, body, subject);
 
     }
