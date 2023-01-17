@@ -6,27 +6,61 @@ import { myContext } from "../context"
 
 export default function BetFollowDiv(props){
 
-    const {game} = props
+    const {game,email} = props
     const {dark} = useContext(myContext)
         
     const notNull = true
 
-    const header = () => {
-        if(game.sport === 'motoGP'){
-            return(
-            <div>
-                <h2>{game.date}</h2>
-                <h2>{game.name}</h2>
-            </div>)
+    function changeFollowing(){
+
+        const send = {
+            email: email,
+            id_game: String(game.id)
+        }
+  
+        if(game.following == "false"){
+  
+            fetch('http://127.0.0.1:8080/api/users/follow_game/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(send)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.confirmed == 'true'){
+                    //props.getGames()
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         }
         else{
-            return(
-            <div>
-                <h2>{game.date}</h2>
-            </div>  
-            )
+  
+            fetch('http://127.0.0.1:8080/api/users/unfollow_game/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(send)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.confirmed == 'true'){
+                    //props.getGames()
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+  
         }
+        
     }
+
+
 
 
     const body = () => {
@@ -53,7 +87,7 @@ export default function BetFollowDiv(props){
         return(
             <div className={`ftbetFollowBox${dark}`}>
                 <div className={`betFollowTrash${dark}`}>
-				    <img src={trash} className="fttrash" alt=""/>
+				    <img src={trash} className="fttrash" alt="" onClick={changeFollowing}/>
                 </div>
                 {body()}
             </div>

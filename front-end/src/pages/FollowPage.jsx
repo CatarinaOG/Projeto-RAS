@@ -46,15 +46,15 @@ export default function FollowPage({email}){
 
 
     const allGames = games.map( game => {
-        if(game.following==='true'){
+        if(game.following==='true' && game.active==='true'){
           if(game.sport==="futebol"){
-            return(<BetFollowDiv game={game} />)
+            return(<BetFollowDiv game={game} email={email}/>)
           }
           if(game.sport==="tenis" || "basquetebol"){
-            return(<BetFollowDiv game={game}/>)
+            return(<BetFollowDiv game={game} email={email}/>)
           }      
           if(game.sport==="motoGP"){
-            return(<BetFollowDiv game={game}/>)
+            return(<BetFollowDiv game={game} email={email}/>)
           }
         }
         }  
