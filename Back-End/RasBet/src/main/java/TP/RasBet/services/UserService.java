@@ -78,13 +78,13 @@ public class UserService implements IUserService {
     }
 
     public boolean checkAge(Timestamp data_nascimento){
-        boolean response = false;
+        boolean response = true;
         LocalDate ld = data_nascimento.toLocalDateTime().toLocalDate();
         ld = ld.plusYears(18);
         LocalDate now = LocalDate.now();
 
         if (ld.isAfter(now)){
-            response = true;
+            response = false;
         }
         
         return response;
@@ -294,6 +294,7 @@ public class UserService implements IUserService {
         mailService.passwordRecovery(email, password);
         return Logs.returnLogTrue();
     }
+
     
     public String recoverPassword(String email){
         Optional<User> u = userRepo.findUserByEmail(email);
