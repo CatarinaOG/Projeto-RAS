@@ -72,7 +72,7 @@ function App() {
       setDark('Dark')
     }
       
-  })
+  },[])
 
   function switchDark(){
 		dark === 'Dark'? setDark('') : setDark('Dark')

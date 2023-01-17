@@ -5,7 +5,6 @@ import NavBarProfile from "../components/NavBarProfile"
 import goBackImg from '../images/goBack.png'
 import BetFollowDiv from "../components/BetFollowDiv";
 
-import '../styles/FollowBack.css'
 import { useContext } from "react";
 import { myContext } from "../context";
 
