@@ -1,10 +1,11 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 
 import BetBox from './BetBox'
 
 
 import star from '../images/favorite.png'
 import yellowstar from '../images/star.png'
+import whitestar from '../images/whitestar.jpg'
 import { myContext } from '../context'
 
 export default function Bet(props){
@@ -100,7 +101,16 @@ export default function Bet(props){
     )
 
 
+    function getStar(){
+        
+        if(following == 'true')
+            return yellowstar
+        else if (following == 'false' && dark == "Dark")
+            return whitestar
+        else
+            return star
 
+    }
 
     var notNull = true
     
@@ -123,7 +133,7 @@ export default function Bet(props){
                 <div className="results">
                     {resultsBoxes}
                 </div>
-                <img src={ following == "true"? yellowstar : star} className='star' onClick={changeFollowing}/>
+                <img src={ getStar() } className='star' onClick={changeFollowing}/>
             </div>
         )
     }
