@@ -92,7 +92,7 @@ function App() {
                   setEmail={setEmail}
                   setTypeUser={setTypeUser}
                   setBalance={setBalance}
-                  switchDark={switchDark}
+                  switchDark={switchDark} 
                 />
               } />
 
@@ -130,6 +130,7 @@ function App() {
 
                 <Route path="/FollowPage" element={
                   <FollowPage
+                    email={email}
                     games= {games}
                   />
                 } />
